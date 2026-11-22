@@ -41,6 +41,9 @@ export type UnidadEnMemoria = {
   projectId: number;
   code: string;
   status: "available" | "reserved" | "sold" | "unavailable";
+  /** Precio vigente; igual que en la base, sin él no se puede apartar sin indicar precio. */
+  realPriceCents?: bigint;
+  currency?: "USD" | "DOP";
 };
 
 export type NegocioEnMemoria = {
@@ -194,6 +197,7 @@ export class CompromisosEnMemoria implements CompromisosPort, Reversible {
     if (!deal && this.deals.length > 0) {
       throw new NotFoundError("Negocio no encontrado.");
     }
+    if (deal && !params.puedeOperarNegocio?.(deal.brokerId)) throw new NotFoundError("Negocio no encontrado.");
 
     // Unidades disponibles
     const unitMap = new Map<number, UnidadEnMemoria>();
@@ -234,16 +238,24 @@ export class CompromisosEnMemoria implements CompromisosPort, Reversible {
       const unidad = unitMap.get(u.unitId);
       const code = unidad ? unidad.code : `U-${u.unitId}`;
       const projectId = unidad ? unidad.projectId : 1;
+      const precio = u.priceCents ?? unidad?.realPriceCents;
+      const moneda = u.currency ?? unidad?.currency;
+      if (precio === undefined || moneda === undefined) throw new ConflictError(`La unidad ${code} no tiene precio cargado; no se puede apartar.`);
+      if (unidad?.realPriceCents !== undefined && precio !== unidad.realPriceCents) throw new ConflictError(`El precio de la unidad ${code} cambió. Recarga la pantalla e inténtalo otra vez.`);
       return {
         unitId: u.unitId,
         projectId,
         unitCodeNormalized: normalizarCodigoUnidad(code),
         priceVersion: u.priceVersion,
-        priceCents: u.priceCents,
-        currency: u.currency,
+        priceCents: precio,
+        currency: moneda,
         componentRole: u.componentRole,
       };
     });
+
+    if (new Set(unidadesHold.map((unidad) => unidad.currency)).size > 1) {
+      throw new ConflictError("Un apartado no puede mezclar unidades en monedas distintas.");
+    }
 
     const hold: Hold = {
       id: holdId,
@@ -320,6 +332,8 @@ export class CompromisosEnMemoria implements CompromisosPort, Reversible {
       : this.holds.find(h => h.publicId === params.id);
 
     if (!hold) throw new NotFoundError("Hold no encontrado.");
+    const negocioDelHold = this.deals.find(d => d.id === hold.dealId);
+    if (negocioDelHold && !params.puedeOperarNegocio?.(negocioDelHold.brokerId)) throw new NotFoundError("Hold no encontrado.");
 
     if (hold.status !== "activo") {
       throw new ConflictError("El hold no está activo.");
@@ -394,6 +408,8 @@ export class CompromisosEnMemoria implements CompromisosPort, Reversible {
       : this.holds.find(h => h.publicId === params.id);
 
     if (!hold) throw new NotFoundError("Hold no encontrado.");
+    const negocioDelHold = this.deals.find(d => d.id === hold.dealId);
+    if (negocioDelHold && !params.puedeOperarNegocio?.(negocioDelHold.brokerId)) throw new NotFoundError("Hold no encontrado.");
 
     if (hold.status !== "activo") {
       throw new ConflictError("El hold no está activo.");

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { can } from "@/domain/rbac";
+import { can, scopeFor } from "@/domain/rbac";
 import { requireActor } from "@/infrastructure/auth/actor";
 import { fichaProyecto } from "@/infrastructure/contenedor/vistas";
 import { empresa } from "@/infrastructure/empresa";
 import { requireScopeInPage } from "@/infrastructure/page-guard";
 import { dinero, ESTADO_UNIDAD, fechaCorta, rangoDePrecio, TIPO_PROYECTO } from "../../_ui/formato";
 import { Dato, Encabezado, Etiqueta, Filtros, PANEL, Vacio } from "../../_ui/pagina";
+import { PrecioReal } from "./acciones";
 
 export const metadata: Metadata = { title: "Proyecto" };
 
@@ -26,6 +27,8 @@ export default async function FichaDeProyecto({ params, searchParams }: { params
   const estado = ESTADOS.find((valor) => valor === (Array.isArray(pedido) ? pedido[0] : pedido));
   const visibles = estado ? unidades.filter((unidad) => unidad.status === estado) : unidades;
   const verPrecioReal = can(actor, "unit_real_price", "view");
+  const editarPrecioReal = !actor.readOnly && verPrecioReal && can(actor, "unit_real_price", "edit") && scopeFor(actor, "units", "edit") === "all";
+  const sinPrecio = unidades.filter((unidad) => unidad.status === "available" && unidad.realPriceCents == null).length;
   const cuenta = (valor: string) => unidades.filter((unidad) => unidad.status === valor).length;
 
   return (
@@ -43,6 +46,11 @@ export default async function FichaDeProyecto({ params, searchParams }: { params
 
       <section aria-labelledby="titulo-unidades" className="space-y-4">
         <h2 id="titulo-unidades" className="text-lg font-semibold">Unidades</h2>
+        {editarPrecioReal && sinPrecio > 0 ? (
+          <p className="rounded-panel border border-warning/40 bg-warning-bg px-5 py-3 text-text">
+            {sinPrecio} {sinPrecio === 1 ? "unidad disponible no tiene" : "unidades disponibles no tienen"} precio real. Sin él no se pueden apartar ni reservar: cárgalo con «Cargar».
+          </p>
+        ) : null}
         {unidades.length === 0 ? (
           <Vacio>Este proyecto todavía no tiene unidades cargadas.</Vacio>
         ) : (
@@ -59,7 +67,7 @@ export default async function FichaDeProyecto({ params, searchParams }: { params
                       <th scope="col" className="px-5 py-3 font-medium">Unidad</th>
                       <th scope="col" className="px-3 py-3 font-medium">Tipo</th>
                       <th scope="col" className="px-3 py-3 font-medium">Habitaciones</th>
-                      <th scope="col" className="px-3 py-3 font-medium">Precio</th>
+                      <th scope="col" className="px-3 py-3 font-medium">{verPrecioReal ? "Precio publicado y real" : "Precio"}</th>
                       <th scope="col" className="px-5 py-3 font-medium">Estado</th>
                     </tr>
                   </thead>
@@ -70,9 +78,14 @@ export default async function FichaDeProyecto({ params, searchParams }: { params
                         <td className="px-3 py-3 text-text">{[unidad.unitType, unidad.tower ? `torre ${unidad.tower}` : null].filter(Boolean).join(", ") || "Sin tipo"}</td>
                         <td className="cifra px-3 py-3 text-text">{unidad.bedrooms ?? "Sin dato"}</td>
                         <td className="cifra px-3 py-3 text-text">
-                          {verPrecioReal && unidad.realPriceCents != null
-                            ? dinero(unidad.realPriceCents, unidad.currency, regional.idioma)
-                            : rangoDePrecio(unidad.publicRangeMinCents, unidad.publicRangeMaxCents, unidad.currency, regional.idioma)}
+                          <span className="block">{rangoDePrecio(unidad.publicRangeMinCents, unidad.publicRangeMaxCents, unidad.currency, regional.idioma)}</span>
+                          {editarPrecioReal ? (
+                            <span className="mt-0.5 block text-sm">
+                              <PrecioReal projectId={id} unitId={unidad.id} codigo={unidad.code} centavos={unidad.realPriceCents} moneda={unidad.currency} idioma={regional.idioma} />
+                            </span>
+                          ) : verPrecioReal && unidad.realPriceCents != null
+                            ? <span className="block text-sm text-ink-muted">Real {dinero(unidad.realPriceCents, unidad.currency, regional.idioma)}</span>
+                            : null}
                         </td>
                         <td className="px-5 py-3"><Etiqueta tono={ESTADO_UNIDAD[unidad.status]?.tono}>{ESTADO_UNIDAD[unidad.status]?.texto ?? unidad.status}</Etiqueta></td>
                       </tr>

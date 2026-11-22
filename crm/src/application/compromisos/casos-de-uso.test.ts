@@ -275,3 +275,55 @@ test("rollback: fallo en la operación revierte cualquier cambio en memoria", as
   assert.equal(deps.unidad.revertidas, 1);
   assert.equal(deps.unidad.confirmadas, 0);
 });
+
+const brokerPropio: Actor = { userId: 2, roleSlug: "broker", permissions: [] };
+const unidadSola = (unitId: number) => ({ unitId, priceVersion: 1, priceCents: 100n, currency: "USD" as const, componentRole: "principal" });
+
+test("crearHold: un broker con alcance own no aparta sobre el negocio de otro", async () => {
+  const { deps } = crearHarness();
+  await assert.rejects(
+    crearHold(deps, brokerPropio, "own", { dealId: 10, units: [unidadSola(101)], reason: "x", idempotencyKey: randomUUID(), correlationId: randomUUID(), source: "test" }),
+    NotFoundError,
+  );
+  const propio = await crearHold(deps, brokerPropio, "own", { dealId: 20, units: [unidadSola(101)], reason: "x", idempotencyKey: randomUUID(), correlationId: randomUUID(), source: "test" });
+  assert.equal(propio.holderId, 2);
+});
+
+test("crearHold: no se aparta a nombre de un titular fuera del alcance", async () => {
+  const { deps } = crearHarness();
+  await assert.rejects(
+    crearHold(deps, brokerPropio, "own", { dealId: 20, holderId: 1, units: [unidadSola(101)], reason: "x", idempotencyKey: randomUUID(), correlationId: randomUUID(), source: "test" }),
+    /No puedes apartar a nombre de ese usuario/,
+  );
+});
+
+test("crearHold: sin precio usa el vigente de la unidad; con precio distinto choca; sin precio cargado no aparta", async () => {
+  const { deps, repo } = crearHarness();
+  repo.units.push({ id: 106, projectId: 1, code: "A-106", status: "available", realPriceCents: 1_500_000n, currency: "USD" });
+  const base = { dealId: 20, reason: "x", correlationId: randomUUID(), source: "test" };
+  const hold = await crearHold(deps, brokerPropio, "own", { ...base, idempotencyKey: randomUUID(), units: [{ unitId: 106, priceVersion: 1, componentRole: "principal" }] });
+  assert.equal(hold.units[0]?.priceCents, 1_500_000n);
+
+  await assert.rejects(
+    crearHold(deps, brokerPropio, "own", { ...base, idempotencyKey: randomUUID(), units: [{ unitId: 101, priceVersion: 1, componentRole: "principal" }] }),
+    ConflictError,
+  );
+});
+
+test("cancelarHold y extenderHold: no operan apartados de negocios fuera del alcance", async () => {
+  const { deps } = crearHarness();
+  const hold = await crearHold(deps, actorAdmin, "all", { dealId: 10, units: [unidadSola(103)], reason: "x", idempotencyKey: randomUUID(), correlationId: randomUUID(), source: "test" });
+  await assert.rejects(cancelarHold(deps, brokerPropio, "own", hold.id, { expectedVersion: hold.rowVersion, reason: "x", idempotencyKey: randomUUID(), correlationId: randomUUID(), source: "test" }), NotFoundError);
+  await assert.rejects(extenderHold(deps, brokerPropio, "own", hold.id, { expectedVersion: hold.rowVersion, reason: "x", idempotencyKey: randomUUID(), correlationId: randomUUID(), source: "test" }), NotFoundError);
+});
+
+test("crearHold: un apartado no mezcla monedas", async () => {
+  const { deps } = crearHarness();
+  await assert.rejects(
+    crearHold(deps, actorAdmin, "all", {
+      dealId: 10, reason: "x", idempotencyKey: randomUUID(), correlationId: randomUUID(), source: "test",
+      units: [unidadSola(104), { ...unidadSola(105), currency: "DOP" as const }],
+    }),
+    /monedas distintas/,
+  );
+});

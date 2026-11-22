@@ -75,7 +75,7 @@ export const REGISTRO_MODULOS: readonly ModuloRegistro[] = [
       "/reservas/[id]",
       "/reservas/[id]/plan",
     ],
-    estado: "en_construccion",
+    estado: "en_revision",
   },
   {
     id: "M18",
@@ -226,7 +226,7 @@ export const REGISTRO_MODULOS: readonly ModuloRegistro[] = [
       "/brokers/onboarding",
       "/brokers/salida",
     ],
-    estado: "en_construccion",
+    estado: "en_revision",
   },
   {
     id: "M8",
@@ -244,7 +244,7 @@ export const REGISTRO_MODULOS: readonly ModuloRegistro[] = [
     icono: "BadgeDollarSign",
     recurso: "commissions",
     subrutas: ["/comisiones", "/comisiones/reglas", "/comisiones/liquidaciones", "/comisiones/liquidaciones/[id]"],
-    estado: "en_construccion",
+    estado: "en_revision",
   },
   // Herramientas
   {
@@ -263,7 +263,7 @@ export const REGISTRO_MODULOS: readonly ModuloRegistro[] = [
     icono: "BarChart3",
     recurso: "reports",
     subrutas: ["/reportes"],
-    estado: "en_construccion",
+    estado: "en_revision",
   },
   {
     id: "M10",

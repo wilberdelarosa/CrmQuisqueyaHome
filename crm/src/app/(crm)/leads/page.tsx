@@ -22,12 +22,14 @@ export default async function Leads({ searchParams }: { searchParams: Parametros
   const estado = LEAD_STATUSES.find((valor) => valor === uno(params.estado)) as EstadoLead | undefined;
   const sinResponsable = uno(params.cola) === "1";
   const buscar = uno(params.buscar)?.slice(0, 80);
+  const brokerPedido = Number(uno(params.broker));
+  const brokerId = Number.isSafeInteger(brokerPedido) && brokerPedido > 0 ? brokerPedido : undefined;
   const regional = empresa();
-  const { filas, porEstado, total } = await listarLeads(actor, alcance, { estado, sinResponsable, buscar });
+  const { filas, porEstado, total } = await listarLeads(actor, alcance, { estado, sinResponsable, buscar, brokerId });
 
   const ruta = (cambios: Record<string, string | undefined>) => {
     const consulta = new URLSearchParams();
-    const valores = { estado, cola: sinResponsable ? "1" : undefined, buscar, ...cambios };
+    const valores = { estado, cola: sinResponsable ? "1" : undefined, buscar, broker: brokerId ? String(brokerId) : undefined, ...cambios };
     for (const [clave, valor] of Object.entries(valores)) if (valor) consulta.set(clave, valor);
     const texto = consulta.toString();
     return texto ? `/leads?${texto}` : "/leads";

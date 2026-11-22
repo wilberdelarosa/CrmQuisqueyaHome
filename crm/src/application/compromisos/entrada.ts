@@ -9,8 +9,9 @@ const uuid = z.string().uuid();
 export const unidadHoldEntradaSchema = z.object({
   unitId: id,
   priceVersion: z.number().int().positive().max(2147483647).default(1),
-  priceCents: CentavosPositivos,
-  currency: z.enum(CURRENCIES),
+  // Opcionales: si no llegan, el servidor usa el precio vigente de la unidad (quien no ve precios reales no los manda).
+  priceCents: CentavosPositivos.optional(),
+  currency: z.enum(CURRENCIES).optional(),
   componentRole: z.string().trim().min(1, "El rol de componente es requerido.").max(100).default("principal"),
 }).strict();
 

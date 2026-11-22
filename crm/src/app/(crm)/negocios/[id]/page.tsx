@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { camposNegocios, consultarCatalogosNegocios, consultarFichaNegocio } from "@/application/pipeline/consultas";
 import { NotFoundError, ValidationError } from "@/domain/errors";
-import { can, scopeFor } from "@/domain/rbac";
+import { can, reaches, scopeFor } from "@/domain/rbac";
 import { requireActor } from "@/infrastructure/auth/actor";
 import { pipelineParaLectura } from "@/infrastructure/contenedor/pipeline";
+import { unidadesApartables } from "@/infrastructure/contenedor/vistas";
 import { empresa } from "@/infrastructure/empresa";
 import { requireScopeInPage } from "@/infrastructure/page-guard";
 import { dinero, fechaCorta, fechaHora, OPERACION } from "../../_ui/formato";
 import { Dato, Encabezado, Etiqueta, PANEL, Vacio } from "../../_ui/pagina";
-import { AccionesDeNegocio } from "./acciones";
+import { AccionesDeNegocio, ApartarUnidad } from "./acciones";
 
 export const metadata: Metadata = { title: "Negocio" };
 
@@ -34,6 +35,9 @@ export default async function FichaDeNegocio({ params }: { params: Promise<{ id:
   const campos = camposNegocios(actor);
   const alcanceEdicion = scopeFor(actor, "deals", "edit");
   const puedeEditar = !actor.readOnly && alcanceEdicion !== "none" && (alcanceEdicion !== "own" || negocio.brokerId === actor.userId);
+  // Apartar: negocio abierto y al alcance de quien aparta. El precio lo pone el servidor.
+  const puedeApartar = abierto && !actor.readOnly && reaches(actor, scopeFor(actor, "holds", "create"), negocio.brokerId);
+  const apartables = puedeApartar ? new Map((await unidadesApartables(negocio.id)).map((unidad) => [unidad.id, unidad])) : new Map<number, { conPrecio: boolean; apartadaHasta: Date | null }>();
 
   return (
     <div className="space-y-6">
@@ -93,7 +97,16 @@ export default async function FichaDeNegocio({ params }: { params: Promise<{ id:
             {propiedades.map((propiedad) => (
               <li key={propiedad.id} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-5 py-3.5">
                 <span className="text-ink">{propiedad.projectName}{propiedad.unitCode ? `, unidad ${propiedad.unitCode}` : ""}</span>
-                {propiedad.isPrimary ? <Etiqueta tono="neutro">Principal</Etiqueta> : null}
+                <span className="flex flex-wrap items-center gap-2">
+                  {propiedad.isPrimary ? <Etiqueta tono="neutro">Principal</Etiqueta> : null}
+                  {propiedad.unitId && apartables.has(propiedad.unitId)
+                    ? apartables.get(propiedad.unitId)!.apartadaHasta
+                      ? <Etiqueta tono="aviso">Apartada hasta {fechaHora(apartables.get(propiedad.unitId)!.apartadaHasta!, regional)}</Etiqueta>
+                      : apartables.get(propiedad.unitId)!.conPrecio
+                        ? <ApartarUnidad dealId={negocio.id} unitId={propiedad.unitId} codigo={propiedad.unitCode ?? ""} />
+                        : <span className="text-sm text-ink-muted">Para apartarla falta su precio real; lo carga la administración en Propiedades.</span>
+                    : null}
+                </span>
               </li>
             ))}
           </ul>

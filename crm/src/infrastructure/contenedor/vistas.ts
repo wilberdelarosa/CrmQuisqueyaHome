@@ -5,6 +5,6 @@
 
 export { brokersAsignables, fichaLead, listarLeads, LIMITE_LEADS, type EstadoLead, type FichaLead, type FilaLead, type FiltrosLeads } from "../db/repos/leads-lectura";
 export {
-  datosDeLiga, fichaProyecto, listarActividades, listarProyectos, metasDelPeriodo,
-  type DatosDeLiga, type FilaActividad, type FilaProyecto, type FilaUnidad, type FiltroActividades, type MetaFila,
+  datosDeLiga, fichaProyecto, listarActividades, listarProyectos, metasDelPeriodo, proyectosAsignables, resumenBrokers, apartadosYReservas, unidadesApartables,
+  type DatosDeLiga, type FilaBroker, type FilaActividad, type FilaProyecto, type FilaUnidad, type FiltroActividades, type MetaFila,
 } from "../db/repos/vistas-lectura";

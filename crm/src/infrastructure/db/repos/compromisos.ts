@@ -3,7 +3,7 @@
  */
 
 import { randomUUID } from "node:crypto";
-import { and, eq, inArray, or, sql } from "drizzle-orm";
+import { and, eq, inArray, isNull, or, sql } from "drizzle-orm";
 import type {
   CompromisosHoldsPort,
   EntradaCancelarHold,
@@ -22,6 +22,7 @@ import { normalizarCodigoUnidad } from "../../../domain/unidades.ts";
 import { visibleHolds } from "../../rbac-filter.ts";
 import {
   auditLog,
+  dealProperties,
   deals,
   holds,
   holdUnits,
@@ -348,6 +349,7 @@ export function repositorioCompromisos(tx: Tx, pipeline?: RepositorioPipeline): 
           .where(eq(deals.id, params.dealId)),
       );
       if (!negocio || negocio.deletedAt) throw new NotFoundError("Negocio no encontrado.");
+      if (!params.puedeOperarNegocio || !params.puedeOperarNegocio(negocio.brokerId)) throw new NotFoundError("Negocio no encontrado.");
 
       // 4. Bloquear unidades del paquete por ID ASC
       const sortedUnitIds = [...new Set(params.units.map(u => u.unitId))].sort((a, b) => a - b);
@@ -363,9 +365,29 @@ export function repositorioCompromisos(tx: Tx, pipeline?: RepositorioPipeline): 
         throw new NotFoundError("Una o más unidades solicitadas no existen.");
       }
 
+      // Solo se aparta lo que el negocio ya tiene como propiedad de interés: así nadie bloquea inventario ajeno por la API.
+      const asociadas = await tx
+        .select({ unitId: dealProperties.unitId })
+        .from(dealProperties)
+        .where(and(eq(dealProperties.dealId, negocio.id), inArray(dealProperties.unitId, sortedUnitIds), isNull(dealProperties.deletedAt)));
+      const idsAsociados = new Set(asociadas.map((fila) => fila.unitId));
+      const sinAsociar = unidadesBloqueadas.filter((u) => !idsAsociados.has(u.id));
+      if (sinAsociar.length > 0) {
+        throw new ConflictError(`La unidad ${sinAsociar[0]!.code} no es una propiedad de interés de este negocio. Añádela al negocio antes de apartarla.`);
+      }
+      if (new Set(unidadesBloqueadas.map((u) => u.currency)).size > 1) {
+        throw new ConflictError("Un apartado no puede mezclar unidades en monedas distintas.");
+      }
+
       for (const u of unidadesBloqueadas) {
         if (u.deletedAt) throw new ConflictError("Una o más unidades están marcadas como eliminadas.");
         if (u.status !== "available") throw new ConflictError(`La unidad ${u.code} no está disponible.`);
+        // El precio y la moneda los manda el cliente: deben coincidir con los vigentes de la unidad.
+        const pedida = params.units.find((unidad) => unidad.unitId === u.id)!;
+        if (u.realPriceCents == null) throw new ConflictError(`La unidad ${u.code} no tiene precio cargado; no se puede apartar.`);
+        if ((pedida.currency !== undefined && pedida.currency !== u.currency) || (pedida.priceCents !== undefined && pedida.priceCents !== BigInt(u.realPriceCents))) {
+          throw new ConflictError(`El precio de la unidad ${u.code} cambió. Recarga la pantalla e inténtalo otra vez.`);
+        }
       }
 
       // 5. Bloquear compromisos existentes por ID ASC
@@ -491,8 +513,9 @@ export function repositorioCompromisos(tx: Tx, pipeline?: RepositorioPipeline): 
             projectId: unidad.projectId,
             unitCodeNormalized,
             priceVersion: u.priceVersion,
-            priceCents: u.priceCents,
-            currency: u.currency,
+            // Siempre el precio vigente de la unidad bloqueada (ya se comprobó que coincide si llegó uno).
+            priceCents: BigInt(unidad.realPriceCents!),
+            currency: unidad.currency as "USD" | "DOP",
             componentRole: u.componentRole,
             createdAt: effectiveAt,
             createdBy: params.actorId,
@@ -523,8 +546,8 @@ export function repositorioCompromisos(tx: Tx, pipeline?: RepositorioPipeline): 
           projectId: unidad.projectId,
           unitCodeNormalized,
           priceVersion: u.priceVersion,
-          priceCents: u.priceCents,
-          currency: u.currency,
+          priceCents: hu.priceCents,
+          currency: hu.currency as "USD" | "DOP",
           componentRole: u.componentRole,
         });
       }
@@ -617,6 +640,8 @@ export function repositorioCompromisos(tx: Tx, pipeline?: RepositorioPipeline): 
       );
 
       if (!hold) throw new NotFoundError("Hold no encontrado.");
+      const [negocioDelHold] = await tx.select({ brokerId: deals.brokerId }).from(deals).where(eq(deals.id, hold.dealId));
+      if (!params.puedeOperarNegocio || !params.puedeOperarNegocio(negocioDelHold?.brokerId ?? null)) throw new NotFoundError("Hold no encontrado.");
 
       if (hold.status !== "activo") {
         throw new ConflictError("El hold no está activo.");
@@ -789,6 +814,8 @@ export function repositorioCompromisos(tx: Tx, pipeline?: RepositorioPipeline): 
       );
 
       if (!hold) throw new NotFoundError("Hold no encontrado.");
+      const [negocioDelHold] = await tx.select({ brokerId: deals.brokerId }).from(deals).where(eq(deals.id, hold.dealId));
+      if (!params.puedeOperarNegocio || !params.puedeOperarNegocio(negocioDelHold?.brokerId ?? null)) throw new NotFoundError("Hold no encontrado.");
 
       if (hold.status !== "activo") {
         throw new ConflictError("El hold no está activo.");

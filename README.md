@@ -18,9 +18,13 @@ Este repositorio reúne todo lo hecho hasta hoy: el producto, la capa de integra
 | Tareas y Agenda | En revisión | Tareas pendientes y hechas; agenda de 7, 14 y 30 días |
 | Metas | En revisión | Liga de metas con gráficos (compañía, equipo y broker) y alta de metas |
 | Configuración | En revisión | Usuarios por tipo y matriz de permisos por rol |
+| Brokers | En revisión | Carga de trabajo y avance del mes por broker, metas y asignación de proyectos |
+| Comisiones | En revisión | Totales por estado, filtros por mes, estado y broker; aprobar, pagar, anular, cambiar reparto y exportar CSV |
+| Reportes | En revisión | Embudo, fuentes, leads por mes, rendimiento por broker, pérdidas, zonas, inventario, velocidad de cierre y comisiones |
+| Reservas | En revisión | Apartados de 48 horas desde el negocio, extender, liberar e historial; reservas firmadas cuando exista Documentos |
 | Pasarela de leads | En staging | Recibe el lead del portal y lo reparte al CRM, EspoCRM y Odoo |
 | Concentrador de inventario | En staging | Sincroniza proyectos, tipologías y unidades entre sistemas |
-| Comunicaciones, Brokers, Comisiones, Reportes, Reservas, Documentos, Academy, Posventa y demás | Pendiente | El motor existe; falta la pantalla |
+| Comunicaciones, Documentos, Academy, Posventa, Aprobaciones, Automatizaciones, Comunidad y Portal | Pendiente | El motor existe; falta la pantalla |
 
 «En revisión» quiere decir construido y verificado por quien lo hizo, todavía sin certificar. Un módulo pasa a «certificado» solo cuando cumple las condiciones de [crm/docs/certificacion.md](crm/docs/certificacion.md).
 
@@ -128,11 +132,12 @@ La doctrina completa está en el repositorio de perfiles de Viltrum; la evidenci
 
 ## Próximos pasos
 
-1. Probar el recorrido completo haciendo clic en la interfaz: lead del portal, asignación, seguimiento, negocio, cierre y meta.
-2. Desplegar el CRM nuevo en staging con acceso por contraseña y la pasarela del portal apuntando a él.
-3. Comisión por defecto, reparto automático de leads, recordatorios y notificaciones.
-4. Google Calendar.
-5. Módulos restantes, uno por uno hasta certificarlos.
+1. Cargar el precio real de las unidades: hoy ninguna lo tiene y sin él no se pueden apartar.
+2. Desplegar el CRM nuevo en staging con acceso por contraseña y la pasarela del portal apuntando a él; después, la prueba de punta a punta desde el portal.
+3. Documentos, para formalizar reservas con condiciones firmadas.
+4. Comisión por defecto, reparto automático de leads, recordatorios y notificaciones.
+5. Google Calendar.
+6. Módulos restantes, uno por uno hasta certificarlos.
 
 ## Licencia
 

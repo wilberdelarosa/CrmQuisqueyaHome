@@ -52,8 +52,9 @@ export type Hold = {
 export type EntradaCrearHoldUnidad = {
   unitId: number;
   priceVersion: number;
-  priceCents: bigint;
-  currency: "USD" | "DOP";
+  /** Sin precio ni moneda, el adaptador toma los vigentes de la unidad. Si llegan, deben coincidir. */
+  priceCents?: bigint;
+  currency?: "USD" | "DOP";
   componentRole: string;
 };
 
@@ -69,6 +70,11 @@ export type EntradaCrearHold = {
   correlationId: string;
   source: string;
   actorId: number;
+  /**
+   * ¿El actor alcanza al responsable de este negocio? La arma el caso de uso con su alcance;
+   * el adaptador la aplica tras bloquear el negocio. Sin ella, nadie aparta sobre negocios ajenos.
+   */
+  puedeOperarNegocio?: (brokerId: number | null) => boolean;
 };
 
 export type EntradaExtenderHold = {
@@ -81,6 +87,8 @@ export type EntradaExtenderHold = {
   correlationId: string;
   source: string;
   actorId: number;
+  /** Igual que al crear: solo se opera un apartado cuyo negocio alcanza el actor. */
+  puedeOperarNegocio?: (brokerId: number | null) => boolean;
 };
 
 export type EntradaCancelarHold = {
@@ -92,6 +100,8 @@ export type EntradaCancelarHold = {
   correlationId: string;
   source: string;
   actorId: number;
+  /** Igual que al crear: solo se opera un apartado cuyo negocio alcanza el actor. */
+  puedeOperarNegocio?: (brokerId: number | null) => boolean;
 };
 
 export type FiltrosHolds = {

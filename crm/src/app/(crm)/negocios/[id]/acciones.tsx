@@ -206,3 +206,29 @@ export function AccionesDeNegocio({ negocio, etapas, motivos, proyectos, princip
     </section>
   );
 }
+
+/** Aparta una unidad 48 horas para este negocio. El servidor pone el precio vigente y comprueba que siga libre. */
+export function ApartarUnidad({ dealId, unitId, codigo }: { dealId: number; unitId: number; codigo: string }) {
+  const id = useId();
+  const { enviando, error, ejecutar } = useAccion();
+  const [abierto, setAbierto] = useState(false);
+
+  async function apartar(evento: FormEvent<HTMLFormElement>) {
+    evento.preventDefault();
+    const reason = String(new FormData(evento.currentTarget).get("motivo") ?? "").trim();
+    const ok = await ejecutar("apartar", { method: "POST", ruta: "/api/holds", cuerpo: { dealId, reason, durationHours: 48, units: [{ unitId, componentRole: "principal" }] } });
+    if (ok) setAbierto(false);
+  }
+
+  if (!abierto) return <button type="button" onClick={() => setAbierto(true)} className="text-sm font-medium text-brand-900 underline underline-offset-2">Apartar unidad</button>;
+  return (
+    <form onSubmit={apartar} className="flex w-full flex-wrap items-end gap-2 sm:w-auto">
+      <label htmlFor={id} className="text-sm font-medium text-ink">Por qué se aparta {codigo} <span className="text-ink-muted">(obligatorio)</span>
+        <input id={id} name="motivo" required maxLength={300} autoFocus placeholder="Va a firmar la reserva" className={`${CAMPO} sm:w-72`} />
+      </label>
+      <button type="submit" disabled={enviando !== null} className={`${BOTON_PRINCIPAL} h-10 px-3 text-sm`}>{enviando ? "Apartando…" : "Apartar 48 h"}</button>
+      <button type="button" onClick={() => setAbierto(false)} className={`${BOTON_SECUNDARIO} h-10 px-3 text-sm`}>Cancelar</button>
+      {error ? <p role="alert" className="w-full text-sm text-danger">{error}</p> : null}
+    </form>
+  );
+}

@@ -1,4 +1,4 @@
-import type { Actor } from "../../domain/rbac.ts";
+import { can, type Actor } from "../../domain/rbac.ts";
 import type { Hold, UnidadHold } from "./puertos.ts";
 
 export type UnidadHoldDto = {
@@ -7,7 +7,8 @@ export type UnidadHoldDto = {
   projectId: number;
   unitCode: string;
   priceVersion: number;
-  priceCents: string;
+  /** null cuando el actor no puede ver precios reales. */
+  priceCents: string | null;
   currency: "USD" | "DOP";
   componentRole: string;
 };
@@ -29,20 +30,20 @@ export type HoldDto = {
   units: UnidadHoldDto[];
 };
 
-export function dtoUnidadHold(u: UnidadHold): UnidadHoldDto {
+export function dtoUnidadHold(u: UnidadHold, verPrecio = true): UnidadHoldDto {
   return {
     id: u.id,
     unitId: u.unitId,
     projectId: u.projectId,
     unitCode: u.unitCodeNormalized,
     priceVersion: u.priceVersion,
-    priceCents: u.priceCents.toString(),
+    priceCents: verPrecio ? u.priceCents.toString() : null,
     currency: u.currency,
     componentRole: u.componentRole,
   };
 }
 
-export function dtoHold(_actor: Actor, hold: Hold): HoldDto {
+export function dtoHold(actor: Actor, hold: Hold): HoldDto {
   return {
     id: hold.id,
     publicId: hold.publicId,
@@ -57,7 +58,7 @@ export function dtoHold(_actor: Actor, hold: Hold): HoldDto {
     rowVersion: hold.rowVersion,
     createdAt: hold.createdAt.toISOString(),
     updatedAt: hold.updatedAt.toISOString(),
-    units: (hold.units || []).map(dtoUnidadHold),
+    units: (hold.units || []).map((unidad) => dtoUnidadHold(unidad, can(actor, "unit_real_price", "view"))),
   };
 }
 

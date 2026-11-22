@@ -6,6 +6,7 @@
 /.next-prod/
 /.next-review/
 /.next-premium/
+/.next-build/
 /out/
 
 # production

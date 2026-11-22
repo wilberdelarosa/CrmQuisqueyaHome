@@ -10,11 +10,17 @@ import { Encabezado, Vacio } from "../_ui/pagina";
 
 export const metadata: Metadata = { title: "Negocios" };
 
-export default async function Negocios() {
+export default async function Negocios({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const actor = await requireActor();
   requireScopeInPage(actor, "deals", "view");
   const repo = pipelineParaLectura();
-  const [tablero, catalogos] = await Promise.all([consultarTableroNegocios(repo, actor), consultarCatalogosNegocios(repo, actor)]);
+  const pedido = (await searchParams).broker;
+  const brokerPedido = Number(Array.isArray(pedido) ? pedido[0] : pedido);
+  const brokerId = Number.isSafeInteger(brokerPedido) && brokerPedido > 0 ? brokerPedido : null;
+  const [completo, catalogos] = await Promise.all([consultarTableroNegocios(repo, actor), consultarCatalogosNegocios(repo, actor)]);
+  // El filtro por broker se aplica sobre lo que el actor ya puede ver: nunca amplía su alcance.
+  const tablero = brokerId ? { ...completo, filas: completo.filas.filter((negocio) => negocio.brokerId === brokerId) } : completo;
+  const nombreBroker = brokerId ? tablero.filas.find((negocio) => negocio.brokerName)?.brokerName ?? null : null;
   const regional = empresa();
   const etapas = catalogos.etapas.filter((etapa) => etapa.isActive !== false).sort((a, b) => a.position - b.position);
   const abiertos = tablero.filas.filter((negocio) => negocio.stageKind === "open").length;
@@ -22,7 +28,9 @@ export default async function Negocios() {
   return (
     <div className="space-y-6">
       <Encabezado titulo="Negocios"
-        detalle={`${abiertos} ${abiertos === 1 ? "negocio abierto" : "negocios abiertos"}. Los negocios nacen al convertir un lead.`} />
+        detalle={brokerId
+          ? <>{abiertos} {abiertos === 1 ? "negocio abierto" : "negocios abiertos"}{nombreBroker ? ` de ${nombreBroker}` : " de este broker"}. <Link href="/negocios" className="font-medium text-brand-900 underline underline-offset-2">Ver todos</Link></>
+          : `${abiertos} ${abiertos === 1 ? "negocio abierto" : "negocios abiertos"}. Los negocios nacen al convertir un lead.`} />
 
       {tablero.filas.length === 0 ? (
         <Vacio>Aún no hay negocios. Abre un lead y conviértelo cuando la persona esté lista para avanzar.</Vacio>

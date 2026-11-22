@@ -7,13 +7,13 @@
 
 import { and, desc, eq, ilike, isNull, or, sql, type SQL } from "drizzle-orm";
 import { LEAD_STATUSES } from "../../../domain/catalogs";
-import { scopeFor, type Actor, type PermissionScope } from "../../../domain/rbac";
+import { reaches, scopeFor, type Actor, type PermissionScope } from "../../../domain/rbac";
 import { getDb } from "../client";
 import { activities, contacts, leadSources, leads, projects, users } from "../schema";
 import { visibleRows } from "../../rbac-filter";
 
 export type EstadoLead = (typeof LEAD_STATUSES)[number];
-export type FiltrosLeads = { estado?: EstadoLead; buscar?: string; sinResponsable?: boolean };
+export type FiltrosLeads = { estado?: EstadoLead; buscar?: string; sinResponsable?: boolean; brokerId?: number };
 export type FilaLead = {
   id: number; status: EstadoLead; receivedAt: Date; projectInterestText: string | null; projectName: string | null;
   sourceName: string | null; brokerId: number | null; brokerName: string | null; contactName: string | null;
@@ -67,6 +67,7 @@ export async function listarLeads(actor: Actor, scope: PermissionScope, filtros:
     visibles,
     filtros.estado ? eq(leads.status, filtros.estado) : undefined,
     filtros.sinResponsable ? isNull(leads.brokerId) : undefined,
+    filtros.brokerId ? eq(leads.brokerId, filtros.brokerId) : undefined,
     // Solo se busca por nombre en contactos legibles: buscar no puede revelar un nombre oculto.
     buscar ? or(and(contactoVisible(actor), ilike(contacts.fullName, `%${buscar}%`)), ilike(leads.projectInterestText, `%${buscar}%`)) : undefined,
   );
@@ -77,7 +78,8 @@ export async function listarLeads(actor: Actor, scope: PermissionScope, filtros:
       .leftJoin(leadSources, eq(leadSources.id, leads.sourceId))
       .leftJoin(users, eq(users.id, leads.brokerId))
       .where(condicion).orderBy(desc(leads.receivedAt), desc(leads.id)).limit(LIMITE_LEADS),
-    db.select({ status: leads.status, cantidad: sql<number>`count(*)::int` }).from(leads).where(visibles).groupBy(leads.status),
+    db.select({ status: leads.status, cantidad: sql<number>`count(*)::int` }).from(leads)
+      .where(and(visibles, filtros.brokerId ? eq(leads.brokerId, filtros.brokerId) : undefined)).groupBy(leads.status),
   ]);
   const porEstado = Object.fromEntries(conteos.map((fila) => [fila.status, fila.cantidad]));
   return { filas: filas as FilaLead[], porEstado, total: conteos.reduce((suma, fila) => suma + fila.cantidad, 0) };
@@ -124,5 +126,5 @@ export async function brokersAsignables(actor: Actor, alcance: PermissionScope):
     where u.is_active and u.deleted_at is null order by u.full_name`);
   const permitidos = alcance === "all" ? null
     : new Set(alcance === "team" ? [actor.userId, ...(actor.teamUserIds ?? [])] : [actor.userId]);
-  return [...filas].filter((fila) => !permitidos || permitidos.has(fila.id));
+  return [...filas].filter((fila) => (!permitidos || permitidos.has(fila.id)) && reaches(actor, alcance, fila.id));
 }

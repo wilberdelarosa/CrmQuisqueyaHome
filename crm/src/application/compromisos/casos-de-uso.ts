@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
-import type { Actor, PermissionScope } from "../../domain/rbac.ts";
+import { ForbiddenError } from "../../domain/errors.ts";
+import { reaches, type Actor, type PermissionScope } from "../../domain/rbac.ts";
 import type { UnidadDeTrabajo } from "../compartido/unidad-de-trabajo.ts";
 import type {
   EntradaCancelarHold,
@@ -16,9 +17,13 @@ export type DepsCompromisos = {
 export async function crearHold(
   deps: DepsCompromisos,
   actor: Actor,
-  _scope: PermissionScope,
-  entrada: Omit<EntradaCrearHold, "actorId" | "requestHash">,
+  scope: PermissionScope,
+  entrada: Omit<EntradaCrearHold, "actorId" | "requestHash" | "puedeOperarNegocio">,
 ): Promise<Hold> {
+  // Apartar a nombre de otro solo vale si ese titular está al alcance del actor.
+  if (entrada.holderId !== undefined && entrada.holderId !== actor.userId && !reaches(actor, scope, entrada.holderId)) {
+    throw new ForbiddenError("No puedes apartar a nombre de ese usuario.");
+  }
   const canonicalPayload = JSON.stringify({
     operacion: "HOLD_CREAR",
     dealId: entrada.dealId,
@@ -27,8 +32,8 @@ export async function crearHold(
       .map(u => ({
         unitId: u.unitId,
         priceVersion: u.priceVersion,
-        priceCents: u.priceCents.toString(),
-        currency: u.currency,
+        priceCents: u.priceCents?.toString() ?? null,
+        currency: u.currency ?? null,
         componentRole: u.componentRole,
       }))
       .sort((a, b) => a.unitId - b.unitId),
@@ -44,6 +49,7 @@ export async function crearHold(
       holderId: entrada.holderId ?? actor.userId,
       actorId: actor.userId,
       requestHash,
+      puedeOperarNegocio: (brokerId) => reaches(actor, scope, brokerId),
     });
   });
 }
@@ -51,9 +57,9 @@ export async function crearHold(
 export async function extenderHold(
   deps: DepsCompromisos,
   actor: Actor,
-  _scope: PermissionScope,
+  scope: PermissionScope,
   id: number | string,
-  entrada: Omit<EntradaExtenderHold, "id" | "actorId" | "requestHash">,
+  entrada: Omit<EntradaExtenderHold, "id" | "actorId" | "requestHash" | "puedeOperarNegocio">,
 ): Promise<Hold> {
   const canonicalPayload = JSON.stringify({
     operacion: "HOLD_EXTENDER",
@@ -70,6 +76,7 @@ export async function extenderHold(
       id,
       actorId: actor.userId,
       requestHash,
+      puedeOperarNegocio: (brokerId) => reaches(actor, scope, brokerId),
     });
   });
 }
@@ -77,9 +84,9 @@ export async function extenderHold(
 export async function cancelarHold(
   deps: DepsCompromisos,
   actor: Actor,
-  _scope: PermissionScope,
+  scope: PermissionScope,
   id: number | string,
-  entrada: Omit<EntradaCancelarHold, "id" | "actorId" | "requestHash">,
+  entrada: Omit<EntradaCancelarHold, "id" | "actorId" | "requestHash" | "puedeOperarNegocio">,
 ): Promise<Hold> {
   const canonicalPayload = JSON.stringify({
     operacion: "HOLD_CANCELAR",
@@ -95,6 +102,7 @@ export async function cancelarHold(
       id,
       actorId: actor.userId,
       requestHash,
+      puedeOperarNegocio: (brokerId) => reaches(actor, scope, brokerId),
     });
   });
 }
