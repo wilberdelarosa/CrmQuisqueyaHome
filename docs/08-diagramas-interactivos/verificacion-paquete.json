@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-06",
+  "artifacts": [
+    {
+      "diagram": "01-arquitectura",
+      "receipt": "01-arquitectura/revision-final/diagrama.finalize-summary.json",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "sha256": "e4f029017c81e413889be20e411eb704418fa2ae332599517bfc984e052e7701",
+      "visualReview": "not-requested"
+    },
+    {
+      "diagram": "02-nucleo",
+      "receipt": "02-nucleo/revision-final/diagrama.finalize-summary.json",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "sha256": "c52406ed5bba8573a302342d742d27e0ccf9ef7d1cd52ecd3c6ddb92618f7236",
+      "visualReview": "not-requested"
+    },
+    {
+      "diagram": "03-addons",
+      "receipt": "03-addons/final/diagrama.finalize-summary.json",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "sha256": "ad25193c9d9803e4856ef19a84c7108cc20ef3b14513bc17cecdf26e51ea26f7",
+      "visualReview": "not-requested"
+    },
+    {
+      "diagram": "04-integraciones",
+      "receipt": "04-integraciones/revision-final/diagrama.finalize-summary.json",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "sha256": "0f45d2eff3c266783725000fcab4cae83362c592e7a9191c7b590d8a0032725f",
+      "visualReview": "not-requested"
+    },
+    {
+      "diagram": "05-captacion",
+      "receipt": "05-captacion/repair2/diagrama.finalize-summary.json",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "sha256": "45d158e91bad6f7f5a0fff406d639c084887931472782acb4d3aa29e23ebd099",
+      "visualReview": "not-requested"
+    },
+    {
+      "diagram": "06-publicacion",
+      "receipt": "06-publicacion/final/diagrama.finalize-summary.json",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "sha256": "cb5f2106bb21ec093655384479f730e7730afbd1de5a99aba0da48bfae03ed2e",
+      "visualReview": "not-requested"
+    },
+    {
+      "diagram": "07-reservas",
+      "receipt": "07-reservas/final/diagrama.finalize-summary.json",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "sha256": "d92ae65e0c985c6dff1f3c33286bb84c1ce8bedf311ab01d9b81645c9aa1d37d",
+      "visualReview": "not-requested"
+    }
+  ],
+  "qa_scope": "Archify HTML checks; not CRM runtime or human architecture acceptance"
+}

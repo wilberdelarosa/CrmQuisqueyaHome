@@ -1,0 +1,55 @@
+/*
+ * Tokens del sistema de diseño (tema claro). Fuente única de color, tipografía y geometría.
+ * - `brand-*` y `accent-*` son de la empresa: cada instalación los sustituye desde
+ *   `config/empresas/<id>.json`. Los valores de aquí son los del producto por defecto.
+ * - El resto es del producto y no cambia por empresa.
+ * Los pares de contraste AA se vigilan en `infrastructure/conexiones-oauth/rutas.test.ts`.
+ */
+@theme {
+  /* Lienzo y superficies */
+  --color-canvas: #f3f5f8;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8f9fb;
+  --color-surface-hover: #f1f4f9;
+  --color-line: #dfe3eb;
+  --color-input-line: #cfd5df;
+
+  /* Texto */
+  --color-ink: #172036;
+  --color-text: #3d485f;
+  --color-ink-muted: #646d85;
+
+  /* Marca de la empresa */
+  --color-brand-950: #10172d;
+  --color-brand-900: #1d2b53;
+  --color-brand-700: #344872;
+  --color-brand-100: #e8ecf4;
+  --color-accent-600: #c7990e;
+  --color-accent-700: #9b7300;
+  --color-accent-800: #765600;
+  --color-accent-100: #fff6d9;
+
+  /* Texto sobre la barra de marca */
+  --color-rail-ink: #f4f6fb;
+  --color-rail-muted: #a9b4cf;
+
+  /* Estados */
+  --color-success: #16734a;
+  --color-success-bg: #e9f7ef;
+  --color-warning: #8a5300;
+  --color-warning-bg: #fff3e0;
+  --color-danger: #a13f43;
+  --color-danger-bg: #fdeced;
+  --color-info: #315f8c;
+  --color-info-bg: #ebf3fb;
+
+  /* Tipografía: títulos y cifras / texto e interfaz */
+  --font-display: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
+
+  /* Geometría */
+  --radius-control: 7px;
+  --radius-panel: 10px;
+  --spacing-rail: 15.5rem;
+  --spacing-dock: 4rem;
+}

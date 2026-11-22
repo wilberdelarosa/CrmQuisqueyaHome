@@ -1,0 +1,816 @@
+/**
+ * Pruebas de los casos de uso de Leads con dobles en memoria: alta manual,
+ * asignación, descarte y captura externa. La conversión está en
+ * `conversion.test.ts`.
+ *
+ * El escenario F05 concurrente añade un bloqueo simulado, retenido hasta salir
+ * de la unidad de trabajo. Prueba el protocolo del caso de uso; las guardas de
+ * fuente comprueban el SQL declarado. Ninguno acredita locks PostgreSQL reales.
+ */
+
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { test } from "node:test";
+import { sugerirBroker } from "../../domain/asignacion-lead.ts";
+import { ConflictError, ForbiddenError, NotFoundError, ValidationError } from "../../domain/errors.ts";
+import type { Actor, PermissionScope } from "../../domain/rbac.ts";
+import { auditoriaEnMemoria } from "../testing/auditoria-en-memoria.ts";
+import { unidadDeTrabajoEnMemoria } from "../testing/unidad-de-trabajo-en-memoria.ts";
+import { asignarResponsableDeLead, capturarLeadExterno, crearLead, descartarLead } from "./casos-de-uso.ts";
+import { convertirLead } from "./conversion.ts";
+import { leadsEnMemoria, type SemillaLeads } from "./en-memoria.ts";
+import { takeLead } from "./toma.ts";
+import type { CandidatoBroker, Contacto, Lead, RepositorioLeads } from "./puertos.ts";
+
+const MENSAJE_DUPLICADO = "Ya existe un contacto con ese teléfono o correo. Confirma si quieres crearlo de todas formas.";
+const MENSAJE_NO_BROKER = "Ese usuario no es un broker activo.";
+
+const broker: Actor = { userId: 5, roleSlug: "broker", permissions: [] };
+const admin: Actor = { userId: 1, roleSlug: "admin", permissions: [] };
+
+const BROKERS: CandidatoBroker[] = [
+  { userId: 5, specialty: "Proyectos en planos", handlesRentals: false, annualSalesCents: 100, fullName: "Bea" },
+  { userId: 6, specialty: null, handlesRentals: true, annualSalesCents: 50, fullName: "Rafa" },
+  { userId: 9, specialty: "Villas", handlesRentals: false, annualSalesCents: 10, fullName: "Vera" },
+];
+
+function contacto(parcial: Partial<Contacto> & { id: number }): Contacto {
+  return {
+    fullName: "Existente",
+    phone: null,
+    phoneDisplay: null,
+    email: null,
+    country: null,
+    city: null,
+    sourceId: null,
+    brokerId: 9,
+    notes: null,
+    lastInteractionAt: null,
+    consentAt: null,
+    consentSource: null,
+    createdAt: new Date("2025-01-01T00:00:00Z"),
+    updatedAt: new Date("2025-01-01T00:00:00Z"),
+    createdBy: 9,
+    updatedBy: 9,
+    deletedAt: null,
+    ...parcial,
+  };
+}
+
+function lead(parcial: Partial<Lead> & { id: number }): Lead {
+  return {
+    contactId: 1,
+    sourceId: null,
+    projectId: null,
+    projectInterestText: null,
+    zoneInterest: null,
+    operationType: null,
+    currency: "USD",
+    budgetMinCents: null,
+    budgetMaxCents: null,
+    bedrooms: null,
+    status: "new",
+    brokerId: null,
+    suggestedBrokerId: null,
+    sourceVideoUrl: null,
+    campaign: null,
+    utmSource: null,
+    utmMedium: null,
+    utmCampaign: null,
+    originalMessage: null,
+    externalId: null,
+    receivedAt: new Date("2025-01-01T00:00:00Z"),
+    firstContactedAt: null,
+    convertedDealId: null,
+    discardReason: null,
+    createdAt: new Date("2025-01-01T00:00:00Z"),
+    updatedAt: new Date("2025-01-01T00:00:00Z"),
+    createdBy: 9,
+    updatedBy: 9,
+    deletedAt: null,
+    ...parcial,
+  };
+}
+
+function montar(semilla: SemillaLeads = {}) {
+  const leads = leadsEnMemoria({ candidatosBroker: BROKERS, ...semilla });
+  const auditoria = auditoriaEnMemoria();
+  const unidad = unidadDeTrabajoEnMemoria({ leads, auditoria }, [leads, auditoria]);
+  return { leads, auditoria, unidad, deps: { leads, unidad } };
+}
+
+const ana = contacto({ id: 1, fullName: "Ana", phone: "+18095550184", phoneDisplay: "809-555-0184", email: "ana@example.com" });
+
+// --- alta manual --------------------------------------------------------------
+
+test("alta: crea contacto y lead, sugiere el broker de sugerirBroker y audita las dos filas con actor", async () => {
+  const { deps, leads, auditoria } = montar();
+  const interes = { projectInterestText: "Proyectos en planos", zoneInterest: "Bávaro", operationType: "sale" as const };
+  const esperado = sugerirBroker(interes, BROKERS);
+  assert.equal(esperado, 5);
+
+  const fila = await crearLead(deps, broker, { fullName: " Luis ", phone: "809-555-0199", sourceId: 3, ...interes });
+
+  assert.equal(fila.suggestedBrokerId, esperado);
+  assert.equal(fila.brokerId, null, "decisión #21: solo se escribe la sugerencia, nunca brokerId");
+  assert.equal(fila.createdBy, 5);
+  assert.equal(fila.currency, "USD");
+  const nuevo = leads.contactos[0]!;
+  assert.equal(nuevo.fullName, "Luis");
+  assert.equal(nuevo.phone, "+18095550199");
+  assert.equal(nuevo.brokerId, 5);
+  assert.equal(fila.contactId, nuevo.id);
+  assert.deepEqual(auditoria.registros, [
+    { accion: "crear", entidad: "contact", entidadId: nuevo.id, despues: nuevo, actorId: 5 },
+    { accion: "crear", entidad: "lead", entidadId: fila.id, despues: fila, actorId: 5 },
+  ]);
+});
+
+test("alta con contactId existente: no crea contacto y solo audita el lead", async () => {
+  const { deps, leads, auditoria } = montar({ contactos: [ana] });
+  const lector: Actor = { ...broker, permissions: [{ resource: "contacts", action: "view", scope: "all" }] };
+  const fila = await crearLead(deps, lector, { contactId: 1, currency: "DOP" });
+
+  assert.equal(fila.contactId, 1);
+  assert.equal(fila.currency, "DOP");
+  assert.equal(leads.contactos.length, 1);
+  assert.deepEqual(auditoria.registros.map((r) => r.entidad), ["lead"]);
+});
+
+test("alta con contactId que no existe o está borrado: NotFoundError y nada escrito", async () => {
+  const { deps, leads, auditoria } = montar({ contactos: [contacto({ id: 2, deletedAt: new Date() })] });
+  for (const contactId of [99, 2]) {
+    await assert.rejects(crearLead(deps, broker, { contactId }), (error) => {
+      assert.ok(error instanceof NotFoundError);
+      assert.equal(error.message, "El contacto indicado no existe.");
+      return true;
+    });
+  }
+  assert.deepEqual(leads.leads, []);
+  assert.deepEqual(auditoria.registros, []);
+});
+
+test("alta con teléfono duplicado: ConflictError con candidatos; con crearIgual crea", async () => {
+  const { deps, leads, auditoria } = montar({ contactos: [ana] });
+  const lector: Actor = { ...broker, permissions: [{ resource: "contacts", action: "view", scope: "all" }] };
+  await assert.rejects(crearLead(deps, lector, { fullName: "Otra", phone: "809-555-0184" }), (error) => {
+    assert.ok(error instanceof ConflictError);
+    assert.equal(error.message, MENSAJE_DUPLICADO);
+    assert.deepEqual(error.details, {
+      candidatos: [{ id: 1, fullName: "Ana", phone: "+18095550184", phoneDisplay: "809-555-0184", email: "ana@example.com" }],
+    });
+    return true;
+  });
+  assert.deepEqual(leads.leads, []);
+  assert.deepEqual(auditoria.registros, []);
+
+  const fila = await crearLead(deps, broker, { fullName: "Otra", phone: "809-555-0184", crearIgual: true });
+  assert.equal(leads.contactos.length, 2);
+  assert.equal(fila.contactId, 2);
+});
+
+for (const alcance of ["own", "team", "none", "all"] as const satisfies readonly PermissionScope[]) {
+  for (const criterio of [{ phone: "809-555-0184" }, { email: "ana@example.com" }]) {
+    test(`F04 leads: candidatos de contacto respetan contacts:view ${alcance}, ${"phone" in criterio ? "teléfono" : "correo"}`, async () => {
+      const propio = { ...ana, id: 2, fullName: "Propio", brokerId: broker.userId };
+      const borrado = { ...ana, id: 3, fullName: "Borrado", deletedAt: new Date() };
+      const { deps, leads, auditoria } = montar({ contactos: [ana, propio, borrado] });
+      const lector: Actor = { ...broker, permissions: [
+        { resource: "leads", action: "view", scope: "all" },
+        { resource: "contacts", action: "view", scope: alcance },
+      ] };
+      const esperado = (alcance === "all" ? [ana, propio] : alcance === "none" ? [] : [propio])
+        .map(({ id, fullName, phone, phoneDisplay, email }) => ({ id, fullName, phone, phoneDisplay, email }));
+      await assert.rejects(crearLead(deps, lector, { fullName: "Nueva", ...criterio }), (error) => {
+        assert.ok(error instanceof ConflictError);
+        assert.equal(error.message, MENSAJE_DUPLICADO);
+        assert.deepEqual(error.details, { candidatos: esperado });
+        return true;
+      });
+      assert.deepEqual(leads.leads, []);
+      assert.equal(leads.contactos.length, 3);
+      assert.deepEqual(auditoria.registros, []);
+    });
+  }
+}
+
+test("F04 leads: sin contacts:view, duplicado ajeno solo avisa y crearIgual conserva alta", async () => {
+  const { deps, leads, auditoria } = montar({ contactos: [ana] });
+  await assert.rejects(crearLead(deps, broker, { fullName: "Nueva", email: "ana@example.com" }), (error) => {
+    assert.ok(error instanceof ConflictError);
+    assert.equal(error.message, MENSAJE_DUPLICADO);
+    assert.deepEqual(error.details, { candidatos: [] });
+    return true;
+  });
+  assert.deepEqual(auditoria.registros, []);
+  await crearLead(deps, broker, { fullName: "Nueva", email: "ana@example.com", crearIgual: true });
+  assert.equal(leads.contactos.length, 2);
+  assert.equal(leads.leads.length, 1);
+});
+
+test("F04 leads: la consulta identificable de duplicados aplica visibleRows en SQL", () => {
+  const fuente = readFileSync(new URL("../../infrastructure/db/repos/leads.ts", import.meta.url), "utf8");
+  const metodo = fuente.slice(fuente.indexOf("async candidatosDuplicados("), fuente.indexOf("async contactoExiste("));
+  const consultaIdentificable = metodo.slice(metodo.indexOf("const candidatos ="));
+  assert.match(consultaIdentificable, /\.where\([\s\S]*visibleRows\(actor, alcanceLectura, contacts\.brokerId, contacts\.deletedAt\)/);
+  assert.match(metodo, /select\(\{ id: contacts\.id \}\)[\s\S]*isNull\(contacts\.deletedAt\)[\s\S]*\.limit\(1\)/);
+});
+
+test("alta sin contactId ni nombre: ValidationError (protege al caso de uso de una entrada sin Zod)", async () => {
+  const { deps, leads } = montar();
+  await assert.rejects(crearLead(deps, broker, { fullName: "   " }), ValidationError);
+  assert.deepEqual(leads.leads, []);
+});
+
+test("alta: un fallo dentro de la transacción no deja contacto, lead ni auditoría", async () => {
+  const { leads, auditoria, unidad } = montar();
+  const roto: RepositorioLeads = {
+    ...leads,
+    crearLead: async () => {
+      throw new Error("falla el insert del lead");
+    },
+  };
+  const unidadRota = unidadDeTrabajoEnMemoria({ leads: roto, auditoria }, [leads, auditoria]);
+
+  await assert.rejects(crearLead({ leads, unidad: unidadRota }, broker, { fullName: "Luis" }), /falla el insert/);
+  assert.deepEqual(leads.contactos, []);
+  assert.deepEqual(leads.leads, []);
+  assert.deepEqual(auditoria.registros, []);
+  assert.equal(unidad.revertidas, 0);
+  assert.equal(unidadRota.revertidas, 1);
+});
+
+// --- asignar responsable ------------------------------------------------------
+
+test("asignar: escribe brokerId y audita asignar con antes y después", async () => {
+  const propio = lead({ id: 1, brokerId: 1 });
+  const { deps, leads, auditoria } = montar({ leads: [propio] });
+  const fila = await asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 6 });
+
+  assert.equal(fila.brokerId, 6);
+  assert.equal(fila.updatedBy, 1);
+  assert.deepEqual(leads.leads, [fila]);
+  assert.deepEqual(auditoria.registros, [
+    { accion: "asignar", entidad: "lead", entidadId: 1, antes: propio, despues: fila, actorId: 1 },
+  ]);
+});
+
+test("asignar a quien no es un broker activo: ValidationError literal y nada escrito", async () => {
+  const { deps, leads, auditoria } = montar({ leads: [lead({ id: 1 })] });
+  await assert.rejects(asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 77 }), (error) => {
+    assert.ok(error instanceof ValidationError);
+    assert.equal(error.message, MENSAJE_NO_BROKER);
+    assert.deepEqual(error.fields, { brokerId: "Elige un broker activo." });
+    return true;
+  });
+  assert.equal(leads.leads[0]!.brokerId, null);
+  assert.deepEqual(auditoria.registros, []);
+});
+
+test("asignar: el broker inválido gana al lead inexistente (se valida antes de leer el lead)", async () => {
+  const { deps } = montar();
+  await assert.rejects(asignarResponsableDeLead(deps, admin, "all", 404, { brokerId: 77 }), ValidationError);
+  await assert.rejects(asignarResponsableDeLead(deps, admin, "all", 404, { brokerId: 6 }), NotFoundError);
+});
+
+test("asignar un lead fuera del alcance (o borrado): NotFoundError", async () => {
+  const { deps, leads, auditoria } = montar({
+    leads: [lead({ id: 1, brokerId: 9 }), lead({ id: 2, brokerId: 5, deletedAt: new Date() })],
+  });
+  await assert.rejects(asignarResponsableDeLead(deps, broker, "own", 1, { brokerId: 6 }), NotFoundError);
+  await assert.rejects(asignarResponsableDeLead(deps, broker, "own", 2, { brokerId: 6 }), NotFoundError);
+  assert.equal(leads.leads[0]!.brokerId, 9);
+  assert.deepEqual(auditoria.registros, []);
+});
+
+test("M41 / #47: broker no reasigna su lead propio", async () => {
+  const { deps, leads, auditoria } = montar({ leads: [lead({ id: 1, brokerId: 5 })] });
+  await assert.rejects(asignarResponsableDeLead(deps, broker, "own", 1, { brokerId: 6 }), ForbiddenError);
+  assert.equal(leads.leads[0]!.brokerId, 5);
+  assert.deepEqual(auditoria.registros, []);
+});
+
+test("M41: reasignar al mismo responsable no duplica la auditoria", async () => {
+  const { deps, auditoria } = montar({ leads: [lead({ id: 1, brokerId: 6 })] });
+  await asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 6 });
+  assert.deepEqual(auditoria.registros, []);
+});
+
+test("M41: reasignacion no cambia leads terminales", async () => {
+  for (const status of ["converted", "discarded"] as const) {
+    const { deps } = montar({ leads: [lead({ id: 1, brokerId: 1, status })] });
+    await assert.rejects(asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 6 }), ConflictError);
+  }
+});
+
+// --- gerente: reasigna dentro de su equipo --------------------------------------
+
+const gerente: Actor = { userId: 3, roleSlug: "manager", permissions: [], teamUserIds: [5, 6] };
+
+test("gerente (alcance team): reasigna un lead de su equipo a otro broker de su equipo y audita", async () => {
+  const propio = lead({ id: 1, brokerId: 5 });
+  const { deps, leads, auditoria } = montar({ leads: [propio] });
+  const fila = await asignarResponsableDeLead(deps, gerente, "team", 1, { brokerId: 6, reason: "Carga" });
+  assert.equal(fila.brokerId, 6);
+  assert.equal(leads.leads[0]!.brokerId, 6);
+  assert.equal(auditoria.registros.length, 1);
+  assert.equal(auditoria.registros[0]!.actorId, 3);
+});
+
+test("gerente (alcance team): puede asignar un lead de la cola sin responsable a un broker de su equipo", async () => {
+  const { deps, leads } = montar({ leads: [lead({ id: 1, brokerId: null })] });
+  const fila = await asignarResponsableDeLead(deps, gerente, "team", 1, { brokerId: 5 });
+  assert.equal(fila.brokerId, 5);
+  assert.equal(leads.leads[0]!.brokerId, 5);
+});
+
+test("gerente (alcance team): no asigna a un broker fuera de su equipo (Forbidden, nada escrito)", async () => {
+  const { deps, leads, auditoria } = montar({ leads: [lead({ id: 1, brokerId: 5 })] });
+  await assert.rejects(asignarResponsableDeLead(deps, gerente, "team", 1, { brokerId: 9 }), (error) => {
+    assert.ok(error instanceof ForbiddenError);
+    assert.equal(error.message, "Solo puedes asignar leads a brokers de tu equipo.");
+    return true;
+  });
+  assert.equal(leads.leads[0]!.brokerId, 5);
+  assert.deepEqual(auditoria.registros, []);
+});
+
+test("gerente (alcance team): un lead de un broker ajeno a su equipo responde como inexistente", async () => {
+  const { deps, leads, auditoria } = montar({ leads: [lead({ id: 1, brokerId: 9 })] });
+  await assert.rejects(asignarResponsableDeLead(deps, gerente, "team", 1, { brokerId: 5 }), NotFoundError);
+  assert.equal(leads.leads[0]!.brokerId, 9);
+  assert.deepEqual(auditoria.registros, []);
+});
+
+test("gerente en solo lectura (ver como): no reasigna", async () => {
+  const { deps, leads } = montar({ leads: [lead({ id: 1, brokerId: 5 })] });
+  await assert.rejects(asignarResponsableDeLead(deps, { ...gerente, readOnly: true, visibilityOwnerIds: [3, 5, 6] }, "team", 1, { brokerId: 6 }), ForbiddenError);
+  assert.equal(leads.leads[0]!.brokerId, 5);
+});
+
+test("alcance team de quien no es gerente: sigue sin reasignar", async () => {
+  const { deps, leads } = montar({ leads: [lead({ id: 1, brokerId: 5 })] });
+  await assert.rejects(asignarResponsableDeLead(deps, { ...broker, teamUserIds: [5, 6] }, "team", 1, { brokerId: 6 }), ForbiddenError);
+  assert.equal(leads.leads[0]!.brokerId, 5);
+});
+
+// --- descartar ----------------------------------------------------------------
+
+test("descartar: marca discarded con el motivo y audita descartar", async () => {
+  const original = lead({ id: 1, brokerId: 5, status: "contacted" });
+  const { deps, auditoria } = montar({ leads: [original] });
+  const fila = await descartarLead(deps, broker, "own", 1, "No responde");
+
+  assert.equal(fila.status, "discarded");
+  assert.equal(fila.discardReason, "No responde");
+  assert.equal(fila.updatedBy, 5);
+  assert.deepEqual(auditoria.registros, [
+    { accion: "descartar", entidad: "lead", entidadId: 1, antes: original, despues: fila, actorId: 5 },
+  ]);
+});
+
+test("descartar: guardas de estado con sus mensajes literales", async () => {
+  const { deps, auditoria } = montar({
+    leads: [lead({ id: 1, status: "converted" }), lead({ id: 2, status: "discarded" })],
+  });
+  await assert.rejects(descartarLead(deps, admin, "all", 1, "x"), (error) => {
+    assert.ok(error instanceof ConflictError);
+    assert.equal(error.message, "Este lead ya fue convertido a negocio; no se puede descartar.");
+    return true;
+  });
+  await assert.rejects(descartarLead(deps, admin, "all", 2, "x"), (error) => {
+    assert.ok(error instanceof ConflictError);
+    assert.equal(error.message, "Este lead ya está descartado.");
+    return true;
+  });
+  assert.deepEqual(auditoria.registros, []);
+});
+
+test("descartar un lead inexistente, borrado o fuera del alcance: NotFoundError", async () => {
+  const { deps } = montar({
+    leads: [lead({ id: 1, brokerId: 9 }), lead({ id: 2, brokerId: 5, deletedAt: new Date() })],
+  });
+  for (const id of [404, 2, 1]) {
+    await assert.rejects(descartarLead(deps, broker, "own", id, "x"), NotFoundError);
+  }
+});
+
+// --- captura externa (webhook) ------------------------------------------------
+
+const entradaExterna = {
+  externalId: "portal-1",
+  fullName: " María ",
+  phone: "809-555-0100",
+  email: "maria@example.com",
+  projectInterestText: "Proyectos en planos",
+};
+
+test("F05: repetir sin teléfono ni correo no duplica contactos ni auditoría", async () => {
+  const { deps, leads } = montar();
+  const entrada = { externalId: "sin-contacto", fullName: "Sintético" };
+  const primera = await capturarLeadExterno(deps, entrada);
+  const segunda = await capturarLeadExterno(deps, entrada);
+  assert.deepEqual(segunda, { lead: primera.lead, creado: false });
+  assert.equal(leads.contactos.length, 1);
+  assert.equal(leads.leads.length, 1);
+  assert.equal(leads.auditoriaSinActor.length, 2);
+});
+
+test("F05: entregas concurrentes de la misma clave ejecutan todos los efectos una vez", async () => {
+  const { leads, auditoria } = montar();
+  let cola = Promise.resolve();
+  const unidad = {
+    async ejecutar<T>(fn: (repos: { leads: RepositorioLeads; auditoria: typeof auditoria }) => Promise<T>): Promise<T> {
+      let liberar: (() => void) | undefined;
+      const repos = {
+        ...leads,
+        async bloquearCapturaExterna(externalId: string, payload: string) {
+          const anterior = cola;
+          cola = new Promise<void>((resolve) => { liberar = resolve; });
+          await anterior;
+          return leads.bloquearCapturaExterna(externalId, payload);
+        },
+      };
+      try { return await fn({ leads: repos, auditoria }); }
+      finally { liberar?.(); }
+    },
+  };
+  const entrada = { externalId: "concurrente", fullName: "Sintético" };
+  const resultados = await Promise.all([
+    capturarLeadExterno({ leads, unidad }, entrada),
+    capturarLeadExterno({ leads, unidad }, entrada),
+  ]);
+  assert.deepEqual(resultados.map((r) => r.creado).sort(), [false, true]);
+  assert.deepEqual(resultados[0]!.lead, resultados[1]!.lead);
+  assert.equal(leads.contactos.length, 1);
+  assert.equal(leads.leads.length, 1);
+  assert.equal(leads.auditoriaSinActor.length, 2);
+});
+
+test("F05: la reserva SQL y su recibo usan el mismo ejecutor transaccional", () => {
+  const codigo = readFileSync(new URL("../../infrastructure/db/repos/leads.ts", import.meta.url), "utf8")
+    .replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+  const reserva = codigo.slice(codigo.indexOf("async bloquearCapturaExterna("), codigo.indexOf("async buscarContactoPorTelefonoOCorreo("));
+  assert.match(reserva, /exigirTransaccion\(\)/);
+  assert.match(reserva, /await ejecutor\.execute\(sql`select pg_advisory_xact_lock/);
+  assert.ok(reserva.indexOf("pg_advisory_xact_lock") < reserva.indexOf(".from(auditLog)"));
+  assert.match(reserva, /auditLog\.previousValue/);
+  assert.match(reserva, /payloadHash !== hash\(payload\)/);
+  const recibo = codigo.slice(codigo.indexOf("async registrarAuditoriaSinActor("));
+  assert.match(recibo, /ejecutor\.insert\(auditLog\)/);
+  assert.match(recibo, /payloadHash: hash\(captura\.payload\)/);
+  assert.match(codigo, /repositorioLeads\(tx, true\)/);
+  assert.match(codigo, /set transaction isolation level read committed/);
+});
+
+test("F05: misma clave con payload diferente devuelve conflicto sin efectos", async () => {
+  const { deps, leads } = montar();
+  const entrada = { externalId: "conflicto", fullName: "Sintético" };
+  await capturarLeadExterno(deps, entrada);
+  for (const cambio of [{ fullName: "Otro" }, { email: "otro@example.com" }, { budgetMaxCents: 100 }]) {
+    await assert.rejects(capturarLeadExterno(deps, { ...entrada, ...cambio }), ConflictError);
+  }
+  assert.equal(leads.contactos.length, 1);
+  assert.equal(leads.leads.length, 1);
+  assert.equal(leads.auditoriaSinActor.length, 2);
+});
+
+test("F05: el respaldo del upsert excluye filas borradas", () => {
+  const fuente = readFileSync(new URL("../../infrastructure/db/repos/leads.ts", import.meta.url), "utf8");
+  const respaldo = fuente.slice(fuente.indexOf("if (insertado)"), fuente.indexOf("async asignarResponsable("));
+  assert.match(respaldo, /and\(eq\(leads\.externalId, datos\.externalId\), isNull\(leads\.deletedAt\)\)/);
+});
+
+test("webhook: la primera entrega crea contacto y lead, con dos filas de auditoría SIN actor, y responde creado", async () => {
+  const { deps, leads, auditoria } = montar();
+  const { lead: fila, creado } = await capturarLeadExterno(deps, entradaExterna);
+
+  assert.equal(creado, true);
+  assert.equal(fila.externalId, "portal-1");
+  assert.equal(fila.suggestedBrokerId, 5);
+  assert.equal(fila.createdBy, null, "el webhook no tiene autor");
+  const nuevo = leads.contactos[0]!;
+  assert.equal(nuevo.fullName, "María");
+  assert.equal(nuevo.phone, "+18095550100");
+  assert.equal(nuevo.consentSource, "portal_externo");
+  assert.ok(nuevo.consentAt instanceof Date);
+  assert.equal(nuevo.brokerId, null);
+  assert.deepEqual(leads.auditoriaSinActor, [
+    { accion: "crear", entidad: "contact", entidadId: nuevo.id, despues: nuevo },
+    { accion: "crear", entidad: "lead", entidadId: fila.id, despues: fila },
+  ]);
+  assert.deepEqual(auditoria.registros, [], "no pasa por el puerto Auditoria, que exige actor");
+});
+
+test("webhook repetido con el mismo externalId: no duplica, devuelve el existente con creado false y NO audita", async () => {
+  const { deps, leads } = montar();
+  const primera = await capturarLeadExterno(deps, entradaExterna);
+  const auditoriasTrasPrimera = leads.auditoriaSinActor.length;
+
+  const segunda = await capturarLeadExterno(deps, entradaExterna);
+
+  assert.equal(segunda.creado, false);
+  assert.deepEqual(segunda.lead, primera.lead);
+  assert.equal(leads.leads.length, 1);
+  assert.equal(leads.contactos.length, 1);
+  assert.equal(leads.auditoriaSinActor.length, auditoriasTrasPrimera);
+});
+
+test("F05: clave histórica sin recibo requiere reconciliación incluso tras borrado", async () => {
+  const borrado = lead({ id: 1, externalId: "portal-1", deletedAt: new Date() });
+  const { deps, leads } = montar({ leads: [borrado] });
+  await assert.rejects(capturarLeadExterno(deps, entradaExterna), ConflictError);
+  assert.equal(leads.leads.length, 1);
+  assert.equal(leads.contactos.length, 0);
+  assert.equal(leads.auditoriaSinActor.length, 0);
+});
+
+test("F05: el recibo conserva respuesta y clave tras editar o borrar el lead", async () => {
+  const { deps, leads } = montar();
+  const primera = await capturarLeadExterno(deps, entradaExterna);
+  const original = structuredClone(primera.lead);
+  await leads.asignarResponsable(primera.lead.id, 9, 1);
+  leads.leads[0]!.deletedAt = new Date("2026-10-03T00:00:00Z");
+  const repetida = await capturarLeadExterno(deps, entradaExterna);
+  assert.deepEqual(repetida, { lead: original, creado: false });
+  await assert.rejects(capturarLeadExterno(deps, { ...entradaExterna, campaign: "otra" }), ConflictError);
+  assert.equal(leads.leads.length, 1);
+  assert.equal(leads.contactos.length, 1);
+  assert.equal(leads.auditoriaSinActor.length, 2);
+});
+
+test("F05: rollback después de escribir el recibo permite reintento completo", async () => {
+  const { leads, auditoria, deps } = montar();
+  const roto: RepositorioLeads = {
+    ...leads,
+    async registrarAuditoriaSinActor(registro) {
+      await leads.registrarAuditoriaSinActor(registro);
+      if (registro.entidad === "lead") throw new Error("caída después del recibo");
+    },
+  };
+  const unidad = unidadDeTrabajoEnMemoria({ leads: roto, auditoria }, [leads, auditoria]);
+  await assert.rejects(capturarLeadExterno({ leads, unidad }, entradaExterna), /caída después del recibo/);
+  assert.equal(leads.leads.length, 0);
+  assert.equal(leads.contactos.length, 0);
+  assert.equal(leads.auditoriaSinActor.length, 0);
+  assert.equal((await capturarLeadExterno(deps, entradaExterna)).creado, true);
+  assert.equal(leads.leads.length, 1);
+  assert.equal(leads.contactos.length, 1);
+  assert.equal(leads.auditoriaSinActor.length, 2);
+});
+
+test("webhook con teléfono o correo de un contacto existente: lo reutiliza y no crea otro", async () => {
+  const { deps, leads } = montar({ contactos: [ana] });
+
+  const porTelefono = await capturarLeadExterno(deps, { externalId: "a", fullName: "Otro", phone: "809-555-0184" });
+  const porCorreo = await capturarLeadExterno(deps, { externalId: "b", fullName: "Otro", email: "ana@example.com" });
+
+  assert.equal(porTelefono.lead.contactId, 1);
+  assert.equal(porCorreo.lead.contactId, 1);
+  assert.equal(leads.contactos.length, 1);
+  // Sin contacto nuevo, solo hay auditoría de los dos leads.
+  assert.deepEqual(leads.auditoriaSinActor.map((r) => r.entidad), ["lead", "lead"]);
+});
+
+test("webhook sin teléfono ni correo: crea un contacto nuevo", async () => {
+  const { deps, leads } = montar({ contactos: [ana] });
+  const { lead: fila } = await capturarLeadExterno(deps, { externalId: "c", fullName: "Anónimo" });
+
+  assert.equal(leads.contactos.length, 2);
+  assert.equal(fila.contactId, 2);
+  assert.equal(leads.contactos[1]!.phone, null);
+  assert.equal(leads.contactos[1]!.email, null);
+});
+
+test("webhook: un fallo a mitad (al auditar el lead) no deja contacto, lead ni auditoría", async () => {
+  const { leads, auditoria } = montar();
+  let llamadas = 0;
+  const roto: RepositorioLeads = {
+    ...leads,
+    registrarAuditoriaSinActor: async (registro) => {
+      llamadas += 1;
+      if (llamadas === 2) throw new Error("falla la auditoría del lead");
+      await leads.registrarAuditoriaSinActor(registro);
+    },
+  };
+  const unidad = unidadDeTrabajoEnMemoria({ leads: roto, auditoria }, [leads, auditoria]);
+
+  await assert.rejects(capturarLeadExterno({ leads, unidad }, entradaExterna), /falla la auditoría del lead/);
+  assert.deepEqual(leads.contactos, []);
+  assert.deepEqual(leads.leads, []);
+  assert.deepEqual(leads.auditoriaSinActor, []);
+});
+
+// --- la garantía que ningún doble puede probar (hallazgo H33) -----------------
+
+/**
+ * El informe de R3.2 ya lo dijo con estas palabras: «si alguien rompe el `where`
+ * o el `onConflictDoNothing` del adaptador, ninguna prueba cae; solo lo cubre el
+ * grep de la verificación». Un grep que se corre a mano una vez no es una red,
+ * así que aquí queda.
+ *
+ * Se lee el código en vez de importarlo (`repos/leads.ts` abre la conexión al
+ * cargarse) y se quitan los comentarios antes de afirmar: este archivo y el
+ * adaptador mencionan `onConflictDoNothing` en sus docblocks, y un comentario no
+ * es una garantía. Misma técnica que `seguridad.test.ts` y `arquitectura.test.ts`.
+ */
+test("la idempotencia del webhook sigue siendo un upsert atómico, con el predicado del índice parcial", () => {
+  const codigo = readFileSync(new URL("../../infrastructure/db/repos/leads.ts", import.meta.url), "utf8")
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/^\s*\/\/.*$/gm, "");
+
+  // `leads_external_id_unq` es un índice único PARCIAL (`WHERE deleted_at IS
+  // NULL`). Postgres exige que el conflicto declarado calce con el predicado del
+  // índice, o responde "no unique or exclusion constraint" y NO aplica el DO
+  // NOTHING: la captura externa pasaría a duplicar leads en cada reintento del
+  // portal, que es justo lo que la decisión #20 existe para evitar.
+  assert.match(
+    codigo,
+    /\.onConflictDoNothing\(\{\s*target:\s*leads\.externalId,\s*where:\s*isNull\(leads\.deletedAt\)\s*\}\)/,
+  );
+
+  // Y que no haya reaparecido el patrón que el puerto prohíbe: buscar primero y
+  // crear después reabre la ventana entre las dos entregas simultáneas.
+  assert.doesNotMatch(codigo, /buscarPorExternalId/);
+});
+
+for (const scope of ["none", "own", "team", "all"] as const) {
+  test(`M41 BOLA: contactId explicito respeta contacts:view ${scope}`, async () => {
+    const actor: Actor = { ...broker, permissions: [{ resource: "contacts", action: "view", scope }] };
+    for (const owner of [broker.userId, 9]) {
+      const { deps, leads, auditoria } = montar({ contactos: [contacto({ id: 50, brokerId: owner })] });
+      if (scope === "all" || (scope !== "none" && owner === broker.userId)) {
+        const result = await crearLead(deps, actor, { contactId: 50 });
+        assert.equal(result.contactId, 50);
+      } else {
+        await assert.rejects(crearLead(deps, actor, { contactId: 50 }), NotFoundError);
+        assert.equal(leads.leads.length, 0);
+        assert.equal(auditoria.registros.length, 0);
+      }
+    }
+  });
+}
+
+test("M41 BOLA: contactoVisible filtra alcance y papelera en SQL", () => {
+  const source = readFileSync("src/infrastructure/db/repos/leads.ts", "utf8");
+  const method = source.slice(source.indexOf("async contactoVisible("), source.indexOf("async candidatosBroker("));
+  assert.ok(method.includes("visibleRows(actor, alcance, contacts.brokerId, contacts.deletedAt)"));
+});
+
+test("Fase 3: manager con edición all concedida puede reasignar; team no lo permite", async () => {
+  const manager: Actor = { userId: 4, roleSlug: "manager", permissions: [{ resource: "leads", action: "edit", scope: "all" }], teamUserIds: [5] };
+  const { deps, auditoria } = montar({ leads: [lead({ id: 1, brokerId: 5 })] });
+  await assert.rejects(asignarResponsableDeLead(deps, manager, "team", 1, { brokerId: 6 }), ForbiddenError);
+  const updated = await asignarResponsableDeLead(deps, manager, "all", 1, { brokerId: 6 });
+  assert.equal(updated.brokerId, 6);
+  assert.equal(auditoria.registros.length, 1);
+});
+
+// --- M41: vínculo con proyecto/origen y contacto que sigue al lead -----------------
+
+const OLEA = { id: 14, name: "Olea at Cap Cana", slug: "olea-at-cap-cana" };
+const PORTAL = { id: 3, slug: "portal_web" };
+
+test("M41 webhook: vincula el proyecto por el texto y aplica el origen configurado del canal", async () => {
+  const { deps, leads } = montar({ proyectos: [OLEA], fuentes: [PORTAL] });
+  const { lead: fila } = await capturarLeadExterno(deps, {
+    externalId: "p-olea", fullName: "Luis", projectInterestText: "olea AT cap cana", fuentePorDefectoSlug: "portal_web",
+  });
+  assert.equal(fila.projectId, 14);
+  assert.equal(fila.projectInterestText, "olea AT cap cana", "el texto original se conserva");
+  assert.equal(fila.sourceId, 3);
+  assert.equal(leads.contactos[0]!.sourceId, 3);
+});
+
+test("M41 webhook: el id explícito gana y lo que no se reconoce queda sin vínculo", async () => {
+  const { deps } = montar({ proyectos: [OLEA], fuentes: [PORTAL] });
+  const explicito = await capturarLeadExterno(deps, {
+    externalId: "p-1", fullName: "Ana", projectId: 77, sourceId: 8, projectInterestText: "Olea at Cap Cana", fuentePorDefectoSlug: "portal_web",
+  });
+  assert.equal(explicito.lead.projectId, 77);
+  assert.equal(explicito.lead.sourceId, 8);
+  const desconocido = await capturarLeadExterno(deps, {
+    externalId: "p-2", fullName: "Eva", projectInterestText: "Proyecto Inexistente", fuentePorDefectoSlug: "no_existe",
+  });
+  assert.equal(desconocido.lead.projectId, null);
+  assert.equal(desconocido.lead.sourceId, null);
+});
+
+test("M41 webhook: el origen configurado no forma parte de la huella de idempotencia", async () => {
+  const { deps, leads } = montar({ proyectos: [OLEA], fuentes: [PORTAL] });
+  const entrada = { externalId: "p-3", fullName: "Rosa", projectInterestText: "Olea at Cap Cana" };
+  const primera = await capturarLeadExterno(deps, { ...entrada, fuentePorDefectoSlug: "portal_web" });
+  const segunda = await capturarLeadExterno(deps, entrada);
+  assert.deepEqual(segunda, { lead: primera.lead, creado: false });
+  assert.equal(leads.leads.length, 1);
+});
+
+test("M41 asignar: el lead nuevo pasa a asignado y su contacto sin responsable sigue al broker, con auditoría", async () => {
+  const { deps, leads, auditoria } = montar({
+    leads: [lead({ id: 1, brokerId: null })], contactos: [contacto({ id: 1, brokerId: null })],
+  });
+  const fila = await asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 6 });
+  assert.equal(fila.status, "assigned");
+  assert.equal(leads.contactos[0]!.brokerId, 6);
+  assert.deepEqual(auditoria.registros.map((r) => [r.accion, r.entidad, r.entidadId]), [
+    ["asignar", "lead", 1], ["asignar", "contact", 1],
+  ]);
+});
+
+test("M41 reasignar: el estado que no es nuevo se conserva y el contacto sigue al lead", async () => {
+  const { deps, leads } = montar({
+    leads: [lead({ id: 1, brokerId: 5, status: "contacted" })], contactos: [contacto({ id: 1, brokerId: 5 })],
+  });
+  const fila = await asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 6 });
+  assert.equal(fila.status, "contacted");
+  assert.equal(leads.contactos[0]!.brokerId, 6);
+});
+
+test("M41 reasignar: el responsable anterior conserva al contacto si mantiene otro lead abierto con él", async () => {
+  const { deps, leads, auditoria } = montar({
+    leads: [lead({ id: 1, brokerId: 5, status: "assigned" }), lead({ id: 2, brokerId: 5, status: "assigned" })],
+    contactos: [contacto({ id: 1, brokerId: 5 })],
+  });
+  await asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 6 });
+  assert.equal(leads.contactos[0]!.brokerId, 5);
+  assert.equal(auditoria.registros.length, 1, "solo se audita el lead");
+});
+
+test("M41 reasignar: nunca se le quita el contacto a un tercero", async () => {
+  const { deps, leads } = montar({
+    leads: [lead({ id: 1, brokerId: 5, status: "assigned" })], contactos: [contacto({ id: 1, brokerId: 9 })],
+  });
+  await asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 6 });
+  assert.equal(leads.contactos[0]!.brokerId, 9);
+});
+
+test("M41 toma y conversión desde la cola: el contacto sin responsable queda con quien se hace cargo", async () => {
+  const brokerConPermisos: Actor = { userId: 5, roleSlug: "broker", permissions: [
+    { resource: "leads", action: "view", scope: "own" }, { resource: "leads", action: "edit", scope: "own" },
+  ] };
+  const toma = montar({ leads: [lead({ id: 1, brokerId: null })], contactos: [contacto({ id: 1, brokerId: null })] });
+  await takeLead({ unidad: toma.unidad }, brokerConPermisos, 1);
+  assert.equal(toma.leads.contactos[0]!.brokerId, 5);
+
+  const conversion = montar({
+    leads: [lead({ id: 1, brokerId: null })], contactos: [contacto({ id: 1, brokerId: null })], etapasAbiertas: [1],
+  });
+  const { deal } = await convertirLead({ unidad: conversion.unidad }, admin, "all", 1);
+  assert.equal(deal.brokerId, 1);
+  assert.equal(conversion.leads.contactos[0]!.brokerId, 1);
+});
+
+test("M41: el SQL del traslado solo mueve contactos sin responsable o del responsable anterior sin trabajo abierto", () => {
+  const fuente = readFileSync(new URL("../../infrastructure/db/repos/leads.ts", import.meta.url), "utf8");
+  const traslado = fuente.slice(fuente.indexOf("async trasladarContactoConLead("), fuente.indexOf("async marcarDescartado("));
+  assert.match(traslado, /isNull\(contacts\.brokerId\),[\s\S]*notExists\([\s\S]*from\(brokerProfiles\)[\s\S]*sinTrabajoDelAnterior,/);
+  assert.match(traslado, /eq\(contacts\.brokerId, brokerAnterior\)/);
+  assert.match(traslado, /notExists\([\s\S]*from\(deals\)[\s\S]*notExists\([\s\S]*from\(leads\)/);
+  assert.match(traslado, /isNull\(contacts\.deletedAt\)/);
+});
+
+test("M41 conversión: un lead ya asignado cuyo contacto no tenía responsable deja el contacto con el dueño del negocio", async () => {
+  const { unidad, leads } = montar({
+    leads: [lead({ id: 1, brokerId: 5, status: "assigned" })], contactos: [contacto({ id: 1, brokerId: null })], etapasAbiertas: [1],
+  });
+  const { deal } = await convertirLead({ unidad }, admin, "all", 1);
+  assert.equal(deal.brokerId, 5);
+  assert.equal(leads.contactos[0]!.brokerId, 5);
+});
+
+test("M41 conversión: no le quita el contacto a otro responsable", async () => {
+  const { unidad, leads, auditoria } = montar({
+    leads: [lead({ id: 1, brokerId: 5, status: "assigned" })], contactos: [contacto({ id: 1, brokerId: 9 })], etapasAbiertas: [1],
+  });
+  await convertirLead({ unidad }, admin, "all", 1);
+  assert.equal(leads.contactos[0]!.brokerId, 9);
+  assert.equal(auditoria.registros.filter((r) => r.entidad === "contact").length, 0);
+});
+
+test("M41 concurrencia: el contacto se bloquea ANTES de mover el lead en asignar, tomar y convertir", () => {
+  const leer = (ruta: string) => readFileSync(new URL(ruta, import.meta.url), "utf8");
+  const orden = (fuente: string, despues: string) => {
+    const bloqueo = fuente.indexOf("leads.bloquearContacto(lead.contactId)");
+    assert.ok(bloqueo > 0, "falta el bloqueo del contacto");
+    assert.ok(bloqueo < fuente.indexOf(despues), `el bloqueo debe preceder a ${despues}`);
+  };
+  orden(leer("./casos-de-uso.ts"), "leads.asignarResponsable(");
+  orden(leer("./toma.ts"), "leads.reclamarDisponible(");
+  orden(leer("./conversion.ts"), "leads.crearNegocioDeLead(");
+  const repo = leer("../../infrastructure/db/repos/leads.ts");
+  const bloqueo = repo.slice(repo.indexOf("async bloquearContacto("), repo.indexOf("async trasladarContactoConLead("));
+  assert.match(bloqueo, /from\(contacts\)\.where\(eq\(contacts\.id, contactId\)\)\.for\("no key update"\)/);
+  assert.match(bloqueo, /requiere una transacción/);
+});
+
+test("M41 asignar: un contacto registrado por la administración (sin cartera) pasa al broker asignado", async () => {
+  const { deps, leads } = montar({ leads: [lead({ id: 1, brokerId: null })], contactos: [contacto({ id: 1, brokerId: 1 })] });
+  await asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 6 });
+  assert.equal(leads.contactos[0]!.brokerId, 6);
+});
+
+test("M41 asignar: el contacto de otro broker activo no se mueve aunque el lead venga de la cola", async () => {
+  const { deps, leads } = montar({ leads: [lead({ id: 1, brokerId: null })], contactos: [contacto({ id: 1, brokerId: 9 })] });
+  await asignarResponsableDeLead(deps, admin, "all", 1, { brokerId: 6 });
+  assert.equal(leads.contactos[0]!.brokerId, 9);
+});

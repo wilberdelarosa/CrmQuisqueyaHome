@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "87fc1ea7-279b-41af-b1bc-2d9b51033687",
+  "status": "current",
+  "command": "deliver",
+  "type": "lifecycle",
+  "input": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\07-reservas\\candidate.json",
+  "output": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\07-reservas\\diagrama.html",
+  "specification": {
+    "sha256": "14175296b47913b4c2a56fbccf941f9c13a963918b8235916a76ebe2cf28758e",
+    "bytes": 35574
+  },
+  "artifact": {
+    "sha256": "d92ae65e0c985c6dff1f3c33286bb84c1ce8bedf311ab01d9b81645c9aa1d37d",
+    "bytes": 774419
+  }
+}

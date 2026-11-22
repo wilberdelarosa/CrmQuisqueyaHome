@@ -1,0 +1,24 @@
+{
+  "id": "quisqueya-home",
+  "nombre": "Quisqueya Home",
+  "nombreCorto": "QH",
+  "producto": "CRM inmobiliario",
+  "idioma": "es-DO",
+  "zonaHoraria": "America/Santo_Domingo",
+  "monedaPrincipal": "USD",
+  "monedas": ["USD", "DOP"],
+  "marca": {
+    "logo": "/brand/quisqueya-home-logo-160.webp",
+    "isotipo": "/brand/quisqueya-home-mark.webp"
+  },
+  "tema": {
+    "brand-950": "#10172d",
+    "brand-900": "#1d2b53",
+    "brand-700": "#344872",
+    "brand-100": "#e8ecf4",
+    "accent-600": "#c7990e",
+    "accent-700": "#9b7300",
+    "accent-800": "#765600",
+    "accent-100": "#fff6d9"
+  }
+}

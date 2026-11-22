@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "45bd7e16-f238-45e2-add2-9d4622de9723",
+  "status": "current",
+  "command": "deliver",
+  "type": "lifecycle",
+  "input": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\06-publicacion\\candidate.json",
+  "output": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\06-publicacion\\diagrama.html",
+  "specification": {
+    "sha256": "16f8c87e8f71a1f34886a12ad1b2badcab5a339a01ef8ac03045e0a53519dc8b",
+    "bytes": 35264
+  },
+  "artifact": {
+    "sha256": "cb5f2106bb21ec093655384479f730e7730afbd1de5a99aba0da48bfae03ed2e",
+    "bytes": 772494
+  }
+}

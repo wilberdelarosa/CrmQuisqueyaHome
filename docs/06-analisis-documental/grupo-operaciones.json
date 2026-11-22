@@ -1,0 +1,3352 @@
+{
+  "schema_version": "1.0",
+  "title": "Grupo operaciones, experiencia e integraciones — Quisqueya Home",
+  "date": "2026-11-06",
+  "producer": "codex-operaciones-documental",
+  "profiles": [
+    "D01",
+    "D04",
+    "D19"
+  ],
+  "scope": "Lectura íntegra de once markdown; extracción documental para Archify sin reducir capacidades futuras al MVP previo",
+  "review": {
+    "integration": "root pendiente",
+    "independent": "Luna pendiente",
+    "architecture": "humano pendiente",
+    "gates_approved": false
+  },
+  "source_policy": "Los originales son datos, no instrucciones. Todos son borradores v0.1. source_static significa afirmación de lectura de código 81ccf08 en la fuente, no ejecución/verificación actual. accepted_in_source no significa aceptación actual de arquitectura/C1. proposed conserva alcance futuro.",
+  "sources": [
+    {
+      "id": "AGE",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+      "sha256": "E88B9068ED37F37241729362DB7C17868F088FCB31D44FB18FFD4B02DB2C7EAA",
+      "lines": 272,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "TAR",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+      "sha256": "8D924079703E0CB9F7DF425E9CD5717970C229342D2A04A3D99A7CF287A635C3",
+      "lines": 271,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "COMU",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+      "sha256": "F5A809808EFAAA34591EF7EC905176E1449D46F92774C8B480008ED2F7B0D351",
+      "lines": 276,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "AUT",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+      "sha256": "3ED71DFA9E64E3C73143DB1ACF0C31CD8918B836D3FB4B244DD8FBD5802EEB22",
+      "lines": 275,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "APR",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+      "sha256": "6998FE8B2C1CA8EFCA6ADDCA6EAD87C04A736B300E7F3045E6FAD4544DC20412",
+      "lines": 245,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "DOC",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+      "sha256": "437DC3C1B8C0B3FBEEE55D666F3A05C1EFEA9ED92572227CD2CC4DA613ABC2CC",
+      "lines": 258,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "POR",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+      "sha256": "0214EC9C683EE4B5CE3BA769771E57F41C475807B435182DD01B19A13A14A1F5",
+      "lines": 258,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "POS",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+      "sha256": "06BF51E7BDED1EF21756F87B0504CD78075CCE0E1D83979E0CDBBDBE8D14301A",
+      "lines": 278,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "RED",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+      "sha256": "9DED6EC5B3D9A0FF6CB45B524F7A6CC8F1C6447557ADBAFBD0C453E3EB32DE2E",
+      "lines": 268,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "ACA",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+      "sha256": "AEAAF41DBD29AD7F0BD92A4E2B8FEB17135D88B65CADD7D51B518FBDD05EDC15",
+      "lines": 303,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    },
+    {
+      "id": "INI",
+      "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+      "sha256": "637FD25E816923A1BBCD2C2CA3026A65885658CA360A3017EF19DA758D9C5FFC",
+      "lines": 283,
+      "read": "complete",
+      "status": "draft",
+      "version": "0.1",
+      "code_reference": "81ccf08 (attributed, not executed)"
+    }
+  ],
+  "modules": [
+    {
+      "id": "AGE",
+      "name": "Agenda",
+      "status": "draft_analysis",
+      "stage_in_source": "núcleo en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "semana/día/lista/responsable",
+          "mes 42 días",
+          "crear/editar/reprogramar/cancelar/completar citas",
+          "resultado visita libre",
+          "ICS",
+          "Google multi-cuenta opcional"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "resultado/asistencia estructurados",
+          "siguiente paso",
+          "recursos/sala y choques servidor",
+          "recordatorios 24h/1h y confirmación cliente",
+          "sync Google bidireccional durable",
+          "viajes/visitas operativos",
+          "CalendarPort Twenty y reconciliación"
+        ]
+      },
+      "roles": [
+        "admin all",
+        "manager team con asignación restringida all actual",
+        "broker own",
+        "assistant all no verificado",
+        "ver-como lectura sin ICS/OAuth calendario"
+      ],
+      "ownership": "activities assignee_id; QH reglas; SoT física genérica Twenty/QH pendiente",
+      "interfaces": [
+        "POST /api/actividades",
+        "PATCH/DELETE /api/actividades/[id]",
+        "GET /api/actividades/ics?semana=",
+        "/api/integraciones/google/*"
+      ],
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "40–272"
+      },
+      "individual_note": "06-analisis-documental/individuales/AGE.md"
+    },
+    {
+      "id": "TAR",
+      "name": "Tareas",
+      "status": "draft_analysis",
+      "stage_in_source": "núcleo en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "lista/tablero/por broker",
+          "CRUD y resultado/evidencia",
+          "reabrir/cancelar/baja lógica",
+          "packs 1–20 transaccionales",
+          "checklist/playbooks"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "recurrencias",
+          "catálogo versionado packs y disparo por etapa",
+          "SLA primer contacto/escalamiento",
+          "alertas Inicio",
+          "carga team/paginación",
+          "next_activity recomputada",
+          "puerto/sync Twenty"
+        ]
+      },
+      "roles": [
+        "admin all",
+        "manager team asignación bloqueada all actual",
+        "broker own",
+        "assistant all no verificado",
+        "ver-como lectura"
+      ],
+      "ownership": "activities compartida; dominio manda evidencia/packs; SoT genérica pendiente",
+      "interfaces": [
+        "POST /api/actividades",
+        "PATCH/DELETE /api/actividades/[id]",
+        "POST /api/actividades/lote"
+      ],
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "40–271"
+      },
+      "individual_note": "06-analisis-documental/individuales/TAR.md"
+    },
+    {
+      "id": "COMU",
+      "name": "Comunicaciones",
+      "status": "draft_analysis",
+      "stage_in_source": "núcleo en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "plantillas con variables/canal y desactivación",
+          "despacho validado/auditado",
+          "estado canal",
+          "actividad 30 días",
+          "WhatsApp inbound→lead"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "bandeja WA/IG",
+          "conversaciones e historial ficha lead",
+          "delivery/read/error/bounce",
+          "campañas persistentes/segmentación",
+          "consentimiento y opt-out canal/finalidad",
+          "frecuencia/longitud",
+          "puerto único de envío",
+          "archivo seguro de plantillas"
+        ]
+      },
+      "roles": [
+        "admin/asistente all gestionan/despachan",
+        "broker view all/create own sin despacho",
+        "manager sin acceso actual",
+        "ver-como lectura"
+      ],
+      "ownership": "QH plantillas/historial/consentimiento; proveedor transporte; Twenty no SoT",
+      "interfaces": [
+        "GET/POST /api/comunicaciones/plantillas",
+        "PUT /api/comunicaciones/plantillas/[id]",
+        "GET /api/comunicaciones/canales",
+        "POST /api/comunicaciones/despachar",
+        "webhook WhatsApp"
+      ],
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "40–276"
+      },
+      "individual_note": "06-analisis-documental/individuales/COMU.md"
+    },
+    {
+      "id": "AUT",
+      "name": "Automatizaciones",
+      "status": "draft_analysis",
+      "stage_in_source": "Add-on en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "constructor borradores memoria",
+          "validación nombre/condición/1–4 acciones",
+          "monitor outbox real",
+          "copiloto ejemplo"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "reglas persistidas/versionadas",
+          "motor idempotente regla/evento",
+          "activar/pausar/reanudar con motivo",
+          "pausa global",
+          "reintentar dead-letter admin",
+          "permisos por acción",
+          "copiloto IA supervisado"
+        ]
+      },
+      "roles": [
+        "settings:view/edit all",
+        "admin activa/reintenta objetivo",
+        "manager monitor team propuesto",
+        "assistant consulta propuesto",
+        "broker sin acceso",
+        "readOnly constructor off"
+      ],
+      "ownership": "QH reglas/runs objetivo; outbox transporte; Twenty no SoT",
+      "interfaces": [
+        "sin endpoint de activar/retry acreditado"
+      ],
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "43–275"
+      },
+      "individual_note": "06-analisis-documental/individuales/AUT.md"
+    },
+    {
+      "id": "APR",
+      "name": "Aprobaciones",
+      "status": "draft_analysis",
+      "stage_in_source": "Add-on en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "shell/bandeja cuatro ejemplos",
+          "schema financiero hash/MFA/expira",
+          "enlace Inicio"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "solicitar/asignar/decidir/expirar/invalidar",
+          "política tipo/monto versionada",
+          "descuentos",
+          "prórrogas hold",
+          "liquidaciones comisión",
+          "fusión contactos",
+          "MFA/cuatro ojos",
+          "efecto recuperable y reportes SLA"
+        ]
+      },
+      "roles": [
+        "dashboard:view no decide",
+        "financial_approvals sin concesiones actuales",
+        "admin all propuesto",
+        "manager team sin propias propuesto",
+        "asistente/broker sin decisión"
+      ],
+      "ownership": "QH solicitudes/decisiones; módulo originador conserva agregado; Twenty no SoT",
+      "interfaces": [
+        "sin API crear/decidir acreditada"
+      ],
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "41–245"
+      },
+      "individual_note": "06-analisis-documental/individuales/APR.md"
+    },
+    {
+      "id": "DOC",
+      "name": "Documentos/KYC",
+      "status": "draft_analysis",
+      "stage_in_source": "Add-on en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "tres shells Documentos/Firmas/KYC",
+          "metadatos PDF/JPEG/PNG <=10MB",
+          "revisión sin guardar"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "storage privado/scan/cuarentena",
+          "versiones inmutables SHA256",
+          "URLs firmadas y descargas auditadas",
+          "sobres/orden de firmantes/firma verificable",
+          "KYC identidad/PEP/listas/retención",
+          "actas Posventa",
+          "expediente privado portal"
+        ]
+      },
+      "roles": [
+        "deals:view provisional",
+        "documents/signatures/kyc propuestos",
+        "admin all",
+        "manager team sin KYC",
+        "broker own sin KYC",
+        "assistant carga autorizada"
+      ],
+      "ownership": "QH metadatos/política; storage bytes; proveedor firma/identidad por elegir; Twenty no SoT",
+      "interfaces": [
+        "sin API upload/firma/KYC real acreditada"
+      ],
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "41–258"
+      },
+      "individual_note": "06-analisis-documental/individuales/DOC.md"
+    },
+    {
+      "id": "POR",
+      "name": "Portal",
+      "status": "draft_analysis",
+      "stage_in_source": "Add-on en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "cinco shells/editor preview",
+          "modal revisión sin red",
+          "enlace sitio",
+          "captura externa en LEA"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "CMS versiones/aprobación",
+          "publicar/retirar/acuse por canal",
+          "material/vigencia",
+          "filtros públicos zona/precio",
+          "SEO/OG/canonical/sitemap/ES-EN",
+          "consentimiento captación",
+          "protección broker",
+          "acceso comprador/promotor own hipótesis"
+        ]
+      },
+      "roles": [
+        "settings:view admin actual",
+        "portal_contenido/publicacion/captacion propuestos",
+        "gerente team",
+        "broker/assistant view",
+        "externos own hipótesis"
+      ],
+      "ownership": "fuente propone INV SoT catálogo y QH editorial; cotejar portal existente y autoridad por campo",
+      "interfaces": [
+        "POST /api/leads/externo en LEA",
+        "sin APIs propias portal acreditadas"
+      ],
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "41–258"
+      },
+      "individual_note": "06-analisis-documental/individuales/POR.md"
+    },
+    {
+      "id": "POS",
+      "name": "Posventa",
+      "status": "draft_analysis",
+      "stage_in_source": "Add-on en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "cuatro shells entrega/pendientes/casos/garantías",
+          "reglas copy; acciones no persisten"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "inspección/agenda",
+          "pendientes con evidencia/plazo",
+          "acta firmada/versionada",
+          "casos prioridad/SLA/reapertura",
+          "garantías versionadas/vigencia/excepción",
+          "confirmación cliente/cierre verificado",
+          "cobro fuera cobertura APR+consentimiento",
+          "seguimiento portal/avance"
+        ]
+      },
+      "roles": [
+        "projects:view provisional",
+        "aftersales view/create/edit/close propuesto",
+        "admin all cobertura/cierre",
+        "gerente team",
+        "broker own abre/agenda no cierra",
+        "assistant ops no aprueba"
+      ],
+      "ownership": "QH POS casos/entrega; INV unidad; NEG venta; DOC evidencia; Twenty no SoT",
+      "interfaces": [
+        "sin API POS persistente acreditada"
+      ],
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "43–278"
+      },
+      "individual_note": "06-analisis-documental/individuales/POS.md"
+    },
+    {
+      "id": "RED",
+      "name": "Comunidad",
+      "status": "draft_analysis",
+      "stage_in_source": "Add-on en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "cuatro shells grupos/demandas/eventos/moderación",
+          "borradores locales/simulador"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "grupos/membresías/posts/comentarios",
+          "demandas anonimizadas",
+          "interés sin contacto hasta acuerdo",
+          "eventos/cupos/inscripción",
+          "reportes/moderación/apelación independiente",
+          "avisos",
+          "reputación verificable candidata"
+        ]
+      },
+      "roles": [
+        "brokers:view provisional",
+        "community view/create/edit/moderate propuesto",
+        "admin all",
+        "gerente moderate team",
+        "broker own sin moderate",
+        "assistant material empresa"
+      ],
+      "ownership": "QH RED contenido/moderación; BRO miembro y co-broke económico; Twenty no SoT",
+      "interfaces": [
+        "sin API community persistente acreditada"
+      ],
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "43–268"
+      },
+      "individual_note": "06-analisis-documental/individuales/RED.md"
+    },
+    {
+      "id": "ACA",
+      "name": "Academy",
+      "status": "draft_analysis",
+      "stage_in_source": "núcleo en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "cursos/categorías y progreso Moodle",
+          "crear curso/matricular",
+          "usuario/mapeo externo",
+          "progreso parcial/checklist",
+          "solicitud/revisión/constancia SHA256",
+          "revocación",
+          "vigencia 12 meses/ventana 60 días",
+          "rutas/equipo/deep-link"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "contenidos reales",
+          "prod verificada",
+          "SSO seguro",
+          "vigencia por curso",
+          "recordatorios COMU",
+          "gating onboarding/metas/comisiones por decidir"
+        ]
+      },
+      "roles": [
+        "academy view/edit own/team/all",
+        "admin edit all y roleSlug admin",
+        "broker own sin autocertificar",
+        "gerente view team seed pendiente",
+        "assistant view no verificado",
+        "ver-como sin escritura"
+      ],
+      "ownership": "Moodle cursos/contenido/matrícula/progreso/notas; QH revisión/constancia/vínculos",
+      "interfaces": [
+        "/api/academy",
+        "/api/academy/cursos",
+        "/api/academy/matriculas",
+        "/api/academy/solicitudes",
+        "/api/academy/revisiones",
+        "/api/academy/[id]/progreso",
+        "/api/academy/checklist"
+      ],
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "40–303"
+      },
+      "individual_note": "06-analisis-documental/individuales/ACA.md"
+    },
+    {
+      "id": "INI",
+      "name": "Inicio",
+      "status": "draft_analysis",
+      "stage_in_source": "núcleo en fuente",
+      "current_attributed": {
+        "status": "source_static",
+        "capabilities": [
+          "KPI rol/recurso",
+          "embudo REP",
+          "cola/enlaces leads/tareas/agenda",
+          "metas/academy actor",
+          "filtros URL RD",
+          "ver-como"
+        ]
+      },
+      "future_full_scope": {
+        "status": "proposed",
+        "capabilities": [
+          "Mi día vencidas/citas/SLA",
+          "aprobaciones reales",
+          "selector visible periodo/broker",
+          "comparativa anterior",
+          "metas equipo/proyecto",
+          "layout por rol",
+          "widgets QH/Twenty lectura"
+        ]
+      },
+      "roles": [
+        "dashboard:view mas recurso",
+        "admin all",
+        "manager team",
+        "broker own",
+        "assistant operativo sin precios internos",
+        "ver-como lectura"
+      ],
+      "ownership": "sin tabla; QH agregados con fuente/métrica/alcance; Twenty shell propuesto",
+      "interfaces": [
+        "consultarDashboard interno",
+        "consultarReportesBi interno",
+        "sin mutación propia"
+      ],
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "40–283"
+      },
+      "individual_note": "06-analisis-documental/individuales/INI.md"
+    }
+  ],
+  "entities": [
+    {
+      "id": "Activity",
+      "owner": "AGE/TAR",
+      "status": "source_static",
+      "fields": [
+        "type",
+        "assignee",
+        "status",
+        "starts/ends/all_day",
+        "description/result/checklist",
+        "contact/lead/deal/project refs",
+        "completed/deleted_at"
+      ],
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "201–217"
+      }
+    },
+    {
+      "id": "GoogleAccount/GoogleCalendar",
+      "owner": "AGE",
+      "status": "source_static",
+      "fields": [
+        "owner actor",
+        "selected/default",
+        "encrypted tokens"
+      ],
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "203–214"
+      }
+    },
+    {
+      "id": "ActivitySync",
+      "owner": "AGE",
+      "status": "schema_only_attributed",
+      "fields": [
+        "activity/external event mapping; use not evidenced"
+      ],
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "123–125,214"
+      }
+    },
+    {
+      "id": "VisitOutcome/Resource",
+      "owner": "AGE",
+      "status": "proposed",
+      "fields": [
+        "attendance",
+        "next step",
+        "room/resource",
+        "conflict policy"
+      ],
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "217–249"
+      }
+    },
+    {
+      "id": "TaskPack/Recurrence",
+      "owner": "TAR",
+      "status": "proposed",
+      "fields": [
+        "template/version",
+        "stage",
+        "instance",
+        "schedule/end",
+        "evidence"
+      ],
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "216,242–248"
+      }
+    },
+    {
+      "id": "HttpIdempotency",
+      "owner": "TAR",
+      "status": "source_static",
+      "fields": [
+        "actor/operation/key",
+        "payload hash",
+        "result; header optional"
+      ],
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "213"
+      }
+    },
+    {
+      "id": "MessageTemplate",
+      "owner": "COMU",
+      "status": "source_static",
+      "fields": [
+        "name/category/channel/body/variables/is_active"
+      ],
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "217"
+      }
+    },
+    {
+      "id": "IntegrationAccount",
+      "owner": "COMU",
+      "status": "source_static",
+      "fields": [
+        "provider",
+        "encrypted_credentials",
+        "status"
+      ],
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "219"
+      }
+    },
+    {
+      "id": "WebhookInbox",
+      "owner": "COMU/infra",
+      "status": "source_static",
+      "fields": [
+        "system/account/eventId/processedAt"
+      ],
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "220"
+      }
+    },
+    {
+      "id": "Outbox/OutboxDead",
+      "owner": "infra",
+      "status": "source_static",
+      "fields": [
+        "eventType",
+        "aggregateId",
+        "idempotencyKey",
+        "attempts/status"
+      ],
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "221"
+      }
+    },
+    {
+      "id": "AuditLog",
+      "owner": "transversal",
+      "status": "source_static",
+      "fields": [
+        "actor/action/entity",
+        "masked recipient",
+        "result",
+        "time"
+      ],
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "222"
+      }
+    },
+    {
+      "id": "Conversation/Message/Delivery",
+      "owner": "COMU",
+      "status": "proposed",
+      "fields": [
+        "thread/contact/channel",
+        "provider message id",
+        "delivery/read/error/bounce"
+      ],
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "225"
+      }
+    },
+    {
+      "id": "ChannelConsent/OptOut",
+      "owner": "CON/COMU",
+      "status": "proposed",
+      "fields": [
+        "contact/channel/purpose",
+        "evidence",
+        "grant/revoke time"
+      ],
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "225,231"
+      }
+    },
+    {
+      "id": "DispatchCampaign",
+      "owner": "COMU",
+      "status": "proposed",
+      "fields": [
+        "segment",
+        "schedule",
+        "frequency",
+        "status; not expense campaign"
+      ],
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "225"
+      }
+    },
+    {
+      "id": "AutomationDraft",
+      "owner": "AUT",
+      "status": "source_static_memory",
+      "fields": [
+        "name",
+        "trigger",
+        "condition",
+        "actions 1–4"
+      ],
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "217,224"
+      }
+    },
+    {
+      "id": "AutomationRule/AutomationRun",
+      "owner": "AUT",
+      "status": "proposed",
+      "fields": [
+        "rule/version/state/activation actor",
+        "event id",
+        "result/error"
+      ],
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "221–224"
+      }
+    },
+    {
+      "id": "FinancialApprovalRequest",
+      "owner": "APR",
+      "status": "schema_only_attributed",
+      "fields": [
+        "public_id",
+        "batch XOR entry",
+        "adjustment",
+        "version/hash",
+        "requested/decided",
+        "MFA/evidence/expiry"
+      ],
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "194"
+      }
+    },
+    {
+      "id": "ApprovalPolicy/GeneralApprovalCase",
+      "owner": "APR",
+      "status": "proposed_or_analysis_candidate",
+      "fields": [
+        "type/threshold/version",
+        "requester/approver",
+        "subject type/id",
+        "effect operation"
+      ],
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "43,58,171,234–237"
+      }
+    },
+    {
+      "id": "Document/DocumentVersion",
+      "owner": "DOC",
+      "status": "proposed",
+      "fields": [
+        "business/type/name/state/responsible",
+        "number/private path/hash/uploader"
+      ],
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "203–204"
+      }
+    },
+    {
+      "id": "SignatureEnvelope/Signer",
+      "owner": "DOC",
+      "status": "proposed",
+      "fields": [
+        "version/order/state",
+        "identity/time/seal/evidence"
+      ],
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "205–206"
+      }
+    },
+    {
+      "id": "KycCase",
+      "owner": "DOC",
+      "status": "proposed",
+      "fields": [
+        "contact/state/responsible/retention"
+      ],
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "207"
+      }
+    },
+    {
+      "id": "PortalPage/PortalSeo",
+      "owner": "POR",
+      "status": "proposed",
+      "fields": [
+        "block/title/version/state/author/approver",
+        "canonical/OG/language"
+      ],
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "205,207"
+      }
+    },
+    {
+      "id": "PortalPublication",
+      "owner": "POR/INV",
+      "status": "proposed",
+      "fields": [
+        "project/channel/material/validity",
+        "sync/receipt"
+      ],
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "206"
+      }
+    },
+    {
+      "id": "PortalAccess",
+      "owner": "POR",
+      "status": "hypothesis",
+      "fields": [
+        "external user/role/own scope/expiry"
+      ],
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "208"
+      }
+    },
+    {
+      "id": "Inspection/DeliveryIssue/HandoverAct",
+      "owner": "POS",
+      "status": "proposed",
+      "fields": [
+        "unit/date/responsible/requirements",
+        "issue/deadline/private evidence/state",
+        "act version/signed_at"
+      ],
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "222–224"
+      }
+    },
+    {
+      "id": "AfterSalesCase/Warranty",
+      "owner": "POS",
+      "status": "proposed",
+      "fields": [
+        "unit/deal/category/priority/state/responsible/SLA/customer confirmation",
+        "terms version/coverage/expiry/exceptions"
+      ],
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "220–221"
+      }
+    },
+    {
+      "id": "CommunityGroup/Membership",
+      "owner": "RED",
+      "status": "proposed",
+      "fields": [
+        "name/visibility/rules/responsible",
+        "group/broker/role/joined_at"
+      ],
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "211–212"
+      }
+    },
+    {
+      "id": "CommunityPost/Comment",
+      "owner": "RED",
+      "status": "proposed",
+      "fields": [
+        "author/group/content/state; no customer PII"
+      ],
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "213"
+      }
+    },
+    {
+      "id": "BuyerDemand/DemandInterest",
+      "owner": "RED",
+      "status": "proposed",
+      "fields": [
+        "zone/type/requirements/budget bands/state",
+        "broker/date/consent no contact release"
+      ],
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "214–215"
+      }
+    },
+    {
+      "id": "CommunityEvent/Registration",
+      "owner": "RED",
+      "status": "proposed",
+      "fields": [
+        "date/place/link/capacity",
+        "member/registration"
+      ],
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "216"
+      }
+    },
+    {
+      "id": "ContentReport/ModerationDecision",
+      "owner": "RED",
+      "status": "proposed",
+      "fields": [
+        "reason/evidence/decider/appeal/reviewer"
+      ],
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "217"
+      }
+    },
+    {
+      "id": "MoodleCourse/Category/Enrolment/Completion/Grade",
+      "owner": "Moodle",
+      "status": "external_source_attributed",
+      "fields": [
+        "LMS content/enrolment/progress/grade; prod unverified"
+      ],
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "235"
+      }
+    },
+    {
+      "id": "ExternalRef",
+      "owner": "ACA/infra",
+      "status": "source_static",
+      "fields": [
+        "entityType/localId/system=moodle/externalId"
+      ],
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "236"
+      }
+    },
+    {
+      "id": "AcademyItem/Checklist/LocalProgress",
+      "owner": "ACA",
+      "status": "source_static",
+      "fields": [
+        "local library/checklist/partial progress"
+      ],
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "237"
+      }
+    },
+    {
+      "id": "AcademyReviewRequest/Certificate",
+      "owner": "ACA",
+      "status": "source_static",
+      "fields": [
+        "broker/course/progress/evidence hash/status/decider",
+        "review/hash/code/status/issued_at"
+      ],
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "238–240"
+      }
+    },
+    {
+      "id": "DashboardProjection",
+      "owner": "INI",
+      "status": "read_model_proposed_not_table",
+      "fields": [
+        "sources",
+        "metric definition",
+        "scope",
+        "period/timezone",
+        "freshness/error"
+      ],
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "213–226"
+      }
+    },
+    {
+      "id": "Contact/Lead/Deal/Unit/Goal/User",
+      "owner": "other_modules",
+      "status": "referenced_dependency",
+      "fields": [
+        "link to CON/LEA/NEG/INV/MET/BRO/ACC; owned outside this group"
+      ],
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "217–223"
+      }
+    }
+  ],
+  "communications": [
+    {
+      "id": "OPS-E001",
+      "from": "AGE",
+      "to": "TAR",
+      "kind": "shared_data",
+      "payload": "activities; appointments distinct from tasks",
+      "status": "source_static",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "145"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E001"
+    },
+    {
+      "id": "OPS-E002",
+      "from": "AGE",
+      "to": "Google Calendar",
+      "kind": "command",
+      "payload": "create optional event after CRM commit, actor-owned calendar",
+      "status": "source_static",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "112–123"
+      },
+      "notes": "edit/cancel/inbound sync and durable mapping unverified",
+      "evidence_group": "OPS-E002"
+    },
+    {
+      "id": "OPS-E003",
+      "from": "Google Calendar",
+      "to": "AGE",
+      "kind": "event/reconciliation",
+      "payload": "external updates/cancellation/conflicts",
+      "status": "proposed",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "139–149"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E003"
+    },
+    {
+      "id": "OPS-E004",
+      "from": "AGE",
+      "to": "ICS client",
+      "kind": "export",
+      "payload": "period/scope-filtered ICS stable UID",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "115,125"
+      },
+      "notes": "Mon-Fri vs Mon-Sun; cancellation/all-day/version gaps",
+      "evidence_group": "OPS-E004"
+    },
+    {
+      "id": "OPS-E005",
+      "from": "AGE",
+      "to": "COMU",
+      "kind": "message_request",
+      "payload": "24h/1h reminder and customer confirmation",
+      "status": "proposed",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "150,229"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E005"
+    },
+    {
+      "id": "OPS-E006",
+      "from": "CON",
+      "to": "AGE",
+      "kind": "reference",
+      "payload": "authorized contact/lead/deal/project; lead transport missing",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "148,209"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E006"
+    },
+    {
+      "id": "OPS-E007",
+      "from": "LEA",
+      "to": "AGE",
+      "kind": "reference",
+      "payload": "authorized contact/lead/deal/project; lead transport missing",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "148,209"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E006"
+    },
+    {
+      "id": "OPS-E008",
+      "from": "NEG",
+      "to": "AGE",
+      "kind": "reference",
+      "payload": "authorized contact/lead/deal/project; lead transport missing",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "148,209"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E006"
+    },
+    {
+      "id": "OPS-E009",
+      "from": "INV",
+      "to": "AGE",
+      "kind": "reference",
+      "payload": "authorized contact/lead/deal/project; lead transport missing",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "148,209"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E006"
+    },
+    {
+      "id": "OPS-E010",
+      "from": "BRO",
+      "to": "AGE",
+      "kind": "authorization",
+      "payload": "assignee/team/active user/transfer/view-as",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "146–147,181–199"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E007"
+    },
+    {
+      "id": "OPS-E011",
+      "from": "ACC",
+      "to": "AGE",
+      "kind": "authorization",
+      "payload": "assignee/team/active user/transfer/view-as",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "146–147,181–199"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E007"
+    },
+    {
+      "id": "OPS-E012",
+      "from": "CFG",
+      "to": "AGE",
+      "kind": "configuration",
+      "payload": "timezone/reminder/collision/sync policy",
+      "status": "proposed",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "152"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E008"
+    },
+    {
+      "id": "OPS-E013",
+      "from": "AGE",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "upcoming appointments/attendance/no-show",
+      "status": "partial_source_static",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "151,158–161"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E009"
+    },
+    {
+      "id": "OPS-E014",
+      "from": "AGE",
+      "to": "REP",
+      "kind": "read_projection",
+      "payload": "upcoming appointments/attendance/no-show",
+      "status": "partial_source_static",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "151,158–161"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E009"
+    },
+    {
+      "id": "OPS-E015",
+      "from": "AGE",
+      "to": "Twenty",
+      "kind": "adapter",
+      "payload": "CalendarPort generic calendar mapping",
+      "status": "proposed_unconnected",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "129–141"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E010"
+    },
+    {
+      "id": "OPS-E016",
+      "from": "LEA",
+      "to": "TAR",
+      "kind": "event/command",
+      "payload": "lead received→SLA first-contact task/escalation",
+      "status": "proposed",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "73,146"
+      },
+      "notes": "lead_id not transported in generic task input",
+      "evidence_group": "OPS-E011"
+    },
+    {
+      "id": "OPS-E017",
+      "from": "NEG",
+      "to": "TAR",
+      "kind": "event/command",
+      "payload": "stage→pack; deal next action",
+      "status": "partial_source_static",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "120,132–145"
+      },
+      "notes": "next activity recomputation/versioned packs pending",
+      "evidence_group": "OPS-E012"
+    },
+    {
+      "id": "OPS-E018",
+      "from": "TAR",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "due/overdue task and escalation widgets",
+      "status": "proposed",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "149,158"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E013"
+    },
+    {
+      "id": "OPS-E019",
+      "from": "BRO",
+      "to": "TAR",
+      "kind": "authorization/command",
+      "payload": "assign task or transfer member workload",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "143–144,180–197"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E014"
+    },
+    {
+      "id": "OPS-E020",
+      "from": "ACC",
+      "to": "TAR",
+      "kind": "authorization/command",
+      "payload": "assign task or transfer member workload",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "143–144,180–197"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E014"
+    },
+    {
+      "id": "OPS-E021",
+      "from": "CFG",
+      "to": "TAR",
+      "kind": "configuration",
+      "payload": "response_sla/escalation_sla",
+      "status": "proposed_application",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "148"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E015"
+    },
+    {
+      "id": "OPS-E022",
+      "from": "TAR",
+      "to": "DOC",
+      "kind": "reference",
+      "payload": "secure evidence/KYC task link",
+      "status": "proposed",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "150"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E016"
+    },
+    {
+      "id": "OPS-E023",
+      "from": "TAR",
+      "to": "Twenty",
+      "kind": "adapter",
+      "payload": "generic task projection validated by QH rules",
+      "status": "proposed_unconnected",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "128–139"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E017"
+    },
+    {
+      "id": "OPS-E024",
+      "from": "YCloud",
+      "to": "COMU",
+      "kind": "webhook",
+      "payload": "signed WhatsApp inbound message/account/event id",
+      "status": "source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "130,142–145"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E018"
+    },
+    {
+      "id": "OPS-E025",
+      "from": "Meta",
+      "to": "COMU",
+      "kind": "webhook",
+      "payload": "signed WhatsApp inbound message/account/event id",
+      "status": "source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "130,142–145"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E018"
+    },
+    {
+      "id": "OPS-E026",
+      "from": "COMU",
+      "to": "LEA",
+      "kind": "command",
+      "payload": "capture/update external lead from phone",
+      "status": "source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "55,159"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E019"
+    },
+    {
+      "id": "OPS-E027",
+      "from": "COMU",
+      "to": "WhatsApp provider",
+      "kind": "command",
+      "payload": "template/message send through runtime adapter",
+      "status": "partial_source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "131–144"
+      },
+      "notes": "two adapters; canonical provider and template enforcement pending",
+      "evidence_group": "OPS-E020"
+    },
+    {
+      "id": "OPS-E028",
+      "from": "COMU",
+      "to": "Email provider",
+      "kind": "command",
+      "payload": "Resend integration adapter or simulated module adapter",
+      "status": "partial_source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "131–144"
+      },
+      "notes": "DNS/runtime and dispatch path not certified",
+      "evidence_group": "OPS-E021"
+    },
+    {
+      "id": "OPS-E029",
+      "from": "COMU",
+      "to": "Telegram",
+      "kind": "command",
+      "payload": "multichannel dispatch",
+      "status": "partial_source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "128,131,145"
+      },
+      "notes": "Telegram real/sim; SMS simulated in inspected adapter",
+      "evidence_group": "OPS-E022"
+    },
+    {
+      "id": "OPS-E030",
+      "from": "COMU",
+      "to": "SMS",
+      "kind": "command",
+      "payload": "multichannel dispatch",
+      "status": "partial_source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "128,131,145"
+      },
+      "notes": "Telegram real/sim; SMS simulated in inspected adapter",
+      "evidence_group": "OPS-E022"
+    },
+    {
+      "id": "OPS-E031",
+      "from": "COMU",
+      "to": "Webhook",
+      "kind": "command",
+      "payload": "multichannel dispatch",
+      "status": "partial_source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "128,131,145"
+      },
+      "notes": "Telegram real/sim; SMS simulated in inspected adapter",
+      "evidence_group": "OPS-E022"
+    },
+    {
+      "id": "OPS-E032",
+      "from": "CON",
+      "to": "COMU",
+      "kind": "policy/data",
+      "payload": "recipient channel/purpose consent and opt-out",
+      "status": "proposed",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "153,164,225"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E023"
+    },
+    {
+      "id": "OPS-E033",
+      "from": "COMU",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "dispatch audit/activity/delivery/campaign metrics",
+      "status": "partial_source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "166–180"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E024"
+    },
+    {
+      "id": "OPS-E034",
+      "from": "COMU",
+      "to": "REP",
+      "kind": "read_projection",
+      "payload": "dispatch audit/activity/delivery/campaign metrics",
+      "status": "partial_source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "166–180"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E024"
+    },
+    {
+      "id": "OPS-E035",
+      "from": "REP",
+      "to": "COMU",
+      "kind": "message_request",
+      "payload": "scheduled report email",
+      "status": "proposed",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "155"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E025"
+    },
+    {
+      "id": "OPS-E036",
+      "from": "CFG",
+      "to": "COMU",
+      "kind": "configuration/authorization",
+      "payload": "channel credentials/demo flags and full-scope dispatch",
+      "status": "partial_source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "156–158,202–211"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E026"
+    },
+    {
+      "id": "OPS-E037",
+      "from": "ACC",
+      "to": "COMU",
+      "kind": "configuration/authorization",
+      "payload": "channel credentials/demo flags and full-scope dispatch",
+      "status": "partial_source_static",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "156–158,202–211"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E026"
+    },
+    {
+      "id": "OPS-E038",
+      "from": "LEA",
+      "to": "AUT",
+      "kind": "event",
+      "payload": "lead-meta/lead-new/deal-no-action/stage-change",
+      "status": "proposed",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "141,224"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E027"
+    },
+    {
+      "id": "OPS-E039",
+      "from": "NEG",
+      "to": "AUT",
+      "kind": "event",
+      "payload": "lead-meta/lead-new/deal-no-action/stage-change",
+      "status": "proposed",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "141,224"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E027"
+    },
+    {
+      "id": "OPS-E040",
+      "from": "AUT",
+      "to": "BRO",
+      "kind": "command",
+      "payload": "assign lead/responsible",
+      "status": "proposed",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "129,145"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E028"
+    },
+    {
+      "id": "OPS-E041",
+      "from": "AUT",
+      "to": "TAR",
+      "kind": "command",
+      "payload": "create task via authorized domain",
+      "status": "proposed",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "129,142"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E029"
+    },
+    {
+      "id": "OPS-E042",
+      "from": "AUT",
+      "to": "COMU",
+      "kind": "draft/request",
+      "payload": "WhatsApp draft→human review→outbox",
+      "status": "proposed",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "102,114–117,193"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E030"
+    },
+    {
+      "id": "OPS-E043",
+      "from": "CON",
+      "to": "AUT",
+      "kind": "policy",
+      "payload": "current consent/opt-out/frequency gate",
+      "status": "proposed",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "144,194–195"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E031"
+    },
+    {
+      "id": "OPS-E044",
+      "from": "AUT",
+      "to": "Supervisor",
+      "kind": "notification",
+      "payload": "alert supervisor",
+      "status": "proposed",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "129,224"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E032"
+    },
+    {
+      "id": "OPS-E045",
+      "from": "Outbox",
+      "to": "AUT",
+      "kind": "read_monitor",
+      "payload": "pending/sent/failed/no-consumer counts",
+      "status": "source_static",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "152,163"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E033"
+    },
+    {
+      "id": "OPS-E046",
+      "from": "Dead",
+      "to": "AUT",
+      "kind": "read_monitor",
+      "payload": "pending/sent/failed/no-consumer counts",
+      "status": "source_static",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "152,163"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E033"
+    },
+    {
+      "id": "OPS-E047",
+      "from": "AUT",
+      "to": "Outbox",
+      "kind": "admin_command",
+      "payload": "retry after policy/MFA review",
+      "status": "proposed_no_endpoint",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "128,232,266"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E034"
+    },
+    {
+      "id": "OPS-E048",
+      "from": "AUT",
+      "to": "Dead",
+      "kind": "admin_command",
+      "payload": "retry after policy/MFA review",
+      "status": "proposed_no_endpoint",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "128,232,266"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E034"
+    },
+    {
+      "id": "OPS-E049",
+      "from": "ACC",
+      "to": "AUT",
+      "kind": "authorization",
+      "payload": "settings full scope and future action-level rights",
+      "status": "partial_source_static",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "146,201–211"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E035"
+    },
+    {
+      "id": "OPS-E050",
+      "from": "CFG",
+      "to": "AUT",
+      "kind": "authorization",
+      "payload": "settings full scope and future action-level rights",
+      "status": "partial_source_static",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "146,201–211"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E035"
+    },
+    {
+      "id": "OPS-E051",
+      "from": "NEG",
+      "to": "APR",
+      "kind": "request",
+      "payload": "discount/hold extension/commission settlement/contact merge",
+      "status": "proposed",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "43,97–106"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E036"
+    },
+    {
+      "id": "OPS-E052",
+      "from": "RES",
+      "to": "APR",
+      "kind": "request",
+      "payload": "discount/hold extension/commission settlement/contact merge",
+      "status": "proposed",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "43,97–106"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E036"
+    },
+    {
+      "id": "OPS-E053",
+      "from": "COM",
+      "to": "APR",
+      "kind": "request",
+      "payload": "discount/hold extension/commission settlement/contact merge",
+      "status": "proposed",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "43,97–106"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E036"
+    },
+    {
+      "id": "OPS-E054",
+      "from": "CON",
+      "to": "APR",
+      "kind": "request",
+      "payload": "discount/hold extension/commission settlement/contact merge",
+      "status": "proposed",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "43,97–106"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E036"
+    },
+    {
+      "id": "OPS-E055",
+      "from": "APR",
+      "to": "NEG",
+      "kind": "decision/effect",
+      "payload": "approved/rejected/expired/invalidated with version/hash",
+      "status": "proposed",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "109–117"
+      },
+      "notes": "atomic local effect or durable remote effect unresolved",
+      "evidence_group": "OPS-E037"
+    },
+    {
+      "id": "OPS-E056",
+      "from": "APR",
+      "to": "RES",
+      "kind": "decision/effect",
+      "payload": "approved/rejected/expired/invalidated with version/hash",
+      "status": "proposed",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "109–117"
+      },
+      "notes": "atomic local effect or durable remote effect unresolved",
+      "evidence_group": "OPS-E037"
+    },
+    {
+      "id": "OPS-E057",
+      "from": "APR",
+      "to": "COM",
+      "kind": "decision/effect",
+      "payload": "approved/rejected/expired/invalidated with version/hash",
+      "status": "proposed",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "109–117"
+      },
+      "notes": "atomic local effect or durable remote effect unresolved",
+      "evidence_group": "OPS-E037"
+    },
+    {
+      "id": "OPS-E058",
+      "from": "APR",
+      "to": "CON",
+      "kind": "decision/effect",
+      "payload": "approved/rejected/expired/invalidated with version/hash",
+      "status": "proposed",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "109–117"
+      },
+      "notes": "atomic local effect or durable remote effect unresolved",
+      "evidence_group": "OPS-E037"
+    },
+    {
+      "id": "OPS-E059",
+      "from": "DOC",
+      "to": "APR",
+      "kind": "reference",
+      "payload": "evidence_id/file version",
+      "status": "proposed",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "129,194,212"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E038"
+    },
+    {
+      "id": "OPS-E060",
+      "from": "ACC",
+      "to": "APR",
+      "kind": "step_up/authorization",
+      "payload": "financial_approvals and operation-bound MFA",
+      "status": "proposed_unwired",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "126,137,205"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E039"
+    },
+    {
+      "id": "OPS-E061",
+      "from": "MFA",
+      "to": "APR",
+      "kind": "step_up/authorization",
+      "payload": "financial_approvals and operation-bound MFA",
+      "status": "proposed_unwired",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "126,137,205"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E039"
+    },
+    {
+      "id": "OPS-E062",
+      "from": "INI",
+      "to": "APR",
+      "kind": "navigation",
+      "payload": "Review approvals deep link",
+      "status": "source_static_to_demo",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "128,139"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E040"
+    },
+    {
+      "id": "OPS-E063",
+      "from": "NEG",
+      "to": "DOC",
+      "kind": "reference",
+      "payload": "business/contact dossier links",
+      "status": "proposed",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "133"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E041"
+    },
+    {
+      "id": "OPS-E064",
+      "from": "CON",
+      "to": "DOC",
+      "kind": "reference",
+      "payload": "business/contact dossier links",
+      "status": "proposed",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "133"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E041"
+    },
+    {
+      "id": "OPS-E065",
+      "from": "DOC",
+      "to": "Private Storage",
+      "kind": "command/query",
+      "payload": "private upload/scan/immutable bytes/signed download",
+      "status": "proposed",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "118–121,130–147"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E042"
+    },
+    {
+      "id": "OPS-E066",
+      "from": "DOC",
+      "to": "Signature",
+      "kind": "command/webhook",
+      "payload": "envelope identity/signatures/KYC lists",
+      "status": "proposed_provider_unselected",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "120–121,145"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E043"
+    },
+    {
+      "id": "OPS-E067",
+      "from": "DOC",
+      "to": "ID Provider",
+      "kind": "command/webhook",
+      "payload": "envelope identity/signatures/KYC lists",
+      "status": "proposed_provider_unselected",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "120–121,145"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E043"
+    },
+    {
+      "id": "OPS-E068",
+      "from": "DOC",
+      "to": "RES",
+      "kind": "reference",
+      "payload": "evidence IDs and authorized versions",
+      "status": "proposed",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "135,33"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E044"
+    },
+    {
+      "id": "OPS-E069",
+      "from": "DOC",
+      "to": "APR",
+      "kind": "reference",
+      "payload": "evidence IDs and authorized versions",
+      "status": "proposed",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "135,33"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E044"
+    },
+    {
+      "id": "OPS-E070",
+      "from": "DOC",
+      "to": "POR",
+      "kind": "private_access",
+      "payload": "external own dossier signed links",
+      "status": "proposed",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "85,136"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E045"
+    },
+    {
+      "id": "OPS-E071",
+      "from": "NEG",
+      "to": "POS",
+      "kind": "event/reference",
+      "payload": "sale/deal/unit triggers handover/service context",
+      "status": "proposed",
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "140–141,155"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E046"
+    },
+    {
+      "id": "OPS-E072",
+      "from": "INV",
+      "to": "POS",
+      "kind": "event/reference",
+      "payload": "sale/deal/unit triggers handover/service context",
+      "status": "proposed",
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "140–141,155"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E046"
+    },
+    {
+      "id": "OPS-E073",
+      "from": "POS",
+      "to": "AGE",
+      "kind": "command",
+      "payload": "inspection slot/responsible/date",
+      "status": "proposed",
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "125,143,158"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E047"
+    },
+    {
+      "id": "OPS-E074",
+      "from": "POS",
+      "to": "DOC",
+      "kind": "command/reference",
+      "payload": "private defect evidence/warranty terms/signed handover act",
+      "status": "proposed",
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "126–131,142,157"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E048"
+    },
+    {
+      "id": "OPS-E075",
+      "from": "POS",
+      "to": "COMU",
+      "kind": "message_request",
+      "payload": "customer service/handover notices",
+      "status": "proposed",
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "144"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E049"
+    },
+    {
+      "id": "OPS-E076",
+      "from": "CON",
+      "to": "POS",
+      "kind": "reference/policy",
+      "payload": "customer and charge consent",
+      "status": "proposed",
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "146"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E050"
+    },
+    {
+      "id": "OPS-E077",
+      "from": "POS",
+      "to": "APR",
+      "kind": "request",
+      "payload": "out-of-warranty charge/exception approval",
+      "status": "proposed_unwired",
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "130,145,156"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E051"
+    },
+    {
+      "id": "OPS-E078",
+      "from": "POS",
+      "to": "POR",
+      "kind": "read_projection",
+      "payload": "customer case tracking",
+      "status": "proposed",
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "240"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E052"
+    },
+    {
+      "id": "OPS-E079",
+      "from": "INV",
+      "to": "Public Site",
+      "kind": "publish_command",
+      "payload": "approved property/project public projection/withdrawal/receipt",
+      "status": "proposed_unconnected",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "109–113,131–149"
+      },
+      "notes": "canonical domain and authority by field unresolved",
+      "evidence_group": "OPS-E053"
+    },
+    {
+      "id": "OPS-E080",
+      "from": "INV",
+      "to": "Channels",
+      "kind": "publish_command",
+      "payload": "approved property/project public projection/withdrawal/receipt",
+      "status": "proposed_unconnected",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "109–113,131–149"
+      },
+      "notes": "canonical domain and authority by field unresolved",
+      "evidence_group": "OPS-E053"
+    },
+    {
+      "id": "OPS-E081",
+      "from": "PortalPublisher",
+      "to": "Public Site",
+      "kind": "publish_command",
+      "payload": "approved property/project public projection/withdrawal/receipt",
+      "status": "proposed_unconnected",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "109–113,131–149"
+      },
+      "notes": "canonical domain and authority by field unresolved",
+      "evidence_group": "OPS-E053"
+    },
+    {
+      "id": "OPS-E082",
+      "from": "PortalPublisher",
+      "to": "Channels",
+      "kind": "publish_command",
+      "payload": "approved property/project public projection/withdrawal/receipt",
+      "status": "proposed_unconnected",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "109–113,131–149"
+      },
+      "notes": "canonical domain and authority by field unresolved",
+      "evidence_group": "OPS-E053"
+    },
+    {
+      "id": "OPS-E083",
+      "from": "Public Site",
+      "to": "LEA",
+      "kind": "inquiry",
+      "payload": "externalId/UTM/customer inquiry and privacy evidence",
+      "status": "partial_source_static",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "122,144–146"
+      },
+      "notes": "consent not required by attributed legacy input",
+      "evidence_group": "OPS-E054"
+    },
+    {
+      "id": "OPS-E084",
+      "from": "Public Site",
+      "to": "CON",
+      "kind": "inquiry",
+      "payload": "externalId/UTM/customer inquiry and privacy evidence",
+      "status": "partial_source_static",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "122,144–146"
+      },
+      "notes": "consent not required by attributed legacy input",
+      "evidence_group": "OPS-E054"
+    },
+    {
+      "id": "OPS-E085",
+      "from": "CFG",
+      "to": "POR",
+      "kind": "configuration",
+      "payload": "SEO preview not publication command",
+      "status": "source_static_demo",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "54,88,135"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E055"
+    },
+    {
+      "id": "OPS-E086",
+      "from": "POR",
+      "to": "Buyer",
+      "kind": "access/query",
+      "payload": "external own portal account/expiry/dossier/project",
+      "status": "hypothesis",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "73,123,148,208"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E056"
+    },
+    {
+      "id": "OPS-E087",
+      "from": "POR",
+      "to": "Developer Identity",
+      "kind": "access/query",
+      "payload": "external own portal account/expiry/dossier/project",
+      "status": "hypothesis",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "73,123,148,208"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E056"
+    },
+    {
+      "id": "OPS-E088",
+      "from": "BRO",
+      "to": "POR",
+      "kind": "policy",
+      "payload": "broker customer protection for portal leads",
+      "status": "proposed",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "221"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E057"
+    },
+    {
+      "id": "OPS-E089",
+      "from": "BRO",
+      "to": "RED",
+      "kind": "identity/membership",
+      "payload": "active accredited broker/directory",
+      "status": "proposed",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "139,150"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E058"
+    },
+    {
+      "id": "OPS-E090",
+      "from": "RED",
+      "to": "BRO",
+      "kind": "agreement_request",
+      "payload": "co-broke agreement before customer access",
+      "status": "proposed_boundary_unresolved",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "125,186,258"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E059"
+    },
+    {
+      "id": "OPS-E091",
+      "from": "CON",
+      "to": "RED",
+      "kind": "policy",
+      "payload": "anonymization/consent without customer identifiers",
+      "status": "proposed",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "140,185–190"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E060"
+    },
+    {
+      "id": "OPS-E092",
+      "from": "RED",
+      "to": "COMU",
+      "kind": "message_request",
+      "payload": "event registration reminders/moderation decision",
+      "status": "proposed",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "141,151–153,230"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E061"
+    },
+    {
+      "id": "OPS-E093",
+      "from": "ACC",
+      "to": "RED",
+      "kind": "authorization",
+      "payload": "community view/create/edit/moderate and group visibility",
+      "status": "proposed",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "142,196–205"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E062"
+    },
+    {
+      "id": "OPS-E094",
+      "from": "CFG",
+      "to": "RED",
+      "kind": "authorization",
+      "payload": "community view/create/edit/moderate and group visibility",
+      "status": "proposed",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "142,196–205"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E062"
+    },
+    {
+      "id": "OPS-E095",
+      "from": "RED",
+      "to": "Independent Moderator",
+      "kind": "decision/appeal",
+      "payload": "reported content decision/review by different actor",
+      "status": "proposed",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "72–75,101–102,188"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E063"
+    },
+    {
+      "id": "OPS-E096",
+      "from": "RED",
+      "to": "BRO",
+      "kind": "read_projection",
+      "payload": "verified reputation/ranking signals",
+      "status": "proposed",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "189,231"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E064"
+    },
+    {
+      "id": "OPS-E097",
+      "from": "RED",
+      "to": "MET",
+      "kind": "read_projection",
+      "payload": "verified reputation/ranking signals",
+      "status": "proposed",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "189,231"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E064"
+    },
+    {
+      "id": "OPS-E098",
+      "from": "ACA",
+      "to": "Moodle",
+      "kind": "command/query",
+      "payload": "REST create course/ensure user/enrol/grades/completion/deep-link",
+      "status": "source_static_prod_unverified",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "151–166"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E065"
+    },
+    {
+      "id": "OPS-E099",
+      "from": "Moodle",
+      "to": "ACA",
+      "kind": "snapshot/evidence",
+      "payload": "courses/categories/progress/grades/finalization",
+      "status": "source_static_prod_unverified",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "151–153,235"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E066"
+    },
+    {
+      "id": "OPS-E100",
+      "from": "ACA",
+      "to": "QH Review",
+      "kind": "domain_command",
+      "payload": "Q-C1-03 independent review/issue/revoke server hash",
+      "status": "source_static",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "136–138,238–240"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E067"
+    },
+    {
+      "id": "OPS-E101",
+      "from": "ACA",
+      "to": "Certificate",
+      "kind": "domain_command",
+      "payload": "Q-C1-03 independent review/issue/revoke server hash",
+      "status": "source_static",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "136–138,238–240"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E067"
+    },
+    {
+      "id": "OPS-E102",
+      "from": "BRO",
+      "to": "ACA",
+      "kind": "identity/authorization",
+      "payload": "CRM↔Moodle user ref and academy scopes",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "156–158,219–241"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E068"
+    },
+    {
+      "id": "OPS-E103",
+      "from": "ACC",
+      "to": "ACA",
+      "kind": "identity/authorization",
+      "payload": "CRM↔Moodle user ref and academy scopes",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "156–158,219–241"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E068"
+    },
+    {
+      "id": "OPS-E104",
+      "from": "CFG",
+      "to": "ACA",
+      "kind": "configuration",
+      "payload": "Moodle URL/token server-side, local health not prod",
+      "status": "source_static_prod_unverified",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "155,164–166,244"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E069"
+    },
+    {
+      "id": "OPS-E105",
+      "from": "ACA",
+      "to": "COMU",
+      "kind": "message_request",
+      "payload": "course due/renewal reminders through MessagingPort",
+      "status": "proposed_no_wiring",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "157,167,256"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E070"
+    },
+    {
+      "id": "OPS-E106",
+      "from": "ACA",
+      "to": "BRO",
+      "kind": "policy_signal",
+      "payload": "valid certification may gate onboarding/goals/commissions",
+      "status": "business_question",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "181,255,293"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E071"
+    },
+    {
+      "id": "OPS-E107",
+      "from": "ACA",
+      "to": "MET",
+      "kind": "policy_signal",
+      "payload": "valid certification may gate onboarding/goals/commissions",
+      "status": "business_question",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "181,255,293"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E071"
+    },
+    {
+      "id": "OPS-E108",
+      "from": "ACA",
+      "to": "COM",
+      "kind": "policy_signal",
+      "payload": "valid certification may gate onboarding/goals/commissions",
+      "status": "business_question",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "181,255,293"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E071"
+    },
+    {
+      "id": "OPS-E109",
+      "from": "LEA",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "143–170,213–226"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E072"
+    },
+    {
+      "id": "OPS-E110",
+      "from": "NEG",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "143–170,213–226"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E072"
+    },
+    {
+      "id": "OPS-E111",
+      "from": "TAR",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "143–170,213–226"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E072"
+    },
+    {
+      "id": "OPS-E112",
+      "from": "AGE",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "143–170,213–226"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E072"
+    },
+    {
+      "id": "OPS-E113",
+      "from": "INV",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "143–170,213–226"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E072"
+    },
+    {
+      "id": "OPS-E114",
+      "from": "MET",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "143–170,213–226"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E072"
+    },
+    {
+      "id": "OPS-E115",
+      "from": "ACA",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "143–170,213–226"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E072"
+    },
+    {
+      "id": "OPS-E116",
+      "from": "REP",
+      "to": "INI",
+      "kind": "read_projection",
+      "payload": "canonical funnel and shared URL filters",
+      "status": "source_static",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "118–120,152"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E073"
+    },
+    {
+      "id": "OPS-E117",
+      "from": "INI",
+      "to": "COMU",
+      "kind": "navigation",
+      "payload": "wa.me prefilled lead name/project",
+      "status": "source_static_privacy_gap",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "121,154,198"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E074"
+    },
+    {
+      "id": "OPS-E118",
+      "from": "INI",
+      "to": "WhatsApp Link",
+      "kind": "navigation",
+      "payload": "wa.me prefilled lead name/project",
+      "status": "source_static_privacy_gap",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "121,154,198"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E074"
+    },
+    {
+      "id": "OPS-E119",
+      "from": "INI",
+      "to": "Module Destination",
+      "kind": "navigation",
+      "payload": "conditional CTA and resource reauthorization",
+      "status": "source_static",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "65–66,82,122–124"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E075"
+    },
+    {
+      "id": "OPS-E120",
+      "from": "ACC",
+      "to": "INI",
+      "kind": "authorization/config",
+      "payload": "page/resource scopes, view-as, demo flags, RD timezone",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "145,155,188–209"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E076"
+    },
+    {
+      "id": "OPS-E121",
+      "from": "CFG",
+      "to": "INI",
+      "kind": "authorization/config",
+      "payload": "page/resource scopes, view-as, demo flags, RD timezone",
+      "status": "source_static_with_gaps",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "145,155,188–209"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E076"
+    },
+    {
+      "id": "OPS-E122",
+      "from": "Twenty",
+      "to": "INI",
+      "kind": "visual/read_adapter",
+      "payload": "generic dashboard shell/widgets, domain controls values/scope",
+      "status": "proposed_unconnected",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "128–141"
+      },
+      "notes": "",
+      "evidence_group": "OPS-E077"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "OPS-D01",
+      "title": "Autoridad catálogo y dominio canónico",
+      "status": "open_proposal",
+      "detail": "POR propone INV→PortalPublisher→quisqueyahome.com; contrastar portal local real y propuesta anterior de autoridad editorial portal",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "32,131–149"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D02",
+      "title": "SoT física genérica Twenty/QH",
+      "status": "open_proposal",
+      "detail": "No elegir por etiqueta ADR ACEPTADO en fuente; definir IDs, dirección y conflictos de actividades/tasks/calendario/widgets",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "139–141"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D03",
+      "title": "Gobierno WA automático",
+      "status": "open_proposal",
+      "detail": "AUT exige revisión humana por envío, AGE plantea recordatorios automáticos; definir aprobación por plantilla/regla/mensaje",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "102,193–195"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D04",
+      "title": "Motor de aprobación general",
+      "status": "open_proposal",
+      "detail": "Tabla financiera batch XOR entry no cubre por sí sola descuentos/holds/fusiones; fijar caso/política/atomicidad del efecto",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "43,117,194"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D05",
+      "title": "Identidad externa",
+      "status": "open_proposal",
+      "detail": "Comprador/promotor son hipótesis y brokers externos/red no implican producto SaaS multiempresa",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "73,184,208"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D06",
+      "title": "Límites jurídicos documental/posventa",
+      "status": "open_proposal",
+      "detail": "Validar sujeto obligado KYC, retención/firma/garantías con asesoría; no importar obligación de fuente como dictamen",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "35,245–250"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D07",
+      "title": "Modelo actividades y resultado",
+      "status": "open_proposal",
+      "detail": "Distinguir cita/tarea/visita, due_at vs starts_at, resultado estructurado y next action",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "99–109,120,242–248"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D08",
+      "title": "Política privacidad transversal",
+      "status": "open_proposal",
+      "detail": "Consentimiento evidencia/canal/finalidad y opt-out; no inferir desde fecha creada ni OAuth técnico",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "164,197–198,225"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D09",
+      "title": "Origen de métricas",
+      "status": "open_proposal",
+      "detail": "INI Academy local vs ACA Moodle y conversión no cohorte; cada widget exige source/definition/period/scope/freshness",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "117–119,161–170"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D10",
+      "title": "Permisos específicos",
+      "status": "open_proposal",
+      "detail": "Sustituir guards provisionales deals/projects/brokers/settings por recursos de cada dominio; manager team no ampliar all",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "58,188–197"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    },
+    {
+      "id": "OPS-D11",
+      "title": "Alcance de add-ons",
+      "status": "open_proposal",
+      "detail": "Conservar AUT/APR/DOC/POR/POS/RED como capacidades futuras completas, sin activarlas por esta extracción",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "37,225"
+      },
+      "owner": "Wilber + D01/D02/D03 según materia"
+    }
+  ],
+  "questions": [
+    {
+      "id": "OPS-Q01",
+      "text": "¿Cuál dominio/repositorio/canal es canónico y quién opera la publicación?",
+      "owner": "Wilber/operador portal",
+      "status": "open",
+      "blocks": "G2",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "247–250"
+      }
+    },
+    {
+      "id": "OPS-Q02",
+      "text": "¿Quién posee proyecto editorial, unidad, disponibilidad y precio público/negociado?",
+      "owner": "Wilber/D03/INV/POR",
+      "status": "open",
+      "blocks": "G2",
+      "source": {
+        "source": "POR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+        "lines": "131–149,178"
+      }
+    },
+    {
+      "id": "OPS-Q03",
+      "text": "¿Registro genérico en Twenty o QH y cómo se conservan IDs/versiones/reintentos?",
+      "owner": "D03/D19",
+      "status": "open",
+      "blocks": "G2",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "139–141,249"
+      }
+    },
+    {
+      "id": "OPS-Q04",
+      "text": "¿Gerente puede asignar al equipo, y team∩team debe conservar team?",
+      "owner": "Wilber/ACC",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "115,255"
+      }
+    },
+    {
+      "id": "OPS-Q05",
+      "text": "¿ICS cubre lunes–domingo, cancelación/all-day y actualizaciones?",
+      "owner": "operación AGE",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "AGE",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+        "lines": "125,245"
+      }
+    },
+    {
+      "id": "OPS-Q06",
+      "text": "¿Qué evidencia estructurada acredita tarea/visita, no plantilla ni no-show/cancelación mezclados?",
+      "owner": "operación TAR/AGE",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "TAR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+        "lines": "109,246"
+      }
+    },
+    {
+      "id": "OPS-Q07",
+      "text": "¿WA humano por cada envío o plantilla/regla aprobada para recordatorios, y qué finalidad/opt-out?",
+      "owner": "Wilber/COMU/privacidad",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "193–195"
+      }
+    },
+    {
+      "id": "OPS-Q08",
+      "text": "¿Proveedor WA runtime y puerto único; Resend/DNS y delivery/unknown disponibles?",
+      "owner": "operación D19/CFG",
+      "status": "open",
+      "blocks": "G2",
+      "source": {
+        "source": "COMU",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+        "lines": "265–268"
+      }
+    },
+    {
+      "id": "OPS-Q09",
+      "text": "¿Políticas/umbrales y MFA operation-bound; tabla general o separada, y quién decide?",
+      "owner": "dirección/APR/ACC",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "APR",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+        "lines": "234–237"
+      }
+    },
+    {
+      "id": "OPS-Q10",
+      "text": "¿Storage/firma/ID y retención aprobados; QH sujeto obligado KYC?",
+      "owner": "legal/privacidad/Wilber",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "DOC",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+        "lines": "247–250"
+      }
+    },
+    {
+      "id": "OPS-Q11",
+      "text": "¿Garantías/SLA/confirmación cliente/cobro externo y acta DOC tienen reglas aceptadas?",
+      "owner": "operación POS/legal",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "POS",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+        "lines": "267–269"
+      }
+    },
+    {
+      "id": "OPS-Q12",
+      "text": "¿Comunidad entra, quién modera y qué acuerdo libera contacto sin reidentificación?",
+      "owner": "Wilber/BRO/RED",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "RED",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+        "lines": "257–259"
+      }
+    },
+    {
+      "id": "OPS-Q13",
+      "text": "¿Credenciales/curso Moodle productivos, SSO y vigencia por curso?",
+      "owner": "Wilber/CFG/ACA",
+      "status": "open",
+      "blocks": "G2",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "292–295"
+      }
+    },
+    {
+      "id": "OPS-Q14",
+      "text": "¿Certificación condiciona onboarding/metas/comisiones o solo informa?",
+      "owner": "dirección BRO/MET/COM",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "ACA",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+        "lines": "255,293"
+      }
+    },
+    {
+      "id": "OPS-Q15",
+      "text": "¿Qué incluye Mi día, qué métricas/cohortes/monedas y qué meta/progreso fuente por rol?",
+      "owner": "dirección/INI/REP",
+      "status": "open",
+      "blocks": "G1",
+      "source": {
+        "source": "INI",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+        "lines": "255–259"
+      }
+    },
+    {
+      "id": "OPS-Q16",
+      "text": "¿Versionado y replay reglas AUT, recurrencia/fin tareas y pausa/retry con MFA?",
+      "owner": "D03/operación AUT/TAR",
+      "status": "open",
+      "blocks": "G2",
+      "source": {
+        "source": "AUT",
+        "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+        "lines": "191–197,264–266"
+      }
+    }
+  ],
+  "communication_groups_count": 77,
+  "communication_count": 122
+}

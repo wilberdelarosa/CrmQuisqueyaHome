@@ -1,0 +1,3099 @@
+{
+  "note": "Relaciones extraídas con fuente/estado; no equivalen a APIs o conexiones implementadas independientes.",
+  "edges": [
+    {
+      "id": "EDGE-COM-001",
+      "from": "ACC",
+      "to": "ALL",
+      "meaning": "Autorización efectiva none/own/team/all; filtros registro/campo; preview readOnly",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 43,
+          "lineEnd": 69
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-002",
+      "from": "SUPABASE_AUTH",
+      "to": "ACC",
+      "meaning": "Autenticación/sesión/recuperación",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 123,
+          "lineEnd": 131
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-003",
+      "from": "ACC",
+      "to": "TWENTY",
+      "meaning": "users→workspace members con permisos mínimos, sync pendiente",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 125,
+          "lineEnd": 126
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-004",
+      "from": "CFG",
+      "to": "ACC",
+      "meaning": "Matriz/overrides/manager_scopes; admin protegido",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 51,
+          "lineEnd": 58
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-005",
+      "from": "ACC",
+      "to": "BRO",
+      "meaning": "Baja exige transferencia cartera y auditoría preview",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 59,
+          "lineEnd": 68
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-006",
+      "from": "BRO",
+      "to": "INV",
+      "meaning": "PUT proyectos aplica diff sobre projects.broker_id, all",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 138,
+          "lineEnd": 149
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-007",
+      "from": "BRO",
+      "to": "ACC",
+      "meaning": "POST/DELETE ver-como con rol+team",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 142,
+          "lineEnd": 145
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-008",
+      "from": "MET",
+      "to": "ACC",
+      "meaning": "teams/members y supervisión scopes no son lo mismo",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 214,
+          "lineEnd": 229
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-009",
+      "from": "PORTAL",
+      "to": "LEA",
+      "meaning": "Captura vía gateway con externalId/UTM/proyecto/mensaje",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 260,
+          "lineEnd": 276
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-010",
+      "from": "META_LEAD_ADS",
+      "to": "LEA",
+      "meaning": "Leadgen firmado; credenciales productivas pendientes",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 262,
+          "lineEnd": 264
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-011",
+      "from": "WHATSAPP",
+      "to": "LEA",
+      "meaning": "Webhook YCloud/Cloud API normaliza por teléfono",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 265,
+          "lineEnd": 266
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-012",
+      "from": "INSTAGRAM",
+      "to": "LEA",
+      "meaning": "Captura vía Meta hipótesis; sin enlace directo acreditado",
+      "status": "proposal_not_accepted",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 266,
+          "lineEnd": 269
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-013",
+      "from": "LEA",
+      "to": "CON",
+      "meaning": "Crear/reusar identidad, consentimiento implícito sin evidencia",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 135,
+          "lineEnd": 146
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-014",
+      "from": "LEA",
+      "to": "BRO",
+      "meaning": "Sugerir sin asignar; solo broker toma lead",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 239,
+          "lineEnd": 250
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-015",
+      "from": "BRO",
+      "to": "LEA",
+      "meaning": "Round-robin/turnos/carga/idioma/ponds necesitan decisión #21",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 243,
+          "lineEnd": 250
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-016",
+      "from": "LEA",
+      "to": "NEG",
+      "meaning": "Convertir con permisos dobles y transacción; Nuevo primera abierta",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 138,
+          "lineEnd": 140
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-017",
+      "from": "AGE",
+      "to": "LEA",
+      "meaning": "Actividad contacto escribe first_contacted_at; cobertura caminos pendiente",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 171,
+          "lineEnd": 183
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-018",
+      "from": "TAR",
+      "to": "LEA",
+      "meaning": "Follow-up y SLA; writers por validar",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 273,
+          "lineEnd": 279
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-019",
+      "from": "LEA",
+      "to": "AUT",
+      "meaning": "SLA/auto-reasignación/secuelas futuras, no motor entregado",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 279,
+          "lineEnd": 280
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-020",
+      "from": "LEA",
+      "to": "REP",
+      "meaning": "Embudo/canales/Speed-to-Lead/CPL parcial",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 333,
+          "lineEnd": 341
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-021",
+      "from": "LEA",
+      "to": "TWENTY",
+      "meaning": "Persona/oportunidad genérica como proyección; contrato P0",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 285,
+          "lineEnd": 297
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-022",
+      "from": "CON",
+      "to": "COMU",
+      "meaning": "Preferencias/opt-out durable antes dispatch y reintentos",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 237,
+          "lineEnd": 250
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-023",
+      "from": "CON",
+      "to": "INV",
+      "meaning": "Demanda/matching puro; persistencia y alertas pendientes",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 181,
+          "lineEnd": 182
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-024",
+      "from": "CON",
+      "to": "DOC",
+      "meaning": "Expediente/KYC privado add-on, no incluido export actual",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 182,
+          "lineEnd": 184
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-025",
+      "from": "AGE",
+      "to": "CON",
+      "meaning": "Actividades/last_interaction_at, timeline integral pendiente",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 174,
+          "lineEnd": 178
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-026",
+      "from": "TAR",
+      "to": "CON",
+      "meaning": "Actividades de seguimiento, permisos por relación",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 174,
+          "lineEnd": 178
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-027",
+      "from": "CON",
+      "to": "TWENTY",
+      "meaning": "Persona/cuenta/UI genérico; QH privacidad/identidad, sync pendiente",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 189,
+          "lineEnd": 204
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-028",
+      "from": "NEG",
+      "to": "INV",
+      "meaning": "Intereses/principal; cierre venta sold o alquiler reserved mediante compromisos",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 138,
+          "lineEnd": 155
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-029",
+      "from": "NEG",
+      "to": "RES",
+      "meaning": "Compromiso protege cierre, UI Reservas no queda aprobada",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 189,
+          "lineEnd": 194
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-030",
+      "from": "NEG",
+      "to": "COM",
+      "meaning": "Cierre ganado crea comisión pending única atómica",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 135,
+          "lineEnd": 140
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-031",
+      "from": "NEG",
+      "to": "MET",
+      "meaning": "Cierre incrementa logro y congela atribución; firma/reserva pendiente",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 155,
+          "lineEnd": 169
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-032",
+      "from": "NEG",
+      "to": "BRO",
+      "meaning": "Cierre actualiza annual_sales y nivel si perfil",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 155,
+          "lineEnd": 155
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-033",
+      "from": "NEG",
+      "to": "AGE",
+      "meaning": "Guardas actividad y cancelación futuras al cerrar",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 141,
+          "lineEnd": 155
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-034",
+      "from": "NEG",
+      "to": "TAR",
+      "meaning": "Próxima acción y cancelación pendientes tras cierre",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 141,
+          "lineEnd": 157
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-035",
+      "from": "NEG",
+      "to": "OUTBOX",
+      "meaning": "NegocioCambioEtapa {id,stageId}→crm.reflejarNegocio; no CAPI",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 222,
+          "lineEnd": 226
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-036",
+      "from": "OUTBOX",
+      "to": "TWENTY",
+      "meaning": "Proyección vía puerto crm; adapter específico pendiente",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 220,
+          "lineEnd": 225
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-037",
+      "from": "NEG",
+      "to": "META_CAPI",
+      "meaning": "Stage map/event_id/elegibilidad/reintentos/EventsManager pendientes",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 222,
+          "lineEnd": 226
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-038",
+      "from": "NEG",
+      "to": "APR",
+      "meaning": "Descuentos/propuestas requieren aprobación real, hoy preview",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 204,
+          "lineEnd": 220
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-039",
+      "from": "NEG",
+      "to": "DOC",
+      "meaning": "KYC/PDF/enlaces privados y guardas documentales no acreditados",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 204,
+          "lineEnd": 220
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-040",
+      "from": "NEG",
+      "to": "COMU",
+      "meaning": "Contactar/propuesta futura; entrega no probada",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 197,
+          "lineEnd": 198
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-041",
+      "from": "NEG",
+      "to": "REP",
+      "meaning": "Embudo/valores/previsión/cierres por moneda",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 230,
+          "lineEnd": 244
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-042",
+      "from": "INV",
+      "to": "RES",
+      "meaning": "Unidades/precio y read model de commitments/holds",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 207,
+          "lineEnd": 217
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-043",
+      "from": "RES",
+      "to": "INV",
+      "meaning": "Alta/liberación/expiración/cambio de compromiso; nunca CRUD status",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 118,
+          "lineEnd": 145
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-044",
+      "from": "INV",
+      "to": "TWENTY",
+      "meaning": "Custom objects opcionales solo proyección o entrada comando QH",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 191,
+          "lineEnd": 209
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-045",
+      "from": "INV",
+      "to": "PORTAL_PUBLISHER",
+      "meaning": "Aprobación→publicación/retiro/actualización pública saneada",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 209,
+          "lineEnd": 246
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-046",
+      "from": "PORTAL_PUBLISHER",
+      "to": "PORTAL",
+      "meaning": "Catálogo público por canal; acuse/error/retiro contrato pendiente",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 228,
+          "lineEnd": 246
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-047",
+      "from": "PORTAL",
+      "to": "INV",
+      "meaning": "Acuse/error/solicitud no altera stock directamente",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 228,
+          "lineEnd": 246
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-048",
+      "from": "STUDIO",
+      "to": "PORTAL",
+      "meaning": "Narrativa/SEO/editorial con workflow propio, no tablas saltadas por CRM",
+      "status": "documented_baseline_not_new_acceptance",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 193,
+          "lineEnd": 203
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-049",
+      "from": "INV",
+      "to": "OBR",
+      "meaning": "Fases/promedio/fotos privadas; flag fase no entrega portal",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 156,
+          "lineEnd": 162
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-050",
+      "from": "OBR",
+      "to": "STORAGE",
+      "meaning": "Fotos fase bucket privado; URLs firmadas/ACL por verificar",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 217,
+          "lineEnd": 222
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-051",
+      "from": "INV",
+      "to": "CON",
+      "meaning": "Cambio inventario dispara matching/alertas futuros autorizados",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 240,
+          "lineEnd": 248
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-052",
+      "from": "INV",
+      "to": "COMU",
+      "meaning": "Ficha/PDF/enlace/alerta eventual con whitelist y política canal",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 219,
+          "lineEnd": 220
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-053",
+      "from": "INV",
+      "to": "REP",
+      "meaning": "Totales/status/absorción; no tratar available como stock efectivo",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 250,
+          "lineEnd": 262
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-054",
+      "from": "RES",
+      "to": "DOC",
+      "meaning": "Condiciones versionadas/hash y evidencia confirmación/representación",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 118,
+          "lineEnd": 145
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-055",
+      "from": "RES",
+      "to": "APR",
+      "meaning": "Prórrogas/descuentos que requieran decisión, hoy ejemplo",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 141,
+          "lineEnd": 145
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-056",
+      "from": "RES",
+      "to": "COM",
+      "meaning": "Hitos/reversas hacia devengo/clawback M40 no conectados",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 137,
+          "lineEnd": 143
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-057",
+      "from": "RES",
+      "to": "BANKING",
+      "meaning": "Banca/pasarela/conciliación no conectadas; futura decisión",
+      "status": "proposal_not_accepted",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 147,
+          "lineEnd": 155
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-058",
+      "from": "RES",
+      "to": "ECF",
+      "meaning": "Facturación fiscal/DGII futura por decidir con asesoría",
+      "status": "proposal_not_accepted",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 231,
+          "lineEnd": 243
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-059",
+      "from": "COM",
+      "to": "DOC",
+      "meaning": "Comprobante pago/hito privado obligatorio futuro",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 139,
+          "lineEnd": 143
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-060",
+      "from": "COM",
+      "to": "APR",
+      "meaning": "Lotes persistidos y aprobación dual pendiente",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 142,
+          "lineEnd": 143
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-061",
+      "from": "COM",
+      "to": "MET",
+      "meaning": "Magnitudes paralelas: pago comisión no define venta lograda",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 165,
+          "lineEnd": 173
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-062",
+      "from": "COM",
+      "to": "REP",
+      "meaning": "Totales por estado/moneda y propuestas por beneficiario",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 152,
+          "lineEnd": 154
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-063",
+      "from": "COM",
+      "to": "TWENTY",
+      "meaning": "KPI lectura opcional; nunca autoridad ni escritura de comisión",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 128,
+          "lineEnd": 131
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-064",
+      "from": "MET",
+      "to": "BRO",
+      "meaning": "Goals mensuales/ranking/meta base/equipo",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 158,
+          "lineEnd": 165
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-065",
+      "from": "MET",
+      "to": "INI",
+      "meaning": "Cumplimiento por periodo/alcance, proyectos en Inicio pendientes",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 165,
+          "lineEnd": 171
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-066",
+      "from": "MET",
+      "to": "REP",
+      "meaning": "Objetivos/logro/atribución, periodo mensual",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 143,
+          "lineEnd": 149
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-067",
+      "from": "MET",
+      "to": "TWENTY",
+      "meaning": "KPI agregado lectura, dimensiones/moneda/frescura/ACL pendientes",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 155,
+          "lineEnd": 173
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-068",
+      "from": "REP",
+      "to": "INI",
+      "meaning": "Enlaces KPI y misma definición canónica embudo/filtros",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 137,
+          "lineEnd": 150
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-069",
+      "from": "REP",
+      "to": "SUPERSET",
+      "meaning": "BI externo candidato no seleccionado, vistas agregadas y RBAC subordinado",
+      "status": "candidate_not_selected",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 128,
+          "lineEnd": 153
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-070",
+      "from": "REP",
+      "to": "COMU",
+      "meaning": "Informes programados/destinatarios/entrega autorizada futuros",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 149,
+          "lineEnd": 175
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-071",
+      "from": "CFG",
+      "to": "REP",
+      "meaning": "Conceder reports team/own es decisión pendiente, hoy none",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 171,
+          "lineEnd": 178
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-072",
+      "from": "CFG",
+      "to": "COMU",
+      "meaning": "Cuentas/flags y communications gerente pendiente",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 171,
+          "lineEnd": 178
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-073",
+      "from": "CFG",
+      "to": "OUTBOX",
+      "meaning": "Lectura estado pending/sent/dead o no disponible, no prueba delivery",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 117,
+          "lineEnd": 119
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-074",
+      "from": "CFG",
+      "to": "INTEGRATION_PROVIDERS",
+      "meaning": "Presencia config Meta/Google/YCloud/Resend no conexión productiva",
+      "status": "declared_current_not_revalidated",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 161,
+          "lineEnd": 175
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-075",
+      "from": "CFG",
+      "to": "STUDIO",
+      "meaning": "Persistir/retirar SEO demo por decidir; no publisher",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 302,
+          "lineEnd": 307
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-076",
+      "from": "BRO",
+      "to": "ACA",
+      "meaning": "Formación onboarding/recursos, contenidos reales pendientes",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 166,
+          "lineEnd": 168
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-077",
+      "from": "BRO",
+      "to": "DOC",
+      "meaning": "Documentos onboarding verificados y custodia privada pendiente",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 168,
+          "lineEnd": 168
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-078",
+      "from": "BRO",
+      "to": "COM",
+      "meaning": "Acuerdo co-broker económico fuera inicial; futuro COM define reparto",
+      "status": "required_or_gap_not_implemented",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 213,
+          "lineEnd": 222
+        }
+      ]
+    },
+    {
+      "id": "EDGE-COM-079",
+      "from": "BRO",
+      "to": "RED",
+      "meaning": "Shell socios/grants/claims/cooperación M50 propuesto, no AS-IS",
+      "status": "proposal_not_accepted",
+      "group": "grupo-comercial.json",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 132,
+          "lineEnd": 134
+        }
+      ]
+    },
+    {
+      "id": "OPS-E001",
+      "from": "AGE",
+      "to": "TAR",
+      "meaning": "activities; appointments distinct from tasks",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E002",
+      "from": "AGE",
+      "to": "Google Calendar",
+      "meaning": "create optional event after CRM commit, actor-owned calendar",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "112–123"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E003",
+      "from": "Google Calendar",
+      "to": "AGE",
+      "meaning": "external updates/cancellation/conflicts",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "139–149"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E004",
+      "from": "AGE",
+      "to": "ICS client",
+      "meaning": "period/scope-filtered ICS stable UID",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "115,125"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E005",
+      "from": "AGE",
+      "to": "COMU",
+      "meaning": "24h/1h reminder and customer confirmation",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "150,229"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E006",
+      "from": "CON",
+      "to": "AGE",
+      "meaning": "authorized contact/lead/deal/project; lead transport missing",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "148,209"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E007",
+      "from": "LEA",
+      "to": "AGE",
+      "meaning": "authorized contact/lead/deal/project; lead transport missing",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "148,209"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E008",
+      "from": "NEG",
+      "to": "AGE",
+      "meaning": "authorized contact/lead/deal/project; lead transport missing",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "148,209"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E009",
+      "from": "INV",
+      "to": "AGE",
+      "meaning": "authorized contact/lead/deal/project; lead transport missing",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "148,209"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E010",
+      "from": "BRO",
+      "to": "AGE",
+      "meaning": "assignee/team/active user/transfer/view-as",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "146–147,181–199"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E011",
+      "from": "ACC",
+      "to": "AGE",
+      "meaning": "assignee/team/active user/transfer/view-as",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "146–147,181–199"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E012",
+      "from": "CFG",
+      "to": "AGE",
+      "meaning": "timezone/reminder/collision/sync policy",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "152"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E013",
+      "from": "AGE",
+      "to": "INI",
+      "meaning": "upcoming appointments/attendance/no-show",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "151,158–161"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E014",
+      "from": "AGE",
+      "to": "REP",
+      "meaning": "upcoming appointments/attendance/no-show",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "151,158–161"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E015",
+      "from": "AGE",
+      "to": "Twenty",
+      "meaning": "CalendarPort generic calendar mapping",
+      "status": "proposed_unconnected",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AGE",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "lines": "129–141"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E016",
+      "from": "LEA",
+      "to": "TAR",
+      "meaning": "lead received→SLA first-contact task/escalation",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "TAR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+          "lines": "73,146"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E017",
+      "from": "NEG",
+      "to": "TAR",
+      "meaning": "stage→pack; deal next action",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "TAR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+          "lines": "120,132–145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E018",
+      "from": "TAR",
+      "to": "INI",
+      "meaning": "due/overdue task and escalation widgets",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "TAR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+          "lines": "149,158"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E019",
+      "from": "BRO",
+      "to": "TAR",
+      "meaning": "assign task or transfer member workload",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "TAR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+          "lines": "143–144,180–197"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E020",
+      "from": "ACC",
+      "to": "TAR",
+      "meaning": "assign task or transfer member workload",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "TAR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+          "lines": "143–144,180–197"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E021",
+      "from": "CFG",
+      "to": "TAR",
+      "meaning": "response_sla/escalation_sla",
+      "status": "proposed_application",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "TAR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+          "lines": "148"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E022",
+      "from": "TAR",
+      "to": "DOC",
+      "meaning": "secure evidence/KYC task link",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "TAR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+          "lines": "150"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E023",
+      "from": "TAR",
+      "to": "Twenty",
+      "meaning": "generic task projection validated by QH rules",
+      "status": "proposed_unconnected",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "TAR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+          "lines": "128–139"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E024",
+      "from": "YCloud",
+      "to": "COMU",
+      "meaning": "signed WhatsApp inbound message/account/event id",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "130,142–145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E025",
+      "from": "Meta",
+      "to": "COMU",
+      "meaning": "signed WhatsApp inbound message/account/event id",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "130,142–145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E026",
+      "from": "COMU",
+      "to": "LEA",
+      "meaning": "capture/update external lead from phone",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "55,159"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E027",
+      "from": "COMU",
+      "to": "WhatsApp provider",
+      "meaning": "template/message send through runtime adapter",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "131–144"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E028",
+      "from": "COMU",
+      "to": "Email provider",
+      "meaning": "Resend integration adapter or simulated module adapter",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "131–144"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E029",
+      "from": "COMU",
+      "to": "Telegram",
+      "meaning": "multichannel dispatch",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "128,131,145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E030",
+      "from": "COMU",
+      "to": "SMS",
+      "meaning": "multichannel dispatch",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "128,131,145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E031",
+      "from": "COMU",
+      "to": "Webhook",
+      "meaning": "multichannel dispatch",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "128,131,145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E032",
+      "from": "CON",
+      "to": "COMU",
+      "meaning": "recipient channel/purpose consent and opt-out",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "153,164,225"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E033",
+      "from": "COMU",
+      "to": "INI",
+      "meaning": "dispatch audit/activity/delivery/campaign metrics",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "166–180"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E034",
+      "from": "COMU",
+      "to": "REP",
+      "meaning": "dispatch audit/activity/delivery/campaign metrics",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "166–180"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E035",
+      "from": "REP",
+      "to": "COMU",
+      "meaning": "scheduled report email",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "155"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E036",
+      "from": "CFG",
+      "to": "COMU",
+      "meaning": "channel credentials/demo flags and full-scope dispatch",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "156–158,202–211"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E037",
+      "from": "ACC",
+      "to": "COMU",
+      "meaning": "channel credentials/demo flags and full-scope dispatch",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "COMU",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "lines": "156–158,202–211"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E038",
+      "from": "LEA",
+      "to": "AUT",
+      "meaning": "lead-meta/lead-new/deal-no-action/stage-change",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "141,224"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E039",
+      "from": "NEG",
+      "to": "AUT",
+      "meaning": "lead-meta/lead-new/deal-no-action/stage-change",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "141,224"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E040",
+      "from": "AUT",
+      "to": "BRO",
+      "meaning": "assign lead/responsible",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "129,145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E041",
+      "from": "AUT",
+      "to": "TAR",
+      "meaning": "create task via authorized domain",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "129,142"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E042",
+      "from": "AUT",
+      "to": "COMU",
+      "meaning": "WhatsApp draft→human review→outbox",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "102,114–117,193"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E043",
+      "from": "CON",
+      "to": "AUT",
+      "meaning": "current consent/opt-out/frequency gate",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "144,194–195"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E044",
+      "from": "AUT",
+      "to": "Supervisor",
+      "meaning": "alert supervisor",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "129,224"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E045",
+      "from": "Outbox",
+      "to": "AUT",
+      "meaning": "pending/sent/failed/no-consumer counts",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "152,163"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E046",
+      "from": "Dead",
+      "to": "AUT",
+      "meaning": "pending/sent/failed/no-consumer counts",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "152,163"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E047",
+      "from": "AUT",
+      "to": "Outbox",
+      "meaning": "retry after policy/MFA review",
+      "status": "proposed_no_endpoint",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "128,232,266"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E048",
+      "from": "AUT",
+      "to": "Dead",
+      "meaning": "retry after policy/MFA review",
+      "status": "proposed_no_endpoint",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "128,232,266"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E049",
+      "from": "ACC",
+      "to": "AUT",
+      "meaning": "settings full scope and future action-level rights",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "146,201–211"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E050",
+      "from": "CFG",
+      "to": "AUT",
+      "meaning": "settings full scope and future action-level rights",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "AUT",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+          "lines": "146,201–211"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E051",
+      "from": "NEG",
+      "to": "APR",
+      "meaning": "discount/hold extension/commission settlement/contact merge",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "43,97–106"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E052",
+      "from": "RES",
+      "to": "APR",
+      "meaning": "discount/hold extension/commission settlement/contact merge",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "43,97–106"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E053",
+      "from": "COM",
+      "to": "APR",
+      "meaning": "discount/hold extension/commission settlement/contact merge",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "43,97–106"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E054",
+      "from": "CON",
+      "to": "APR",
+      "meaning": "discount/hold extension/commission settlement/contact merge",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "43,97–106"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E055",
+      "from": "APR",
+      "to": "NEG",
+      "meaning": "approved/rejected/expired/invalidated with version/hash",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "109–117"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E056",
+      "from": "APR",
+      "to": "RES",
+      "meaning": "approved/rejected/expired/invalidated with version/hash",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "109–117"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E057",
+      "from": "APR",
+      "to": "COM",
+      "meaning": "approved/rejected/expired/invalidated with version/hash",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "109–117"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E058",
+      "from": "APR",
+      "to": "CON",
+      "meaning": "approved/rejected/expired/invalidated with version/hash",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "109–117"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E059",
+      "from": "DOC",
+      "to": "APR",
+      "meaning": "evidence_id/file version",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "129,194,212"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E060",
+      "from": "ACC",
+      "to": "APR",
+      "meaning": "financial_approvals and operation-bound MFA",
+      "status": "proposed_unwired",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "126,137,205"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E061",
+      "from": "MFA",
+      "to": "APR",
+      "meaning": "financial_approvals and operation-bound MFA",
+      "status": "proposed_unwired",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "126,137,205"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E062",
+      "from": "INI",
+      "to": "APR",
+      "meaning": "Review approvals deep link",
+      "status": "source_static_to_demo",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "APR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+          "lines": "128,139"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E063",
+      "from": "NEG",
+      "to": "DOC",
+      "meaning": "business/contact dossier links",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "DOC",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+          "lines": "133"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E064",
+      "from": "CON",
+      "to": "DOC",
+      "meaning": "business/contact dossier links",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "DOC",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+          "lines": "133"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E065",
+      "from": "DOC",
+      "to": "Private Storage",
+      "meaning": "private upload/scan/immutable bytes/signed download",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "DOC",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+          "lines": "118–121,130–147"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E066",
+      "from": "DOC",
+      "to": "Signature",
+      "meaning": "envelope identity/signatures/KYC lists",
+      "status": "proposed_provider_unselected",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "DOC",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+          "lines": "120–121,145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E067",
+      "from": "DOC",
+      "to": "ID Provider",
+      "meaning": "envelope identity/signatures/KYC lists",
+      "status": "proposed_provider_unselected",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "DOC",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+          "lines": "120–121,145"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E068",
+      "from": "DOC",
+      "to": "RES",
+      "meaning": "evidence IDs and authorized versions",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "DOC",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+          "lines": "135,33"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E069",
+      "from": "DOC",
+      "to": "APR",
+      "meaning": "evidence IDs and authorized versions",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "DOC",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+          "lines": "135,33"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E070",
+      "from": "DOC",
+      "to": "POR",
+      "meaning": "external own dossier signed links",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "DOC",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+          "lines": "85,136"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E071",
+      "from": "NEG",
+      "to": "POS",
+      "meaning": "sale/deal/unit triggers handover/service context",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POS",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+          "lines": "140–141,155"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E072",
+      "from": "INV",
+      "to": "POS",
+      "meaning": "sale/deal/unit triggers handover/service context",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POS",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+          "lines": "140–141,155"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E073",
+      "from": "POS",
+      "to": "AGE",
+      "meaning": "inspection slot/responsible/date",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POS",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+          "lines": "125,143,158"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E074",
+      "from": "POS",
+      "to": "DOC",
+      "meaning": "private defect evidence/warranty terms/signed handover act",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POS",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+          "lines": "126–131,142,157"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E075",
+      "from": "POS",
+      "to": "COMU",
+      "meaning": "customer service/handover notices",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POS",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+          "lines": "144"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E076",
+      "from": "CON",
+      "to": "POS",
+      "meaning": "customer and charge consent",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POS",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+          "lines": "146"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E077",
+      "from": "POS",
+      "to": "APR",
+      "meaning": "out-of-warranty charge/exception approval",
+      "status": "proposed_unwired",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POS",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+          "lines": "130,145,156"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E078",
+      "from": "POS",
+      "to": "POR",
+      "meaning": "customer case tracking",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POS",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+          "lines": "240"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E079",
+      "from": "INV",
+      "to": "Public Site",
+      "meaning": "approved property/project public projection/withdrawal/receipt",
+      "status": "proposed_unconnected",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "109–113,131–149"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E080",
+      "from": "INV",
+      "to": "Channels",
+      "meaning": "approved property/project public projection/withdrawal/receipt",
+      "status": "proposed_unconnected",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "109–113,131–149"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E081",
+      "from": "PortalPublisher",
+      "to": "Public Site",
+      "meaning": "approved property/project public projection/withdrawal/receipt",
+      "status": "proposed_unconnected",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "109–113,131–149"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E082",
+      "from": "PortalPublisher",
+      "to": "Channels",
+      "meaning": "approved property/project public projection/withdrawal/receipt",
+      "status": "proposed_unconnected",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "109–113,131–149"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E083",
+      "from": "Public Site",
+      "to": "LEA",
+      "meaning": "externalId/UTM/customer inquiry and privacy evidence",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "122,144–146"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E084",
+      "from": "Public Site",
+      "to": "CON",
+      "meaning": "externalId/UTM/customer inquiry and privacy evidence",
+      "status": "partial_source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "122,144–146"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E085",
+      "from": "CFG",
+      "to": "POR",
+      "meaning": "SEO preview not publication command",
+      "status": "source_static_demo",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "54,88,135"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E086",
+      "from": "POR",
+      "to": "Buyer",
+      "meaning": "external own portal account/expiry/dossier/project",
+      "status": "hypothesis",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "73,123,148,208"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E087",
+      "from": "POR",
+      "to": "Developer Identity",
+      "meaning": "external own portal account/expiry/dossier/project",
+      "status": "hypothesis",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "73,123,148,208"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E088",
+      "from": "BRO",
+      "to": "POR",
+      "meaning": "broker customer protection for portal leads",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "POR",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "lines": "221"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E089",
+      "from": "BRO",
+      "to": "RED",
+      "meaning": "active accredited broker/directory",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "RED",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+          "lines": "139,150"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E090",
+      "from": "RED",
+      "to": "BRO",
+      "meaning": "co-broke agreement before customer access",
+      "status": "proposed_boundary_unresolved",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "RED",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+          "lines": "125,186,258"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E091",
+      "from": "CON",
+      "to": "RED",
+      "meaning": "anonymization/consent without customer identifiers",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "RED",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+          "lines": "140,185–190"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E092",
+      "from": "RED",
+      "to": "COMU",
+      "meaning": "event registration reminders/moderation decision",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "RED",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+          "lines": "141,151–153,230"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E093",
+      "from": "ACC",
+      "to": "RED",
+      "meaning": "community view/create/edit/moderate and group visibility",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "RED",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+          "lines": "142,196–205"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E094",
+      "from": "CFG",
+      "to": "RED",
+      "meaning": "community view/create/edit/moderate and group visibility",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "RED",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+          "lines": "142,196–205"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E095",
+      "from": "RED",
+      "to": "Independent Moderator",
+      "meaning": "reported content decision/review by different actor",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "RED",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+          "lines": "72–75,101–102,188"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E096",
+      "from": "RED",
+      "to": "BRO",
+      "meaning": "verified reputation/ranking signals",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "RED",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+          "lines": "189,231"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E097",
+      "from": "RED",
+      "to": "MET",
+      "meaning": "verified reputation/ranking signals",
+      "status": "proposed",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "RED",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+          "lines": "189,231"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E098",
+      "from": "ACA",
+      "to": "Moodle",
+      "meaning": "REST create course/ensure user/enrol/grades/completion/deep-link",
+      "status": "source_static_prod_unverified",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "151–166"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E099",
+      "from": "Moodle",
+      "to": "ACA",
+      "meaning": "courses/categories/progress/grades/finalization",
+      "status": "source_static_prod_unverified",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "151–153,235"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E100",
+      "from": "ACA",
+      "to": "QH Review",
+      "meaning": "Q-C1-03 independent review/issue/revoke server hash",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "136–138,238–240"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E101",
+      "from": "ACA",
+      "to": "Certificate",
+      "meaning": "Q-C1-03 independent review/issue/revoke server hash",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "136–138,238–240"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E102",
+      "from": "BRO",
+      "to": "ACA",
+      "meaning": "CRM↔Moodle user ref and academy scopes",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "156–158,219–241"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E103",
+      "from": "ACC",
+      "to": "ACA",
+      "meaning": "CRM↔Moodle user ref and academy scopes",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "156–158,219–241"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E104",
+      "from": "CFG",
+      "to": "ACA",
+      "meaning": "Moodle URL/token server-side, local health not prod",
+      "status": "source_static_prod_unverified",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "155,164–166,244"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E105",
+      "from": "ACA",
+      "to": "COMU",
+      "meaning": "course due/renewal reminders through MessagingPort",
+      "status": "proposed_no_wiring",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "157,167,256"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E106",
+      "from": "ACA",
+      "to": "BRO",
+      "meaning": "valid certification may gate onboarding/goals/commissions",
+      "status": "business_question",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "181,255,293"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E107",
+      "from": "ACA",
+      "to": "MET",
+      "meaning": "valid certification may gate onboarding/goals/commissions",
+      "status": "business_question",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "181,255,293"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E108",
+      "from": "ACA",
+      "to": "COM",
+      "meaning": "valid certification may gate onboarding/goals/commissions",
+      "status": "business_question",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "ACA",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "lines": "181,255,293"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E109",
+      "from": "LEA",
+      "to": "INI",
+      "meaning": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "143–170,213–226"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E110",
+      "from": "NEG",
+      "to": "INI",
+      "meaning": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "143–170,213–226"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E111",
+      "from": "TAR",
+      "to": "INI",
+      "meaning": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "143–170,213–226"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E112",
+      "from": "AGE",
+      "to": "INI",
+      "meaning": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "143–170,213–226"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E113",
+      "from": "INV",
+      "to": "INI",
+      "meaning": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "143–170,213–226"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E114",
+      "from": "MET",
+      "to": "INI",
+      "meaning": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "143–170,213–226"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E115",
+      "from": "ACA",
+      "to": "INI",
+      "meaning": "scoped KPI/queue/goal/progress/stock",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "143–170,213–226"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E116",
+      "from": "REP",
+      "to": "INI",
+      "meaning": "canonical funnel and shared URL filters",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "118–120,152"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E117",
+      "from": "INI",
+      "to": "COMU",
+      "meaning": "wa.me prefilled lead name/project",
+      "status": "source_static_privacy_gap",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "121,154,198"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E118",
+      "from": "INI",
+      "to": "WhatsApp Link",
+      "meaning": "wa.me prefilled lead name/project",
+      "status": "source_static_privacy_gap",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "121,154,198"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E119",
+      "from": "INI",
+      "to": "Module Destination",
+      "meaning": "conditional CTA and resource reauthorization",
+      "status": "source_static",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "65–66,82,122–124"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E120",
+      "from": "ACC",
+      "to": "INI",
+      "meaning": "page/resource scopes, view-as, demo flags, RD timezone",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "145,155,188–209"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E121",
+      "from": "CFG",
+      "to": "INI",
+      "meaning": "page/resource scopes, view-as, demo flags, RD timezone",
+      "status": "source_static_with_gaps",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "145,155,188–209"
+        }
+      ]
+    },
+    {
+      "id": "OPS-E122",
+      "from": "Twenty",
+      "to": "INI",
+      "meaning": "generic dashboard shell/widgets, domain controls values/scope",
+      "status": "proposed_unconnected",
+      "group": "grupo-operaciones.json",
+      "sources": [
+        {
+          "source": "INI",
+          "file": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "lines": "128–141"
+        }
+      ]
+    }
+  ]
+}

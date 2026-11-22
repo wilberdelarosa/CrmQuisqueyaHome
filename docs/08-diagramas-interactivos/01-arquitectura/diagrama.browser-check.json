@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "browser-check",
+  "evidenceKind": "automated-browser",
+  "status": "fail",
+  "visualReview": "not-requested",
+  "provenance": "current",
+  "deliveryReceiptId": "e2c2d4a3-00ea-43f5-a933-addd7b4004d4",
+  "artifact": {
+    "path": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\01-arquitectura\\diagrama.html",
+    "sha256": "b68adf1fce8a1a4a023f1c2cb28d2374fe25bac3cc33d26e3c468f8fc88b95f0",
+    "bytes": 771167
+  },
+  "state": {
+    "detail": "read",
+    "motion": "still"
+  },
+  "chrome": {
+    "status": "available",
+    "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+  },
+  "diagnostics": [
+    {
+      "code": "viewer/browser-check-runtime",
+      "severity": "error",
+      "message": "browser-check could not complete its Chrome inspection.",
+      "subject": {
+        "artifact": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\01-arquitectura\\diagrama.html"
+      },
+      "evidence": {
+        "reason": "Chrome DevTools write pipe failed: stream closed\nChrome process: still running.\nChrome transport: Node v24.13.0, libuv 1.51.0, win32; pid=213272, exitCode=null, signalCode=null.\nChrome read pipe: readable=true, ended=false, destroyed=false, receivedBytes=0, messages=0, bufferedBytes=0.\nChrome write pipe: writable=false, ended=true, destroyed=true, completedWrites=1, writtenBytes=50, bufferedBytes=0."
+      },
+      "supportedFixes": [
+        "resolve the reported Chrome inspection error, then rerun browser-check"
+      ]
+    }
+  ],
+  "containment": {
+    "status": "fail",
+    "policy": "fit-or-reader-declared-readable-vertical-scroll",
+    "viewports": []
+  },
+  "themeStates": {
+    "status": "fail",
+    "viewports": []
+  },
+  "readability": {
+    "status": "fail",
+    "minimumProjectedNodeTextPx": 6,
+    "viewports": []
+  },
+  "viewerChrome": {
+    "status": "fail",
+    "viewports": []
+  },
+  "captures": {
+    "status": "not-requested",
+    "screenshots": [],
+    "contactSheet": null
+  },
+  "sidecars": {
+    "receipt": "diagrama.browser-check.json",
+    "files": []
+  },
+  "error": "Chrome DevTools write pipe failed: stream closed\nChrome process: still running.\nChrome transport: Node v24.13.0, libuv 1.51.0, win32; pid=213272, exitCode=null, signalCode=null.\nChrome read pipe: readable=true, ended=false, destroyed=false, receivedBytes=0, messages=0, bufferedBytes=0.\nChrome write pipe: writable=false, ended=true, destroyed=true, completedWrites=1, writtenBytes=50, bufferedBytes=0."
+}

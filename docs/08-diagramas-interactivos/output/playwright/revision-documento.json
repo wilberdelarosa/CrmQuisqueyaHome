@@ -1,0 +1,32 @@
+{
+  "scope": "Index document link plus document HTML containment/details on desktop/mobile",
+  "checks": [
+    {
+      "name": "documentHtmlLink",
+      "pass": true
+    },
+    {
+      "name": "documentLoaded",
+      "pass": true
+    },
+    {
+      "name": "documentDesktopNoOverflow",
+      "pass": true
+    },
+    {
+      "name": "documentDetails30",
+      "count": 30,
+      "pass": true
+    },
+    {
+      "name": "documentDetailsOpen",
+      "pass": true
+    },
+    {
+      "name": "documentMobileNoOverflow",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "pass": true
+}

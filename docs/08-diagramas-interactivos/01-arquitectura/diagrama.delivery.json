@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "156264cf-dc20-4d5f-b21f-41c1a49b0ace",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\01-arquitectura\\candidate.json",
+  "output": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\01-arquitectura\\diagrama.html",
+  "specification": {
+    "sha256": "0b859c16a2b099c7a95b0828d10249f349c9d37c224cd2985d1daa5e9087d0bc",
+    "bytes": 36059
+  },
+  "artifact": {
+    "sha256": "e4f029017c81e413889be20e411eb704418fa2ae332599517bfc984e052e7701",
+    "bytes": 771701
+  }
+}

@@ -1,0 +1,1499 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CRM Quisqueya Home · Documento consolidado</title><style>
+:root{color-scheme:light;--ink:#1e293b;--muted:#526174;--line:#d9e0e8;--accent:#235b55;--paper:#fff;--bg:#f3f5f7}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,sans-serif}a{color:var(--accent);text-underline-offset:3px}nav{position:fixed;inset:0 auto 0 0;width:285px;overflow:auto;padding:28px 22px;background:var(--paper);border-right:1px solid var(--line);font-size:13px}nav ul{padding-left:18px}nav li{margin:8px 0}main{max-width:1280px;margin:0 auto 0 285px;padding:50px 5vw 80px;background:var(--paper)}h1{font-size:2.2rem;line-height:1.2;letter-spacing:-.025em}h2{margin-top:3.2rem;line-height:1.3;border-top:1px solid var(--line);padding-top:1.4rem}h3{margin-top:2rem;line-height:1.4}p,li{max-width:90ch}table{border-collapse:collapse;width:100%;display:block;overflow:auto;margin:24px 0;font-size:14px}th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;min-width:115px}th{background:var(--bg)}pre{overflow:auto;padding:20px;background:var(--bg);font-size:13px}code{font-size:.88em;overflow-wrap:anywhere}details{padding:16px 0;border-bottom:1px solid var(--line)}summary{cursor:pointer;font-weight:650;color:var(--accent)}:focus-visible{outline:3px solid #c47e16;outline-offset:4px}.toplinks{font-size:14px;padding-bottom:18px;border-bottom:1px solid var(--line)}.status{color:var(--muted);font-size:14px} @media(max-width:1000px){nav{position:static;width:auto;max-height:35vh}main{margin:0;padding:28px 20px}h1{font-size:1.9rem}}@media print{nav,.toplinks{display:none}main{margin:0;padding:0;max-width:none}body{background:white}h2{break-before:auto}tr{break-inside:avoid}details{display:block}details>*{display:block}a{color:inherit}}
+</style></head><body><nav><strong>Quisqueya Home</strong><p class="status">Documento consolidado · 06/11/2026</p><div class="toc">
+<ul>
+<li><a href="#quisqueya-home-documento-consolidado-del-crm">Quisqueya Home — documento consolidado del CRM</a><ul>
+<li><a href="#1-que-se-recibio-y-como-se-interpreto">1. Qué se recibió y cómo se interpretó</a></li>
+<li><a href="#2-decision-de-arquitectura-y-diferencias-respecto-al-primer-esquema">2. Decisión de arquitectura y diferencias respecto al primer esquema</a></li>
+<li><a href="#3-vision-del-producto-y-actores">3. Visión del producto y actores</a></li>
+<li><a href="#4-mapa-completo-de-modulos">4. Mapa completo de módulos</a></li>
+<li><a href="#5-arquitectura-objetivo-por-capas">5. Arquitectura objetivo por capas</a></li>
+<li><a href="#6-autoridad-del-dato-y-consistencia">6. Autoridad del dato y consistencia</a></li>
+<li><a href="#7-veintidos-modulos-tres-circuitos-de-comunicacion">7. Veintidós módulos, tres circuitos de comunicación</a></li>
+<li><a href="#8-matriz-de-comunicaciones-y-contratos-a-definir">8. Matriz de comunicaciones y contratos a definir</a></li>
+<li><a href="#9-contrato-de-sincronizacion-garantias-propuestas">9. Contrato de sincronización: garantías propuestas</a></li>
+<li><a href="#10-transacciones-e-invariantes-inmobiliarios">10. Transacciones e invariantes inmobiliarios</a></li>
+<li><a href="#11-modelo-conceptual-y-catalogos">11. Modelo conceptual y catálogos</a></li>
+<li><a href="#12-seguridad-privacidad-y-limites-de-integracion">12. Seguridad, privacidad y límites de integración</a></li>
+<li><a href="#13-arquitectura-del-diseno-y-experiencia">13. Arquitectura del diseño y experiencia</a></li>
+<li><a href="#14-operacion-rendimiento-y-recuperacion">14. Operación, rendimiento y recuperación</a></li>
+<li><a href="#15-riesgos-y-contradicciones-que-el-diseno-debe-conservar">15. Riesgos y contradicciones que el diseño debe conservar</a></li>
+<li><a href="#16-pruebas-que-deben-demostrar-la-arquitectura">16. Pruebas que deben demostrar la arquitectura</a></li>
+<li><a href="#17-plan-de-ejecucion-por-dependencias">17. Plan de ejecución por dependencias</a></li>
+<li><a href="#18-decisiones-abiertas-y-fuentes-no-incluidas">18. Decisiones abiertas y fuentes no incluidas</a></li>
+<li><a href="#19-entregables-y-guia-de-continuacion">19. Entregables y guía de continuación</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div><a href="#anexos">30 análisis individuales</a></div></nav><main><div class="toplinks"><a href="../08-diagramas-interactivos/index.html">Abrir diagramas interactivos</a> · <a href="../06-analisis-documental/README.md">Índice de fuentes</a> · <a href="CRM-QH-DOCUMENTO-FINAL-2026-11-06.md">Fuente Markdown completa</a></div><h1 id="quisqueya-home-documento-consolidado-del-crm">Quisqueya Home — documento consolidado del CRM</h1>
+<p><strong>Versión 1.0 documental · 6 de noviembre de 2026 · una sola empresa.</strong></p>
+<p>Este es el documento final de la ronda de análisis de la carpeta entregada por Wilber. Consolida contexto, funcionalidades, arquitectura objetivo y comunicaciones; las especificaciones fuente siguen siendo borradores salvo el ADR que registra la elección híbrida. «Final» identifica esta entrega documental, no una aprobación del diseño técnico, una implementación ni una autorización para producción.</p>
+<p>Productores: Codex D01/D03 y agentes de análisis comercial/operativo; control de fuentes D22. Revisión independiente: Luna/D14 en informe separado. La arquitectura conserva revisión humana. El detalle de cada documento y sus localizadores está en <a href="../06-analisis-documental/README.md">análisis individuales</a>; los <a href="../08-diagramas-interactivos/index.html">diagramas web</a> complementan esta lectura.</p>
+<h2 id="1-que-se-recibio-y-como-se-interpreto">1. Qué se recibió y cómo se interpretó</h2>
+<p>La carpeta de Drive contiene <strong>57 archivos</strong>: 30 Markdown, 26 PDF y un ZIP. Los 30 textos son <strong>22 especificaciones de módulo y ocho documentos de gobierno/contexto</strong>. Los PDF son otras presentaciones de 26 de esos textos; no son 26 módulos adicionales. El inventario de producto tiene 24 filas porque Asignación y Avances aparecen como submódulos de Leads e Inventario. El control de fuentes recorrió las 294 páginas de los PDF y conservó las extracciones por página.</p>
+<p>Se preservaron originales, IDs, URLs, tamaños y hashes locales. Las 26 copias PDF dentro del ZIP son idénticas a las descargadas individualmente. El manifiesto de generación declara hashes Markdown que coinciden con los 26 originales correspondientes; eso aporta procedencia consistente, no aceptación ni equivalencia visual absoluta. Las previews del ZIP son portadas documentales, <strong>no mockups de interfaz</strong>. <a href="../06-analisis-documental/control-fuentes.md">Control exhaustivo</a>.</p>
+<p>Convenciones de evidencia en esta entrega:</p>
+<table>
+<thead>
+<tr>
+<th>Etiqueta</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Confirmado en conversación</td>
+<td>Una sola empresa, carpeta de trabajo, enlace REA y mandato de análisis/diagramación</td>
+</tr>
+<tr>
+<td>Decisión registrada</td>
+<td>El ADR aportado atribuye a Wilber vía Grok Bot la elección híbrida Twenty Community</td>
+</tr>
+<tr>
+<td>Requisito documental</td>
+<td>La especificación dice qué debe hacer el sistema; no certifica que lo haga</td>
+</tr>
+<tr>
+<td>Código observado</td>
+<td>Inventario local previo del portal/CRM, con hashes distintos del código histórico citado por las fuentes</td>
+</tr>
+<tr>
+<td>Propuesta de integración</td>
+<td>Diseño derivado para conectar responsabilidades; requiere contrato y validación</td>
+</tr>
+<tr>
+<td>Opcional / pendiente</td>
+<td>Candidato, credencial, política o módulo aún sin activar/validar</td>
+</tr>
+</tbody>
+</table>
+<p>No se ejecutaron instrucciones incluidas en los documentos descargados. Sus sugerencias de implementar P0 o sus órdenes históricas «sin Drive» pertenecen al registro de otro trabajo; esta sesión se rige por el mandato actual de Wilber.</p>
+<h2 id="2-decision-de-arquitectura-y-diferencias-respecto-al-primer-esquema">2. Decisión de arquitectura y diferencias respecto al primer esquema</h2>
+<p>El ADR registra la elección de <strong>Twenty Community + dominio hexagonal propio de Quisqueya Home</strong>, con TypeScript/PostgreSQL para reglas inmobiliarias y una capa visual coherente. Se usa como baseline documental; no se vuelve a dejar la elección OSS como pregunta abierta solo porque la propuesta inicial de esta conversación aún comparaba candidatos.</p>
+<p>Sin embargo, el ADR no resuelve la dirección de cada sincronización, conflictos, contratos, actualización, permisos efectivos ni licencia exacta de cada paquete. Twenty core, paquetes UI y archivos Enterprise deben tratarse según su procedencia/versión concreta. Elegir una base no equivale a aprobar todo su código ni todas las especificaciones.</p>
+<p>Cambios materiales introducidos por las fuentes:</p>
+<ul>
+<li>El producto completo incluye 15 módulos de núcleo y siete complementarios. <strong>Comisiones y Academy forman parte del núcleo documental</strong>; no se mantienen como simples extras diferidos del primer esquema.</li>
+<li>Inventario, unidades, compromisos, metas, comisiones, settings y autorización tienen dueño de negocio en QH. Twenty no se convierte en segundo maestro de esos datos.</li>
+<li>La arquitectura objetivo del catálogo difiere del estado actual: las fuentes quieren inventario QH autoritativo; el portal local observado conserva hoy su propia base editorial. Se necesita una transición explícita, no cambiar el dueño por dibujar una flecha.</li>
+<li>El cierre ganado documentado coordina inventario/compromisos, atribución, metas y comisión pendiente. <strong>Mover una tarjeta no puede simular una venta ni saltarse reserva, permisos o concurrencia</strong>.</li>
+<li>Los complementos RES/DOC/APR pueden condicionar una operación del núcleo. «Add-on» define un corte de producto, no elimina sus dependencias ni controles.</li>
+</ul>
+<p>La propuesta inicial se conserva como histórico en <code>01-descubrimiento</code> y <code>03-arquitectura</code>. Este documento la actualiza para el contexto recibido; no reescribe los originales de Drive.</p>
+<h2 id="3-vision-del-producto-y-actores">3. Visión del producto y actores</h2>
+<p>Un espacio de trabajo para captar interesados, organizar carteras, relacionar demanda e inventario, dar seguimiento a negocios, ejecutar visitas/tareas y gestionar el resultado comercial, con publicación pública y comunicaciones trazables. Dirección necesita supervisión por equipo; brokers necesitan su cartera y próxima acción; asistentes necesitan permisos operativos delimitados.</p>
+<table>
+<thead>
+<tr>
+<th>Actor</th>
+<th>Alcance objetivo</th>
+<th>Precisión pendiente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Admin</td>
+<td>configuración, usuarios y operaciones autorizadas</td>
+<td>MFA, acciones protegidas y separación de aprobación/pago</td>
+</tr>
+<tr>
+<td>Manager</td>
+<td>cartera y métricas de equipos explícitos</td>
+<td>mapeo exacto de roles, derechos por módulo y scopes</td>
+</tr>
+<tr>
+<td>Broker</td>
+<td>su cartera, tareas, agenda, negocios y perfil</td>
+<td>campos restringidos y límites de reasignación/publicación</td>
+</tr>
+<tr>
+<td>Assistant</td>
+<td>apoyo operativo según matriz</td>
+<td>no asumir equivalencia con admin ni acceso global a documentos</td>
+</tr>
+<tr>
+<td>Publicador/aprobador</td>
+<td>capacidad o rol especializado</td>
+<td>definir separación frente a editor/solicitante</td>
+</tr>
+<tr>
+<td>Visitante/interesado</td>
+<td>captación e interacción pública del portal</td>
+<td>cuenta externa/áreas de comprador o promotor no se presuponen</td>
+</tr>
+<tr>
+<td>Operación técnica</td>
+<td>entrega, conciliación, monitoreo y soporte</td>
+<td>credenciales de servicio con scopes, sin privilegios humanos universales</td>
+</tr>
+</tbody>
+</table>
+<p><code>ver-como</code> es un contexto de solo lectura con operador y usuario objetivo identificados, no un login real del broker ni autorización para escribir, exportar, conectar OAuth o generar ICS. No hay plataforma multitenant para vender a otras inmobiliarias; equipos internos no equivalen a tenants.</p>
+<h2 id="4-mapa-completo-de-modulos">4. Mapa completo de módulos</h2>
+<p>Cada código enlaza a su análisis individual y de ahí al original con hash y líneas. Las funciones siguientes describen el objetivo/documentación, no el grado de implementación actual.</p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Módulo</th>
+<th>Corte</th>
+<th>Funciones y relaciones centrales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../06-analisis-documental/individuales/INI.md">INI</a></td>
+<td>Inicio</td>
+<td>Núcleo</td>
+<td>Mi día, tareas/SLA, widgets QH, métricas filtradas y enlaces operativos</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/LEA.md">LEA</a></td>
+<td>Leads + asignación</td>
+<td>Núcleo</td>
+<td>captación multicanal, deduplicación de ingreso, calificación, asignación/reasignación y conversión</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/CON-contactos.md">CON</a></td>
+<td>Contactos</td>
+<td>Núcleo</td>
+<td>ficha, relación/historial, teléfonos, consentimiento/bajas, merge controlado y derechos</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/NEG.md">NEG</a></td>
+<td>Negocios/Pipeline</td>
+<td>Núcleo</td>
+<td>etapas/transiciones, atribución, propiedad/unidad, cierre coordinado, pérdida/reapertura</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/INV.md">INV</a></td>
+<td>Inventario + avances</td>
+<td>Núcleo</td>
+<td>proyectos/unidades/precios, stock efectivo, compromisos, fases/fotos, publicación por canal</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/AGE.md">AGE</a></td>
+<td>Agenda</td>
+<td>Núcleo</td>
+<td>citas/visitas, calendario y lista, Google opcional, ICS, choques y resultados</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/TAR.md">TAR</a></td>
+<td>Tareas</td>
+<td>Núcleo</td>
+<td>asignación, packs, vencimiento/evidencia, actividades y vínculo con lead/negocio</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/BRO.md">BRO</a></td>
+<td>Brokers</td>
+<td>Núcleo</td>
+<td>perfil, niveles/equipo, asignación, onboarding, ver-como y salida con traspaso</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/MET.md">MET</a></td>
+<td>Metas</td>
+<td>Núcleo</td>
+<td>objetivos por persona/equipo/periodo, progreso, definición de logro y métricas</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/COM.md">COM</a></td>
+<td>Comisiones</td>
+<td>Núcleo</td>
+<td>libro/reparto/estado/exportación; motor M40, hitos, ajustes y liquidación por completar</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/ACA.md">ACA</a></td>
+<td>Academy</td>
+<td>Núcleo</td>
+<td>rutas, solicitudes, evidencia/constancias y adaptación LMS; Moodle dueño del aprendizaje</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/COMU.md">COMU</a></td>
+<td>Comunicaciones</td>
+<td>Núcleo</td>
+<td>plantillas/canales, preparación/envío y auditoría; bandeja/campañas/historial objetivo</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/REP.md">REP</a></td>
+<td>Reportes/BI</td>
+<td>Núcleo</td>
+<td>agregados/periodos/equipo, exportación; constructor y programación por validar</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/CFG.md">CFG</a></td>
+<td>Configuración</td>
+<td>Núcleo</td>
+<td>usuarios/matriz, parámetros, cuentas/estado integraciones, papelera y auditoría</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/ACC.md">ACC</a></td>
+<td>Acceso/RBAC</td>
+<td>Núcleo</td>
+<td>identidad, own/team/all/none, overrides, scopes, campos restringidos y control transversal</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/RES.md">RES</a></td>
+<td>Reservas/Holds</td>
+<td>Complementario</td>
+<td>bloqueo temporal, reserva, vencimiento/liberación/compromisos; finanzas futuras delimitadas</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/DOC.md">DOC</a></td>
+<td>Documentos/KYC/Firmas</td>
+<td>Complementario</td>
+<td>expediente privado, acceso por propósito, versiones y almacenamiento; firmas/KYC pendientes</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/POR.md">POR</a></td>
+<td>Portal</td>
+<td>Complementario</td>
+<td>proyección pública, publicación/acuse y captación; distinguir sitio real de demos CMS</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/APR.md">APR</a></td>
+<td>Aprobaciones</td>
+<td>Complementario</td>
+<td>solicitud/decisión, separación de funciones, efecto financiero o de negocio vinculado</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/RED.md">RED</a></td>
+<td>Comunidad</td>
+<td>Complementario</td>
+<td>grupos, demandas, eventos y moderación para brokers; ACL propia por diseñar</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/AUT.md">AUT</a></td>
+<td>Automatizaciones</td>
+<td>Complementario</td>
+<td>reglas/versiones, ejecuciones y acciones controladas; outbox no equivale a motor de reglas</td>
+</tr>
+<tr>
+<td><a href="../06-analisis-documental/individuales/POS.md">POS</a></td>
+<td>Posventa</td>
+<td>Complementario</td>
+<td>entregas, casos/garantías, seguimiento y documentos asociados</td>
+</tr>
+</tbody>
+</table>
+<p>Aliases que no deben mezclarse: el inventario heredado usa <code>CRM-COM</code> para Comunicaciones y <code>CRM-FIN-COM</code> para Comisiones. Aquí <strong>COMU = Comunicaciones</strong> y <strong>COM = Comisiones</strong>. <code>LEA-ASG</code> y <code>OBR</code> son capacidades de LEA e INV; no módulos nuevos para inflar el conteo.</p>
+<h2 id="5-arquitectura-objetivo-por-capas">5. Arquitectura objetivo por capas</h2>
+<p><strong>Experiencia.</strong> Shell del CRM, navegación por rol y componentes comunes. Reutilización visual compatible con la elección Twenty, con comprobación de componentes/paquetes. Los permisos de pantalla mejoran la experiencia; la seguridad la decide el servidor.</p>
+<p><strong>Aplicación QH.</strong> Casos de uso del negocio, coordinación de transacciones y autorización contextual. Reglas hexagonales detrás de puertos: inventario, captación, negocios, reservas, metas, comisiones, documentos, configuración y aprobación. No mezclar SDK externos dentro del dominio.</p>
+<p><strong>Persistencia y entrega.</strong> PostgreSQL para las entidades QH, auditoría minimizada y recibos/outbox/inbox. Worker con claim/lease ejecuta red fuera de la transacción y confirma después. Almacenamiento privado separado de medios públicos; recuperación, retención y permisos explícitos.</p>
+<p><strong>Adaptadores.</strong> Twenty, PortalPublisher, Meta/captación, WhatsApp, correo, Google Calendar, Moodle, archivos y BI opcional. Cada proveedor reemplazable tiene contrato y pruebas. Compartir VPS o proveedor de identidad no convierte los esquemas ni permisos en uno solo.</p>
+<pre><code class="language-mermaid">flowchart LR
+  U[Equipo QH] --&gt; W[Experiencia CRM]
+  W --&gt; G[Gateway y autorización QH]
+  G --&gt; D[Casos de uso y dominio QH]
+  D --&gt; DB[(Datos QH)]
+  D --&gt; O[Outbox transaccional]
+  O --&gt; J[Worker e integración]
+  J --&gt; T[Twenty: proyecciones y capacidades genéricas]
+  J --&gt; P[Portal: proyección pública]
+  J --&gt; X[Canales, Calendar y Moodle]
+  P --&gt; I[Captación durable y validación]
+  X --&gt; I
+  I --&gt; D
+</code></pre>
+<p>La figura expresa un objetivo. La edición permitida dentro de Twenty, su camino de autenticación y la prevención de acceso directo siguen necesitando prueba: no basta poner un gateway delante si otro endpoint sigue exponiendo datos por fuera.</p>
+<h2 id="6-autoridad-del-dato-y-consistencia">6. Autoridad del dato y consistencia</h2>
+<table>
+<thead>
+<tr>
+<th>Dato/decisión</th>
+<th>Dueño objetivo según documentos</th>
+<th>Proyección/destino</th>
+<th>Regla pendiente o de transición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>identidad</td>
+<td>Supabase Auth según ACC</td>
+<td>sesión verificada en QH</td>
+<td>configuración y MFA efectivos por validar</td>
+</tr>
+<tr>
+<td>permisos, scopes y ver-como</td>
+<td>dominio ACC</td>
+<td>UI/API/jobs y membresía Twenty limitada</td>
+<td>no aceptar roles Twenty como elevación de privilegio</td>
+</tr>
+<tr>
+<td>contacto, consulta, asignación y pipeline QH</td>
+<td>dominio CON/LEA/NEG</td>
+<td>people/opportunities en Twenty si se acuerda</td>
+<td>correspondencia, campos editables y conflictos pendientes</td>
+</tr>
+<tr>
+<td>proyecto/unidad, precios y stock efectivo</td>
+<td>dominio INV/RES</td>
+<td>portal y objetos Twenty opcionales</td>
+<td>migrar autoridad desde catálogo editorial existente por fases</td>
+</tr>
+<tr>
+<td>texto/SEO/medios públicos</td>
+<td>política editorial POR/Studio</td>
+<td>revisión pública del portal</td>
+<td>autoridad por campo y versiones de trabajo/publicación</td>
+</tr>
+<tr>
+<td>metas/comisiones</td>
+<td>dominio MET/COM</td>
+<td>KPIs de lectura</td>
+<td>evento de logro, moneda y modelo M40 pendientes</td>
+</tr>
+<tr>
+<td>cita/tarea QH</td>
+<td>AGE/TAR</td>
+<td>Google/ICS/Twenty si se activa</td>
+<td>operaciones y fuente por campo/versiones pendientes</td>
+</tr>
+<tr>
+<td>aprendizaje y progreso LMS</td>
+<td>Moodle según ACA</td>
+<td>resumen QH</td>
+<td>contenido/credenciales y validez de constancias</td>
+</tr>
+<tr>
+<td>solicitudes/evidencia Academy</td>
+<td>dominio ACA</td>
+<td>vínculo con broker/LMS</td>
+<td>no derivar certificación solo por una marca UI</td>
+</tr>
+<tr>
+<td>mensajes, bajas y plantillas</td>
+<td>dominio COMU/CON</td>
+<td>proveedores de transporte</td>
+<td>entrega/read/bounce, finalidad y cuenta/canal</td>
+</tr>
+<tr>
+<td>documentos privados y KYC</td>
+<td>dominio DOC + almacenamiento privado</td>
+<td>enlaces temporales autorizados</td>
+<td>esquema, ACL, revisión y retención pendientes</td>
+</tr>
+<tr>
+<td>aprobaciones</td>
+<td>dominio APR</td>
+<td>efecto sobre módulo destinatario</td>
+<td>cuatro ojos y relación decisión/efecto durable</td>
+</tr>
+<tr>
+<td>reportes</td>
+<td>agregados dominio REP</td>
+<td>Twenty KPI/Superset candidato</td>
+<td>refresco, moneda, definición y scopes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Regla propuesta:</strong> un campo tiene un solo escritor autorizado. La comunicación puede ser bidireccional porque viajan consultas, comandos, proyecciones y acuses en ambos sentidos; no implica dos maestros editando todo. Ningún «última fecha gana» general se acepta como sustituto de esta matriz.</p>
+<h2 id="7-veintidos-modulos-tres-circuitos-de-comunicacion">7. Veintidós módulos, tres circuitos de comunicación</h2>
+<h3 id="71-circuito-de-atencion-comercial">7.1 Circuito de atención comercial</h3>
+<p>Portal/Meta/WhatsApp → entrada autenticada/firmada → inbox durable → normalización → contacto/interés → asignación → tareas/agenda → negocio → inventario/reserva → cierre coordinado → metas/comisión pendiente → reportes y, si procede, posventa. Comunicaciones acompaña el proceso con consentimiento, plantillas y seguimiento de entrega.</p>
+<p>Conservar por separado persona, consulta y oportunidad. Un teléfono compartido no permite fusionar personas automáticamente. Una persona puede consultar varios inmuebles; la deduplicación del mismo inquiry no debe borrar un interés nuevo. La atribución de campañas debe conservar su procedencia; una actividad marcada no demuestra conversión válida para Meta.</p>
+<h3 id="72-circuito-de-catalogo-publico">7.2 Circuito de catálogo público</h3>
+<p>Inventario QH → validación del dueño de campos → solicitud/revisión editorial → PortalPublisher → acuse y versión pública → invalidación de cache/conciliación. En sentido inverso, portal entrega consulta con ID origen y referencias de proyecto/unidad; no se enlaza solo por nombre o slug.</p>
+<p>Stock publicado debe derivarse de stock efectivo: estado de unidad, holds vigentes, reservas y compromisos. <code>available</code> en una tabla por sí solo no garantiza disponibilidad comercial. No publicar precio privado, notas, datos personales ni documentos KYC como parte de la ficha.</p>
+<h3 id="73-circuito-de-gobierno-y-operacion">7.3 Circuito de gobierno y operación</h3>
+<p>ACC/CFG gobiernan todas las acciones; BRO aporta equipo/cartera; APR controla decisiones sensibles; DOC conserva evidencia privada; REP/INI leen proyecciones; AUT ejecuta solo acciones autorizadas con límites/versiones; ACA y RED refuerzan trabajo del broker sin convertirse en autoridad de inventario o permisos.</p>
+<h2 id="8-matriz-de-comunicaciones-y-contratos-a-definir">8. Matriz de comunicaciones y contratos a definir</h2>
+<p>El estado «documentado» significa descrito en las fuentes, no conexión acreditada en esta sesión. La fuente específica y sus líneas están en los análisis de módulo. No se inventan endpoints nuevos como si ya existieran.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Origen → destino</th>
+<th>Intercambio y propósito</th>
+<th>Contrato/controles</th>
+<th>Estado de evidencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-01</td>
+<td>navegador staff → QH</td>
+<td>comandos/lecturas por rol</td>
+<td>identidad, scope, campos y versión; contexto ver-como</td>
+<td>requisito transversal ACC</td>
+</tr>
+<tr>
+<td>C-02</td>
+<td>QH → Twenty</td>
+<td>entidades genéricas/proyecciones y membresías</td>
+<td>IDs, mapping, edición permitida y dedupe por destino</td>
+<td>contrato pendiente; ADR registrado</td>
+</tr>
+<tr>
+<td>C-03</td>
+<td>Twenty → QH</td>
+<td>cambios permitidos como intención/comando</td>
+<td>actor original autorizado, versión/base y validación QH</td>
+<td>propuesta; no duplicar autoridad</td>
+</tr>
+<tr>
+<td>C-04</td>
+<td>INV/RES → portal</td>
+<td>catálogo comercial aprobado</td>
+<td>PortalPublisher, revisión, media/field whitelist, acuse</td>
+<td>objetivo documental; adaptador real pendiente</td>
+</tr>
+<tr>
+<td>C-05</td>
+<td>Studio/portal → QH</td>
+<td>cambios editoriales autorizados/consultas</td>
+<td>dueño por campo; inquiry ID estable y consentimiento/finalidad</td>
+<td>consultas observadas en código; sync editorial pendiente</td>
+</tr>
+<tr>
+<td>C-06</td>
+<td>Meta Lead Ads → LEA/CON</td>
+<td>captación y atribución</td>
+<td>firma/cuenta/ID evento, validación y rate limit</td>
+<td>declarado por fuentes; credenciales actuales no verificadas</td>
+</tr>
+<tr>
+<td>C-07</td>
+<td>WhatsApp/IG → COMU/LEA</td>
+<td>inbound e interés</td>
+<td>firma del proveedor, cuenta+evento y propósito</td>
+<td>parcial/documentado; inbox no demuestra bandeja</td>
+</tr>
+<tr>
+<td>C-08</td>
+<td>COMU → WhatsApp</td>
+<td>mensajes/plantillas autorizados</td>
+<td>proveedor único por cuenta, bajas al enviar, recibo y resultado ambiguo</td>
+<td>YCloud/Cloud API candidatos/adaptadores declarados</td>
+</tr>
+<tr>
+<td>C-09</td>
+<td>proveedor → COMU</td>
+<td>delivery/read/error/bounce</td>
+<td>evento deduplicado y correlación con intento</td>
+<td>historial durable por completar</td>
+</tr>
+<tr>
+<td>C-10</td>
+<td>COMU/REP → correo</td>
+<td>mensaje o informe autorizado</td>
+<td>destinatario/scope, baja cuando aplique, cola y estado</td>
+<td>Resend o simulación según fuente; envío real no probado</td>
+</tr>
+<tr>
+<td>C-11</td>
+<td>NEG → Meta CAPI</td>
+<td>conversión/atribución</td>
+<td>evento permitido, consentimiento/finalidad y dedupe</td>
+<td>diseño pendiente; outbox ≠ envío</td>
+</tr>
+<tr>
+<td>C-12</td>
+<td>AGE ↔ Google Calendar</td>
+<td>citas, cambios y cancelaciones</td>
+<td>OAuth por cuenta, ID estable, sync/reconcile y revocación</td>
+<td>opcional/documentado; durabilidad pendiente</td>
+</tr>
+<tr>
+<td>C-13</td>
+<td>AGE → ICS</td>
+<td>exportación de agenda</td>
+<td>permiso explícito, filtros, campos mínimos y acceso</td>
+<td>no permitir desde ver-como según ACC</td>
+</tr>
+<tr>
+<td>C-14</td>
+<td>ACA ↔ Moodle</td>
+<td>matrícula/progreso/curso</td>
+<td>lmsAdaptador, correlación broker/curso y verificación</td>
+<td>SoT LMS documentado; contenido/credenciales pendientes</td>
+</tr>
+<tr>
+<td>C-15</td>
+<td>DOC ↔ almacenamiento privado</td>
+<td>carga/descarga/versiones/evidencia</td>
+<td>autorización por objeto, URL temporal, validación y retención</td>
+<td>capacidad objetivo, no repositorio acreditado</td>
+</tr>
+<tr>
+<td>C-16</td>
+<td>INV/POR ↔ medios públicos</td>
+<td>fotografías/avances aprobados</td>
+<td>derechos, formatos y flags de publicación</td>
+<td>separar de documentos privados</td>
+</tr>
+<tr>
+<td>C-17</td>
+<td>NEG → MET/COM</td>
+<td>cierre/atribución/comisión pendiente</td>
+<td>misma transacción local QH cuando sea invariante; evento estable</td>
+<td>requisito documental a probar</td>
+</tr>
+<tr>
+<td>C-18</td>
+<td>RES ↔ INV/NEG</td>
+<td>hold/reserva/liberación/compromiso</td>
+<td>exclusión de unidad, expiración y control de concurrencia</td>
+<td>requisitos y permisos pendientes de validar</td>
+</tr>
+<tr>
+<td>C-19</td>
+<td>COM/RES → APR → destinatario</td>
+<td>solicitud/decisión/efecto</td>
+<td>solicitante ≠ aprobador, versión y efecto durable/reconciliable</td>
+<td>diseño incompleto; aprobar ≠ pagar</td>
+</tr>
+<tr>
+<td>C-20</td>
+<td>NEG/CON → DOC</td>
+<td>expediente y evidencia</td>
+<td>ACL específica KYC/documento, no solo deals:view</td>
+<td>objetivo con riesgo histórico citado</td>
+</tr>
+<tr>
+<td>C-21</td>
+<td>AUT → TAR/COMU/otros</td>
+<td>acciones de una regla versionada</td>
+<td>permiso al ejecutar, límites, cancelación y anti-bucle</td>
+<td>no hay motor acreditado</td>
+</tr>
+<tr>
+<td>C-22</td>
+<td>módulos → REP/INI</td>
+<td>hechos y proyecciones filtradas</td>
+<td>definición de métrica, watermark y stale state</td>
+<td>no duplicar escrituras de negocio</td>
+</tr>
+<tr>
+<td>C-23</td>
+<td>REP → Superset</td>
+<td>vistas/lecturas BI</td>
+<td>credencial solo lectura, aislamiento y exportación</td>
+<td>candidato no seleccionado</td>
+</tr>
+<tr>
+<td>C-24</td>
+<td>BRO/ACC → Twenty/servicios</td>
+<td>alta/baja/revocación</td>
+<td>desactivar sesiones y sincronizar estado sin perder historial</td>
+<td>traspaso previo y contrato pendiente</td>
+</tr>
+<tr>
+<td>C-25</td>
+<td>NEG/INV/DOC → POS</td>
+<td>entrega, expediente y caso</td>
+<td>handoff explícito, responsable, evidencias</td>
+<td>complemento objetivo, no operación acreditada</td>
+</tr>
+<tr>
+<td>C-26</td>
+<td>BRO → RED</td>
+<td>identidad/participación en comunidad</td>
+<td>ACL/moderación propias; no heredar lectura global por brokers:view</td>
+<td>complemento objetivo</td>
+</tr>
+</tbody>
+</table>
+<p>Cal.com aparece como ejemplo en la plantilla, no como integración elegida. Telegram/SMS y servicios simulados citados en COMU no se convierten en canales productivos por aparecer en un enum. No se conectan bancos, pasarelas, firma jurídica ni facturación fiscal mediante esta diagramación.</p>
+<h2 id="9-contrato-de-sincronizacion-garantias-propuestas">9. Contrato de sincronización: garantías propuestas</h2>
+<p>La elección híbrida necesita un <strong>contrato por entidad y por campo</strong>, no una tarea genérica «sync bidireccional». Registrar sistema dueño, ID QH/externo, transformaciones, actor/permiso, versión, dirección, evento/comando, SLA acordado, límites, retención de recibos y procedimiento de reparación.</p>
+<ol>
+<li>Cambio local QH y evento/outbox se guardan en la misma transacción cuando deban ser durables juntos. El consumidor confirma tras persistir su efecto.</li>
+<li>Usar entrega al menos una vez; deduplicar transporte por origen/event_id y negocio por identidad estable (por ejemplo origen/inquiry_id). Conservar externalId del portal al migrar.</li>
+<li>Operación repetida con misma clave y mismo payload devuelve recibo previo; misma clave con payload distinto produce conflicto. Para una operación ya aplicada, resolver su recibo antes de tratar la versión vieja como comando nuevo, manteniendo autorización vigente.</li>
+<li>Un comando nuevo valida versión de forma atómica con la mutación. Resolver conflictos con comparación y política por campo; nunca sobrescritura silenciosa general.</li>
+<li>Claim/lease del worker, red fuera del bloqueo SQL y ACK posterior. Reintentos con backoff/jitter y presupuesto; 429 respeta Retry-After; errores permanentes a cuarentena con dueño.</li>
+<li>Un delivery tiene estado por destino. Entregar a Twenty no implica que portal o correo hayan recibido. Audit/proyección no deben marcar «enviado» si el adaptador fue simulación.</li>
+<li>Eventos con versión de agregado y source/causation evitan reordenación y bucles. Una réplica no genera de nuevo la misma acción. Detectar huecos y releer snapshot del dueño.</li>
+<li>Webhook más conciliación por cursor/watermark, incluyendo retiradas/tombstones y resnapshot si el log expiró. Fecha de modificación sola no resuelve empates ni cambios durante la copia.</li>
+<li>Timeout tras envío tiene resultado desconocido, no prueba fallo. Consultar proveedor/operación o reintentar con identidad estable; no duplicar mensaje, visita, cierre o pago manual.</li>
+<li>Revalidar baja/permiso/consentimiento al ejecutar trabajo pendiente. Un opt-out durante la cola debe impedir un envío todavía no realizado según la política acordada.</li>
+</ol>
+<p>Especificaciones exactas de API/eventos, autorización y tiempos siguen siendo entregables de contrato. Esta lista propone garantías que deben verificarse; no las acredita por escrito.</p>
+<h2 id="10-transacciones-e-invariantes-inmobiliarios">10. Transacciones e invariantes inmobiliarios</h2>
+<p><strong>Conversión de lead.</strong> Conservar origen, contacto, responsable, intereses, historial y vínculo al negocio sin duplicar tras doble clic/reentrega. La regla exacta de contacto compartido/merge necesita evidencia del negocio.</p>
+<p><strong>Reserva/hold.</strong> Un hold tiene titular, unidad, estado, vencimiento y motivo. Verificar stock efectivo y exclusividad en transacción; vencimiento/liberación son transiciones auditadas e idempotentes. Definir prórroga, cancelación y excepción con aprobación cuando corresponda. No depender solo de un reloj del navegador ni de <code>units.status</code>.</p>
+<p><strong>Cierre ganado.</strong> NEG coordina precondiciones, permisos, versión/estado del negocio, compromiso de inventario, atribución y registros de meta/comisión pendiente. Si comparten persistencia QH, la unidad de trabajo puede hacer atómicos los efectos locales requeridos sin que módulos escriban tablas ajenas arbitrariamente. Twenty, Meta y portal reciben eventos después del commit; una caída externa no revierte mágicamente la transacción comercial.</p>
+<p><strong>Reapertura/cancelación.</strong> Definir qué libera stock, qué ajusta meta y qué anula/recalcula comisión; conservar historial con compensaciones, no borrar el cierre anterior. Debe haber reglas para comisión ya pagada y documentación relacionada antes de automatizar efectos.</p>
+<p><strong>Aprobación/liquidación.</strong> Separar solicitado, aprobado, ejecutado y conciliado. Cuatro ojos requiere solicitante distinto del aprobador, evidencia y alcance. La tabla financiera de APR no representa automáticamente todo tipo de descuento, merge o hold. Registrar decisión y efecto mediante transacción o workflow reconciliable; pago no se deduce de aprobación ni del estado <code>paid</code> sin evidencia definida.</p>
+<p><strong>Baja de broker.</strong> Traspasar cartera/tareas/responsables, revocar acceso y mantener autoría histórica. No borrar relaciones ni dejar oportunidades huérfanas. El espejo de membresía Twenty también debe revocarse y conciliarse.</p>
+<p><strong>Logro de meta.</strong> MET describe como condición deseada contrato firmado + reserva confirmada, mientras cálculos históricos citados usan ganado/closed_at. Definir el evento computable antes de automatizar incrementos. La moneda forma parte de la dimensión de cálculo: una cifra en centavos sin moneda no permite sumar USD y DOP. El objetivo semanal es una extensión opcional, no un calendario ya disponible.</p>
+<p><strong>Aprobación de mensajes.</strong> AUT exige borrador/revisión humana para WhatsApp, pero AGE contempla recordatorios automáticos. Conservar la tensión como decisión por tipo de acción, canal y finalidad. Hasta definirla, una regla automática no debe asumir permiso para enviar; distinguir preparar, aprobar y despachar. La baja y la autorización se comprueban al enviar, incluso si la regla fue aprobada antes.</p>
+<h2 id="11-modelo-conceptual-y-catalogos">11. Modelo conceptual y catálogos</h2>
+<p>Familias de entidades a concretar, sin fijar aquí DDL definitivo:</p>
+<table>
+<thead>
+<tr>
+<th>Familia</th>
+<th>Entidades conceptuales</th>
+<th>Relaciones/invariantes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>identidad</td>
+<td>User, Role, Permission, Override, Team, ManagerScope, ViewAsSession</td>
+<td>actor verificado, scope explícito/no transitivo, revocación y auditoría</td>
+</tr>
+<tr>
+<td>relación comercial</td>
+<td>Contact, Channel, Consent/OptOut, Inquiry, Lead, Assignment, Opportunity</td>
+<td>persona ≠ consulta ≠ negociación; origen y responsable trazables</td>
+</tr>
+<tr>
+<td>inventario</td>
+<td>Project, Property/Unit, Price, ProgressPhase, Media, Publication</td>
+<td>proyecto ≠ unidad; precio público ≠ precio restringido; revisión pública</td>
+</tr>
+<tr>
+<td>compromiso</td>
+<td>Hold, Reservation, InventoryCommitment, ApprovalRequest</td>
+<td>exclusión por unidad, expiración y decisión versionada</td>
+</tr>
+<tr>
+<td>trabajo</td>
+<td>Activity, TaskPack, Evidence, Visit/Appointment</td>
+<td>responsable, contexto lead/negocio y resultado</td>
+</tr>
+<tr>
+<td>rendimiento</td>
+<td>Goal, Achievement, CommissionEntry, Split, Batch/Adjustment</td>
+<td>definición de logro, periodo/moneda y pago separado de aprobación</td>
+</tr>
+<tr>
+<td>contenidos privados</td>
+<td>Document, DocumentVersion, AccessGrant, KycCase/SignatureRequest</td>
+<td>ACL propia y finalidad; firma/validez no inferidas</td>
+</tr>
+<tr>
+<td>desarrollo broker</td>
+<td>LearningRequest, EnrollmentReference, CertificateEvidence, CommunityGroup</td>
+<td>Moodle SoT de progreso; ACL de comunidad y evidencia</td>
+</tr>
+<tr>
+<td>integración</td>
+<td>ExternalMapping, Inbox, Outbox, DeliveryAttempt, DeadLetter, SyncCursor</td>
+<td>identidad estable, recibos y estado por destino</td>
+</tr>
+<tr>
+<td>operación ampliada</td>
+<td>AutomationRule/Version/Run, AfterSaleCase, Handover/Warranty</td>
+<td>permisos al ejecutar, límites, responsables y cancelación</td>
+</tr>
+</tbody>
+</table>
+<p>Catálogos de negocio (etapas, fuentes, motivos, tipos, equipos, monedas, niveles y políticas) deben tener dueño y tratamiento de valores inactivos. Estados técnicos/versiones de contratos no se confunden con catálogos editables libremente. Dinero usa precisión decimal y moneda explícita; no sumar importes de monedas diferentes como un único KPI. Instantes en UTC y presentación/calendario con <code>America/Santo_Domingo</code>; no perder zona de citas externas.</p>
+<h2 id="12-seguridad-privacidad-y-limites-de-integracion">12. Seguridad, privacidad y límites de integración</h2>
+<p>La autoridad de autorización es ACC/QH. Cada lectura/escritura, exportación, job y archivo comprueba recurso, acción, registro, equipo y campos. <code>none</code> revoca; overrides reemplazan la celda correspondiente; <code>team</code> no significa todos los equipos conectados transitivamente. Los detalles exactos de assistant/manager y administradores protegidos requieren la matriz aceptada.</p>
+<p>El modo ver-como es de lectura con rastro del operador; no da permisos para exportar/OAuth/ICS o ejecutar comandos indirectos. El dato restringido debe filtrarse en el servidor, no solo ocultarse en pantalla. <code>deals:view</code> no basta para KYC, firmas, comprobantes o documentos privados.</p>
+<p>Twenty necesita una prueba explícita contra bypass: API directa, UI nativa, exportación, búsqueda, metadatos y jobs. Dos caminos posibles de integración (a validar): shell QH que consume servicios controlados, o extensiones Twenty con controles equivalentes comprobados. Un iframe/SSO por sí mismo no hace que QH gobierne su autorización. Usar cuentas técnicas limitadas, identidad original para comandos y credenciales fuera del cliente.</p>
+<p>Las fuentes mencionan Ley 172-13 y Ley 155-17. Se preservan como requisitos/alertas documentales; esta entrega no establece aplicabilidad legal, plazos o suficiencia de consentimiento/KYC. Recibir una consulta no acredita automáticamente permiso para campañas. Definir finalidad, canal, evidencia, baja, retención y atención de derechos con el responsable competente. Logs/telemetría minimizan PII y no copian cuerpos/documentos completos.</p>
+<p>Archivos privados requieren validación de formato/tamaño, cuarentena según riesgo, permisos por objeto, URLs temporales y política de borrado/retención incluidas copias y réplicas. Medios públicos tienen ciclo de aprobación y derechos propios. No reutilizar cookie Studio ni credencial administrativa de base como token del integrador.</p>
+<h2 id="13-arquitectura-del-diseno-y-experiencia">13. Arquitectura del diseño y experiencia</h2>
+<p>La UI debe representar las funciones reales y su estado. Los prototipos sirven para decidir; un botón de demo no se presenta como una operación hecha. Todo módulo indica cuándo los datos son parciales, antiguos, simulados o pendientes de confirmación externa.</p>
+<p>Proceso propuesto: tareas/roles → arquitectura de información → recorridos → dos direcciones visuales → tokens → componentes → estados → contrato de datos/permisos → pruebas con usuarios. Usar un lienzo (Figma/Penpot) y un generador para exploración (Stitch/Claude Design), no siete herramientas como dependencia obligatoria. Con Twenty elegido, contrastar la UI soportada y los paquetes permitidos antes de adoptar una plantilla paralela. 21st/PXIL aporta piezas puntuales con procedencia/licencia; no define reglas ni garantiza accesibilidad.</p>
+<p>Capas visuales: tokens semánticos, controles base, patrones (tabla/filtros/formulario/inspector) y componentes QH (propiedad/unidad, timeline, estado de publicación, tarjeta de oportunidad, ficha de comisión, evidencia). Las reglas del negocio y SDK de proveedor viven fuera de los componentes visuales. Storybook, cuando exista código, conserva variantes y estados; las fuentes de esta carpeta todavía no constituyen ese catálogo ejecutable.</p>
+<table>
+<thead>
+<tr>
+<th>Vista/familia</th>
+<th>Experiencia que debe comprobarse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inicio</td>
+<td>indicadores accionables, ámbito/periodo y estado de actualización</td>
+</tr>
+<tr>
+<td>Leads/contactos/negocios</td>
+<td>contexto conservado al navegar, próxima acción, historial y cartera visible</td>
+</tr>
+<tr>
+<td>Inventario/publicación</td>
+<td>proyecto/unidad/precio separados; revisión de trabajo y estado público inequívocos</td>
+</tr>
+<tr>
+<td>Tareas/agenda</td>
+<td>lista equivalente al calendario/kanban, cancelación/reagendado sin pérdida de contexto</td>
+</tr>
+<tr>
+<td>Metas/comisiones/reportes</td>
+<td>definición, moneda, fecha de corte y permisos; cifra no equivale a cobro</td>
+</tr>
+<tr>
+<td>Academy/brokers</td>
+<td>progreso/evidencia real, estado de solicitudes y responsabilidades</td>
+</tr>
+<tr>
+<td>Documentos/aprobaciones/reservas</td>
+<td>permiso específico, confirmación, conflicto recuperable y efecto durable</td>
+</tr>
+<tr>
+<td>Integraciones/configuración</td>
+<td>último éxito, pendiente/fallido, causa y reproceso permitido</td>
+</tr>
+<tr>
+<td>Comunidad/automatizaciones/posventa</td>
+<td>rotular fase disponible; no presentar mock como motor/caso activo</td>
+</tr>
+</tbody>
+</table>
+<p>Estados obligatorios: carga, vacío, error, sin conexión, éxito y sin permiso; añadir parcial, conflicto, cancelado, en cola y resultado desconocido según recorrido. «Guardado», «aceptado por proveedor» y «publicado/entregado» tienen significados distintos. Teclado, foco, contraste, mensajes de campo y alternativa al arrastre se prueban en escritorio/móvil, con datos sintéticos y accesibilidad manual además de herramientas automáticas.</p>
+<h2 id="14-operacion-rendimiento-y-recuperacion">14. Operación, rendimiento y recuperación</h2>
+<p>Separar desarrollo/staging/producción, datos sintéticos, cuentas y secretos por ambiente. No arrancar scripts del portal/CRM anterior sin revisar a qué base apuntan: la evidencia local no autoriza una operación remota. No se ha creado infraestructura en esta entrega.</p>
+<p>Métricas objetivo a acordar: usuarios concurrentes, inventario/contactos/actividad, p95 por recorrido, disponibilidad, antigüedad tolerable de proyección/cola, plazo de atención de fallos, RPO/RTO y presupuesto. Las cifras de ejemplo del primer alcance siguen siendo hipótesis de ensayo, no requisitos aceptados ni SLA de este paquete.</p>
+<p>Observar edad del trabajo más viejo, intentos/DLQ, retraso por destino, conflictos, consultas sin asignar/próxima acción, fallos de firma/permiso, exports y errores de proveedor. Correlación inquiry→lead→negocio→publicación sin datos personales innecesarios. Alertas tienen responsable/runbook y no se convierten en spam por reintento.</p>
+<p>Backups y restauración ensayada con relaciones/medios, no solo estado «backup OK». Reversión de versión de aplicación no revierte datos: después de un corte, capturar y reconciliar el delta antes de volver al CRM anterior. Exportación de salida debe incluir IDs/relaciones/catálogos/auditoría permitida/medios y mapa externo; CSV de contactos no restaura el sistema.</p>
+<h2 id="15-riesgos-y-contradicciones-que-el-diseno-debe-conservar">15. Riesgos y contradicciones que el diseño debe conservar</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Tema</th>
+<th>Tratamiento de esta entrega</th>
+<th>Cierre/evidencia futura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-01</td>
+<td>Twenty genérico vs dominio dueño de LEA/CON/NEG</td>
+<td>baseline híbrida; no dual master</td>
+<td>contrato por campo, permisos y prueba de actualización sin pérdida</td>
+</tr>
+<tr>
+<td>R-02</td>
+<td>inventario QH objetivo vs catálogo portal actual</td>
+<td>separar estado observado de destino</td>
+<td>mapeo, política editorial y piloto de transición</td>
+</tr>
+<tr>
+<td>R-03</td>
+<td>.com documental vs .tech local observado</td>
+<td>no asumir equivalencia de hostname/ambiente</td>
+<td>confirmar URL y contrato efectivos antes de conectar</td>
+</tr>
+<tr>
+<td>R-04</td>
+<td>fuentes citan código 81ccf08 y rutas /workspace ausentes</td>
+<td>evidencia histórica atribuida</td>
+<td>repositorio/commit/árbol verificables para trabajo de implementación</td>
+</tr>
+<tr>
+<td>R-05</td>
+<td>planes antiguos dicen OSS/add-ons pendientes</td>
+<td>índice v2.4 + ADR + ESP actuales prevalecen por recencia</td>
+<td>mantener registro de supersesión sin modificar originales</td>
+</tr>
+<tr>
+<td>R-06</td>
+<td>role manager presente/ausente según módulo</td>
+<td>desfasaje documental, no inventar permisos</td>
+<td>matriz recurso×acción×scope y pruebas negativas</td>
+</tr>
+<tr>
+<td>R-07</td>
+<td>reservas complemento pero cierre depende de stock/hold</td>
+<td>dependencia explícita</td>
+<td>activar mínimos necesarios o limitar el flujo ofrecido</td>
+</tr>
+<tr>
+<td>R-08</td>
+<td>documentos/KYC visibles con permiso genérico según fuente</td>
+<td>riesgo histórico; privacidad desde diseño</td>
+<td>storage/ACL real y pruebas de descarga/API</td>
+</tr>
+<tr>
+<td>R-09</td>
+<td>fuentes COMU con varios adaptadores/simulación</td>
+<td>elegir puerto/proveedor por cuenta</td>
+<td>evidencia de envío y delivery real, timeout/opt-out probados</td>
+</tr>
+<tr>
+<td>R-10</td>
+<td>aprobación, comisión y pago confundidos</td>
+<td>estados/efectos separados</td>
+<td>cuatro ojos, evidencia y conciliación de liquidación</td>
+</tr>
+<tr>
+<td>R-11</td>
+<td>fuente PLAN-P0-01 oculta DOC pero P0-09 necesita storage</td>
+<td>ocultar no construye capacidad</td>
+<td>dependencia DOC storage+ACL explícita antes de evidencia de pago</td>
+</tr>
+<tr>
+<td>R-12</td>
+<td>outbox se presenta como automatización/CAPI listos</td>
+<td>separar mecanismo de entrega de función</td>
+<td>consumidor/motor/ruleset/proveedor reales y pruebas</td>
+</tr>
+<tr>
+<td>R-13</td>
+<td>Moodle presente pero contenido/cuentas pendientes</td>
+<td>SoT LMS documental con conexión no acreditada</td>
+<td>curso/contenido, matrícula/progreso y evidencia validada</td>
+</tr>
+<tr>
+<td>R-14</td>
+<td>núcleo Twenty AGPL, UI/Enterprise de condiciones distintas</td>
+<td>revisión por paquete/commit y política vigente</td>
+<td>D12/responsable valida estrategia antes de integrar código</td>
+</tr>
+<tr>
+<td>R-15</td>
+<td>stock available versus efectivo, reapertura y ajustes</td>
+<td>invariantes/compensaciones señaladas</td>
+<td>pruebas concurrentes y criterios aceptados de negocio</td>
+</tr>
+<tr>
+<td>R-16</td>
+<td>meta por won frente a contrato firmado/reserva</td>
+<td>dos reglas distintas en evidencia histórica y objetivo</td>
+<td>evento de logro y verificación de firma/reserva/moneda</td>
+</tr>
+<tr>
+<td>R-17</td>
+<td>AUT exige borrador WA; AGE propone recordatorio automático</td>
+<td>no escoger una regla por silencio</td>
+<td>política de aprobación por acción/canal y pruebas de envío</td>
+</tr>
+<tr>
+<td>R-18</td>
+<td>progreso Academy local en INI frente a Moodle SoT ACA</td>
+<td>widget como proyección, no progreso independiente</td>
+<td>fuente canónica, fecha de actualización y reconciliación</td>
+</tr>
+</tbody>
+</table>
+<p>Los P0 del paquete describen riesgos del sistema histórico, no vulnerabilidades reproducidas por esta sesión. Se conservan como <strong>checklist de diseño y revalidación</strong>, no como autorización de parchear producción.</p>
+<h2 id="16-pruebas-que-deben-demostrar-la-arquitectura">16. Pruebas que deben demostrar la arquitectura</h2>
+<table>
+<thead>
+<tr>
+<th>Escenario</th>
+<th>Resultado esperado por acordar/verificar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dos eventos distintos del mismo inquiry</td>
+<td>un lead/recibo de negocio, sin perder interés legítimo diferente</td>
+</tr>
+<tr>
+<td>dos editores / versión obsoleta</td>
+<td>conflicto visible sin sobrescritura silenciosa</td>
+</tr>
+<tr>
+<td>caída portal/Twenty/Google/canal</td>
+<td>dominio guarda estado local coherente; entrega pendiente visible y recuperable</td>
+</tr>
+<tr>
+<td>timeout después del commit/envío</td>
+<td>recibo/consulta de estado y cero efectos duplicados</td>
+</tr>
+<tr>
+<td>usuario de otro equipo, campo precio, KYC, exportación</td>
+<td>denegación en API y UI, sin filtrado insuficiente en cliente</td>
+</tr>
+<tr>
+<td>modo ver-como</td>
+<td>lectura permitida según scope; comandos, export/OAuth/ICS denegados</td>
+</tr>
+<tr>
+<td>dos reservas simultáneas / hold vencido</td>
+<td>exclusión y transición auditada según política; stock público conciliado</td>
+</tr>
+<tr>
+<td>cierre/reapertura repetidos</td>
+<td>compromiso/meta/comisión coherentes y efectos locales únicos</td>
+</tr>
+<tr>
+<td>baja del broker con cartera</td>
+<td>traspaso, revocación y conservación de autoría</td>
+</tr>
+<tr>
+<td>opt-out llega mientras mensaje espera</td>
+<td>reevaluación antes de envío, baja y evidencia conservadas</td>
+</tr>
+<tr>
+<td>documento privado y enlace compartido</td>
+<td>ACL por objeto, expiración y revocación comprobadas</td>
+</tr>
+<tr>
+<td>aprobación por solicitante o decisión sin efecto</td>
+<td>bloqueo de autoaprobación y reconciliación del estado</td>
+</tr>
+<tr>
+<td>evento viejo, cursor vencido y borrado</td>
+<td>no revertir estado, resnapshot y tombstone consistentes</td>
+</tr>
+<tr>
+<td>motor de automatización reacciona a sí mismo</td>
+<td>límite/causación y cancelación sin bucle</td>
+</tr>
+<tr>
+<td>restauración/importación/corte</td>
+<td>conteos, relaciones, medios y delta conciliados</td>
+</tr>
+</tbody>
+</table>
+<p>Priorizar contrato, invariantes y permisos sobre pruebas que solo comparen una pantalla con su propia implementación. La revisión de Archify comprueba diagramas/navegador; no sustituye ninguna prueba de esta tabla.</p>
+<h2 id="17-plan-de-ejecucion-por-dependencias">17. Plan de ejecución por dependencias</h2>
+<table>
+<thead>
+<tr>
+<th>Oleada</th>
+<th>Entrega</th>
+<th>Condición para avanzar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A · contexto y contratos</td>
+<td>validar roles/procesos/volúmenes; mapear dato por campo; Twenty y portal; experiencia de recorridos</td>
+<td>decisiones pendientes, contratos y alcance registrados</td>
+</tr>
+<tr>
+<td>B · plataforma de confianza</td>
+<td>identidad/RBAC, auditoría, consentimiento, archivos donde sean necesarios, entrega durable</td>
+<td>pruebas negativas y recuperación; nada demo presentado como real</td>
+</tr>
+<tr>
+<td>C · circuito comercial</td>
+<td>CON/LEA/NEG/INV con BRO/TAR/AGE e INI, lectura/reportes mínimos</td>
+<td>consulta→asignación→actividad→negocio probado por rol</td>
+</tr>
+<tr>
+<td>D · inventario y canal público</td>
+<td>unidad/stock efectivo, política de revisión, PortalPublisher y captación estable</td>
+<td>concurrencia, publicación/retirada y conciliación probadas</td>
+</tr>
+<tr>
+<td>E · núcleo completo</td>
+<td>MET/COM/COMU/REP/CFG/ACC/ACA con dependencias DOC/APR/RES necesarias</td>
+<td>evidencia de reglas/comisiones/consentimiento/LMS y salidas verificables</td>
+</tr>
+<tr>
+<td>F · complementos completos</td>
+<td>RES/DOC/APR y después AUT/RED/POS conforme a prioridades</td>
+<td>flujos y permisos propios; no inferir función por un mock</td>
+</tr>
+<tr>
+<td>G · migración y operación</td>
+<td>corte con mapa de IDs, dry-run, capacitación, restore y rollback</td>
+<td>aceptación humana del corte y observación de métricas reales</td>
+</tr>
+</tbody>
+</table>
+<p>Núcleo/complementos se preserva del paquete; el orden técnico puede requerir piezas de un complemento antes para no romper el núcleo. No se cotizan fechas o dinero sin capacidad, volumen, alcance y prueba de encaje. No se ha construido producto ni aplicado la checklist P0 histórica.</p>
+<h2 id="18-decisiones-abiertas-y-fuentes-no-incluidas">18. Decisiones abiertas y fuentes no incluidas</h2>
+<p>Se mantienen abiertos: política de conflictos/edición Twenty, autoridad editorial por campo, denominación/host del portal, matriz de roles y ver-como, cierre/reserva/reapertura, logro de metas y monedas, motor M40 y evidencia/liquidación, consentimiento/retención, canales/cuentas, Google/ICS, Moodle/contenido y Superset candidato. Son decisiones específicas; no se vuelve a preguntar si el CRM es para varias inmobiliarias o cuál es REA.</p>
+<p>Los documentos citan materiales <strong>no incluidos en esta carpeta</strong>: <code>DOCUMENTO-MAESTRO-CRM-VILTRUM-2026-11-06.md</code>, su espejo ESPEC, auditoría de módulos, manual Cuba de 278 casos, capturas funcionales, PLAN-EQUIPO, INTEGRACIONES-LISTAS, resultados Lote A/B y código <code>/workspace/...@81ccf08</code>. Sus conclusiones se atribuyen a las ESP; no se afirma haber leído esos originales ni haber revalidado sus resultados. El inventario local previo corresponde a otros HEAD y se conserva como evidencia separada.</p>
+<h2 id="19-entregables-y-guia-de-continuacion">19. Entregables y guía de continuación</h2>
+<ul>
+<li><a href="../00-fuentes-drive/2026-11-06/inventario-drive.json">Originales e inventario Drive</a>: descarga y procedencia.</li>
+<li><a href="../06-analisis-documental/control-fuentes.md">Control de PDF/ZIP</a>: páginas, parejas, variantes y límites.</li>
+<li><a href="../06-analisis-documental/README.md">Análisis uno por uno</a>: 30 notas con fuentes y localizadores.</li>
+<li><a href="catalogo-casos-de-uso.csv">Catálogo de casos de uso</a>: filas funcionales extraídas con módulo, archivo y línea; no IDs globales inventados.</li>
+<li><a href="comunicaciones.csv">Mapa de comunicaciones</a>: contratos C-01…C-26 y estado de definición.</li>
+<li><a href="relaciones-detalladas.csv">Relaciones detalladas</a>: cruces extraídos de las especificaciones con fuente/estado. Una relación documental no equivale a una API ni a una integración operativa independiente.</li>
+<li><a href="../08-diagramas-interactivos/index.html">Paquete interactivo</a>: vistas conectadas, fuente JSON y recibos de validación.</li>
+<li><a href="../06-analisis-documental/revision-luna.md">Revisión Luna</a>: consistencia/cobertura y riesgos residuales de esta entrega.</li>
+</ul>
+<p>Para continuar, usar este consolidado y sus preguntas como contexto vigente, resolver contratos antes de implementar sincronización y validar los recorridos con personas del equipo. La elección registrada de Twenty y las funciones aquí descritas no prueban integración, capacidad, seguridad o cumplimiento legal. Esas evidencias se producirán en sus etapas.</p><h2 id="anexos">Anexos: 30 documentos analizados</h2><p class="status">Despliega cada nota para ver reglas, conexiones, estados y localizadores. La revisión de estas fuentes no acredita el runtime.</p><details id="anexo-indice"><summary>INDICE — Índice canónico del paquete v2.4</summary><p>Productor Codex D01/D03 · 2026-11-06. Lectura completa de 95 líneas.</p>
+<p>Fuente: <code>00-Indice.md</code>. SHA256 <code>4bc81824a60d321e9f7e139388540d6b48fbdf812ca74ddaec2ead147f4b7cc9</code>. Procedencia: inventario-drive.json; original inalterado.</p>
+<h2>Contenido y alcance</h2>
+<p>Lista 22 ESP, ADR, cierre y plan. Presenta Twenty híbrido como elección documental cerrada y el resto de especificaciones como borradores.</p>
+<h2>Interpretación y reconciliación</h2>
+<p>Es la fuente de recencia: LEA/NEG/CON v0.2 y RED/AUT/POS ya redactados superan menciones anteriores a «sin ESP». Sus enlaces Drive antiguos no sustituyen la carpeta entregada por Wilber.</p>
+<h2>Arquitectura, datos y comunicaciones</h2>
+<p>Distinguir 22 módulos/ESP, 24 filas inventario por ASG/OBR y 26 PDF. No sumar estos conteos como módulos independientes. Incluir todas las comunicaciones aunque un add-on se active después.</p>
+<h2>Localizadores</h2>
+<ul>
+<li><code>00-Indice.md:11</code> — Índice — Especificaciones CRM Quisqueya Home</li>
+<li><code>00-Indice.md:49</code> — Histórico (superseded)</li>
+<li><code>00-Indice.md:54</code> — Corte rápido</li>
+<li><code>00-Indice.md:62</code> — Próximos ESP (oleada Núcleo)</li>
+<li><code>00-Indice.md:91</code> — Capa OSS / integración</li>
+</ul>
+<h2>Estado de evidencia</h2>
+<p>Declaraciones del documento y propuestas de integración; no pruebas de runtime ni aceptación nueva del negocio. Las fuentes referenciadas pero no incluidas quedan por obtener. Revisión independiente solicitada a Luna.</p></details>
+<details id="anexo-leeme"><summary>LEEME — Manifiesto del lote PDF</summary><p>Productor Codex D01/D03 · 2026-11-06. Lectura completa de 42 líneas.</p>
+<p>Fuente: <code>LEEME.md</code>. SHA256 <code>67d973ef866050f5c6742be0acda8da07f991e53116ee90854e41c5f424f88c5</code>. Procedencia: inventario-drive.json; original inalterado.</p>
+<h2>Contenido y alcance</h2>
+<p>Declara 26 PDF y ZIP testzip OK; índice v2.4, 15 núcleo y 7 add-on. Es procedencia del paquete, no certificación de producto.</p>
+<h2>Interpretación y reconciliación</h2>
+<p>Comprobar tamaños, páginas, ZIP y emparejamiento con Markdown mediante control-fuentes. No obedecer la sugerencia de implementar P0 ni la restricción histórica «sin Drive» como instrucciones de esta sesión.</p>
+<h2>Arquitectura, datos y comunicaciones</h2>
+<p>No aporta entidades ni contratos propios. Declara referencias de exportación; 278 casos Cuba y documentos maestros citados en otros documentos no están necesariamente incluidos.</p>
+<h2>Localizadores</h2>
+<ul>
+<li><code>LEEME.md:1</code> — Lote PDF — Especificaciones CRM Quisqueya Home (2026-11-06)</li>
+</ul>
+<h2>Estado de evidencia</h2>
+<p>Declaraciones del documento y propuestas de integración; no pruebas de runtime ni aceptación nueva del negocio. Las fuentes referenciadas pero no incluidas quedan por obtener. Revisión independiente solicitada a Luna.</p></details>
+<details id="anexo-adr"><summary>ADR — Decisión documental híbrida Twenty</summary><p>Productor Codex D01/D03 · 2026-11-06. Lectura completa de 58 líneas.</p>
+<p>Fuente: <code>VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md</code>. SHA256 <code>129cb76818028504aab220005aaa48406aa49cd3732273b62ef1e2748f214574</code>. Procedencia: inventario-drive.json; original inalterado.</p>
+<h2>Contenido y alcance</h2>
+<p>Registra estado ACEPTADO atribuido a voz de Wilber vía Grok Bot: Twenty Community para CRM genérico/UI; dominio hexagonal QH para reglas inmobiliarias, metas y permisos.</p>
+<h2>Interpretación y reconciliación</h2>
+<p>Se incorpora como baseline documental para este diseño; no se inventa una nueva aceptación humana ni se supone integración realizada. Política de conflicto, IDs, permisos efectivos y alcance exacto de paquetes permanecen pendientes.</p>
+<h2>Arquitectura, datos y comunicaciones</h2>
+<p>Twent​y no sustituye SoT inventario/metas/comisiones/configuración, ni RBAC de QH. «twenty-ui MIT» requiere verificar paquete/commit concreto; núcleo AGPL y Enterprise separados. Rutas DOCUMENTO-MAESTRO y ESPEC espejo citadas no están en la carpeta suministrada.</p>
+<h2>Localizadores</h2>
+<ul>
+<li><code>VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md:12</code> — ADR — Arquitectura híbrida con base Twenty Community</li>
+<li><code>VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md:17</code> — 1. Contexto / problema</li>
+<li><code>VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md:21</code> — 2. Decisión</li>
+<li><code>VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md:28</code> — 3. Alternativas consideradas</li>
+<li><code>VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md:36</code> — 4. Consecuencias</li>
+<li><code>VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md:43</code> — 5. Relación con ESP-LEA / ESP-NEG / ESP-CON</li>
+<li><code>VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md:47</code> — 6. Qué NO implica</li>
+<li><code>VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md:53</code> — 7. Referencias</li>
+</ul>
+<h2>Estado de evidencia</h2>
+<p>Declaraciones del documento y propuestas de integración; no pruebas de runtime ni aceptación nueva del negocio. Las fuentes referenciadas pero no incluidas quedan por obtener. Revisión independiente solicitada a Luna.</p></details>
+<details id="anexo-inventario"><summary>INVENTARIO — Inventario por corte y estado histórico</summary><p>Productor Codex D01/D03 · 2026-11-06. Lectura completa de 145 líneas.</p>
+<p>Fuente: <code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md</code>. SHA256 <code>5ada8657f905d4f66f96c9c35ed33b9c86e2c08652f6e473e46aeb21ef42d92e</code>. Procedencia: inventario-drive.json; original inalterado.</p>
+<h2>Contenido y alcance</h2>
+<p>24 filas: 17 núcleo (incluye asignación y avances como submódulos) y siete add-on. Expande a 22 ESP: 15 núcleo y siete add-on. Indicadores históricos: 7 completos, 10 parciales y 7 bloqueados/demo según auditoría citada.</p>
+<h2>Interpretación y reconciliación</h2>
+<p>El encabezado actualiza elección OSS; tablas heredadas que dicen sin ADR están supersedidas. Los iconos no son resultado de QA actual ni del nuevo CRM. Referencias Cuba/Lote A/B no incluidas se registran como ausentes.</p>
+<h2>Arquitectura, datos y comunicaciones</h2>
+<p>Conflicto de código: inventario CRM-COM es Comunicaciones y CRM-FIN-COM Comisiones; usar COMU para comunicaciones y COM para comisiones en nuevo catálogo con aliases explícitos. Portal citado .com frente a portal local .tech: hostname de producción pendiente de verificar.</p>
+<h2>Localizadores</h2>
+<ul>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:15</code> — Inventario de módulos — CRM Quisqueya Home (v0.2)</li>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:46</code> — Tabla de inventario</li>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:77</code> — Conteos (v0.2)</li>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:79</code> — Por corte de producto (Grok Bot)</li>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:88</code> — Por estado real (auditoría)</li>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:96</code> — Críticos / Alta abiertos</li>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:103</code> — Implicación reconstrucción vs parche</li>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:111</code> — Lote A (lectura Cuba) — cerrado</li>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:122</code> — Lote B (fixes UI, sin push)</li>
+<li><code>VT-CRM-INV-Modulos_v0.2_2026-11-06.md:131</code> — Fuentes</li>
+</ul>
+<h2>Estado de evidencia</h2>
+<p>Declaraciones del documento y propuestas de integración; no pruebas de runtime ni aceptación nueva del negocio. Las fuentes referenciadas pero no incluidas quedan por obtener. Revisión independiente solicitada a Luna.</p></details>
+<details id="anexo-p0"><summary>P0 — Checklist P0 documental</summary><p>Productor Codex D01/D03 · 2026-11-06. Lectura completa de 113 líneas.</p>
+<p>Fuente: <code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md</code>. SHA256 <code>560590c9c37a9d9503ee53ef84f07176faeffc98cc191ed5b5b34c2a98a0e71e</code>. Procedencia: inventario-drive.json; original inalterado.</p>
+<h2>Contenido y alcance</h2>
+<p>Doce ítems: DOC privado, demos, permisos RES, sync Twenty, E2E scopes, team REP/TAR, consentimiento, baja/MFA, COM, Moodle, Google/ICS y APR.</p>
+<h2>Interpretación y reconciliación</h2>
+<p>No ejecutar esta checklist ni cambios de producción en una tarea de análisis. Preservar dependencias y convertir a evidencias esperadas de futuras fases. Corrección: ocultar DOC no crea storage privado; P0-09 necesita implementación storage/DOC real adicional.</p>
+<h2>Arquitectura, datos y comunicaciones</h2>
+<p>D-01 Superset candidato; D-02/03 credenciales Meta/Moodle; D-04 conflictos Twenty; D-05 CAPI; D-06 legal; D-07 mapeo roles. Sus plazos legales o riesgo no se certifican: asesoría específica pendiente.</p>
+<h2>Localizadores</h2>
+<ul>
+<li><code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md:11</code> — Plan P0 — Checklist de implementación (REV-CIERRE)</li>
+<li><code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md:13</code> — 1. Identificación</li>
+<li><code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md:26</code> — 2. Alcance</li>
+<li><code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md:38</code> — 3. Prioridad ordenada P0</li>
+<li><code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md:59</code> — Checklist de estado</li>
+<li><code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md:74</code> — 4. Dependencias entre P0</li>
+<li><code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md:89</code> — 5. Decisiones abiertas del owner</li>
+<li><code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md:101</code> — 6. Cómo usar este checklist</li>
+<li><code>VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md:109</code> — 7. Historial</li>
+</ul>
+<h2>Estado de evidencia</h2>
+<p>Declaraciones del documento y propuestas de integración; no pruebas de runtime ni aceptación nueva del negocio. Las fuentes referenciadas pero no incluidas quedan por obtener. Revisión independiente solicitada a Luna.</p></details>
+<details id="anexo-plan"><summary>PLAN — Plan de recolección y evidencia</summary><p>Productor Codex D01/D03 · 2026-11-06. Lectura completa de 200 líneas.</p>
+<p>Fuente: <code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md</code>. SHA256 <code>a80ecde51acc28857ae4097f1f93177ae1868ec4e765633a37571a0aa17f8bc1</code>. Procedencia: inventario-drive.json; original inalterado.</p>
+<h2>Contenido y alcance</h2>
+<p>Prioriza núcleo, registra lecturas A y fixes B y código 81ccf08; conserva instrucciones históricas de otro entorno /workspace.</p>
+<h2>Interpretación y reconciliación</h2>
+<p>Se usa para reconstruir procedencia, no como orden vigente. Encabezado y ADR superan secciones OSS pendiente. Índice v2.4 supera tareas RED/AUT/POS pendientes; las acciones de commit/Drive no se toman del contenido descargado.</p>
+<h2>Arquitectura, datos y comunicaciones</h2>
+<p>Código /workspace y capturas Cuba deben obtenerse por proceso autorizado si se requieren; no son accesibles por aparecer citados. Ramas y fixes son declaraciones históricas no aplicadas en esta sesión.</p>
+<h2>Localizadores</h2>
+<ul>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:15</code> — Plan de recolección — especificaciones CRM Quisqueya Home (v0.2)</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:32</code> — Corte Núcleo vs Add-on (fuente: Grok Bot)</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:43</code> — Fase 0 — Fuentes en box (baseline ✓)</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:63</code> — Lote A — cerrado (consolidar desde)</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:76</code> — Lote B — fixes UI (sin push)</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:87</code> — Fase 1 — Especificar por módulo (docs + QA)</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:99</code> — Fase 2 — Contrastar con código</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:113</code> — Fase 3 — Drive</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:119</code> — Orden de especificar (v0.2 — Núcleo primero)</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:156</code> — Criterio borrador vs completa</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:162</code> — Pedidos vigentes a Grok Bot</li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:173</code> — Capa OSS / integración (ampliación voz Wilber 2026-11-06) — <strong>PENDIENTE elección</strong></li>
+<li><code>VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md:187</code> — Propuesta ADR (Grok Bot 2026-11-06) — <strong>PENDIENTE OK escrito del owner</strong></li>
+</ul>
+<h2>Estado de evidencia</h2>
+<p>Declaraciones del documento y propuestas de integración; no pruebas de runtime ni aceptación nueva del negocio. Las fuentes referenciadas pero no incluidas quedan por obtener. Revisión independiente solicitada a Luna.</p></details>
+<details id="anexo-cierre"><summary>CIERRE — Revisión cruzada núcleo</summary><p>Productor Codex D01/D03 · 2026-11-06. Lectura completa de 119 líneas.</p>
+<p>Fuente: <code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md</code>. SHA256 <code>7fa5f9f6465fad9450a0c9bc07fd6b5ecdcf2437d4131d561b7b56fb67ad221b</code>. Procedencia: inventario-drive.json; original inalterado.</p>
+<h2>Contenido y alcance</h2>
+<p>Consolida 15 ESP y cuatro add-on contra código histórico 81ccf08. Identifica SoT por módulo, dependencias y huecos P0. «Cerrado en docs» significa borrador completo, no implementación ni aprobación de cada ESP.</p>
+<h2>Interpretación y reconciliación</h2>
+<p>Sus referencias a RED/AUT/POS sin ESP y LEA/NEG pendientes fueron superadas por índice v2.4 y archivos actuales. Conservar los riesgos, no reactivar preguntas de elección OSS ya superadas.</p>
+<h2>Arquitectura, datos y comunicaciones</h2>
+<p>INV/RES/NEG se cruzan por reserva/disponibilidad; COM requiere DOC/APR para evidencias/liquidación; CON bloquea COMU/POR por consentimiento; ACC gobierna todos. Prioridades P0 son riesgos declarados de un commit histórico, no hallazgos reproducidos hoy.</p>
+<h2>Localizadores</h2>
+<ul>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:11</code> — Cierre de núcleo — Revisión cruzada CRM Quisqueya Home</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:13</code> — 1. Identificación</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:26</code> — 2. Alcance del cierre</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:34</code> — 3. Matriz SoT por módulo</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:57</code> — 4. Dependencias cruzadas núcleo ↔ add-on</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:66</code> — 5. Huecos P0 consolidados del núcleo (top)</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:78</code> — 6. Huecos P0 de add-ons que bloquean un núcleo usable</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:85</code> — 7. Decisiones abiertas</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:97</code> — 8. Criterio «núcleo cerrado en docs» vs código @81ccf08</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:107</code> — 9. Próximos pasos sugeridos</li>
+<li><code>VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md:115</code> — 10. Historial</li>
+</ul>
+<h2>Estado de evidencia</h2>
+<p>Declaraciones del documento y propuestas de integración; no pruebas de runtime ni aceptación nueva del negocio. Las fuentes referenciadas pero no incluidas quedan por obtener. Revisión independiente solicitada a Luna.</p></details>
+<details id="anexo-plantilla"><summary>PLANTILLA — Contrato de especificación</summary><p>Productor Codex D01/D03 · 2026-11-06. Lectura completa de 251 líneas.</p>
+<p>Fuente: <code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md</code>. SHA256 <code>c875aa094279f16cb42f172cea2c6090555c0a8da65723f79b289139af4571b6</code>. Procedencia: inventario-drive.json; original inalterado.</p>
+<h2>Contenido y alcance</h2>
+<p>Diez secciones: alcance, casos de uso, pantallas, estados, acciones, conexiones, métricas, metas, reglas/permisos y datos. Exige negativos, fuentes y revisión distinta del autor.</p>
+<h2>Interpretación y reconciliación</h2>
+<p>Aplicable como checklist de cobertura, no como requisito funcional nuevo. Cada hueco debe rastrearse a módulo, dueño y aceptación. Toda pantalla debe representar carga, vacío, error, sin conexión, éxito y sin permiso, además de conflicto cuando aplique.</p>
+<h2>Arquitectura, datos y comunicaciones</h2>
+<p>Exige dirección y estado de integración, RBAC own/team/all, idempotencia y distinción UI sin API/API sin UI. Mención Cal.com en plantilla es ejemplo, no integración elegida para QH.</p>
+<h2>Localizadores</h2>
+<ul>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:13</code> — Plantilla: especificación por módulo — CRM Quisqueya Home</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:24</code> — Bloque de control documental (obligatorio al inicio de cada espec)</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:44</code> — VT-CRM-ESP-<COD> — <Nombre del módulo></li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:61</code> — 1. Propósito y alcance</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:73</code> — 2. Casos de uso (actores)</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:87</code> — 3. Pantallas / vistas (layout, componentes, rutas)</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:101</code> — 4. Estados y transiciones (pipelines, status, flags)</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:115</code> — 5. Funciones / acciones (CRUD, filtros, bulk, handoffs)</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:131</code> — 6. Conexiones (WA/IG, Cal.com, Supabase, catálogo Meta, otros módulos)</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:146</code> — 7. Reportes y métricas</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:156</code> — 8. Metas de negocio / KPIs del módulo</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:168</code> — 9. Reglas de negocio y permisos</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:170</code> — 9.1 Reglas de negocio</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:176</code> — 9.2 Permisos RBAC</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:193</code> — 10. Datos (entidades, campos clave, relaciones)</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:207</code> — Cierre de cada espec (obligatorio)</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:209</code> — Huecos</li>
+<li><code>VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md:213</code> — Preguntas abiertas (para owner / Grok Bot / código)</li>
+</ul>
+<h2>Estado de evidencia</h2>
+<p>Declaraciones del documento y propuestas de integración; no pruebas de runtime ni aceptación nueva del negocio. Las fuentes referenciadas pero no incluidas quedan por obtener. Revisión independiente solicitada a Luna.</p></details>
+<details id="anexo-aca"><summary>ACA — Academy: lectura individual completa</summary><p>Fuente <code>VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md</code>, SHA256 <code>AEAAF41DBD29AD7F0BD92A4E2B8FEB17135D88B65CADD7D51B518FBDD05EDC15</code>; leídas líneas 1–303. Borrador Núcleo histórico. Hechos de código son atribuidos a 81ccf08; fuente dice Moodle 4.5, default local 9330, prod/SSO pendientes. No se consultó LMS ni credencial. «Cerrado en código»/checks no equivalen a E2E ni aceptación actual.</p>
+<h2>Funciones y alcance completo</h2>
+<p>Biblioteca, cursos/categorías Moodle asignados, matrícula por rol/persona y asegurar usuario, progreso parcial/checklist, rutas por categoría, vista equipo, solicitud revisión, aprobar/rechazar/revocar y constancia/hash/código servidor; crear curso/nota mínima (1–100, default 80) y consulta por persona, deep-link course/view. Vigencia calculada 12 meses y ventana 60 días. Futuro: contenidos reales, prod verificada, SSO seguro, vigencia por curso, recordatorios COMU y posible gating onboarding/metas/comisiones (decisión negocio, no requisito cerrado). Fuente:40–84,130–143,247–284.</p>
+<h2>Roles, entidades y reglas</h2>
+<p>academy view/edit own/team/all. Admin all edita/crea/matricula/decide; UI administración además roleSlug admin. Broker own consulta/avance parcial y solicita, sin autocertificar 100%; gerente view team/equipo y seed por validar; asistente view no verificado; ver-como sin escrituras. Q-C1-03 decisor distinto de cursante, servidor+check BD atribuidos; completar 100%/checklist exige edit. Moodle SoT cursos/contenido/matrículas/progreso/notas; QH SoT solicitudes/constancias/vínculos/checklist local y cálculo vigencia/rutas. ExternalRef(system=moodle,entity/local/external ID), AcademyItem/Checklist/Progress, ReviewRequest(broker/course/evidence hash/progress/status/decisor), Certificate(review/hash/code/status/issued_at), AuditLog, perfil moodleUserId. Fuente:145–169,197–245.</p>
+<h2>Eventos, APIs y conexiones</h2>
+<p>APIs <code>/api/academy</code>, cursos/matriculas/solicitudes/revisiones/<code>[id]/progreso</code>/checklist; MoodleAdaptador REST WS core/enrol_manual/gradereport/completion y comprobarSalud. Dominio valida Q-C1-03, emite/revoca con hash; BRO perfil y alta persona, ACC RBAC, CFG configuración/env, INI widget, MET/COM posible gating no definido; COMU solo vía MessagingPort futuro sin wiring/outbox actual ACA→COMU; Twenty opcional enlace/UI no SoT. Matrícula asegurar usuario→enrol→external_refs tiene frontera remota y recuperación pendiente de contrato. Fuente:36,64–84,130–170.</p>
+<h2>Estados, UX y privacidad</h2>
+<p>Matrícula sincronizada/fallida; revisión pendiente/aprobado/rechazado/revocado; certificado BD vigente/revocada; vigencia derivada vigente/por_vencer/vencida/revocada, revocada no revive; progreso LMS %/nota/completado separado de checklist local. LMS caído conserva solicitudes/constancias sin inventar progreso; vacío/carga/error/permiso/offline matrícula y éxito respuesta válida. Deep-link no SSO; token nunca cliente, usuarios/progreso educativo con scope y no compartir por ranking libre. Fuente:86–111,203–229.</p>
+<h2>Contradicciones y decisiones</h2>
+<p>Maestro/módulo antiguo dicen vigencia/rutas/equipo faltan; fuente los observa presentes en código pero E2E pendiente. Auditoría 0 contenidos y autocertificación mitigada, no certificada. INI usa academy_progress local y marca Moodle fuera de su ESP: widget no representa automáticamente progreso LMS autorizado; acordar agregado y fechas. Definir si 100% local con edit basta o siempre evidencia LMS para certificar, hash de evidencia y versionado/expiración; gating no debe colarse a comisiones sin negocio; reconciliar matrícula si enrol tuvo éxito y falló external_refs; SSO solo si verificado. Fuente:46,53–62,106–111,152–158,247–295.</p>
+<h2>Aceptación pendiente</h2>
+<p>Cursos/contenidos y conexión prod reales; own/team/all/ver-como; matrícula repetida sin duplicar usuario/enrol; 100% broker denegado, revisión propia denegada y evidencia válida; revocación/caducidad/cálculo fronteras; LMS caído y callback/relectura recuperables. Revisión root/Luna pendiente.</p></details>
+<details id="anexo-acc"><summary>ACC — Acceso/RBAC: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md</code>, 234 líneas. SHA256 <code>C719055940A70C1B1896EA200EC18582C1A02E1C5BB5E50A5320653BDA0047B0</code>. Leído completo. Borrador v0.1; sus verificaciones se atribuyen a <code>81ccf08</code>, no fueron reejecutadas. <code>F:Lx</code> remite a ese archivo/línea. Análisis D01 e implicaciones conceptuales D03; ninguna decisión se acepta hoy por aparecer en la fuente.</p>
+<h2>Alcance y funcionalidades completas</h2>
+<p>F:L43–69 incluye identidad/Supabase Auth, login, recuperación, invitación/alta/baja, matriz rol×recurso×acción×scope, overrides individuales, equipos/scopes gerente, ver-como, traspaso cartera, precio restringido y auditoría. Login con límites declarado real; recuperación sin límite, MFA ausente, E2E matriz/ver-como ausente. Fuera de esa versión: SSO/SAML, permisos de campos genéricos salvo precio real, ACL KYC y RBAC externo; no inferir exclusión del producto completo.</p>
+<p>Casos F:L73–88: iniciar/recuperar sesión, invitar, editar matriz, override motivado, asignar equipo, iniciar/salir preview, baja con traspaso, login de evaluación solo dev. Negativos: gerente concede permisos, override admin protegido, escritura preview y preview fuera equipo. Vistas F:L90–100: login, recuperar, configuración usuarios/permisos, forbidden, banner preview; traspaso no es flujo entregado.</p>
+<h2>Roles, entidades e invariantes</h2>
+<p>Admin, manager, broker, assistant; readOnly es estado preview. Datos F:L175–189: users, roles, permissions, user_permission_overrides, teams/team_members, manager_scopes, broker_profiles, audit_log, http_idempotency; propuestas view_as_sessions/eventos y portfolio_transfers.</p>
+<p>F:L104–121,154–173: sin permiso=none; servidor decide; override reemplaza celda incluyendo none; admin protegido; team=actor+manager_scopes sin transitividad; no anidar preview; preview solo GET/HEAD/OPTIONS, sin export/OAuth/ICS; quitar unit_real_price sin permiso; no baja con cartera abierta sin transferencia ni alterar autoría histórica. scopeCondition centraliza filtrado. Usuario invitado→activo→inactivo→soft-delete; override vigente→revocado; expiración pendiente.</p>
+<h2>API y conexiones</h2>
+<p>F:L75–88: POST /api/auth/login, /api/auth/recuperar, /api/usuarios; PATCH /api/roles/[id]/permisos, /api/permisos/usuarios/[id], /api/permisos/equipos/[id]; POST/DELETE /api/ver-como. Son contratos atribuidos, no endpoints implementados aquí. Supabase autentica, dominio autoriza. Arquitectura declarada cerrada híbrida y RBAC dominio autoritativo; users→Twenty membresías como espejo, job pendiente (F:L34,41,123–131). BRO perfil/salida; MET equipos; COM aprobación dual por definir; LEA/NEG/CON/INV owner broker y actividades assignee. Auditoría parcial; eventos start/stop preview propuestos.</p>
+<h2>Errores, privacidad y métricas</h2>
+<p>Sesión vencida/anónima, credencial inválida, bloqueo IP/correo, 403 y 404 evaluación fuera dev. Recuperación con origen de petición: riesgo host-header/phishing, falta límite/dominio fijo. MFA admin requerido propuesto, gerente por decidir. Export explícito+audit; preview registra operador/destino/duración sin copiar expediente. Ley 172-13 es requisito citado, no dictamen nuevo. KPIs F:L133–161: cero escrituras preview/cross-team/admin sin MFA/carteras huérfanas y 100% E2E crítica; objetivos, no resultados medidos.</p>
+<h2>Pendientes y cambio respecto al inventario previo</h2>
+<p>F:L193–224: reset seguro, MFA, preview audit, transferencia, expiración overrides, 0017 efectiva, assistant, E2E, sync y mapeo roles. Preguntas: MFA gerente; preview solo brokers; reparto transferencia; caducidad; precio assistant. Amplía roles genéricos iniciales con equipos/preview/traspaso. La híbrida «cerrada» debe cotejarse con ADR y aceptación humana; no reemplaza automáticamente opciones abiertas del primer turno. Tabla assistant tiene incógnitas: no inventar permisos.</p>
+<p>Propuesta: autorización común UI/API/jobs, matriz negativa por registro/campo, transferencias atómicas o reconciliables y revocación de sesiones. Responsables de decisiones: Wilber/D12/D03; licencias Twenty aparte. Sin implementación ni pruebas nuevas.</p></details>
+<details id="anexo-age"><summary>AGE — Agenda: lectura individual completa</summary><p>Fuente: <code>VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md</code>, SHA256 <code>E88B9068ED37F37241729362DB7C17868F088FCB31D44FB18FFD4B02DB2C7EAA</code>. Leídas líneas 1–272 del original en <code>00-fuentes-drive/2026-11-06/originales/modulos/</code>. Estado de fuente: borrador; sus observaciones de código son evidencia estática atribuida a HEAD 81ccf08, no verificación nueva. «ADR ACEPTADO» es una declaración histórica de la fuente, no aceptación actual de Twenty.</p>
+<h2>Funciones y alcance completo</h2>
+<p>Calendario semana/día/lista/responsable y mes de 42 días; creación, edición, reprogramación por modal/arrastre/teclado, cancelación, completar y resultado de visita; exportación ICS; cuentas Google opcionales múltiples y calendario propio seleccionado/predeterminado. Futuro: recordatorios 24 h/1 h, confirmación de cliente, sala/recurso, viajes y visitas operativos, sync bidireccional Google y adaptador Twenty. No se descartan por no entrar en un primer corte. Referencias: fuente:40–74,78–89,110–125.</p>
+<h2>Roles, entidades y reglas</h2>
+<p>Admin all, manager team, broker own, assistant all según documento (seed/BD no confirmado), ver-como solo lectura. Scope por <code>assignee_id</code>, no autor; validar responsables activos y alcance; referencias autorizadas. <code>activities</code> comparte task/call/meeting/note/whatsapp/email con TAR; fechas, all_day, responsable/autoría, vínculos contacto/lead/deal/proyecto, lugar/enlace, estado/prioridad, completed_at/deleted_at; GoogleAccount/Calendar, ActivitySync y AuditLog. Estados persistidos pending/completed/cancelled; baja lógica aparte. Asistió→completed, no-show→cancelled y reprogramó→pending son mapeos UI atribuidos; resultado sigue en texto libre. Fuente:96–106,179–217.</p>
+<h2>Eventos, API y comunicaciones</h2>
+<p>POST/PATCH/DELETE <code>/api/actividades</code>; GET <code>/api/actividades/ics?semana=</code>; <code>/api/integraciones/google/*</code>. Alta guarda CRM antes de intentar Google; error externo no revierte cita. Próximas citas/resultado alimentan INI/REP; TAR comparte activities; ACC autoriza; BRO aporta equipo/traspaso; CON/LEA/NEG/INV son vínculos; CFG define zona y políticas; COMU enviaría recordatorios/confirmaciones con opt-out y entrega reales. Twenty calendar/tasks es objetivo atribuido sin integración acreditada; SoT física, mapeo IDs y conflictos abiertos, sin dual-write. Fuente:110–152.</p>
+<h2>Fallos, UX y privacidad</h2>
+<p>Carga/vacío/error/permiso, mensual offline/solo lectura y propuesta conservada; distinguir «cita guardada» de «evento creado». Conflictos solo de filas visibles del mismo responsable, advertencia no reserva global ni evita carrera. Cuenta Google es del actor y no automáticamente del responsable asignado. Minimizar descripción/lugar/ICS; OAuth técnico no prueba consentimiento del cliente. Ver-como bloquea escritura, ICS y conectar/callback de calendario, sin generalizar al login OAuth. Export necesita permiso/auditoría específicos por definir. Fuente:89–106,149–164,181–199.</p>
+<h2>Contradicciones y decisiones abiertas</h2>
+<p>ICS descrito semanal pero código atribuido exporta lunes–viernes frente a vista lunes–domingo; incluye cancelled, sin all-day/STATUS/SEQUENCE. <code>activity_sync</code> existe en schema pero no vínculo durable usado: crear evento no acredita reintento seguro ni PATCH/cancelación/sync entrante. Manager team no puede asignar a otro porque validación exige all. <code>lead_id</code> existe pero entrada genérica no lo transporta. No-show cancelled difiere de auditoría histórica pending y no distingue cancelación. Fijar resultado estructurado, política de choques/salas, zona central, autoridad Twenty↔QH↔Google y sentido del sync. Fuente:76,102–125,139–152,221–249.</p>
+<h2>Verificación pendiente</h2>
+<p>Casos: permisos/overrides/ver-como y referencias cruzadas; alta y reintento Google sin duplicación; editar/cancelar evento externo; ICS fin de semana/canceladas/día completo; choque oculto y concurrencia; resultado persistido y KPI sin inferencia por texto. Capturas citadas son históricas; fuente no ejecuta E2E. Fuente:251–272. Revisor de este análisis: root para integración y Luna independiente, pendientes.</p></details>
+<details id="anexo-apr"><summary>APR — Aprobaciones: lectura individual completa</summary><p>Fuente <code>VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md</code>, SHA256 <code>6998FE8B2C1CA8EFCA6ADDCA6EAD87C04A736B300E7F3045E6FAD4544DC20412</code>; leídas líneas 1–245. Borrador Add-on; schema/código atribuidos a 81ccf08, no verificados aquí; ninguna aceptación comercial o técnica actual se deriva del «ADR ACEPTADO» histórico.</p>
+<h2>Funciones y alcance total</h2>
+<p>Bandeja de decisiones con expediente/política/responsable/historial para descuento, prórroga hold, liquidación comisión y fusión de contactos. Futuro: solicitar desde módulos, asignar aprobador por política, aprobar/rechazar con motivo y MFA cuando importe, expirar y volver a solicitar, invalidar al cambiar expediente y ejecutar efecto aguas abajo. Actual atribuido: página/shell con dashboard:view, cuatro ejemplos/filtros/selector demo; tabla financial_approval_requests sin API/caso de decisión y recurso financial_approvals sin concesiones. Fuente:41–84,109–117.</p>
+<h2>Roles, entidades y reglas</h2>
+<p>Ver no decide. Admin propuesto all y gerente team no propias; asistente y broker pueden ver según dashboard pero no decidir. Solicitante siempre distinto del aprobador; política tipo/monto versionada; motivo/MFA, vencida no decidible, hash fija expediente y una aprobada por lote. Entidad actual atribuida está orientada a finanzas: public_id, batch_id XOR entry_id, adjustment, object_version/hash, status, requested_by/decided_by/at, mfa_verified_at, evidence_id/expires_at y RLS. Descuentos sin entidad, fusiones sin flujo, holds hoy edit sin APR. Fuente:162–198.</p>
+<h2>Eventos, API y comunicaciones</h2>
+<p>No inventar endpoints reales. Objetivo NEG/RES/COM/CON originan solicitud, DOC evidencia, ACC RBAC/MFA, APR fija decisión y política, módulos dueños aplican efecto, INI enlaza y REP futuro mide pendientes/SLA/aprobadas/rechazadas/bloqueos. Twenty no es SoT ni autoridad de decisión. Auth MFA pendiente de proveedor; audit requerido. Fuente:95–140,142–160,212.</p>
+<h2>Estados, UX, fallos y privacidad</h2>
+<p>Solicitud pendiente→aprobada/rechazada y expirada propuesta; descuento solicitado→aplicado/rechazado. UI actual solo simula estados; éxito futuro requiere folio servidor, offline no encola. Efecto fallido tras decisión necesita estado parcial y recuperación; la fuente dice «Transacción; parcial si falla efecto» sin definir atomicidad local/remota. Ver por dashboard no debe filtrar expedientes sensibles; separar permiso ver listado/detalle/evidencias/decidir, equipos y ver-como. Fuente:75–117,162–198.</p>
+<h2>Contradicciones y decisiones</h2>
+<p>Flujos abarcan descuentos/holds/fusiones pero tabla batch XOR entry parece limitada a comisión: decidir ApprovalCase general + tipos/evidencias o motores separados, sin declarar que tabla actual cubra todos. Umbral MFA en P0 enforcement vs proveedor MFA P2 es dependencia que bloquea cualquier decisión sensible hasta resolver proveedor/step-up. Concurrencia y vencimiento: dos decisiones simultáneas, contenido cambiado y ejecución efecto deben chequear versión/hash al commit. Solicitud de fusión necesita acceso a ambos contactos y consecuencias de reversión. Fuente:47–58,90–117,194–210,232–237.</p>
+<h2>Aceptación pendiente</h2>
+<p>No autoaprobación ni concesión implícita por dashboard; MFA real ligado a operación/hash, expiración, clave/versión y auditoría; una sola decisión terminal; efecto aplicado una vez/reconciliable y política guardada. Ocultar demo/selector o rotular mientras no exista; INI no promete capacidad inexistente. Revisión root/Luna pendiente.</p></details>
+<details id="anexo-aut"><summary>AUT — Automatizaciones: lectura individual completa</summary><p>Fuente <code>VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md</code>, SHA256 <code>3ED71DFA9E64E3C73143DB1ACF0C31CD8918B836D3FB4B244DD8FBD5802EEB22</code>; leídas líneas 1–275. Borrador Add-on; afirmaciones de código a 81ccf08 son atribuidas, no probadas aquí. La etiqueta Add-on preserva etapa documental, no elimina el alcance futuro ni aprueba ADR histórico.</p>
+<h2>Funciones y alcance total</h2>
+<p>Constructor desde plantilla/cero, validación de borrador, monitor de outbox y copiloto de ejemplo. Actual atribuido: borradores solo en memoria y conteos reales del outbox; no motor/rules/runs activos. Futuro: reglas persistidas/versionadas, activación/pausa/reanudación con motivo, ejecución idempotente, monitor runs/error, reintentos dead-letter admin, pausa global, permisos por acción y copiloto IA supervisado. Disparadores lead-meta/lead-nuevo/negocio-sin-accion/cambio-etapa; hasta cuatro acciones asignar/borrador-whatsapp/crear-tarea/avisar-supervisor. Automatizaciones multi-tercero complejas están fuera del compendio de esa fuente, decisión de alcance por validar hoy. Fuente:43–81,120–157,213–224.</p>
+<h2>Roles, entidades y reglas</h2>
+<p>Actual <code>settings:view all</code> para página/monitor y edit all para borrador; admin objetivo único activador/reintentador. Broker/gerente sin acceso atribuido; gerente monitor team/borradores y asistente consulta son propuestas; readOnly sin constructor. FlujoBorrador (nombre≤100, condición≤500, acciones 1–4), Outbox/Dead, MessageTemplate y WebhookInbox actuales atribuidos; AutomationRule y AutomationRun propuestos, con disparador/condición/acciones/versión/estado/activado_por y run regla/evento/resultado/error. Dominio QH objetivo manda sobre reglas, no Twenty ni outbox. Fuente:51–63,94–102,181–224.</p>
+<h2>Eventos, API y comunicaciones</h2>
+<p>LEA/NEG generan disparadores; TAR ejecuta crear tarea; BRO asigna; COMU prepara/envía mediante canal; CON aporta consentimiento/opt-out; ACC/CFG autorizan. Flujo objetivo disparador→condición→run→acción y WA siempre borrador→revisión humana→cola COMU. Único estado operativo atribuido es monitor lee outbox/outbox_dead y recarga; no endpoint de activación/retry real acreditado. WebhookInbox origen leads Meta parcial; IA no elegida. Fuente:104–157.</p>
+<h2>Estados, fallos, UX y privacidad</h2>
+<p>Memoria en_edición→validado/con_errores; regla futura borrador→activa→pausada; runs ok/error (ampliar ejecución/unknown/reconciliación si efectos externos); outbox pendiente/enviado/fallido/dead. UI declara cargando/vacío/error/sin permiso/solo consulta/parcial/sin conexión; éxito significa borrador local, nunca activo. No convertir fallo de lectura en cero. Consentimiento vigente, opt-out/frecuencia y plantilla aprobada antes de mensaje; pausa global y dead visible. Fuente:83–102,124–130,183–199.</p>
+<h2>Preguntas y riesgos</h2>
+<p>No motor no se resuelve por activar un diálogo; hace falta persistencia, scheduler/eventos, versión y unicidad (regla_id,event_id), con política de cambio de versión/replay aún no definida. Roles de acción no deben heredar poder ilimitado de settings. Elegir disparador inicial, gobierno de reglas/condiciones seguras, ventanas y prevención de bucles; revisar si retry requiere MFA. La obligatoriedad de humano para cada WA entra en tensión con recordatorios automáticos AGE: precisar si se aprueba plantilla/regla o cada envío, sin asumir excepción. Fuente:63,191–199,226–267.</p>
+<h2>Aceptación pendiente</h2>
+<p>Reglas sobreviven recarga; doble evento crea una sola tarea/borrador; evento antiguo y regla versionada no repiten efecto; opt-out antes del despacho bloquea; humano decide mensaje; scopes y pausa global; reintento autorizado no duplica. Checkboxes de UI no certifican motor. Revisión root/Luna pendiente.</p></details>
+<details id="anexo-bro"><summary>BRO — Brokers: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md</code>, 323 líneas. SHA256 <code>97F1CA3853C5B9F39BB074F5B7C2272B84DA69506D0E430BB1D9F25F43975729</code>. Leído completo. Borrador v0.1; <code>F:Lx</code> = fuente/línea; código y QA atribuidos, no reejecutados. Híbrida registrada, no aceptación nueva.</p>
+<h2>Alcance y funcionalidades actuales/futuras</h2>
+<p>Directorio/red de asesores con cumplimiento mensual, cierres/cartera, perfil, proyectos, ver-como y toma de leads vía LEA. Tablero/ficha/agregados, diff de proyectos auditado, mi-espacio y perfil/nivel/especialidad/meta base se declaran reales; equipos vía MET. Onboarding/documentos, protección con vigencia/renovación/conflicto, cooperación con acuerdo y economía COM, salida ordenada/traspaso/revocación, grants M:N proyecto/derechos, shell /socios M50, Academy/recursos son futuros o demos. No confundir invitación con acreditación ni vista ejemplo con derechos (F:L52–97,132–150,256–278).</p>
+<p>Vistas /brokers tarjetas/tabla/leaderboard/búsqueda/nivel/invitar/asignar; /[id] ficha; /mi-espacio redirige actor; /onboarding, /alcance, /proteccion, /cooperacion, /salida previews. Banner preview real. Falta loading local, error compartido/vacíos, dl mal formado, React418 onboarding y lentitud móvil4.7s históricos requieren nueva medición (F:L99–115,150).</p>
+<h2>Roles, entidades e invariantes</h2>
+<p>brokers:view scopes none/own/team/all; asignación projects:edit all exclusivamente, gerente team no basta; admin/assistant asignan si permiso. Preview admin/manager, gerente solo equipo, siempre readOnly sin mutar/export; broker no Tomar en nombre ajeno; solo rol broker reclama lead. Invitar requiere users:create (F:L207–240).</p>
+<p>users/auth_user_id/roles; broker_profiles 1:1 user con specialty/agency/handles_rentals/level/annual_sales_cents/monthly_target_deals; agencies; teams/team_members user único (un equipo/broker); manager_scopes varios equipos supervisados; overrides; cartera projects/units/contacts/leads/deals; goals (F:L242–260). Nivel junior/senior/senior_plus/top_producer/top_leader recalculado al cierre; umbralSeniorUSD500k respaldado prototipo según fuente, superiores provisionales, no ratificados. Meta base no sustituye meta aprobada. Baja lógica conserva historia y exige traspaso aún no implementado. No row_version propio observado.</p>
+<h2>APIs y conexiones</h2>
+<p>PUT /api/brokers/[id]/proyectos projectIds[] valida broker/proyectos activos y all; aplica diff assign/unassign, audit solo cambios; no conIdempotencia explícita acreditada. POST/DELETE /api/ver-como; POST /api/leads/[id]/tomar; invitación reutiliza CFG/usuarios, no endpoint inventado (F:L138–149).</p>
+<p>Twenty members/users mapping propuesto, QH users/perfil/nivel/equipos/RBAC autoritativos; domain-wins solo hipótesis de conflicto (F:L154–183). MET aporta goals/ranking/equipos; NEG open deals/cierre→ventas anuales/nivel; COM montos/nivel y co-broker futuro; LEA tomar/sugerir/asignar; CON own por contacto; INV projects.broker_id/precios saneados; ACC Auth/preview/baja; ACA formación; DOC expediente privado onboarding aún pendiente.</p>
+<p>Asignación actual projects.broker_id no constituye grants N:M ni acceso a todo catálogo; INV confirma lectura por owner. Frente a primera propuesta, red interna tiene disciplina y ciclo completo; no es marketplace SaaS. El modelo de equipo único debe respetarse hasta decisión de cambio.</p>
+<h2>Métricas, privacidad, preguntas y propuestas</h2>
+<p>Cumplimiento mensual desde goals, cartera open, ventas anuales/nivel y leaderboard UI visible; ranking formal MET no duplicar ni publicar; reportes brokers requieren reports hoy ausente broker. KPIs cobertura metas, SLA toma, onboarding completo y traspasos sin umbrales aceptados (F:L185–205). Rendimiento/nombre/email internos son datos personales; ranking/exports/Twenty mínimos, auditar preview/overrides, no copiar comprador. Consentimiento CON no inferido.</p>
+<p>Pendientes F:L266–305: documentos privados verificados, claims/ventanas, acuerdos, transferencia atómica, ranking alineado, loading/semántica/performance, niveles, miembrosTwenty/frescura/conflicto, idempotencia/E2E y Academy. Historical team≈own/manager ausente contrasta0017; verificar entorno sin afirmar fuga actual. Preguntas dueño: niveles oficiales, gerente asigna o solo all, altas/bajasTwenty, documentos/ventana protección y receptor único o reparto transferencia. Propuesta D03: lifecycle de asesor y derechos separado de identidad genérica; transferencia inventariada/auditable con revocación y autoría intacta; contrato acceso coherente con owner actual y futuro grants, sin asumir bypass resuelto.</p></details>
+<details id="anexo-cfg"><summary>CFG — Configuración: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md</code>, 315 líneas. SHA256 <code>1B47F392614E4005346A6315C2845698D00CCF15B1092F6911B7969375550166</code>. Leído completo, borrador v0.1. F:Lx remite fuente/línea. Sin leer credenciales, ejecutar pruebas ni modificar entorno; claims de código/QA atribuidos.</p>
+<h2>Alcance y catálogo completo</h2>
+<p>Panel ?tab= usuarios por defecto, permisos por rol/persona/equipo, etapas, catálogos, papelera, auditoría e integraciones/proveedores. Usuarios: alta/edición/invitar/reenviar contra doble envío/baja; matriz protegida, overrides motivados y scopes; etapas pipeline, motivos de pérdida y fuentes; restaurar hasta30 por tipo; audit view/export; cuentas/outbox real o no disponible. Centro de ajustes, SEO y capacidad/costes son demos a persistir, rotular u ocultar. Badge personalizado/restablecer rol, caducidad, retención visible de papelera y etiquetas Twenty futuros. CFG no publica inventario ni sustituye Studio/PortalPublisher (F:L41–85,88–106,259–279).</p>
+<p>Casos: abrir; invitar/reenviar; baja con transferencia ACC pendiente; matriz; override; equipos/supervisores; etapas/catálogos; restaurar; auditoría/export; estado integración; modo consulta; assistant limitado propuesto. Negativos: gerente/broker403, no-admin amplía matriz, admin protegido, demos y red. Loading/error/forbidden presentes; vacío de usuarios no revisado, éxito de correo reenviado, outbox parcial, banner readOnly y pausa offline en Avanzada no prueban uniformidad (F:L66–106).</p>
+<h2>Roles, datos y estados</h2>
+<p>Página settings:view all; usuarios full scope; matriz/overrides solo admin, admin protegido, duplicados rechazados, motivo obligatorio. Un broker/un equipo; supervisor admin o gerente. Manager/broker sin settings; assistant catálogos/consulta propuesto sin seed verificado; preview no amplía acceso (F:L205–238).</p>
+<p>Datos: users/roles/permissions, overrides únicos por user/resource/action, manager_scopes, teams/members, perfiles, stages, motivos/fuentes con posición, integration_accounts con proveedor/estado/fecha/credenciales cifradas, audit before/after y outbox/dead. Settings QH autoridad; Twenty nunca matriz autoritativa. 0014/0017 en repo no prueban aplicación; backup previo es requisito operativo atribuido, no ejecutado (F:L240–259).</p>
+<p>Estados: usuario activo/inactivo/soft-deleted; rol protegido/activo; scope none/own/team/all; override vigente sin expiración; restauración deleted_at; integración status/frescura; outbox pending/sent/dead/no disponible; demo no persistida. Restaurar soft-delete no acredita compensar stock, vínculos o consentimiento ni supresión legal (F:L108–137).</p>
+<h2>APIs y comunicaciones</h2>
+<p>Familias API de usuarios/permisos/roles/equipos/papelera; PATCH de matriz y acciones F:L139–153, paths precisados por ACC. No inventar APIs para demos. Guardas de acción deben probarse también directo por API. Auditoría antes/después; UI outbox solo lectura, fallo muestra no disponible en lugar de ceros o conexión inventada.</p>
+<p>Supabase Auth invitaciones/reset por ACC; Postgres/RLS; outbox lectura; Meta/Google/YCloud/Cloud API/Resend config o presencia env, no evidencia de envío/OAuth/webhooks productivos. COMU cuentas/flags y permisos gerente; REP concesiones team/own pendientes; AGE/INI/REP zona RD; INV publisher; Twenty espejo genérico opcional sin sync de matriz. Métricas propias: eventos y cola, negocio en REP (F:L155–203).</p>
+<h2>Privacidad, contradicciones y propuestas</h2>
+<p>Usuarios, credenciales cifradas y auditoría con before/after necesitan permisos, redacción y retención. No volcar secretos; CON decide evidencias/finalidad con asesoría. MFA/reset ACC, entrega COMU y publicación INV no quedan resueltos por mostrar configuración.</p>
+<p>CFG dice mitigadas en código escalada, duplicados y ausencia manager; E2E pendiente. Esto matiza auditorías/COM/BRO históricas, sin afirmar reparación desplegada. Falta matriz definitiva de Wilber, reports/comms, assistant seed, 0017 real, demos, badges/restablecer/expiración, retención y credenciales Meta (F:L261–307).</p>
+<p>Frente al inventario inicial, CFG administra controles y estado operativo, no solo un CRUD ni CMS. Propuesta D03: configuración versionada y auditada por familia; separar identidad/autorización/cuentas; secretos fuera del DTO, estado con fecha y prueba real; restauración valida invariantes por módulo. La matriz y contrato de membresía Twenty siguen pendientes.</p></details>
+<details id="anexo-com"><summary>COM — Comisiones: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md</code>, 241 líneas. SHA256 <code>56F2BEBC5CE24614372B5F192F545C9717E8839D13AFC458A7FAD16A4BD493D0</code>. Leído completo; borrador v0.1, núcleo CRM-FIN-COM. F:Lx remite al archivo y línea. Las afirmaciones sobre código/QA se atribuyen a la fuente; no se ejecutaron pruebas ni se aceptó producto.</p>
+<h2>Alcance y funciones completas</h2>
+<p>Libro de comisiones por negocio ganado: importes, reparto interno broker/agencia, estados, indicadores, filtros y CSV. El cierre genera una comisión pendiente única. Repartos observados y propuestas agrupadas desde comisiones aprobadas son lecturas de datos reales según la fuente; reglas simuladas y lotes de ejemplo no son contratos ni órdenes bancarias. Se conservan como funciones futuras las reglas y acuerdos versionados, splits, devengo por hitos de cobro, evidencias, clawback, lotes persistidos y aprobación dual. La versión excluye órdenes bancarias, retenciones fiscales y reparto con agencias externas; Metas es consumidor y Reservas/Aprobaciones son add-ons (F:L54–85).</p>
+<p>Casos: consultar libro; generar al cerrar; ajustar reparto mientras pendiente; aprobar; marcar pagada; anular; exportar; definir regla; preparar/aprobar lote; compensar una cancelación. Vistas: /comisiones, ficha, /reglas y /liquidaciones mixtas, detalle de lote y /ejemplo. Carga/error existen; vacío no verificado. Mensajes de éxito y conflicto deben incluir trazabilidad; hay deuda histórica de gráficas sin tamaño (F:L87–97).</p>
+<h2>Roles, datos, estados e invariantes</h2>
+<p>Admin consulta/edita/exporta todo; assistant consulta todo; broker consulta propio por <code>commissions.broker_id</code>; manager consulta equipo nominalmente. COM dice que manager no existe, en contraste con ACC/CFG/MET y su migración 0017: es evidencia histórica desfasada, no conclusión sobre el entorno actual (F:L176–206).</p>
+<p><code>pending → approved → paid</code>; pending/approved pueden ir a void; paid/void son terminales. Repetir el mismo estado también devuelve 409. Reparto editable solo pending; broker+agencia=10000 puntos básicos, default observado 5000/5000, sin ratificación de negocio por proyecto. Montos en centavos; 450 bps=4,5%; no sumar USD y DOP ni convertir sin política. Una comisión por deal. Aprobación no equivale a pago; comprobante es requisito pendiente, hoy paid puede registrarse sin evidencia. Nueva regla no reescribe historia ni una tasa observada constituye contrato (F:L99–124,148–174).</p>
+<p>Modelo activo <code>commissions</code>: deal único, broker, divisa, venta, tasa, total, reparto/importes, estado, fecha comercial, aprobador y pago. M40 solo esquema: reglas/versiones/acuerdos/splits/entries/events/adjustments, batches/lines, cuentas de beneficiarios, solicitudes de aprobación y FX. Estados M40: esperada/devengada/aprobada/exigible/pagada/retirada, con hito, evidencia y comando origen; mapeo y convivencia con modelo activo pendientes (F:L113,187–193).</p>
+<h2>API y comunicaciones</h2>
+<p>PATCH /api/comisiones/[id] acepta estado y/o <code>brokerShareBasisPoints</code>, valida alcance y fila bloqueada, transacción, auditoría e idempotencia COMISION. GET /api/comisiones/export usa los filtros. Creación desde cierre NEG con cálculo y unicidad. Auditoría antigua dice clave ignorada, código citado la aplica: verificar despliegue y replay; sin bulk acreditado (F:L115–124).</p>
+<p>NEG entrega cierre/importe/atribución y crea pending atómicamente; INV aporta unidad/proyecto vía negocio; COM alimenta MET/BRO/REP; RES/pagos no conectados a hitos/clawback; DOC debe custodiar comprobantes; APR sigue demo. ACC/auditoría/idempotencia son transversales. Twenty solo podría recibir KPI de lectura, nunca escribir la comisión. No hay emisión externa COM ni CAPI comercial demostrados (F:L126–150).</p>
+<h2>Métricas, privacidad, preguntas y propuestas</h2>
+<p>Indicadores por estado/divisa; CSV; repartos por proyecto/tasa; propuestas por beneficiario. Faltan filtros de periodo/broker en Inicio, comprobantes PDF e informes programados. Objetivos: cero discrepancias pantalla/CSV, pagos sin evidencia y duplicados; tiempos aprobación/pago sin umbral aceptado. Las 17 comisiones históricas incluyen semilla y no prueban adopción (F:L152–162).</p>
+<p>Rendimiento, cuentas beneficiarias y comprador indirecto son datos personales: minimizar, limitar export y revisar logs/retención. Retenciones, moneda de pago y FX requieren asesoría del cliente.</p>
+<p>Pendientes: motor de reglas, lotes duales, comprobante, devengo/clawback, migración M40, idempotencia desplegada, FIN-001, manager y proyección KPI. Preguntas: firma o cobro como hito, reparto, proponente/aprobador, retenciones, convivencia de modelos (F:L197–231). Frente al inventario inicial, COM es núcleo documental y no queda simplemente diferido. Propuesta D03: una autoridad financiera, historia inmutable y ajustes compensatorios, segregación de responsabilidades y evidencia; sigue siendo propuesta.</p></details>
+<details id="anexo-comu"><summary>COMU — Comunicaciones: lectura individual completa</summary><p>Fuente: <code>VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md</code>, SHA256 <code>F5A809808EFAAA34591EF7EC905176E1449D46F92774C8B480008ED2F7B0D351</code>; leídas líneas 1–276. Borrador con evidencia estática atribuida a 81ccf08. Sus checks marcados no equivalen a aceptación ni envío real verificado. Código de inventario declarado CRM-COM colisiona semánticamente con COM/Comisiones: usar COMU para este módulo y resolver catálogo maestro.</p>
+<h2>Funciones y alcance completo</h2>
+<p>Centro con CRUD-lite/desactivación de plantillas variables/canal, estado de canales, preparar/despachar auditado y actividad 30 días call/email/whatsapp. Webhook WhatsApp firmado captura/actualiza lead por teléfono, no bandeja. Futuro: bandeja WA/IG e historial en lead, mensajes/conversaciones, delivery/read/bounce/error, campañas segmentadas persistentes, consentimientos/opt-outs por canal, frecuencia/longitud, archivo seguro de plantillas, automatizaciones e informes por correo. Bandeja/campañas actuales son demos. Fuente:40–89,118–164,213–257.</p>
+<h2>Roles, entidades y reglas</h2>
+<p>Admin/asistente all gestionan y despachan; broker view all/create own ve/crea pero no despacha; gerente sin fila seed/0017 y sin acceso según fuente, decisión abierta. Actividad requiere además activities:view; ver-como solo lectura. <code>message_templates</code> (name/category/channel/body/variables/is_active/autoría), IntegrationAccount con credenciales cifradas, WebhookInbox, Outbox/Dead, AuditLog y activities. Conversaciones, MessageDelivery, ConsentChannel y CampaignDispatch son entidades futuras faltantes, distintas de marketing_campaigns de gasto. Fuente:184–225.</p>
+<h2>API, eventos y comunicaciones</h2>
+<p>GET/POST <code>/api/comunicaciones/plantillas</code>, PUT <code>[id]</code> sin DELETE; GET canales; POST despachar exige create=all; webhook <code>/integraciones/webhooks/whatsapp</code> con firma YCloud/Meta e inbox system+account+event. Domina QH: plantillas/validación/auditoría y futuro historial/consentimientos; Twenty no es SoT de mensajería. Dos adaptadores: módulo multicanal (Telegram/WA o sim; email/SMS sim) y proveedores-externos (WA YCloud o Cloud API; Resend o sim). Canales enum incluye webhook. CON autoriza destinatarios/bajas; AGE dispara recordatorios/confirmación; REP programa correo; CFG canales/flags; LEA consume inbound; AUT usa reglas; INI muestra actividad. Fuente:118–164.</p>
+<h2>Estados, fallos y UX</h2>
+<p>Plantilla activa/inactiva; despacho ok/error/simulación rechazada; canal activo/configurado; inbox recibido/procesado; outbox pendiente/enviado/dead, no bandeja COMU. Variables <code>{variable}</code> (no dobles llaves), fiscal Confotur/IPI/exención bloqueado hasta revisión, WA/SMS E.164. Rechazar IDs sim_/wa_sim_/tg_sim_; si auditoría falla tras envío, <code>auditado:false</code> no significa que no se envió. Estado parcial por canal y error inline; carga/error propios y vacío no acreditados. Fuente:48–58,89–134,188–198.</p>
+<h2>Privacidad y preguntas</h2>
+<p>Auditar destinatario enmascarado sin cuerpo; no presumir consentimiento comercial por consent_at. Fuente exige consentimiento/baja antes de campañas/recordatorios; legalidad y plazos requieren validación responsable, no dictamen de esta nota. Plantilla Meta aprobada fuera de ventana 24 h es requisito documental, enforcement actual pendiente. Elegir proveedor runtime canónico y un puerto único; definir derechos manager y scope team de mensajes; política de longitud/frecuencia; DNS/SPF/DKIM/DMARC y correo listo; idempotencia/reconciliación tras timeout/envío sin audit; consentimiento por finalidad/canal y acceso a cuerpos. Fuente:134,162–182,227–268.</p>
+<h2>Verificación pendiente</h2>
+<p>Demos rotuladas, simulación no cuenta entrega, firmas/cuentas/eventos duplicados y ordenados, permiso directo por API, opt-out durante cola, delivery real e historial privado, auditoría después de resultado ambiguo. No se envió mensaje ni se llamó proveedor. Revisión root/Luna pendiente.</p></details>
+<details id="anexo-con"><summary>CON — Contactos: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md</code>, 354 líneas. SHA256 <code>A4EDE127E4D8809A1BF735C80117F6E53959A1523311D992DB5CFB03D8113C3E</code>. Leído completo; borrador v0.2. <code>F:Lx</code> = fuente/línea. Código/QA atribuidos a fuente, sin comprobación actual ni aceptación legal.</p>
+<h2>Alcance y funcionalidades, también futuras</h2>
+<p>Identidad comprador/inversionista/propietario/referido. CRUD, normalización/dedupe, responsable, ficha, export individual y soft-delete se declaran reales. Consentimientos/bajas por finalidad/canal, derechos, empresas/representantes, timeline, fusión, demandas/matching/alertas y sync Twenty parciales/futuros (F:L61–84). Pipeline→NEG, reparto→LEA, campañas→COMU, KYC→DOC; tener identidad no autoriza publicidad.</p>
+<p>Casos F:L86–108: alta manual/externa, buscar/abrir/corregir/reasignar/exportar/borrar, consentir/revocar/opt-out, derechos, timeline/handoff, fusión/empresa/demanda. Negativos: export ajeno, reasignar own/team, dedupe con PII ajena y envío tras baja. Vistas F:L110–129: directorio tabs Personas/Empresas/Demandas, inspector ?contacto=, ficha [id], privacidad/relaciones mixtas; empresas/demandas demo; negocio usa ?deal=. Móvil dock/scroll/foco y orden global requieren prueba.</p>
+<h2>Roles, entidades, invariantes</h2>
+<p>Contacts view/create/edit/import/export/delete con none/own/team/all. Admin all; assistant sin delete; manager team sin import/export sembrado; broker own; titular no usuario implícito. Export exige intersección view/export; reasignar contacto edit all, distinto LEA. Own real por contacts.broker_id, no por relaciones; alta externa puede dejarlo nulo (F:L256–271).</p>
+<p>Datos F:L273–294: contacts identidad/medios/país/ciudad; source/broker/notas/last_interaction_at; consent_at/source; autores/fechas/deleted_at; leads/deals/activities 1:N; audit/papelera. Futuro: consentimiento/preferencias/solicitudes con canal/finalidad/evidencia; empresa/representación; demanda por zona/divisa/presupuesto/habitaciones/área/operación/prioridad/estado; IDs Twenty/versiones/tombstones. Sin row_version. Tel/email no únicos: carreras y crear_igual permiten duplicados.</p>
+<p>Dedupe exacto E.164/email→409 con candidatos visibles; forzar exige confirmación. Nombre requerido, medio no obligatorio. PATCH ausente conserva/null limpia; validaciones POST/PATCH distintas, edición sin dedupe acreditado; país/ciudad no contrato manual. Fusión conserva relaciones/historial y no inventa aceptación (F:L150–168,237–250).</p>
+<h2>Estados, APIs y privacidad</h2>
+<p>Contacto no tiene pipeline. Alta manual no escribe consentimiento; externa nueva escribe consent_at=ahora y portal_externo sin evidencia de voluntad; existente reutilizado no actualiza. Corrige auditoría histórica «nunca se escribe» y simplificación LEA. Token/UTM/timestamp no prueban aceptación. Baja durable antes de dispatch/reintento/enlaces, sin revivir por import/sync/fusión, pendiente. Derechos requieren identidad/rol/plazos/retención asesorados; JSON y soft-delete no equivalen a export/supresión integral. Mutaciones auditan antes/después con PII potencial; export solo campos/formato; redacción/retención pendientes (F:L59,131–148,233–254).</p>
+<p>F:L152–164: POST /api/contactos; PATCH/DELETE /api/contactos/[id]; GET /api/contactos/[id]/exportar. Bulk/fusión/preferencias/empresa sin API integral acreditada. 403 sin permiso, 404 ajeno/borrado, 409 duplicado; formulario conserva datos. Cambios navegación/offline en otros worktrees no acreditan base/productivo.</p>
+<h2>Conexiones y métricas</h2>
+<p>LEA/gateway/portal identidad; NEG relación; AGE/TAR actividad/cache; COMU YCloud/Cloud API/Resend; Meta Ads/CAPI atribución indirecta; INV matching futuro; DOC expediente privado; CFG audit/papelera; Supabase auth/datos. Twenty persona/cuenta/UI proyección, QH autoridad privacidad/identidad; sync IDs/campos/dedupe/versiones/tombstones/reconciliación P0 documental. Calendar indirecto, Cal.com sin evidencia. NegocioCambioEtapa→crm.reflejarNegocio NO es CAPI automático (F:L170–204).</p>
+<p>F:L206–231: total filtrado/última interacción/export; futuros evidencia consentimiento/bajas bloqueadas/duplicados/demanda. KPI identidad, evidencia, bajas, continuidad, derechos y matching sin umbrales aprobados. Matching puro presupuesto40/zona30/habitaciones20/área10, excluye no disponible/operación/divisa distinta sin FX; no persistencia ni alertas (F:L292).</p>
+<h2>Preguntas, contradicciones y propuestas</h2>
+<p>F:L298–331: reparar legado sin inventar consentimiento; finalidades/canales/base/evidencia; derechos/export completo; responsable único/compartido y cascada al reasignar lead; reactivación; fusión/empresa/timeline/matching; sync/RLS; QA autenticado/POST-PATCH. Historial y tests de terceros no reejecutados.</p>
+<p>Amplía ficha simple del primer inventario a privacidad/derechos/demanda. Conflicto ownership contacto vs lead puede ocultar contacto al nuevo broker. Propuesta: autoridad explícita identidad/preferencias, transferencia/fusión con permiso por relación y concurrencia, evidencia legal separada de origen y enforcement de opt-out en cada envío. Asesoría/D12 deciden bases/plazos; ningún artículo/plazo se inventa.</p></details>
+<details id="anexo-doc"><summary>DOC — Documentos, firmas y KYC: lectura individual completa</summary><p>Fuente <code>VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md</code>, SHA256 <code>437DC3C1B8C0B3FBEEE55D666F3A05C1EFEA9ED92572227CD2CC4DA613ABC2CC</code>; leídas líneas 1–258. Borrador Add-on. Todas las leyes/proveedores son referencias de la fuente para validar con asesoría; esta nota no confirma obligaciones ni validez jurídica de firma. Lectura de código 81ccf08 es histórica atribuida, no ejecución actual.</p>
+<h2>Funciones y alcance completo</h2>
+<p>Expediente por negocio con contratos/versiones, sobres/firmantes y revisión KYC; listado/filtros Contrato|KYC, preparar revisión con asunto/motivo/confirmación y metadatos PDF/JPEG/PNG≤10MB. Actual solo shell/ExpedientesPrevia, sin upload ni tablas DOC. Futuro íntegro: storage privado, subida/scan/cuarentena/vínculo, versiones inmutables SHA256, descarga con URL firmada corta y audit, firma verificable e identidad/sello temporal/orden, revisión KYC/listas/PEP, retención, actas Posventa y portal documental. Fuente:41–87,112–147,199–223.</p>
+<h2>Roles, entidades y reglas</h2>
+<p>Guard actual deals:view para tres páginas es provisional y no autoriza KYC real. Recursos documents/signatures/kyc propuestos aún fuera de recursos RBAC. Admin all+retención, gerente team sin firmar ajenos y sin KYC, broker own limitado sin KYC, asistente carga/consulta autorizada sin firma/KYC. Entidades futuras Document(negocio/tipo/nombre/estado/responsable), DocumentVersion(número/ruta privada/hash/autor), SignatureEnvelope(versión/estado/orden), Signer(identidad/firmado/sello/evidencia), KycCase(contacto/estado/responsable/retención). ENTITY_TYPES.file no equivale a tablas/servicio. Fuente:169–210.</p>
+<h2>Estados, eventos/API y conexiones</h2>
+<p>Documento borrador→revisión→vigente→archivado; versión inmutable; sobre borrador→enviado→parcial→completo/anulado; firmante pendiente→verificado→firmado/rechazado; KYC pendiente→revisión→aprobado/rechazado. No endpoints ni proveedores productivos acreditados. Dominio QH metadatos/retención y storage bytes; NEG/CON vínculos; TAR enlaza evidencia sin sustituir almacenamiento; RES/APR evidence IDs; POR expediente de cliente; POS actas futuro; ACC permisos específicos. Twenty no es SoT. Fuente:89–147,199–223.</p>
+<h2>UX, fallos y privacidad</h2>
+<p>Estados simulados cargando/vacío/error/offline/permiso; modal aclara no guardó, sin éxito real ni parcial scan implementados. Diseñar progreso seguro de upload/scan, fallo conservando referencia, cuarentena y reintento; estado de firma desconocido requiere conciliación antes de reenviar. Nunca bucket público; revalidar acceso al descargar y firma corta no sustituye permiso/retención. Cédula/pasaporte/bancarios/evidencias son sensibles, listados enmascarados y acceso/descarga auditados; cifrado, retención/purga/legal hold y acceso externo a definir. Fuente:35,60–75,87,118–122,175–210.</p>
+<h2>Contradicciones y preguntas</h2>
+<p>TAR promete enlace seguro 155-17 sin servicio DOC; POR reutiliza misma vista previa sin identidad externa real; no heredar deals:view como autorización a archivo/KYC. Definir sujeto obligado/retención con asesoría (155-17/172-13), proveedor firma/identidad, evidencia legal (126-02 referencia), storage ya contratado y política menú demo. Separar clasificación y permisos de documentos comerciales/KYC para evitar fuga por vínculo a negocio. Declarar finalización de scan/firma por callbacks versionados/idempotentes y no sobrescribir versión vigente. Fuente:32–37,52–60,124–147,212–250.</p>
+<h2>Aceptación pendiente</h2>
+<p>Acceso cruzado por documento rechazado incluso con deals:view; upload→scan→vínculo→firma→KYC reproducible y privado; versiones no reemplazables, hash verificable, URLs caducadas/invalidadas, callback duplicado/no ordenado, export auditado y supresión/retención definidas. Sin proveedor elegido ni pruebas ejecutadas. Revisión root/Luna pendiente.</p></details>
+<details id="anexo-ini"><summary>INI — Inicio: lectura individual completa</summary><p>Fuente <code>VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md</code>, SHA256 <code>637FD25E816923A1BBCD2C2CA3026A65885658CA360A3017EF19DA758D9C5FFC</code>; leídas líneas 1–283. Borrador, evidencia estática atribuida a 81ccf08 y capturas históricas; no ejecución actual. ADR Twenty aceptado en fuente no supone adopción actual.</p>
+<h2>Funciones y alcance completo</h2>
+<p>Entrada operativa de lectura: KPI por rol/recurso, leads recientes/sin asignar, cartera/pipeline/cierres, embudo canónico REP, citas hoy/semana, tareas pendientes, metas/Academy/proyectos, cola/enlaces y crear lead mediante módulo destino. Filtros URL compartidos REP y cortes RD día/lunes/mes. Futuro conservado: Mi día (vencidas+citas+SLA), aprobaciones reales, selector visible periodo/broker, comparativa periodo anterior, metas equipo/proyecto, layout por rol, widgets dominio y posible surface Twenty. Fuente:40–85,110–155,211–238.</p>
+<h2>Roles, entidades y reglas</h2>
+<p>Sin tabla propia: agrega LEA/NEG/stages/activities/projects/units/goals/academy/users. Recurso página dashboard:view más permiso de cada recurso; admin all, manager team (0017), broker own, asistente all operativo sin precios internos (seed no verificado), ver-como broker efectivo solo lectura. Meta y academy actuales del actor.userId, no equipo. Inicio no escribe; todo destino reautoriza, leads:create controla CTA. Ocultar sin permiso, nunca mostrar cifra detrás de disabled. Fuente:188–226.</p>
+<h2>Eventos/API y comunicaciones</h2>
+<p>consultarDashboard→repos locales QH y consultarReportesBi para embudo; dashboardQuery/leerFiltros comparten periodo y zona con REP. AGE meetings pending hoy/semana; TAR pending task; MET metas mes actor; LEA leads/status/received/first_contacted; NEG pipeline/cierres; INV disponibilidad no-broker; ACA academy_items/progress; APR solo enlace demo; COMU WA.me actual desde lead, no entrega/mensajería certificada; CFG mostrarDemo/roles/zona; Twenty dashboard shell/lectura objetivo no integrado. Fuente:110–170,213–226.</p>
+<h2>Métricas, estados, UX y privacidad</h2>
+<p>No máquina de negocio propia. Cargando→listo completo/parcial/error, panel vacío, 403, offline preserva UI. Fallo parcial de consulta debe dejar resto (pendiente certificar). Conversión actual cierres del mes/leads del mes son poblaciones distintas, no cohorte; pipeline USD display no FX validado. Citas pending meeting y tareas pending no widget vencidas/SLA completo. Aprobaciones count null, no cero falso. Minimizar nombres/datos en WA.me query; deep-link no prueba consentimiento/opt-out. No rankings globales own/team, no PII en telemetría/PDF. Fuente:93–124,157–172,188–209.</p>
+<h2>Contradicciones y preguntas</h2>
+<p>Fórmula dashboardScopes: página team y recurso team→own, no intersección team esperada; documentar decisión o corregir, sin elevar all. Módulo dice «dentro cola jornada» pero Mi día completo/SLA no operativos. Enlace aprobaciones demo/KPI allowed true no da bandeja real; widgets de metas solo actor y Academy local no prometen agregado equipo/Moodle. Definir KPI canónico/cohortes/moneda/periodo, filtros visibles, degradación y freshness, fuente/alcance por tarjeta; Twenty solo visual o también series, contrato por decidir. Fuente:46,83,108–121,145–170,230–259.</p>
+<h2>Aceptación pendiente</h2>
+<p>Por tarjeta scopes own/team/all/overrides/ver-como, mismo embudo/filtro que REP, cortes RD medianoche/lunes/mes, sin aprobación demo/cero falso, un panel fallido no derriba todos, CTA recurso destino reautoriza, móvil 390/teclado y KPI con fecha/definición. Capturas/test filenames no son resultados ejecutados. Revisión root/Luna pendiente.</p></details>
+<details id="anexo-inv"><summary>INV — Inventario/Propiedades: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md</code>, 404 líneas. SHA256 <code>7C5BB6FF979780B123DA27B551EA7F217601E6E0B0BC40A8A2573C92518F0B0F</code>. Leído completo, incluida recuperación separada L183–226 por truncamiento de salida. <code>F:Lx</code> fuente/línea. Borrador; evidencia de código/QA atribuida, sin pruebas actuales. Híbrida baseline documental, no elección reabierta.</p>
+<h2>Alcance funcional completo</h2>
+<p>QH autoridad de proyectos/unidades/precios/compromisos/disponibilidad, Twenty inventario opcional como proyección/UI; Studio narrativa/SEO con workflow; Portal proyección pública/captación. No doble SoT ni last-write-wins stock (F:L49,64,189–224). Catálogo/fichas/CRUD, matriz/inspector/búsqueda/filtros/CSV público/precios restringidos/concurrencia/holds/fases/fotos. Futuros: dossier estructura/torres/precios versionados/kit/mediateca/calidad, mapa geográfico/polígonos, PDF inmueble/import/bulk, publicación por canal/retirada/acuse, demanda/alertas y control de calidad/sync. RES/Portal siguen add-ons; satélite OBR no se omite (F:L66–117).</p>
+<p>Casos: buscar/abrir, crear/editar proyectos/unidades, consultar stock/holds, exportar, asociar/cerrar NEG, fases/fotos, publicar canal, matching y cotizador. Negativos403/404, CRUD status409, expectedVersion obsoleta409, isPublished=true403, sold no recodificar/borrar409 (F:L98–117).</p>
+<h2>Datos, estados e invariantes</h2>
+<p>F:L139–162,315–337: projects blueprint/presale/under_construction/delivered/rental; units available/reserved/sold/unavailable, operación sale/rent, precio one_time/monthly; held no es enum, es inventory_commitments separado. Alta available+row_version1, CRUD nunca cambia status. Venta→sold+unit_sales, alquiler→reserved. Compromiso ajeno bloquea cierre; propio/expirado requiere resolución. Contador status available no descuenta hold por sí mismo: no disponibilidad efectiva ni inventario en vivo garantizado. No borrar/recodificar sold; resto compromisos/restauración por probar.</p>
+<p>PATCH/DELETE unidad expectedVersion opcional API hoy (UI lo envía); CAS si presente e incremento; proyecto/fase sin versión. unit code raw único activo por proyecto y normalizado para compromisos/ventas. Fases pending/in_progress/completed/delayed, promedio derivado; plantilla8 solo sin existentes, posición única. isPublished proyecto true bloqueado, fase flag no repite guardas UI; flag no entrega portal. false/isActive no prueba retirada remota.</p>
+<p>Modelo: projects identidad/slug/zona/tipo/developer/descripción/video/precio interno/rango público/Confotur/avance/owner/flags; units atributos torres/pisos/áreas/dormitorios/baños fracción, moneda/precio/estado/código/notas/versión; inventory_commitments kind/status/refs/expira/versión con unicidad activa por unidad e identidad; holds/reservation_units; unit_sales durable; deal_properties; construction_phases; files privados con metadato visibility que no hace bucket público; audit/outbox/external_refs; mapping/publicaciones/demandas propuestos (F:L317–335).</p>
+<h2>Roles, API, UX y errores</h2>
+<p>projects/units/unit_real_price/construction_phases y holds/reservations permisos independientes. Admin no bypass publicación. Manager team projects/units sin precio/fases sembrado; assistant all según concesión sin fases create/delete; broker own/fases view. Own real projects.broker_id y unidad hereda proyecto; N:M asignación BRO no sustituye esos filtros. CSV FloorMatrix no recibe permiso export separado y Blob podría operar en preview: no dar por resuelto bloqueo export API (F:L296–313).</p>
+<p>F:L164–187: /api/proyectos POST/PATCH/DELETE; /[id]/unidades POST, /[unitId] PATCH/DELETE; fases/subrutas y fotos; BRO /api/brokers/[id]/proyectos. Campos esquema no siempre API: sin tower/floor/currency/owner/internalNotes unidad; PATCH proyecto no slug/moneda. SnapshotCSV whitelist/BOM/fechaUTC/versión y filtros propios matriz; no sincronía asumida con filtros tabla. Holds DTO cliente mínimo no garantiza minimización endpoint. CRUD no Idempotency-Key demostrado; claves holds/lead distintas de publicación.</p>
+<p>Vistas catálogo tarjetas/lista/mapa esquemático, ficha slug, unidades/matriz/inspector, dossier mixto, /avances, /portal/publicacion y catalogo demo, cotizador. Vistas guardadas en memoria; reporte dato incorrecto demo. Loading/error locales citados no presentes: herencia por probar. Vacío/permiso/error/parcialStorage/offline/recuperación, móvil dock/foco y controles44px no auditoríaAA (F:L119–137). Slug ficha eq, LIKE generador: no trasladar vulnerabilidad sin contraste.</p>
+<p>Cotizador: denominación no FX, tasa60.5 sin evidencia temporal, fallback20/30/50 inválidos, salida impresión/WA y sello obsoleto/texto fiscal excesivo documentados; no tasas/certificación nuevas (F:L187).</p>
+<h2>Eventos, dependencias, métricas y privacidad</h2>
+<p>Dominio→Twenty opcional; PortalPublisher OUT catálogo/updates/retiro saneados, IN acuse/captación; portal→LEA externalId/UTM/proyecto no import bidireccional automático; NEG interés/cierre↔INV/RES compromisos; cierre→COM/MET/BRO; OBR/Storage fases; CON matching futuro; REP/INI agregados; COMU ficha/alertas; Meta captura/conversión/catalog social contratos distintos; Calendar indirecto y Cal.com sin evidencia (F:L205–248).</p>
+<p>Estados de publicación preparado/aprobado/pendiente/entregado/error/retiro son propuestos. Whitelist sin precios/notas/titulares/URLs privadas; cambio comercial remoto es comando QH, no overwrite de stock. CON consentimiento implícito/own y NEG outbox≠CAPI se heredan.</p>
+<p>F:L250–275: conteos por status, absorción(total-disponibles)/total incluye reserved/unavailable no venta pura, promedio fases no certificación, CSV, BI parcial; calidad/sync/demanda futuros. KPIs oferta confiable, cierre único, demora acuse, confidencialidad/completitud/matching, sin umbrales aceptados. Divisas separadas, sin FX supuesto; Ley172-13 y KYC asesorados, no PII holds pública.</p>
+<h2>Cambio al inventario previo y decisiones pendientes</h2>
+<p>Contradice hipótesis inicial portal fuente catálogo: baseline documental sitúa inventario comercial en QH, Studio editorial separado. Amplía unidad/proyecto+compromiso+avance+cotizador. F:L341–361 pregunta disponibilidad efectiva/SLA; quién publica/retira/canales/evidenciasConfotur; ownership BRO N:M vs proyecto; versión obligatoria/restauración; FX/coherencia; proyecciónTwenty/UI; PDF/alertas y consentimiento. Propuesta D03: read model efectivo derivado de compromisos, autoridad por campo/editorial, command API stock y publisher con aprobación/versión/acuse por destino. Ningún bypass/RBAC/sync está demostrado.</p></details>
+<details id="anexo-lea"><summary>LEA — Leads y asignación: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md</code>, 504 líneas. SHA256 <code>FEAFD4C875DD87043746FAE5CFBFCA9A15EA1D201633F0CDDBD23CAAB900BF58</code>. Leído completo, borrador v0.2; pie conserva v0.1 (F:L504). <code>F:Lx</code> = fuente/línea; código/QA sobre 81ccf08 y otros worktrees no reejecutados.</p>
+<h2>Alcance y catálogo funcional completo</h2>
+<p>F:L52–97: recibir/calificar/asignar/convertir antes del negocio. Alta/dedupe, captura externa idempotente con atribución/mensaje, Meta/WA, sugerencia sin autoasignar, asignar/reasignar y Tomar solo broker, presupuesto/zona/horizonte/operación/proyecto, descarte motivado, conversión Nuevo, lista/ficha, primer contacto y audit. Pipeline→NEG, privacidad→CON, bandeja/campañas→COMU, secuencias→AUT, contenido→Portal/Studio. Protección prospecto/ponds futuros.</p>
+<p>Casos F:L105–131,205–252: alta manual/portal/Meta/WA; sugerir/asignar/reasignar/reclamar; primer contacto; calificar/descartar/convertir; voz→propuesta; listas/cola/supervisión; export, CSV, fusión, reglas/round-robin, CAPI OUT. Negativos create sin permiso, Tomar no-broker, brokerId inválido, token inválido, duplicado sin confirmación, reasignar cerrado. CRM-LEA-ASG: sugerencia #21, Tomar #47, historial traspasos, cursor persistente/horarios/carga/idioma, SLA/reasignación, protección prospecto. No eliminar futuros del mapa.</p>
+<p>Vistas F:L137–158: /leads, ?lead=, ?cola=1, alta/asignación/calificación/voz. Asignación/duplicados/importaciones/SLA son demos. Filtros q/status/source/página20; contador/orden+id reportados lote B sin despliegue probado. Móvil/PWA lista diaria pendiente.</p>
+<h2>Roles, entidades, estados y reglas</h2>
+<p>Admin/assistant all con import/export nominal; manager team; broker own/Tomar; visitante/titular no operador; integración token/firma sin sesión. Seed/migración/E2E por comprobar (F:L103,384–397).</p>
+<p>new→assigned→contacted→converted/discarded; primer contacto también desde new; calificar mantiene; descarte motivado; cerrados no reasignables/calificables/reconvertibles. Soft-delete aparte. Sugerencia NO asigna. Tomar requiere broker y sin dueño, idempotente si ya suyo assigned. Conversión crea deal Nuevo y converted_deal_id sin FK por decisión histórica. Presupuesto min≤max centavos, horizonte≥0 (F:L162–201,366–382).</p>
+<p>Datos F:L401–435: leads→contacts, sources, projects/zones, broker/suggested users, marketing_campaigns/spend, payment_methods, activities, deals, audit. Identidad/external_id; campaign/UTM/video/mensaje; venta/alquiler/divisa/presupuestos/dormitorios/horizonte/Confotur; received_at/first_contacted_at/discard_reason/converted_deal_id/autores/fechas/deleted_at. External_id único parcial no borrados y recibo payload; no identidad global única. ad_id/gclid/fbclid dedicado, import jobs, fusión e historial consultable no vistos.</p>
+<h2>API, eventos y conexiones</h2>
+<p>F:L209–222: POST /api/leads, /api/leads/externo con x-webhook-token; PATCH /api/leads/[id]; POST tomar/calificacion/descartar/convertir; audio /api/ai/audio-transcribe; Meta /api/integraciones/webhooks/meta. Sin API persistente CSV/round-robin/fusión. Repetir externalId mismo payload reutiliza, distinto conflicto; Meta meta_lead_<id>. sugerirBroker puro; planAssignments memoria/tests.</p>
+<p>F:L256–327: Portal→gateway VPS crm-leads-gateway/espocrm-adapter→QH; Meta/WA→captura; CON identidad; NEG conversión; AGE/TAR contacto/followup; BRO/CFG candidatos; INV proyecto/zona; REP embudo; AUT SLA futuro; COMU plantillas/bandeja. CAPI adapter no envío automático por etapa/won: faltan configuración/elegibilidad/consentimiento. Google Offline Conversions pendiente; Calendar vía AGE, Cal.com sin evidencia; Instagram hipótesis. Twenty people/opportunity/UI no desplegado como base según fuente; QH autoridad inbound/atribución/reglas y sync P0 pendiente.</p>
+<h2>Errores, métricas y privacidad</h2>
+<p>Deuda F:L224–237: NaN PATCH (preprocess requiere E2E), Tomar visible admin aunque403 correcto, voz fuerza crear_igual/min=max/sin aviso fallo tarea, webhook sin rate/max-body, audio~14MB sin cuotas, demos y HTML proyecto sin saneamiento BD. Son defectos atribuidos, no requisitos deseables. Carga/vacío/error/403/reintento y concurrencia de reclamación requieren pruebas.</p>
+<p>F:L331–360: embudo/canales/dashboard/etiqueta minutos parciales; p50/p75 Speed-to-Lead, intentos, CPL y SLA futuros. Campo first_contacted_at existe, writers todos caminos no acreditados. KPIs toma/descarte/conversión/origen/duplicados sin metas aceptadas. PII mensaje/tel/email; UTM/hash no consentimiento, KYC→DOC. CON precisa escritura implícita externa que matiza LEA F:L406 «pendiente escritura».</p>
+<h2>Pendientes y cambio al inventario</h2>
+<p>F:L441–481: sync, proveedores, E2E asignación/Tomar, voz/dedupe, límites API/IA, CSV/fusión/motor, writers/métricas, bandeja, click IDs, ponds vs #21, manager/reports y privacidad. STOP/push son contexto histórico de fuente, no órdenes ejecutadas. Amplía propuesta anterior con multicanal/voz/atribución/asignación; fase no aceptada. Proponer ingestión con recibo durable/ID negocio, conversión atómica, ownership y trazas. Resolver no-autoasignar vs round-robin/ponds y autoridad Twenty antes de automatizar.</p></details>
+<details id="anexo-met"><summary>MET — Metas: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md</code>, 312 líneas. SHA256 <code>7DC49F4F0119ACBD8C6BAE6FA7146DD694D2DD9E91F392014F7E7C954FAE379A</code>. Leído completo; borrador v0.1. F:Lx remite a fuente/línea. Código, pruebas y voz owner son atribuidos por el documento, sin nueva entrevista ni ejecución.</p>
+<h2>Alcance completo</h2>
+<p>Objetivos mensuales de cierres e importe para compañía, broker, proyecto y equipo; atribución versionada, logro por moneda, ritmo, ranking y comparación histórica. Consultar AAAA-MM, fijar objetivos, reiniciar solo targets, administrar alcances/equipos y publicar regla. Alertas, gráfico de ritmo, forecast por etapas, informes programados e historial UI pendientes. Semana/trimestre u otros periodos son extensiones opcionales: no existe schema week ni endpoint semanal (F:L58–83,177–201,254–264).</p>
+<p>Casos: consultar mes; fijar compañía/broker; reset; guardar/eliminar meta de proyecto/equipo; guardar equipo; publicar regla; computar cierre; ranking/línea base; negativos por dato inválido, permiso, carrera/reenvío y red (F:L87–102). Misma ruta /metas?periodo contiene tablas/cards, equipos, atribución y modales. Carga/error/vacío/sin permiso/éxito; offline conserva borrador sin prometer sincronización. Copy solo administración contradice manager edit team (F:L104–117).</p>
+<h2>Roles, datos e invariantes</h2>
+<p>Admin all; manager consulta/fija broker de equipo con reaches; assistant consulta all; broker consulta own. Reset, compañía, alcances, equipos y regla exigen edit all; no ampliar reset de gerente por asumirlo. Pertenencia de equipo y supervisión son distintas. Lectura global antes de filtrar, hero/tendencias y proyectos compartidos requieren pruebas; no afirmar fuga ni aislamiento completo (F:L218–233).</p>
+<p>goals tiene destinatario nullable (compañía), año/mes, targets/achieved/divisa/auditoría y unicidad por destinatario/mes, sin moneda en clave. scoped_goals tiene project/team/id/mes/targets/divisa, también una fila por alcance/mes. teams/members, attribution_rules versionada/aprobada/una activa, deals con atribución congelada, intereses/historial, perfil base, audit/recibos. Un broker pertenece a un equipo; manager puede supervisar varios (F:L235–250).</p>
+<p>sin_meta/en_curso/cumplida son derivados. Cero explícito sin meta; vacío no cero. Fijar/reset no altera logro ni negocios; reset target0/importe null. Regla nueva no reatribuye cierres pasados. Legado sin versión usa equipo actual y puede cambiar historia (F:L119–135,205–216).</p>
+<h2>Conflictos de negocio y moneda</h2>
+<p>Computable deseado: contrato firmado Y reserva confirmada. Lectura actual won/closed_at y guardas NEG de monto/unidad no acreditan firma/reserva. Definir evidencia, fecha, alquiler, legado, sin broker y reversas (F:L133/210/275).</p>
+<p>El acumulador <code>incrementarMetaAlcanzada</code> suma amountCents sin currency y goals no divide por moneda. UI desglosa desde negocios, pero achieved_amount_cents legado puede mezclar USD/DOP. scoped_goals tampoco permite dos objetivos monetarios simultáneos para mismo alcance/mes. Reconciliar consumidores/datos antes de decidir (F:L250).</p>
+<h2>API, comunicaciones y métricas</h2>
+<p>PUT /api/metas fija broker/compañía; año2000–2100, mes1–12, entero≥0, perfil válido; importe omitido conserva, divisa nueva USD del servicio. DELETE con JSON reinicia con all. PUT/DELETE /api/metas/alcances; PUT /api/metas/equipos (hasta100 miembros); POST /api/metas/atribucion. conIdempotencia META/META_ALCANCE/META_EQUIPO/META_ATRIBUCION contradice auditoría histórica: replay/actor/despliegue por probar. DELETE JSON en proxies y edición simultánea pendientes; no GET/bulk/import/export propio acreditado (F:L139–151).</p>
+<p>NEG cierre→goals/atribución+comisión transaccional; INV principal; BRO equipo/nivel/meta base; COM paralelo, pago no es venta; INI/REP consumo; ACC scopes/audit. Twenty solo KPI agregado de lectura propuesto, nunca cuotas/objetivos autoritativos; faltan dimensiones, moneda, frescura, permisos y reconciliación. LEA/CON indirectos sin copiar PII; sin canal externo directo (F:L153–175).</p>
+<p>Cumplimiento logrado/objetivo, null si objetivo≤0; monto en moneda meta; pace proyectado por días civiles RD; faltantes max0; ritmo requerido por siete días es auxiliar mensual, no objetivo semanal. Ranking por cierres y nombre, comparación mismo mes año anterior/meses registrados. No inferir adopción de 264 semillas ni confundir venta, comisión y cobro (F:L179–201).</p>
+<h2>Privacidad, pendientes y propuesta</h2>
+<p>Rendimiento de brokers es dato personal: alcance mínimo, auditar cambios y no llevar datos de comprador a ranking/Twenty. Retención/export y agregados requieren política.</p>
+<p>Pendientes: evento computable, moneda, evidencia FIN desalineada, manager/scopes/copy, legado/compensaciones, periodos opcionales, alertas/historial, concurrencia/idempotencia y KPI Twenty (F:L254–292). Añade dominio de metas, no simple gráfico del primer inventario. Propuesta D03: evento de logro distinto de etapa genérica/pago, contribuciones únicas por hecho y moneda, reversas compensatorias, reglas congeladas y reconciliación de legado. Sin aceptación nueva.</p></details>
+<details id="anexo-neg"><summary>NEG — Negocios/Pipeline: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md</code>, 379 líneas. SHA256 <code>3383F2ACBFE6CCA62CD2EDB68B7DA675F5452429150C794EA6DB731FB8AE47FD</code>. Lectura completa; borrador v0.2; <code>F:Lx</code> remite al archivo/línea. Código/QA atribuidos a 81ccf08 y lotes, no reejecutados. Híbrida es baseline documental registrada; no aceptación nueva ni bypass RBAC resuelto.</p>
+<h2>Alcance completo y actores</h2>
+<p>Desde conversión de lead hasta cierre ganado/perdido con próxima acción, evidencia, previsión, metas/comisiones. Alta solo desde lead; tablero/lista/análisis/inspector/filtros, edición permitida, intereses/principal, historial, pérdida estructurada y cierre transaccional. Propuestas PDF/versiones/enlaces privados, descuentos/aprobaciones, bulk, vistas compartidas, archivo/borrado/reapertura y requisitos documentales configurables por etapa quedan pendientes, no se descartan del producto (F:L60–84,159–181,321–344). RES/DOC/COM/COMU/AUT conservan sus responsabilidades.</p>
+<p>Casos F:L92–109: convertir, consultar, mover, preparar negociación, asociar interés, perder/ganar, supervisar/ver-como, analizar/exportar, sync/CAPI, PDF/descuentos. Negativos contacto sin actividad, ajeno/sin permiso, versión obsoleta, cerrado y cierre incompleto/concurrente. Admin/manager/assistant/broker/sistema; titular no operador. deals:view/create/edit/export scopes efectivos. Manager team sin export sembrado; assistant all pero sin análisis/montos de rendimiento; monto editable admin/broker, comisión admin+commissions:view, precio real permiso específico (F:L179,282–296).</p>
+<h2>Estados, guardas e invariantes</h2>
+<p>F:L132–157: Nuevo10%, Contactado25%, Presentación40%, Preselección60%, Negociación80% abiertos; Cierre100% won; Perdido0% lost. «Seis abiertas» histórico contradice cinco enumeradas. Conversión primera abierta por posición, no ID fijo. No secuencia obligatoria: al entrar destino, Contactado exige actividad de contacto DEL NEGOCIO; Presentación actividad pending vigente con responsable/fecha; Preselección interés; Negociación importe/probabilidad/comisión/fecha; Perdido motivo activo+comentario; Ganado unidad principal/importe/comisión/proyecto visible/stock compatible. Cerrados no editables/reabribles; misma etapa retorna sin nuevo efecto después validar expected*. Próxima acción universal no está demostrada.</p>
+<p>Cierre declarado atómico: CompromisosPort protege venta/alquiler; importe/fecha; historial; metas broker/compañía; atribución congelada; anual/nivel si perfil; comisión pending única; cancelar actividades futuras; audit+NegocioCambioEtapa. America/Santo_Domingo. Bloqueo/unicidad contra doble venta/cierre; requieren E2E (F:L155). Ya excede cierre manual de la propuesta inicial.</p>
+<h2>Datos, API y UX</h2>
+<p>F:L298–321: deals identidad/contact/lead/source/broker/stage; operación/divisa/importe centavos/probabilidad/bps/fecha/notas; next_activity, stage_changed_at, closed_at y pérdida; atribución regla/proyecto/equipo. pipeline_stages kind/slug/posición/activo; loss_reasons; deal_properties con proyecto/unidad/principal/baja/motivo, principal única; stage_history; activities; unit_sales única durable; commissions/goals/profiles; audit/outbox; referencias Twenty/ads futuras. next_activity y converted_deal_id sin FK por decisiones históricas. Sin row_version propio deals observado.</p>
+<p>API F:L161–175: POST convertir LEA; PATCH /api/pipeline/[id] y /etapa con expectedStageId/expectedStageChangedAt; POST /propiedades, PATCH/DELETE /propiedades/[propId]. Monto entero≥0, prob0–100, bps0–10000, fechaISO; PATCH no moneda/brokerId. Retirar interés no principal y conserva mínimo en preselección/negociación; no borra deal. Export Blob cliente selección visible, no páginas completas. Conversión repetida409, no éxito idempotente; expected* + lock protege transición, Idempotency-Key etapa no verificado.</p>
+<p>Vistas F:L113–130: /negocios, vista=lista/analisis, ?deal= y /[id]; ?negocio= no alias demostrado. Comerciales/bulk previews. Filtros resultado/broker/proyecto/stage en lista, monto/divisa/fechas/campo/orden/cursor; no q libre. Preferencias localStorage no compartidas. Vacío/carga/error+rollback,403/404, alternativa teclado al drag y móvil; NEG-005 requiere browser autenticado.</p>
+<h2>Conexiones, eventos, métricas y privacidad</h2>
+<p>LEA→NEG conversión/origen; CON identidad; AGE/TAR next action/contacto/cancelación; INV/RES principal/compromiso; NEG→COM/MET/BRO cierre; CFG etapas/motivos/RBAC; NEG→REP/INI lectura; COMU contacto/propuesta; DOC/APR futuro (F:L183–220). Twenty oportunidad/stage como proyección; entrada UI debe pasar caso QH/guardas/transacción, contrato P0 sin implementar. Evento NegocioCambioEtapa <code>{id,stageId}</code> consumidor crm.reflejarNegocio NO CAPI. CAPI adapter Lead/Schedule/Contact/Purchase y prueba no cadena comercial: stage map/elegibilidad/event_id/timestamp/dedupe/reintentos/retrocesos/divisa/atribución/Events Manager pendientes (F:L222–228). Google OC pendiente, Cal.com sin evidencia, IG/catálogo solo indirectos.</p>
+<p>F:L230–259: conteos/valor por etapa/divisa, abiertos/ganados/perdidos; ponderado amount_cents×prob/10000 y antigüedad sobre filas cargadas, no forecast completo/histórico etapa; faltantes contados, monedas separadas. Reportes pérdida/previsión/programados/ads futuros; KPI cohortes/cierre/próxima acción/velocidad/trazabilidad sin metas aceptadas. PII mínima/export controlado; hash no base legal; documentos privados/retención/KYC asesorados.</p>
+<h2>Pendientes y propuestas</h2>
+<p>Resolver referencias ?deal, cinco/seis open, moneda PATCH y próxima acción universal; matriz manager/assistant/campos; sync e imposibilidad bypass; CAPI; propuestas/descuentos; reapertura compensando stock/metas/comisión; forecast completo (F:L325–344). Propuesta: contratos de comando distintos de proyecciones genéricas, transacción QH autoritativa, evento inmutable con secuencia/identidad y outbox por destino; no permitir que sincronizar Twenty ejecute un cierre sin caso de uso. Es propuesta, no capacidad validada.</p></details>
+<details id="anexo-por"><summary>POR — Portal: lectura individual completa</summary><p>Fuente <code>VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md</code>, SHA256 <code>0214EC9C683EE4B5CE3BA769771E57F41C475807B435182DD01B19A13A14A1F5</code>; leídas líneas 1–258. Borrador Add-on. «Real» en esta nota significa atribuido por la fuente a 81ccf08, no validación independiente. El módulo POR del CRM no debe confundirse con el repositorio del portal público que sí existe por separado.</p>
+<h2>Funciones y alcance total</h2>
+<p>Cinco vistas: editor portada/bloques/marca/contenido, publicación por canal, catálogo/captación, comprador y promotor. Hoy shell/React state y modal sin red/persistencia; área comprador usa ExpedientesPrevia y promotor no crea cuenta. Futuro: CMS versionado/aprobado, material/vigencia por canal, publicar/retirar/acuse vía PortalPublisher, filtros públicos zona/precio, SEO/OG/canonical/sitemap/schema listing ES/EN, captura lead/UTM/consentimiento y protección broker; identidad externa comprador/promotor con acceso propio a expediente/inventario/avance/cuenta es hipótesis por decidir, se conserva como capacidad candidata. Fuente:41–90,115–149,194–239.</p>
+<h2>Roles, entidades y reglas</h2>
+<p>Actual settings:view solo admin seed. Propuestos portal_contenido/publicacion/captacion; gerente team publicación, broker/asistente lectura fichas, externos own nunca roles internos. Leads/contacts consent y projects/units/construction_phases son dependencias existentes atribuidas. PortalPage(bloques/título/versión/autor/aprobador/estado), Publication(proyecto/canal/sync/material/vigencia), PortalSeo(metadata/idioma) y PortalAccess(usuario/rol/alcance/vencimiento) no existen aún en schema. Inventario sería SoT catálogo; dominio QH objetivo de editorial/publicación, Twenty no SoT. Fuente:127–149,171–208.</p>
+<h2>Eventos, API y comunicaciones</h2>
+<p>Captación atribuida POST <code>/api/leads/externo</code> con token/Zod/idempotencia externalId/rate limit; LEA recibe y CON requiere evidencia de privacidad/consentimiento. No APIs propias portal ni adapter publish acreditado; PortalPublisher/INV objetivo publica y retira por canal tras aprobación/whitelist/acuse, CFG SEO demo no publica. DOC aporta documentos privados; RES advierte precio desde no garantiza stock hasta reserva; BRO protege cliente; CFG estado integración. Fuente:35–39,49–76,102–149,210–223.</p>
+<h2>Estados, UX y privacidad</h2>
+<p>PortalPage borrador→revisión→publicado→archivado; publicación pendiente→sync ok/error; SEO borrador/publicado; acceso activo/vencido. UI selector simula estados; éxito aclara no publicó y parcial por canal no existe. Fuente exige consentimiento fecha/origen en captura pero webhook no lo exige atribuidamente; no rellenar consent_at como prueba. Enlaces documentales firmados y scope externo propio; nunca contratos/PII en catálogo público. Publicación no equivale a guardar SEO, isPublished o abrir enlace. Fuente:90–100,145–168,175–186.</p>
+<h2>Contradicciones y decisiones abiertas</h2>
+<p>Sitio declarado <code>quisqueyahome.com</code>; inventario local previo de esta conversación usa portal distinto con dominio operativo <code>.tech</code>. Verificar dominio canónico/repositorio/operador y API, sin conectar por deducción. Fuente asigna catálogo a INV/CRM y publicación al dominio QH; arquitectura conceptual anterior proponía conservar inicialmente autoridad editorial en portal: comparar y decidir autoridad por campo/proyecto/unidad, no mezcla automática. Separar CMS, publicación catálogo y área privada externa. Exigir consentimiento en contrato legado es potencial breaking change; acordar versión/transición, finalidad/base legal y fallo seguro con negocio. Fuente:32–39,60,131–149,177–186,245–250.</p>
+<h2>Aceptación pendiente</h2>
+<p>Publicar/retirar con permiso/version/hash y acuse real por canal; timeout no falso éxito; borrador no cambia versión pública; no filtrar precio interno/docs/PII; lead origen único/mapa IDs/consentimiento; acceso externo no cruza expediente. Ninguna identidad externa, CMS persistente o sync queda certificada. Revisión root/Luna pendiente.</p></details>
+<details id="anexo-pos"><summary>POS — Posventa: lectura individual completa</summary><p>Fuente <code>VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md</code>, SHA256 <code>06BF51E7BDED1EF21756F87B0504CD78075CCE0E1D83979E0CDBBDBE8D14301A</code>; leídas líneas 1–278. Borrador Add-on; prioridad histórica baja no elimina requisitos ni riesgos al activarlo. Shell/demo de 81ccf08 es afirmación atribuida, no implementación validada. Plazos de garantía/vicios requieren asesoría; esta nota no determina obligaciones legales.</p>
+<h2>Funciones y alcance completo</h2>
+<p>Cuatro áreas: entregas, pendientes, casos/servicio y garantías. Futuro íntegro: programar inspección de unidad, observaciones/ubicación/plazos/fotos, acta firmada versionada, cierre de entrega sin pendientes críticos, casos con categoría/prioridad/SLA/responsable, gestión y reapertura, evaluación garantía y términos versionados/vigencia/excepciones, cierre verificado por cliente, cotización/cobro fuera de cobertura con APR+consentimiento, seguimiento externo comprador y contexto avances. Actual: cuatro tabs y textos de reglas, ninguna acción persiste ni tablas POS. Fuente:43–79,81–101,120–160,228–259.</p>
+<h2>Roles, datos y reglas</h2>
+<p>Guard actual projects:view provisional; futuro aftersales view/create/edit/close. Admin all aprueba cobertura/cierres; gerente team; broker own ve/abre/agenda, no aprueba/cierra; asistente all/team ops agenda/observa sin aprobar garantías/cobros. Entidades propuestas Inspection(unidad/fecha/responsable/requisitos/estado), DeliveryIssue(inspección/descripción/plazo/evidencia/estado), HandoverAct(inspección/versión/firma), AfterSalesCase(unidad/negocio/categoría/prioridad/estado/responsable/SLA/confirmación), Warranty(negocio/versión/términos/inicio/vencimiento/excepciones). units/deals/unit_sales son referencias, no tablas POS. Fuente:184–226.</p>
+<h2>Estados, eventos/API y conexiones</h2>
+<p>Inspección programada→en_curso→acta_pendiente→cerrada; pendiente abierto→subsanación→cerrado_verificado; caso abierto→gestión→esperado_cliente→cerrado/reabierto; garantía vigente/excepción/vencida; acta borrador→firmada. NEG venta origina POS sin confundir cierre comercial/entrega física/transferencia jurídica; INV unidad; DOC actas/evidencias/términos privados; AGE slot; COMU avisos; CON cliente/consentimiento; APR excepciones/cobros; ACC acceso; POR seguimiento futuro; Avances contexto no SoT. No API POS real acreditada. Fuente:93–160,188–201.</p>
+<h2>UX, fallos y privacidad</h2>
+<p>Actual always-demo, vacío/carga/error propios ausentes; permiso 403, éxito no aplica y parcial solo copy. Futuro necesita estados por operación y evidencia privada. Marcar unidad entregada nunca cierra pendientes; acta/caso requiere evidencia+confirmación cliente y cierre de entrega sin pendientes críticos. Fotos pueden revelar comprador/interior/ubicación: storage privado, autorización por caso y audit; no bucket público. Falla DOC/firma/cliente deja pendiente recuperable, no cierre simulado. Fuente:51–62,81–101,124–131,192–226.</p>
+<h2>Preguntas y dependencia crítica</h2>
+<p>Definir caso vs pendiente vs entrega, criticidad, SLA/pausas/categorías y responsable; quién confirma, cómo representar desacuerdo/no respuesta y reabrir; garantías contractuales/versionadas y plazos con legal; excepción/cobro no es pago ni contabilidad. DOC y APR no están operativos según fuentes: no activar promesas hasta contratos y evidencia; aftersales no debe heredar todo projects:view. Acta puede reutilizar sobre DOC, por decidir. Fuente:228–270.</p>
+<h2>Aceptación pendiente</h2>
+<p>Inspección→pendientes→acta→cierre; pendiente crítico bloquea; foto privada, rol ajeno denegado; confirmación y motivo conservados; reabrir sin borrar historia; doble callback/firma/cobro no duplica efecto; alcance/garantía/SLA aceptados. Revisión root/Luna pendiente.</p></details>
+<details id="anexo-red"><summary>RED — Comunidad: lectura individual completa</summary><p>Fuente <code>VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md</code>, SHA256 <code>9DED6EC5B3D9A0FF6CB45B524F7A6CC8F1C6447557ADBAFBD0C453E3EB32DE2E</code>; leídas líneas 1–268. Borrador Add-on de alcance por decidir; se conserva todo el módulo futuro como candidato y no se promueve ni descarta por esta nota. Observaciones de código 81ccf08 atribuidas, sin ejecución.</p>
+<h2>Funciones y alcance completo</h2>
+<p>Grupos y materiales autorizados/posts/comentarios con visibilidad; demandas inmobiliarias anonimizadas, interés/co-broke sin liberar contacto; eventos/inscripción/cupo y avisos; reportar contenido, moderar con motivo/evidencia y apelación independiente; reputación futura solo con cierres verificables, no ejemplos. Actual cuatro rutas comunidad/demandas/eventos/moderacion con RedPrevia y borradores locales sin tablas community. No red social abierta, mensajería directa PII, LMS ni gestión económica co-broke aquí. Fuente:43–90,118–153,221–249.</p>
+<h2>Roles, entidades y reglas</h2>
+<p>Guard brokers:view provisional; futuro community:view/create/edit/moderate. Admin all+moderación/apelación; asistente view/material empresa; broker create/edit own sin moderar; gerente moderate team y otro revisor resuelve apelación. CommunityGroup/Member, Post/Comment, BuyerDemand(zona/tipo/requisitos/presupuesto por rangos/estado), DemandInterest(demanda/broker/fecha/consentimiento), CommunityEvent/Registration(fecha/lugar/enlace/cupo), ContentReport y ModerationDecision(motivo/evidencia/decisor/apelación/revisor), todos futuros. Fuente:177–219.</p>
+<h2>Estados, eventos/API y conexiones</h2>
+<p>Grupo activo/archivado, post publicado/oculto/retirado, demanda abierta/en_acuerdo/cerrada, interés registrado, evento publicado/cerrado, reporte abierto/decidido, decisión aplicada/apelada/confirmada/revocada. No API persistente acreditada. BRO aporta miembro/acreditación/directorio y contrato de cooperación que libera acceso; CON privacidad; COMU/outbox notifica inscripción/decisión/recordatorio; ACC/CFG permisos/config; auditoría decisiones. Twenty no SoT; MET/BRO ranking futura solo tras señal verificable. Fuente:92–153,183–194,221–234.</p>
+<h2>UX, fallos y privacidad</h2>
+<p>Vista previa con datos/carga/vacío/error/offline/no-permiso y mensaje no guardó; parcial no implementado, selector demo debe retirarse en producción. Demandas solo requisitos y rangos sin nombre/teléfono/expediente ni presupuesto identificable; combinaciones de zona/rango/rasgos también pueden reidentificar, comprobar anonimización real. Expresar interés no da contacto ni prioridad de reserva. Visibilidad por grupo y ciclo de baja BRO revocan acceso futuro; evidencia de moderación restringida, no republica PII. Fuente:67–90,183–219.</p>
+<h2>Decisiones y contradicciones</h2>
+<p>Asignar grupo/visibilidad y política de anonimización; acuerdo co-broke vive BRO o RED y qué consentimiento/alcance libera; moderación team o admin y apelación por persona distinta sin auto-revisión; admisión de externos brokers no crea multiempresa SaaS por sí sola. Cupo/inscripción concurrente e idempotencia notificaciones requieren contrato futuro. No calcular reputación desde demos ni tratar brokers:view como permiso para toda comunidad. Fuente:61,125–129,185–194,255–260.</p>
+<h2>Aceptación pendiente</h2>
+<p>Publicación con PII rechazada, acceso grupo y baja verificados; interés no filtra contacto, acuerdo necesario y auditado; cupo sin sobreinscribir; moderación conserva evidencia y apelación otro actor; doble evento no repite inscripción/aviso; caso de abuso y recuperación definidos. Revisión root/Luna pendiente.</p></details>
+<details id="anexo-rep"><summary>REP — Reportes: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md</code>, 199 líneas. SHA256 <code>1DD6642909080C62A2AFF54475866C658CE904A5FEC5BEC74C942577FE949B7C</code>. Leído completo, borrador v0.1. F:Lx remite a fuente/línea. Código/BI/candidatos son afirmaciones atribuidas, no prueba runtime ni decisión nueva.</p>
+<h2>Alcance y funciones completas</h2>
+<p>Nueve pestañas /reportes?tab=, filtros desde/hasta/projectId/brokerId, ventana de 18 meses RD, asOf, CSV de canales, impresión con membrete y enlaces KPI de Inicio. Embudo, canales, tendencia, zonas, brokers, velocidad mediana/p75/muestra, inventario/antigüedad, comisiones y pronóstico ponderado. Programar/constructor/conciliar son demos; CPL, conversiones lead→visita→reserva por proyecto y concesiones manager/broker pendientes. Es extensión operativa: PRD solo citaba BI en Fase4, no alcance inicial firmado (F:L37–56,75–100,155–175).</p>
+<p>Casos: abrir; filtros compartibles en URL; rechazar fechas/orden/IDs inválidos; exportar; imprimir; navegar desde KPI; accesos team/own propuestos; programar destinatarios autorizados. Negativos403, export/programación preview y demo que simula ejecución. Carga/vacío/error/reintento/offline/403/éxito asOf/parcial con faltantes; vacío no probado en todas las pestañas (F:L60–100).</p>
+<h2>Modelo, reglas y métricas</h2>
+<p>Sin tablas propias actuales. ReportSnapshot deriva de leads/deals/stages/loss_reasons/units/inventory_states/commissions/campaign_spend/zones/profiles. report_schedules/recipients/deliveries son propuestas (F:L177–178). Los informes no modifican operaciones.</p>
+<p>SQL por visibleRows; ROI solo all sin filtro broker/proyecto. Centavos enteros seguros y USD/DOP separados. Embudo reachedCount/previousReached/passRate; fecha del hecho visible; velocidad con sampleSize; pronóstico declara importes/probabilidades faltantes. Inventario hereda available≠stock efectivo; comisión paid no acredita liquidación integral; ranking no equivale a metas (F:L47–56,79–88,114–124,139–157).</p>
+<h2>Roles, APIs, integración y privacidad</h2>
+<p>reports:view para página y reports:export para CSV cliente de Canales. Admin/assistant view/export all; manager none aunque dashboard team, broker none aunque dashboard own; propuestas de concesión no desplegadas. Auditoría export pendiente. Prohibir export en preview requiere verificar Blob local, no solo API. Sin filas identificables de clientes; ranking es dato laboral. Programados necesitan autorización actual, destinatarios y registro de entrega (F:L164–175).</p>
+<p>SSR consultarReportesBi recibe actor/scope/filtros; reportQuery y filtros/URL; automatizaciones.ts solo sirve al modal. No inventar REST nuevo. Twenty dashboards genéricos no integrado. Superset es candidato no seleccionado, no dependencia; licencia Apache-2.0 y descarte de Metabase/Grafana son declaraciones de fuente, no reevaluación externa. BI añade permisos/operación y riesgo de duplicar métricas: vistas agregadas autorizadas, no tablas de personas ni token fijo que ignore alcance (F:L126–153).</p>
+<p>Dependencias: NEG etapas/velocidad/probabilidad; LEA fuentes/gasto; INV stock; COM finanzas; MET mes/atribución; INI KPI y embudo común; ACC scopes/preview; CFG catálogos y COMU correo futuro.</p>
+<h2>Preguntas y propuestas</h2>
+<p>Pendientes: demos, reports team/own, preview/export, CPL/conversiones, auditoría CSV, nueve vacíos/E2E, scheduler y Superset. Hereda INI aprobaciones demo/Mi día y huecos de privacidad/dinero (F:L180–194). Frente al inventario inicial hay metodología y nueve vistas concretas. Propuesta: catálogo único de métricas/cohortes/fecha/divisa/frescura, lecturas con alcance y export/entrega auditados con permisos actuales. BI externo no es otra autoridad.</p></details>
+<details id="anexo-res"><summary>RES — Reservas y holds: lectura integral</summary><p>Fuente: <code>00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md</code>, 279 líneas. SHA256 <code>82C497D217FED3EE51B01B9724591FF93E07A07EA21FC870DF2E6F7AB7D7013D</code>. Leído completo; borrador v0.1, add-on. F:Lx remite a fuente/línea. Sin nueva prueba ni aprobación.</p>
+<h2>Alcance y funciones completas</h2>
+<p>Hold protege temporalmente la unidad; reserva reúne partes, unidades, precio/divisa, depósito y condiciones versionadas, y confirma con evidencia. Se contemplan solicitar/extender/cancelar hold, convertir en reserva, confirmar, cambiar unidad, cancelar en dos pasos, filtros/listados y expiración automática. Plan de pagos, cuotas, cartera, conciliación, excepciones, facturación y documentos de reserva son previews o esquema sin UI real. Banca, pasarela y e-CF no están conectados según la fuente; quedan sujetos a decisión y asesoría (F:L42–80,215–243).</p>
+<p>Vistas /reservas, /reservas/holds y /reservas/[publicId] Operations reales/parciales; hijas financieras son PreviewDesk/VistaPrevia con muestras. INV ofrece lectura mínima del hold. Carga, vacío, error/reintento, 401/403, éxito, vigencia vencida sin refresco y reintento al volver online; estados de demos pendientes (F:L82–92).</p>
+<h2>Roles, entidades y reglas</h2>
+<p>Permisos holds/reservations más deals:view en layout. Admin CRUD all; assistant consulta/crea/edita all sin borrar; broker holds consulta/crea/edita own y reservas consulta/crea own; manager solo reservas view team, sin holds sembrado. Crear hold team y permisos separados de confirmar/cambiar unidad son propuestas. 0014 existe, pero auditoría decía no aplicada y admin403: comprobar entorno (F:L202–228).</p>
+<p>Datos: holds con public_id/deal/estado/vigencia/policy_version/extensiones/motivo/row_version; hold_units con unidad/proyecto/precio/divisa/versión; reservations con total/depósito/condiciones/hash/evidencia; parties titular/representante; reservation_units con liberación/motivo; inventory_commitments; payment_*/fx_rates futuros; recibos y comandos (F:L217–226).</p>
+<p>Solo negocio abierto; prórroga/cancelación de hold activo con motivo y versión; depósito≤total; condiciones firmadas inmutables/versionadas/hash; representante con evidencia. Confirmar requiere evidencia; cambiar unidad libera la anterior y crea compromiso nuevo sin dos activos. Centavos USD/DOP, sin FX implícito. Confirmación no equivale a venta ni integración bancaria. Idempotency-Key se acepta, pero UUID generado si falta no deduplica intentos del cliente (F:L59,118–145,184–200).</p>
+<h2>Estados, API y dependencias</h2>
+<p>Hold activo→convertido/cancelado/expirado. Reserva borrador→pendiente_pago→en_verificacion→confirmada o expirada/cancelacion_solicitada→cancelada. Compromiso activo/liberado; no depender del refresco UI para expirar (F:L94–116).</p>
+<p>Familias API /api/holds y /api/reservas; extender/cancelar/confirmar/cambio-unidad/cancelaciones. El ESP no fija todos los verbos y paths, no inventarlos. INV manda catálogo/precio/unidad; RES holds/reservas/compromisos; NEG negocio origen; CON identidad; DOC condiciones/evidencia; APR prórrogas/descuentos pendientes; COM comisión; ACC autorización. Twenty UI posible, nunca SoT (F:L131–155).</p>
+<h2>Métricas, privacidad y pendientes</h2>
+<p>Totales pactados por moneda y holds próximos a vencer; conversión hold→reserva sin dashboard dedicado; morosidad/cartera demo. Objetivos de permisos, compromiso único, evidencia, demos honestas y clave cliente, sin porcentajes comerciales inventados (F:L157–180).</p>
+<p>Partes, representación y comprobantes necesitan almacenamiento privado, permisos y retención asesorada. No hay dictamen legal en esta nota.</p>
+<p>Faltan 0014 efectiva, E2E completo/scopes, clave cliente estable, separación de demos, expiración, cuotas reales, permisos dedicados, limpieza de vistas muertas y APR. Negocio debe decidir pagos/e-CF/pasarela y fase (F:L231–271). No se omite RES del producto por ser add-on: participa del stock y cierre. Propuesta: ledger de compromisos, reloj/expiración recuperable, claves estables y evidencia privada; no implementación.</p></details>
+<details id="anexo-tar"><summary>TAR — Tareas: lectura individual completa</summary><p>Fuente: <code>VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md</code>; SHA256 <code>8D924079703E0CB9F7DF425E9CD5717970C229342D2A04A3D99A7CF287A635C3</code>. Leídas líneas 1–271, incluyendo checklist y cierre. Estado borrador; código y pruebas citados son atribuciones estáticas a 81ccf08, no ejecutados por este análisis. La aceptación de ADR en el documento no aprueba arquitectura actual.</p>
+<h2>Funciones y alcance completo</h2>
+<p>Lista/To-Do, tablero, vista por broker; CRUD, completar con resultado/evidencia, reabrir, cancelar, baja lógica; packs por etapa (1–20 tareas, transacción y clave de UI), checklist y playbooks REA. Futuro conservado: recurrencias reales, catálogo editable/versionado de packs, SLA de primer contacto/escalamiento, alertas INI, sync Twenty, carga team y paginación. Checklist no es KYC ni evidencia de ejecución. Fuente:40–79,81–92,111–150.</p>
+<h2>Roles, entidades y reglas</h2>
+<p><code>activities</code> con activity_type task; title/description (hoy resultado y checklist mezclados), assignee/autoría, prioridad low/normal/high, pending/completed/cancelled, starts_at/ends_at/all_day, completed_at/deleted_at, contact/deal/project y lead_id no transportado; HttpIdempotency y AuditLog. Completar debe exigir evidencia efectiva, reabrir limpia completed_at, borrar es lógico. Urgencia sin fecha/programada/hoy/vencida es derivada, no estado; actualmente fecha usa starts_at, no due_at. Admin all; manager team; broker own; assistant all atribuido no certificado; ver-como sin mutación/export. Fuente:99–109,178–216.</p>
+<h2>Eventos, API y comunicaciones</h2>
+<p>POST <code>/api/actividades</code>, PATCH/DELETE <code>/api/actividades/[id]</code>, POST <code>/api/actividades/lote</code>; conIdempotencia operación ACTIVIDADES_LOTE es opcional sin header. Nuevo pending con deal reemplaza nextActivityId sin ordenar por vencimiento ni recomputar al cerrar/borrar. NEG necesita próxima acción vigente; LEA necesita lead_id + motor SLA; AGE comparte tabla, separa task de meeting/call; BRO requiere traspaso integral distinto de reasignar tareas; CFG guarda response_sla/escalation_sla aún sin motor; INI/notificaciones consumen vencidas; DOC/KYC aporta evidencia futura. Twenty tasks sería genérico detrás de puerto QH, autoridad de packs/evidencia/RBAC en dominio; SoT física, IDs, conflictos y dirección de sync pendientes. Fuente:111–163.</p>
+<h2>Estados, UX y privacidad</h2>
+<p>Lista limitada a 250; tablero no crea estados BD adicionales. Packs preparado→enviando→confirmado/fallido con misma clave al reintentar; payload distinto con misma clave debe ser conflicto. Guardar fallo conserva evidencia. Solo all tiene agregado carga por broker; selector de usuarios activos sin scope team debe minimizarse. Descripciones sin PII/documentos/secretos; retención/purga y export específico pendientes. Fuente:81–109,154–163,178–197.</p>
+<h2>Contradicciones y decisiones abiertas</h2>
+<p>PATCH parcial puede limpiar descripción de completed sin reenviar status y eludir validación del estado efectivo; escenario no ejecutado. Plantilla/checklist no acredita resultado real. Transacción de lote y wrapper corrigen descripción de auditoría antigua, pero no prueban idempotencia ante caída entre commit/recibo ni obligatoriedad de header. Manager team bloqueado por all para otro responsable. Revalidar deals:view frente a activities cuando overrides difieren. Definir due_at, packs versionados/disparo único, evidencia estructurada, next_activity vigente y recurrencias finalizadas al cerrar. Fuente:109,119–124,182–197,220–248.</p>
+<h2>Verificación pendiente</h2>
+<p>Permisos own/team/all/overrides/ver-como; completar sin evidencia o con plantilla, borrar evidencia con PATCH parcial; lote rollback/reintento/concurrencia/caída; tareas SLA ligadas a lead, siguiente actividad recalculada; Twenty no permite bypass. Tests y capturas citados existen según fuente, sin ejecución actual. Fuente:250–cierre. Revisión root/Luna pendiente.</p></details></main></body></html>

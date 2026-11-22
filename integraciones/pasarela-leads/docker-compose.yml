@@ -1,0 +1,32 @@
+name: espocrm-adapter
+# Un mismo código, varios adaptadores: CRM_ADAPTER=espocrm (por defecto), odoo o fanout (pasarela multicanal).
+x-comun: &comun
+  image: node:22-alpine
+  restart: unless-stopped
+  working_dir: /app
+  command: ["node","server.mjs"]
+  mem_limit: 128m
+services:
+  adapter:
+    <<: *comun
+    container_name: espocrm-leads-adapter
+    env_file: .env
+    volumes: ["/opt/espocrm-adapter/server.mjs:/app/server.mjs:ro","/opt/espocrm-adapter/adapters:/app/adapters:ro","/opt/espocrm-adapter/lib:/app/lib:ro","/opt/espocrm-adapter/data:/data"]
+    networks: [espocrm, supabase_default]
+  adapter-odoo:
+    <<: *comun
+    container_name: odoo-leads-adapter
+    env_file: .env.odoo
+    volumes: ["/opt/espocrm-adapter/server.mjs:/app/server.mjs:ro","/opt/espocrm-adapter/adapters:/app/adapters:ro","/opt/espocrm-adapter/lib:/app/lib:ro","/opt/espocrm-adapter/data-odoo:/data"]
+    networks: [edge-crm, supabase_default]
+  gateway:
+    <<: *comun
+    container_name: crm-leads-gateway
+    env_file: .env.fanout
+    volumes: ["/opt/espocrm-adapter/server.mjs:/app/server.mjs:ro","/opt/espocrm-adapter/adapters:/app/adapters:ro","/opt/espocrm-adapter/lib:/app/lib:ro","/opt/espocrm-adapter/data-fanout:/data"]
+    networks: [supabase_default, quisqueya_staging]
+networks:
+  espocrm: { external: true, name: espocrm_espocrm }
+  edge-crm: { external: true, name: edge-crm }
+  supabase_default: { external: true, name: supabase_default }
+  quisqueya_staging: { external: true, name: quisqueya_staging }

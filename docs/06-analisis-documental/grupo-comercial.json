@@ -1,0 +1,3130 @@
+{
+  "editorialMutation": {
+  "occurredAtUtc": "2026-11-06T16:12:05Z",
+  "actor": "codex-comercial-documental",
+  "issue": "Spacing pass incorrectly targeted all *.md notes rather than assigned11. No sources changed.",
+  "operation": "Get-ChildItem individuales -Filter '*.md'; foreach content: foreach PowerShell hashtable key: String.Replace(old,new); Set-Content -Encoding utf8",
+  "replacementOrder": "PowerShell Hashtable.Keys iteration; order not recorded, replacements can therefore cascade; below is exact old→new dictionary reconstructed from executed tool call.",
+  "replacements": {
+    "9pestañas": "9 pestañas",
+    "18mesesRD": "18 meses RD",
+    "impresiónmembrete": "impresión con membrete",
+    "enlacesKPI": "enlaces KPI",
+    "velocidadmediana": "velocidad mediana",
+    "forecastponderado": "forecast ponderado",
+    "modaldemo": "modal demo",
+    "CPL y conversioneslead": "CPL y conversiones lead",
+    "reserva/proyecto": "reserva por proyecto",
+    "managerteam": "manager team",
+    "brokerown": "broker own",
+    "extensiónoperativa": "extensión operativa",
+    "alcanceinicialfirmado": "alcance inicial firmado",
+    "filtrosURL": "filtros URL",
+    "previewexport": "preview export",
+    "éxitoasOf": "éxito asOf",
+    "parcialfaltantes": "parcial con faltantes",
+    "todas pestañas": "todas las pestañas",
+    "todaslaspestañas": "todas las pestañas",
+    "enterosseguros": "enteros seguros",
+    "separaUSD/DOP": "separa USD/DOP",
+    "sinFX": "sin FX",
+    "fechaevento": "fecha de evento",
+    "forecastdeclara": "forecast declara",
+    "disponible≠stockefectivo": "disponible ≠ stock efectivo",
+    "available≠stockefectivo": "available ≠ stock efectivo",
+    "paidcomisión≠liquidacióncompleta": "paid de comisión ≠ liquidación completa",
+    "rankingbroker≠meta": "ranking de broker ≠ meta",
+    "clientesoloCanales": "cliente, solo Canales",
+    "view/exportall": "view/export all",
+    "noneaunque": "none aunque",
+    "dashboardteam": "dashboard team",
+    "nonedashboardown": "none, dashboard own",
+    "Exportaudit": "Auditoría de exportación",
+    "Bloblocal": "Blob local",
+    "filasidentificables": "filas identificables",
+    "rankingdato laboral": "ranking: dato laboral",
+    "autorizaciónvigente": "autorización vigente",
+    "registroentrega": "registro de entrega",
+    "endpointRESTnuevo": "endpoint REST nuevo",
+    "sinpersistencia": "sin persistencia",
+    "decisiónproducto": "decisión de producto",
+    "licenciaApache2": "licencia Apache-2.0",
+    "descartaMetabase/Grafana": "descarta Metabase/Grafana",
+    "políticaAGPL": "política AGPL",
+    "nueva enestaentrega": "nueva en esta entrega",
+    "vistasagregadas": "vistas agregadas",
+    "tablaspersonas": "tablas de personas",
+    "tokenestático": "token estático",
+    "LEA fuentes/spend": "LEA fuentes/gasto",
+    "INVstock": "INV stock",
+    "COMfinanzas": "COM finanzas",
+    "METmes": "MET mes",
+    "INIKPI": "INI KPI",
+    "ACCscopes": "ACC scopes",
+    "CFGcatálogos": "CFG catálogos",
+    "Igual definición métrica": "Igual definición de métrica",
+    "rotulardemos": "rotular demos",
+    "reportsmanager": "reports manager",
+    "exportpreview": "export en preview",
+    "auditCSV": "auditoría CSV",
+    "9vacíos": "9 estados vacíos",
+    "decidirSuperset": "decidir Superset",
+    "Midía": "Mi día",
+    "isolationscopes": "aislamiento por scopes",
+    "huecosdinero": "huecos de dinero",
+    "primerinventario": "primer inventario",
+    "9vistas": "9 vistas",
+    "panelgenérico": "panel genérico",
+    "contratoslectura": "contratos de lectura",
+    "BIexterno": "BI externo",
+    "tercerSoT": "tercer SoT",
+    "permisosporrol/persona/equipo": "permisos por rol/persona/equipo",
+    "UsuariosCRUD": "Usuarios CRUD",
+    "antibobleenvío": "contra doble envío",
+    "matrizprotegida": "matriz protegida",
+    "overridesmotivados": "overrides motivados",
+    "fasespipeline": "fases del pipeline",
+    "canales/motivospérdida": "canales/motivos de pérdida",
+    "hasta30portipo": "hasta 30 por tipo",
+    "estadooutbox": "estado outbox",
+    "Centrodeajustes": "Centro de ajustes",
+    "SEOportal": "SEO portal",
+    "badgesoverride": "badges de override",
+    "restablecerrol": "restablecer rol",
+    "retenciónpapelera": "retención de papelera",
+    "etiquetasmembresíaTwenty": "etiquetas de membresía Twenty",
+    "CMSStudio": "CMS Studio",
+    "fueraCFG": "fuera de CFG",
+    "guardandoSEOdemo": "guardando SEO demo",
+    "baja+transferenciaACC": "baja + transferencia ACC",
+    "estadointegración": "estado de integración",
+    "modolectura": "modo lectura",
+    "asistentepropuesto": "asistente propuesto",
+    "negativosgerente": "negativos gerente",
+    "noadminautoescalada": "no admin autoescalada",
+    "adminprotegido": "admin protegido",
+    "segmentloading": "segment loading",
+    "outboxparcial": "outbox parcial",
+    "pausaescrituraoffline": "pausa de escritura offline",
+    "página; usuariosfullscope": "página; usuarios full scope",
+    "overrides soloadmin": "overrides solo admin",
+    "celdasduplicadas": "celdas duplicadas",
+    "motivono vacío": "motivo no vacío",
+    "unbroker/ungrupo": "un broker/un grupo",
+    "supervisoradmin": "supervisor admin",
+    "assistantlimitado": "assistant limitado",
+    "propuesta/seednoverificado": "propuesta/seed no verificado",
+    "sololectura": "solo lectura",
+    "overridesúnicos": "overrides únicos",
+    "integration_accounts provider/status/lastSyncedAt/credentialscifradas": "integration_accounts provider/status/lastSyncedAt/credenciales cifradas",
+    "matrizautoridad": "matriz de autoridad",
+    "aplicadoBDnoverificado": "aplicado en BD no verificado",
+    "usuarioactivo/inactivo/softdeleted": "usuario activo/inactivo/soft-deleted",
+    "rolesprotegidos": "roles protegidos",
+    "sinexpiración": "sin expiración",
+    "integraciónstatus": "integración status",
+    "outboxpending/sent/dead": "outbox pending/sent/dead",
+    "demosnopersistidas": "demos no persistidas",
+    "Restaurarsoftdelete": "Restaurar soft-delete",
+    "supresiónlegal": "supresión legal",
+    "familiasAPI": "familias API",
+    "PATCHmatriz": "PATCH matriz",
+    "Guardas poracción": "Guardas por acción",
+    "directoAPI": "directamente por API",
+    "auditbefore/after": "audit before/after",
+    "outboxUIlectura": "outbox UI lectura",
+    "estadoreal": "estado real",
+    "ceros/connectedfalsos": "ceros/connected falsos",
+    "SupabaseAuth": "Supabase Auth",
+    "presenciaenv": "presencia env",
+    "pruebaenvíoOAuth": "prueba de envío/OAuth",
+    "webhooksproductivos": "webhooks productivos",
+    "COMUcuentas": "COMU cuentas",
+    "REPconcesionesmanagerteam/brokerown": "REP concesiones manager team/broker own",
+    "INVpublisher": "INV publisher",
+    "genéricoespejoposible": "genérico, espejo posible",
+    "sinsyncmatriz": "sin sync de matriz",
+    "MétricasCFG": "Métricas CFG",
+    "contadoresqueue": "contadores de queue",
+    "KPInegocio": "KPI de negocio",
+    "ceroescalada": "cero escalada",
+    "requieren E2E": "requieren E2E",
+    "sin credenciales, pruebas ni cambiosruntime": "sin credenciales, pruebas ni cambios runtime",
+    "Rendimiento/nombre/email": "Rendimiento/nombre/email",
+    "credentialscifradas": "credenciales cifradas",
+    "no volcarsecretos": "no volcar secretos",
+    "CONconsentimientos": "CON consentimientos",
+    "nocrearplazoslegales": "no crear plazos legales",
+    "entregaCOMU": "entrega COMU",
+    "publicaciónINV": "publicación INV",
+    "CFGnoejecuta": "CFG no ejecuta",
+    "managermitigan": "manager mitigados en",
+    "E2Ependiente": "E2E pendiente",
+    "mitiga código": "mitiga el código",
+    "definitivaWilber": "definitiva Wilber",
+    "assistantseed": "assistant seed",
+    "0017runtime": "0017 runtime",
+    "badges/resetoverride": "badges/reset override",
+    "Preview CFGhipotético": "Preview CFG hipotético",
+    "brokers:own": "brokers:own",
+    "abrirsettingsall": "abrir settings all",
+    "inventarioinicial": "inventario inicial",
+    "controlplane": "control plane",
+    "unCRUD": "un CRUD",
+    "porfamilia": "por familia",
+    "statusconfechaycomprobación": "status con fecha y comprobación",
+    "Aprobaciónhumana": "Aprobación humana",
+    "contratomembresíaTwenty": "contrato membresía Twenty",
+    "claims/ventanas": "claims/ventanas",
+    "soloall": "solo all",
+    "datos/QA atribuidos": "datos/QA atribuidos"
+  },
+  "filesRewritten": [
+    "individuales/ACA.md",
+    "individuales/ACC.md",
+    "individuales/ADR.md",
+    "individuales/AGE.md",
+    "individuales/APR.md",
+    "individuales/AUT.md",
+    "individuales/BRO.md",
+    "individuales/CFG.md",
+    "individuales/CIERRE.md",
+    "individuales/COM.md",
+    "individuales/COMU.md",
+    "individuales/CON-contactos.md",
+    "individuales/DOC.md",
+    "individuales/INDICE.md",
+    "individuales/INI.md",
+    "individuales/INV.md",
+    "individuales/INVENTARIO.md",
+    "individuales/LEA.md",
+    "individuales/LEEME.md",
+    "individuales/MET.md",
+    "individuales/NEG.md",
+    "individuales/P0.md",
+    "individuales/PLAN.md",
+    "individuales/PLANTILLA.md",
+    "individuales/POR.md",
+    "individuales/POS.md",
+    "individuales/RED.md",
+    "individuales/REP.md",
+    "individuales/RES.md",
+    "individuales/TAR.md"
+  ],
+  "scopeEvidence": "All30 markdown names present; unrewritten subsequent notes show lastWriteTimeUtc16:12:05.115–.389. Five assigned notes later rewritten for readability. Directory listing observed through tool.",
+  "previousHashesOrDiff": "Not retained; cannot assert byte-identical text before/after. UTF-8/timestamps and terminal newline were rewritten.",
+  "followup": "Producer operations independently reports11/11 semantic/source check without material change. Root informed to check eight global notes. No further writes to unassigned notes. Five assigned notes rewritten in natural prose.",
+  "sourcesModified": false,
+  "reviewStatus": "Disclosed; independent validation pending root/Luna"
+},
+  "schemaVersion": "1.0",
+  "title": "Grupo comercial y control — análisis documental de 11 fuentes",
+  "date": "2026-11-06",
+  "producer": "codex-comercial-documental D01; D03 conceptual",
+  "scope": {
+    "assignedModules": [
+      "ACC",
+      "CON",
+      "LEA",
+      "NEG",
+      "INV",
+      "RES",
+      "COM",
+      "BRO",
+      "MET",
+      "REP",
+      "CFG"
+    ],
+    "sourceCount": 11,
+    "allAssignedMarkdownRead": true,
+    "pdfIndependentlyRead": false,
+    "analysisOnly": true,
+    "productImplemented": false,
+    "acceptance": "No gate, NFR, alcance, licencia ni decisión actual aceptados por esta extracción",
+    "review": "root integración y Luna independiente pendientes",
+    "crossGroupModulesReferenced": [
+      "INI",
+      "AGE",
+      "TAR",
+      "OBR",
+      "COMU",
+      "ACA",
+      "POR",
+      "DOC",
+      "APR",
+      "RED",
+      "AUT",
+      "POS"
+    ]
+  },
+  "statusDefinitions": {
+    "current": "declared_current_not_revalidated",
+    "required": "required_or_gap_not_implemented",
+    "proposed": "proposal_not_accepted",
+    "baseline": "documented_baseline_not_new_acceptance",
+    "candidate": "candidate_not_selected"
+  },
+  "sources": [
+    {
+      "id": "ACC",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+      "sha256": "C719055940A70C1B1896EA200EC18582C1A02E1C5BB5E50A5320653BDA0047B0",
+      "lineCount": 234,
+      "version": "0.1",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/ACC.md"
+    },
+    {
+      "id": "CON",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+      "sha256": "A4EDE127E4D8809A1BF735C80117F6E53959A1523311D992DB5CFB03D8113C3E",
+      "lineCount": 354,
+      "version": "0.2",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/CON-contactos.md"
+    },
+    {
+      "id": "LEA",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+      "sha256": "FEAFD4C875DD87043746FAE5CFBFCA9A15EA1D201633F0CDDBD23CAAB900BF58",
+      "lineCount": 504,
+      "version": "0.2",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/LEA.md"
+    },
+    {
+      "id": "NEG",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+      "sha256": "3383F2ACBFE6CCA62CD2EDB68B7DA675F5452429150C794EA6DB731FB8AE47FD",
+      "lineCount": 379,
+      "version": "0.2",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/NEG.md"
+    },
+    {
+      "id": "INV",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+      "sha256": "7C5BB6FF979780B123DA27B551EA7F217601E6E0B0BC40A8A2573C92518F0B0F",
+      "lineCount": 404,
+      "version": "0.1",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/INV.md"
+    },
+    {
+      "id": "RES",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+      "sha256": "82C497D217FED3EE51B01B9724591FF93E07A07EA21FC870DF2E6F7AB7D7013D",
+      "lineCount": 279,
+      "version": "0.1",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/RES.md"
+    },
+    {
+      "id": "COM",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+      "sha256": "56F2BEBC5CE24614372B5F192F545C9717E8839D13AFC458A7FAD16A4BD493D0",
+      "lineCount": 241,
+      "version": "0.1",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/COM.md"
+    },
+    {
+      "id": "BRO",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+      "sha256": "97F1CA3853C5B9F39BB074F5B7C2272B84DA69506D0E430BB1D9F25F43975729",
+      "lineCount": 323,
+      "version": "0.1",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/BRO.md"
+    },
+    {
+      "id": "MET",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+      "sha256": "7DC49F4F0119ACBD8C6BAE6FA7146DD694D2DD9E91F392014F7E7C954FAE379A",
+      "lineCount": 312,
+      "version": "0.1",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/MET.md"
+    },
+    {
+      "id": "REP",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+      "sha256": "1DD6642909080C62A2AFF54475866C658CE904A5FEC5BEC74C942577FE949B7C",
+      "lineCount": 199,
+      "version": "0.1",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/REP.md"
+    },
+    {
+      "id": "CFG",
+      "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+      "sha256": "1B47F392614E4005346A6315C2845698D00CCF15B1092F6911B7969375550166",
+      "lineCount": 315,
+      "version": "0.1",
+      "sourceStatus": "borrador",
+      "read": "complete",
+      "note": "06-analisis-documental/individuales/CFG.md"
+    }
+  ],
+  "modules": [
+    {
+      "id": "ACC",
+      "name": "Acceso / RBAC",
+      "cutAsDocumented": "núcleo",
+      "authority": "QH",
+      "currentAsDeclared": [
+        "autenticación y sesiones Supabase",
+        "matriz rol/recurso/acción/alcance",
+        "overrides motivados",
+        "equipos y manager_scopes",
+        "preview ver-como readOnly",
+        "precio restringido"
+      ],
+      "futureOrGap": [
+        "MFA admin",
+        "recuperación endurecida",
+        "transferencia antes de baja",
+        "auditoría preview",
+        "caducidad overrides",
+        "sync membresía Twenty",
+        "SSO/SAML fuera de v0.1"
+      ],
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 43,
+          "lineEnd": 69
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "CON",
+      "name": "Contactos",
+      "cutAsDocumented": "núcleo",
+      "authority": "QH privacidad/identidad comercial; genericidad Twenty pendiente contrato",
+      "currentAsDeclared": [
+        "CRUD y soft-delete",
+        "normalización/dedupe",
+        "responsable",
+        "ficha",
+        "export individual controlado"
+      ],
+      "futureOrGap": [
+        "consentimiento por canal/finalidad/evidencia",
+        "bajas durables",
+        "derechos",
+        "fusión",
+        "empresa/representación",
+        "demanda/matching persistente/alertas",
+        "timeline autorizado",
+        "sync Twenty"
+      ],
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 61,
+          "lineEnd": 84
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "LEA",
+      "name": "Leads y asignación",
+      "cutAsDocumented": "núcleo",
+      "authority": "QH inbound, atribución, asignación y reglas; objetos genéricos Twenty por contrato",
+      "currentAsDeclared": [
+        "alta manual",
+        "ingesta externa idempotente",
+        "Meta/WA adapters",
+        "sugerir sin autoasignar",
+        "asignar/reasignar",
+        "cola Tomar",
+        "calificación",
+        "descarte",
+        "conversión",
+        "voz parcial",
+        "primer contacto parcial"
+      ],
+      "futureOrGap": [
+        "CSV",
+        "fusión",
+        "round-robin persistente",
+        "turnos/carga/idioma",
+        "ponds y SLA",
+        "protección prospecto",
+        "bandeja",
+        "CAPI comercial",
+        "click IDs",
+        "sync Twenty"
+      ],
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 52,
+          "lineEnd": 97
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "NEG",
+      "name": "Negocios / Pipeline",
+      "cutAsDocumented": "núcleo",
+      "authority": "QH guardas/transición/cierre/atribución; stage Twenty como proyección",
+      "currentAsDeclared": [
+        "conversión lead",
+        "tablero/lista/análisis",
+        "edición restringida",
+        "intereses/principal",
+        "guardas destino",
+        "pérdida estructurada",
+        "cierre transaccional",
+        "historial",
+        "CSV selección"
+      ],
+      "futureOrGap": [
+        "PDF/versiones/enlaces",
+        "descuentos/aprobación",
+        "bulk",
+        "vistas compartidas",
+        "archivo/borrado",
+        "reapertura compensatoria",
+        "requisitos documentales etapa",
+        "forecast completo",
+        "CAPI automático",
+        "sync Twenty"
+      ],
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 60,
+          "lineEnd": 84
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "INV",
+      "name": "Inventario / Propiedades",
+      "cutAsDocumented": "núcleo; satélite OBR",
+      "authority": "QH catálogo comercial, precios, unidades, disponibilidad; Studio editorial",
+      "currentAsDeclared": [
+        "proyectos/unidades CRUD",
+        "filtros",
+        "matriz/inspector",
+        "snapshot público CSV",
+        "precios restringidos",
+        "versiones unidades opcionales",
+        "holds lectura",
+        "fases/fotos parcial",
+        "cotizador con deuda"
+      ],
+      "futureOrGap": [
+        "stock efectivo",
+        "publisher aprobado por canal",
+        "retiro/acuse/versionado",
+        "custom objects Twenty opcionales",
+        "mapa geográfico",
+        "PDF/kit/mediateca",
+        "estructura torres/precios versionados",
+        "calidad ficha",
+        "demanda/alertas",
+        "FX/cotización corregida"
+      ],
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 66,
+          "lineEnd": 117
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "RES",
+      "name": "Reservas / Holds",
+      "cutAsDocumented": "add-on",
+      "authority": "QH holds/reservas/compromisos; Twenty nunca SoT",
+      "currentAsDeclared": [
+        "solicitar/extender/cancelar hold",
+        "crear reserva",
+        "partes/unidades/precio/depósito",
+        "condiciones versionadas/hash",
+        "confirmar evidencia",
+        "cambiar unidad",
+        "cancelación dos pasos",
+        "Operations listados"
+      ],
+      "futureOrGap": [
+        "expiración automática robusta",
+        "plan/cuotas/cartera",
+        "conciliación/excepciones",
+        "facturación/eCF por decidir",
+        "pasarela/banca por decidir",
+        "documentos reserva",
+        "gerente hold team",
+        "permisos dedicados",
+        "APR conectado"
+      ],
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 42,
+          "lineEnd": 80
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "COM",
+      "name": "Comisiones",
+      "cutAsDocumented": "núcleo",
+      "authority": "QH libro commissions y evolución M40; Twenty solo lectura opcional",
+      "currentAsDeclared": [
+        "libro/KPI/filtros",
+        "pending/approved/paid/void",
+        "reparto pending",
+        "CSV",
+        "repartos observados",
+        "propuestas desde aprobadas",
+        "generación cierre única"
+      ],
+      "futureOrGap": [
+        "reglas/motor versionado",
+        "hitos/devengo",
+        "clawback",
+        "lotes persistentes",
+        "aprobación dual",
+        "comprobante pago obligatorio",
+        "mapeo activo/M40",
+        "KPI Twenty",
+        "retenciones por asesoría"
+      ],
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 54,
+          "lineEnd": 85
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "BRO",
+      "name": "Brokers",
+      "cutAsDocumented": "núcleo",
+      "authority": "QH perfil/nivel/equipo/cartera/preview; miembros Twenty espejo pendiente",
+      "currentAsDeclared": [
+        "tablero/ficha",
+        "agregados metas/cartera",
+        "proyectos por diff",
+        "mi espacio",
+        "preview",
+        "nivel postcierre",
+        "toma vía LEA",
+        "invitación vía CFG"
+      ],
+      "futureOrGap": [
+        "onboarding verificado",
+        "protección con vigencia",
+        "cooperación/acuerdo",
+        "salida/traspaso",
+        "grants M:N",
+        "shell socios M50",
+        "Academy recursos",
+        "niveles ratificados",
+        "sync members"
+      ],
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 52,
+          "lineEnd": 97
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "MET",
+      "name": "Metas",
+      "cutAsDocumented": "núcleo",
+      "authority": "QH objetivos/logro/atribución; Twenty KPI lectura opcional",
+      "currentAsDeclared": [
+        "mes compañía/broker",
+        "objetivos proyecto/equipo",
+        "reset targets",
+        "equipos",
+        "regla aprobada versionada",
+        "ranking",
+        "pace textual",
+        "línea base",
+        "atribución postcierre"
+      ],
+      "futureOrGap": [
+        "evento firma+reserva",
+        "multimoneda reconciliada",
+        "legado y compensación",
+        "alertas/gráfico pace",
+        "forecast",
+        "historial UI",
+        "periodos opcionales sin week",
+        "KPI Twenty"
+      ],
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 58,
+          "lineEnd": 102
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "REP",
+      "name": "Reportes",
+      "cutAsDocumented": "núcleo; extensión operativa PRD",
+      "authority": "QH métricas/read models; Twenty lectura genérica; BI externo candidato",
+      "currentAsDeclared": [
+        "nueve pestañas",
+        "filtros URL",
+        "ventana 18 meses RD",
+        "asOf",
+        "CSV canales",
+        "impresión",
+        "embudo/canales/tendencia/zonas/brokers/velocidad/inventario/comisiones/forecast"
+      ],
+      "futureOrGap": [
+        "reports team/own",
+        "auditoría export",
+        "programados",
+        "constructor",
+        "conciliación",
+        "CPL/conversión por proyecto",
+        "Superset candidato"
+      ],
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 37,
+          "lineEnd": 73
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    },
+    {
+      "id": "CFG",
+      "name": "Configuración",
+      "cutAsDocumented": "núcleo",
+      "authority": "QH settings; Twenty no autoridad",
+      "currentAsDeclared": [
+        "usuarios/invitar/reenvío/baja",
+        "matriz/overrides/equipos",
+        "etapas/catálogos",
+        "papelera",
+        "auditoría/export",
+        "cuentas/estado integraciones",
+        "outbox estado/no disponible"
+      ],
+      "futureOrGap": [
+        "centro/SEO/capacidad persistidos o retirar",
+        "badge/restablecer override",
+        "caducidad",
+        "retención papelera",
+        "reports/comms permisos",
+        "asistente limitado",
+        "etiquetas Twenty opcionales"
+      ],
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 41,
+          "lineEnd": 85
+        }
+      ],
+      "state": "analysis_documented_not_product_accepted"
+    }
+  ],
+  "entities": [
+    {
+      "id": "users",
+      "ownerAsDocumented": "ACC",
+      "note": "identidad QH y auth reference",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 179,
+          "lineEnd": 189
+        }
+      ]
+    },
+    {
+      "id": "roles_permissions_overrides",
+      "ownerAsDocumented": "ACC",
+      "note": "matriz autoritativa y override reemplazante",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 179,
+          "lineEnd": 184
+        }
+      ]
+    },
+    {
+      "id": "manager_scopes",
+      "ownerAsDocumented": "ACC",
+      "note": "supervisión multi-equipo",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 183,
+          "lineEnd": 184
+        }
+      ]
+    },
+    {
+      "id": "teams_members",
+      "ownerAsDocumented": "MET",
+      "note": "pertenencia un broker/un equipo",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 239,
+          "lineEnd": 248
+        }
+      ]
+    },
+    {
+      "id": "broker_profiles",
+      "ownerAsDocumented": "BRO",
+      "note": "perfil/nivel/base meta",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 246,
+          "lineEnd": 254
+        }
+      ]
+    },
+    {
+      "id": "agencies",
+      "ownerAsDocumented": "BRO",
+      "note": "agencia interna/perfil; ampliación M50 pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 248,
+          "lineEnd": 249
+        }
+      ]
+    },
+    {
+      "id": "contacts",
+      "ownerAsDocumented": "CON",
+      "note": "identidad comercial y privacidad QH",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 277,
+          "lineEnd": 280
+        }
+      ]
+    },
+    {
+      "id": "consent_preferences_rights",
+      "ownerAsDocumented": "CON",
+      "note": "propuesto por canal/finalidad/evidencia/revocación",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 283,
+          "lineEnd": 283
+        }
+      ]
+    },
+    {
+      "id": "companies_representatives",
+      "ownerAsDocumented": "CON",
+      "note": "demo/modelo por cerrar",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 284,
+          "lineEnd": 284
+        }
+      ]
+    },
+    {
+      "id": "demands_matches",
+      "ownerAsDocumented": "CON",
+      "note": "función pura, persistencia no acreditada",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 285,
+          "lineEnd": 292
+        }
+      ]
+    },
+    {
+      "id": "leads",
+      "ownerAsDocumented": "LEA",
+      "note": "captura/atribución/calificación/asignación QH",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 405,
+          "lineEnd": 426
+        }
+      ]
+    },
+    {
+      "id": "sources_campaigns_spend",
+      "ownerAsDocumented": "LEA",
+      "note": "origen/atribución y coste con CPL pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 407,
+          "lineEnd": 420
+        }
+      ]
+    },
+    {
+      "id": "assignment_rules_jobs_claims",
+      "ownerAsDocumented": "LEA",
+      "note": "round-robin/import/fusión/protección futuro",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 428,
+          "lineEnd": 433
+        }
+      ]
+    },
+    {
+      "id": "deals",
+      "ownerAsDocumented": "NEG",
+      "note": "reglas/cierre/atribución QH; genérico Twenty contrato pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 302,
+          "lineEnd": 305
+        }
+      ]
+    },
+    {
+      "id": "pipeline_stages_loss_reasons",
+      "ownerAsDocumented": "CFG",
+      "note": "catálogos y guardas QH",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 306,
+          "lineEnd": 307
+        }
+      ]
+    },
+    {
+      "id": "deal_properties_history",
+      "ownerAsDocumented": "NEG",
+      "note": "intereses/principal/historial",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 308,
+          "lineEnd": 309
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "ownerAsDocumented": "AGE/TAR",
+      "note": "contacto/next action; grupo hermano analizado aparte",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 310,
+          "lineEnd": 310
+        }
+      ]
+    },
+    {
+      "id": "projects_units",
+      "ownerAsDocumented": "INV",
+      "note": "catálogo comercial/precios/disponibilidad QH",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 319,
+          "lineEnd": 322
+        }
+      ]
+    },
+    {
+      "id": "inventory_commitments",
+      "ownerAsDocumented": "RES/INV_SHARED",
+      "note": "anti doble compromiso unidad/identidad; dueño físico por concretar",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 323,
+          "lineEnd": 325
+        }
+      ]
+    },
+    {
+      "id": "unit_sales",
+      "ownerAsDocumented": "INV/NEG_SHARED",
+      "note": "venta durable única, transacción cierre QH",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 311,
+          "lineEnd": 312
+        }
+      ]
+    },
+    {
+      "id": "construction_phases",
+      "ownerAsDocumented": "OBR",
+      "note": "avance/fotos/flags, portal no acreditado",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 327,
+          "lineEnd": 328
+        }
+      ]
+    },
+    {
+      "id": "files",
+      "ownerAsDocumented": "DOC/STORAGE",
+      "note": "evidencia/condiciones/fotos con ACL privada según módulo",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 328,
+          "lineEnd": 328
+        }
+      ]
+    },
+    {
+      "id": "holds_hold_units",
+      "ownerAsDocumented": "RES",
+      "note": "vigencia/precio/versiones",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 219,
+          "lineEnd": 220
+        }
+      ]
+    },
+    {
+      "id": "reservations_parties_units",
+      "ownerAsDocumented": "RES",
+      "note": "reserva/partes/evidencia/condiciones",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 221,
+          "lineEnd": 224
+        }
+      ]
+    },
+    {
+      "id": "payment_templates_installments_allocations_fx",
+      "ownerAsDocumented": "RES",
+      "note": "esquema sin UI financiera real",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 225,
+          "lineEnd": 225
+        }
+      ]
+    },
+    {
+      "id": "commissions_active",
+      "ownerAsDocumented": "COM",
+      "note": "libro activo único deal",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 189,
+          "lineEnd": 189
+        }
+      ]
+    },
+    {
+      "id": "commission_rules_versions_agreements_splits",
+      "ownerAsDocumented": "COM",
+      "note": "M40 esquema/motor pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 191,
+          "lineEnd": 193
+        }
+      ]
+    },
+    {
+      "id": "commission_entries_events_adjustments",
+      "ownerAsDocumented": "COM",
+      "note": "M40 hitos/devengo/clawback pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 113,
+          "lineEnd": 113
+        }
+      ]
+    },
+    {
+      "id": "payout_batches_lines_accounts_approvals",
+      "ownerAsDocumented": "COM",
+      "note": "M40 esquema, persistencia/UI/aprobación dual pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 191,
+          "lineEnd": 193
+        }
+      ]
+    },
+    {
+      "id": "goals_scoped_goals",
+      "ownerAsDocumented": "MET",
+      "note": "objetivos/logro mensual, conflicto multimoneda",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 239,
+          "lineEnd": 250
+        }
+      ]
+    },
+    {
+      "id": "attribution_rules",
+      "ownerAsDocumented": "MET",
+      "note": "version/aprobación/freeze al cierre",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 242,
+          "lineEnd": 248
+        }
+      ]
+    },
+    {
+      "id": "report_snapshot",
+      "ownerAsDocumented": "REP",
+      "note": "modelo lectura sin tablas propias",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 177,
+          "lineEnd": 178
+        }
+      ]
+    },
+    {
+      "id": "report_schedules_recipients_deliveries",
+      "ownerAsDocumented": "REP",
+      "note": "propuestos sin schema actual",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 177,
+          "lineEnd": 178
+        }
+      ]
+    },
+    {
+      "id": "integration_accounts",
+      "ownerAsDocumented": "CFG",
+      "note": "credenciales cifradas/config/status, no volcar secretos",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 253,
+          "lineEnd": 255
+        }
+      ]
+    },
+    {
+      "id": "audit_log",
+      "ownerAsDocumented": "ACC/CFG",
+      "note": "datos antes/después, privacidad/retención pendientes",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 254,
+          "lineEnd": 255
+        }
+      ]
+    },
+    {
+      "id": "outbox_dead_external_refs",
+      "ownerAsDocumented": "INTEGRATION_INFRA",
+      "note": "delivery/proyección, no ejecución CAPI/publisher asumida",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 330,
+          "lineEnd": 335
+        }
+      ]
+    },
+    {
+      "id": "http_idempotency_transaction_commands",
+      "ownerAsDocumented": "INTEGRATION_INFRA",
+      "note": "recibos/clave/hash; cliente estable necesario",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 226,
+          "lineEnd": 226
+        }
+      ]
+    },
+    {
+      "id": "publication_channel_versions",
+      "ownerAsDocumented": "INV/POR",
+      "note": "propuesto aprobación/versionado/acuse/retiro",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 244,
+          "lineEnd": 246
+        }
+      ]
+    },
+    {
+      "id": "portfolio_transfer_claims_grants",
+      "ownerAsDocumented": "BRO/ACC",
+      "note": "propuestas sin tablas reales M50",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 256,
+          "lineEnd": 258
+        }
+      ]
+    },
+    {
+      "id": "twenty_mappings",
+      "ownerAsDocumented": "INTEGRATION_INFRA",
+      "note": "contrato pendiente de identidad/objeto/campo/versión/tombstone",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 200,
+          "lineEnd": 200
+        }
+      ]
+    }
+  ],
+  "communications": [
+    {
+      "id": "EDGE-COM-001",
+      "from": "ACC",
+      "to": "ALL",
+      "label": "Autorización efectiva none/own/team/all; filtros registro/campo; preview readOnly",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 43,
+          "lineEnd": 69
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-002",
+      "from": "SUPABASE_AUTH",
+      "to": "ACC",
+      "label": "Autenticación/sesión/recuperación",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 123,
+          "lineEnd": 131
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-003",
+      "from": "ACC",
+      "to": "TWENTY",
+      "label": "users→workspace members con permisos mínimos, sync pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 125,
+          "lineEnd": 126
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-004",
+      "from": "CFG",
+      "to": "ACC",
+      "label": "Matriz/overrides/manager_scopes; admin protegido",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 51,
+          "lineEnd": 58
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-005",
+      "from": "ACC",
+      "to": "BRO",
+      "label": "Baja exige transferencia cartera y auditoría preview",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 59,
+          "lineEnd": 68
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-006",
+      "from": "BRO",
+      "to": "INV",
+      "label": "PUT proyectos aplica diff sobre projects.broker_id, all",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 138,
+          "lineEnd": 149
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-007",
+      "from": "BRO",
+      "to": "ACC",
+      "label": "POST/DELETE ver-como con rol+team",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 142,
+          "lineEnd": 145
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-008",
+      "from": "MET",
+      "to": "ACC",
+      "label": "teams/members y supervisión scopes no son lo mismo",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 214,
+          "lineEnd": 229
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-009",
+      "from": "PORTAL",
+      "to": "LEA",
+      "label": "Captura vía gateway con externalId/UTM/proyecto/mensaje",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 260,
+          "lineEnd": 276
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-010",
+      "from": "META_LEAD_ADS",
+      "to": "LEA",
+      "label": "Leadgen firmado; credenciales productivas pendientes",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 262,
+          "lineEnd": 264
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-011",
+      "from": "WHATSAPP",
+      "to": "LEA",
+      "label": "Webhook YCloud/Cloud API normaliza por teléfono",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 265,
+          "lineEnd": 266
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-012",
+      "from": "INSTAGRAM",
+      "to": "LEA",
+      "label": "Captura vía Meta hipótesis; sin enlace directo acreditado",
+      "status": "proposal_not_accepted",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 266,
+          "lineEnd": 269
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-013",
+      "from": "LEA",
+      "to": "CON",
+      "label": "Crear/reusar identidad, consentimiento implícito sin evidencia",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 135,
+          "lineEnd": 146
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-014",
+      "from": "LEA",
+      "to": "BRO",
+      "label": "Sugerir sin asignar; solo broker toma lead",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 239,
+          "lineEnd": 250
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-015",
+      "from": "BRO",
+      "to": "LEA",
+      "label": "Round-robin/turnos/carga/idioma/ponds necesitan decisión #21",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 243,
+          "lineEnd": 250
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-016",
+      "from": "LEA",
+      "to": "NEG",
+      "label": "Convertir con permisos dobles y transacción; Nuevo primera abierta",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 138,
+          "lineEnd": 140
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-017",
+      "from": "AGE",
+      "to": "LEA",
+      "label": "Actividad contacto escribe first_contacted_at; cobertura caminos pendiente",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 171,
+          "lineEnd": 183
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-018",
+      "from": "TAR",
+      "to": "LEA",
+      "label": "Follow-up y SLA; writers por validar",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 273,
+          "lineEnd": 279
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-019",
+      "from": "LEA",
+      "to": "AUT",
+      "label": "SLA/auto-reasignación/secuelas futuras, no motor entregado",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 279,
+          "lineEnd": 280
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-020",
+      "from": "LEA",
+      "to": "REP",
+      "label": "Embudo/canales/Speed-to-Lead/CPL parcial",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 333,
+          "lineEnd": 341
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-021",
+      "from": "LEA",
+      "to": "TWENTY",
+      "label": "Persona/oportunidad genérica como proyección; contrato P0",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 285,
+          "lineEnd": 297
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-022",
+      "from": "CON",
+      "to": "COMU",
+      "label": "Preferencias/opt-out durable antes dispatch y reintentos",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 237,
+          "lineEnd": 250
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-023",
+      "from": "CON",
+      "to": "INV",
+      "label": "Demanda/matching puro; persistencia y alertas pendientes",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 181,
+          "lineEnd": 182
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-024",
+      "from": "CON",
+      "to": "DOC",
+      "label": "Expediente/KYC privado add-on, no incluido export actual",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 182,
+          "lineEnd": 184
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-025",
+      "from": "AGE",
+      "to": "CON",
+      "label": "Actividades/last_interaction_at, timeline integral pendiente",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 174,
+          "lineEnd": 178
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-026",
+      "from": "TAR",
+      "to": "CON",
+      "label": "Actividades de seguimiento, permisos por relación",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 174,
+          "lineEnd": 178
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-027",
+      "from": "CON",
+      "to": "TWENTY",
+      "label": "Persona/cuenta/UI genérico; QH privacidad/identidad, sync pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 189,
+          "lineEnd": 204
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-028",
+      "from": "NEG",
+      "to": "INV",
+      "label": "Intereses/principal; cierre venta sold o alquiler reserved mediante compromisos",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 138,
+          "lineEnd": 155
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-029",
+      "from": "NEG",
+      "to": "RES",
+      "label": "Compromiso protege cierre, UI Reservas no queda aprobada",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 189,
+          "lineEnd": 194
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-030",
+      "from": "NEG",
+      "to": "COM",
+      "label": "Cierre ganado crea comisión pending única atómica",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 135,
+          "lineEnd": 140
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-031",
+      "from": "NEG",
+      "to": "MET",
+      "label": "Cierre incrementa logro y congela atribución; firma/reserva pendiente",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 155,
+          "lineEnd": 169
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-032",
+      "from": "NEG",
+      "to": "BRO",
+      "label": "Cierre actualiza annual_sales y nivel si perfil",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 155,
+          "lineEnd": 155
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-033",
+      "from": "NEG",
+      "to": "AGE",
+      "label": "Guardas actividad y cancelación futuras al cerrar",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 141,
+          "lineEnd": 155
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-034",
+      "from": "NEG",
+      "to": "TAR",
+      "label": "Próxima acción y cancelación pendientes tras cierre",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 141,
+          "lineEnd": 157
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-035",
+      "from": "NEG",
+      "to": "OUTBOX",
+      "label": "NegocioCambioEtapa {id,stageId}→crm.reflejarNegocio; no CAPI",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 222,
+          "lineEnd": 226
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-036",
+      "from": "OUTBOX",
+      "to": "TWENTY",
+      "label": "Proyección vía puerto crm; adapter específico pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 220,
+          "lineEnd": 225
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-037",
+      "from": "NEG",
+      "to": "META_CAPI",
+      "label": "Stage map/event_id/elegibilidad/reintentos/EventsManager pendientes",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 222,
+          "lineEnd": 226
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-038",
+      "from": "NEG",
+      "to": "APR",
+      "label": "Descuentos/propuestas requieren aprobación real, hoy preview",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 204,
+          "lineEnd": 220
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-039",
+      "from": "NEG",
+      "to": "DOC",
+      "label": "KYC/PDF/enlaces privados y guardas documentales no acreditados",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 204,
+          "lineEnd": 220
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-040",
+      "from": "NEG",
+      "to": "COMU",
+      "label": "Contactar/propuesta futura; entrega no probada",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 197,
+          "lineEnd": 198
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-041",
+      "from": "NEG",
+      "to": "REP",
+      "label": "Embudo/valores/previsión/cierres por moneda",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 230,
+          "lineEnd": 244
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-042",
+      "from": "INV",
+      "to": "RES",
+      "label": "Unidades/precio y read model de commitments/holds",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 207,
+          "lineEnd": 217
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-043",
+      "from": "RES",
+      "to": "INV",
+      "label": "Alta/liberación/expiración/cambio de compromiso; nunca CRUD status",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 118,
+          "lineEnd": 145
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-044",
+      "from": "INV",
+      "to": "TWENTY",
+      "label": "Custom objects opcionales solo proyección o entrada comando QH",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 191,
+          "lineEnd": 209
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-045",
+      "from": "INV",
+      "to": "PORTAL_PUBLISHER",
+      "label": "Aprobación→publicación/retiro/actualización pública saneada",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 209,
+          "lineEnd": 246
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-046",
+      "from": "PORTAL_PUBLISHER",
+      "to": "PORTAL",
+      "label": "Catálogo público por canal; acuse/error/retiro contrato pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 228,
+          "lineEnd": 246
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-047",
+      "from": "PORTAL",
+      "to": "INV",
+      "label": "Acuse/error/solicitud no altera stock directamente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 228,
+          "lineEnd": 246
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-048",
+      "from": "STUDIO",
+      "to": "PORTAL",
+      "label": "Narrativa/SEO/editorial con workflow propio, no tablas saltadas por CRM",
+      "status": "documented_baseline_not_new_acceptance",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 193,
+          "lineEnd": 203
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-049",
+      "from": "INV",
+      "to": "OBR",
+      "label": "Fases/promedio/fotos privadas; flag fase no entrega portal",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 156,
+          "lineEnd": 162
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-050",
+      "from": "OBR",
+      "to": "STORAGE",
+      "label": "Fotos fase bucket privado; URLs firmadas/ACL por verificar",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 217,
+          "lineEnd": 222
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-051",
+      "from": "INV",
+      "to": "CON",
+      "label": "Cambio inventario dispara matching/alertas futuros autorizados",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 240,
+          "lineEnd": 248
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-052",
+      "from": "INV",
+      "to": "COMU",
+      "label": "Ficha/PDF/enlace/alerta eventual con whitelist y política canal",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 219,
+          "lineEnd": 220
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-053",
+      "from": "INV",
+      "to": "REP",
+      "label": "Totales/status/absorción; no tratar available como stock efectivo",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 250,
+          "lineEnd": 262
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-054",
+      "from": "RES",
+      "to": "DOC",
+      "label": "Condiciones versionadas/hash y evidencia confirmación/representación",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 118,
+          "lineEnd": 145
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-055",
+      "from": "RES",
+      "to": "APR",
+      "label": "Prórrogas/descuentos que requieran decisión, hoy ejemplo",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 141,
+          "lineEnd": 145
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-056",
+      "from": "RES",
+      "to": "COM",
+      "label": "Hitos/reversas hacia devengo/clawback M40 no conectados",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 137,
+          "lineEnd": 143
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-057",
+      "from": "RES",
+      "to": "BANKING",
+      "label": "Banca/pasarela/conciliación no conectadas; futura decisión",
+      "status": "proposal_not_accepted",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 147,
+          "lineEnd": 155
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-058",
+      "from": "RES",
+      "to": "ECF",
+      "label": "Facturación fiscal/DGII futura por decidir con asesoría",
+      "status": "proposal_not_accepted",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 231,
+          "lineEnd": 243
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-059",
+      "from": "COM",
+      "to": "DOC",
+      "label": "Comprobante pago/hito privado obligatorio futuro",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 139,
+          "lineEnd": 143
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-060",
+      "from": "COM",
+      "to": "APR",
+      "label": "Lotes persistidos y aprobación dual pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 142,
+          "lineEnd": 143
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-061",
+      "from": "COM",
+      "to": "MET",
+      "label": "Magnitudes paralelas: pago comisión no define venta lograda",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 165,
+          "lineEnd": 173
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-062",
+      "from": "COM",
+      "to": "REP",
+      "label": "Totales por estado/moneda y propuestas por beneficiario",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 152,
+          "lineEnd": 154
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-063",
+      "from": "COM",
+      "to": "TWENTY",
+      "label": "KPI lectura opcional; nunca autoridad ni escritura de comisión",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 128,
+          "lineEnd": 131
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-064",
+      "from": "MET",
+      "to": "BRO",
+      "label": "Goals mensuales/ranking/meta base/equipo",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 158,
+          "lineEnd": 165
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-065",
+      "from": "MET",
+      "to": "INI",
+      "label": "Cumplimiento por periodo/alcance, proyectos en Inicio pendientes",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 165,
+          "lineEnd": 171
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-066",
+      "from": "MET",
+      "to": "REP",
+      "label": "Objetivos/logro/atribución, periodo mensual",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 143,
+          "lineEnd": 149
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-067",
+      "from": "MET",
+      "to": "TWENTY",
+      "label": "KPI agregado lectura, dimensiones/moneda/frescura/ACL pendientes",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 155,
+          "lineEnd": 173
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-068",
+      "from": "REP",
+      "to": "INI",
+      "label": "Enlaces KPI y misma definición canónica embudo/filtros",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 137,
+          "lineEnd": 150
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-069",
+      "from": "REP",
+      "to": "SUPERSET",
+      "label": "BI externo candidato no seleccionado, vistas agregadas y RBAC subordinado",
+      "status": "candidate_not_selected",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 128,
+          "lineEnd": 153
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-070",
+      "from": "REP",
+      "to": "COMU",
+      "label": "Informes programados/destinatarios/entrega autorizada futuros",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 149,
+          "lineEnd": 175
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-071",
+      "from": "CFG",
+      "to": "REP",
+      "label": "Conceder reports team/own es decisión pendiente, hoy none",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 171,
+          "lineEnd": 178
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-072",
+      "from": "CFG",
+      "to": "COMU",
+      "label": "Cuentas/flags y communications gerente pendiente",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 171,
+          "lineEnd": 178
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-073",
+      "from": "CFG",
+      "to": "OUTBOX",
+      "label": "Lectura estado pending/sent/dead o no disponible, no prueba delivery",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 117,
+          "lineEnd": 119
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-074",
+      "from": "CFG",
+      "to": "INTEGRATION_PROVIDERS",
+      "label": "Presencia config Meta/Google/YCloud/Resend no conexión productiva",
+      "status": "declared_current_not_revalidated",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 161,
+          "lineEnd": 175
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-075",
+      "from": "CFG",
+      "to": "STUDIO",
+      "label": "Persistir/retirar SEO demo por decidir; no publisher",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 302,
+          "lineEnd": 307
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-076",
+      "from": "BRO",
+      "to": "ACA",
+      "label": "Formación onboarding/recursos, contenidos reales pendientes",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 166,
+          "lineEnd": 168
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-077",
+      "from": "BRO",
+      "to": "DOC",
+      "label": "Documentos onboarding verificados y custodia privada pendiente",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 168,
+          "lineEnd": 168
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-078",
+      "from": "BRO",
+      "to": "COM",
+      "label": "Acuerdo co-broker económico fuera inicial; futuro COM define reparto",
+      "status": "required_or_gap_not_implemented",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 213,
+          "lineEnd": 222
+        }
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "id": "EDGE-COM-079",
+      "from": "BRO",
+      "to": "RED",
+      "label": "Shell socios/grants/claims/cooperación M50 propuesto, no AS-IS",
+      "status": "proposal_not_accepted",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 132,
+          "lineEnd": 134
+        }
+      ],
+      "runtimeVerified": false
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D-COM-01",
+      "text": "Baseline documental híbrida Twenty Community + dominio QH; no reabrir elección por propuesta previa",
+      "status": "documented_baseline_not_new_acceptance",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 64,
+          "lineEnd": 64
+        }
+      ],
+      "acceptedByThisAnalysis": false
+    },
+    {
+      "id": "D-COM-02",
+      "text": "RBAC QH/Docs autoritativo; Twenty no amplía permisos; bypass aún requiere contrato/prueba",
+      "status": "documented_baseline_not_new_acceptance",
+      "sources": [
+        {
+          "document": "ACC",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "lineStart": 64,
+          "lineEnd": 69
+        }
+      ],
+      "acceptedByThisAnalysis": false
+    },
+    {
+      "id": "D-COM-03",
+      "text": "Inventario/compromisos/comisiones/metas/settings QH autoritativos; Twenty genérico/proyección según módulo",
+      "status": "documented_baseline_not_new_acceptance",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 193,
+          "lineEnd": 203
+        }
+      ],
+      "acceptedByThisAnalysis": false
+    },
+    {
+      "id": "D-COM-04",
+      "text": "Sugerencia no autoasigna y Tomar solo broker; round-robin/ponds necesita decisión explícita",
+      "status": "documented_baseline_not_new_acceptance",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 370,
+          "lineEnd": 382
+        }
+      ],
+      "acceptedByThisAnalysis": false
+    },
+    {
+      "id": "D-COM-05",
+      "text": "RES add-on no se promueve a núcleo; COM núcleo y M40 futuro se conservan en mapa completo",
+      "status": "documented_baseline_not_new_acceptance",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 30,
+          "lineEnd": 36
+        }
+      ],
+      "acceptedByThisAnalysis": false
+    },
+    {
+      "id": "D-COM-06",
+      "text": "Periodo MET mensual; semanal/otros opcionales, no schema week",
+      "status": "documented_baseline_not_new_acceptance",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 40,
+          "lineEnd": 42
+        }
+      ],
+      "acceptedByThisAnalysis": false
+    },
+    {
+      "id": "D-COM-07",
+      "text": "Superset candidato, no decisión ni dependencia de v0.1",
+      "status": "candidate_not_selected",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 128,
+          "lineEnd": 153
+        }
+      ],
+      "acceptedByThisAnalysis": false
+    },
+    {
+      "id": "D-COM-08",
+      "text": "Interfaz/gateway común comandos→QH para evitar bypass: estrategia concreta propuesta, no implementada",
+      "status": "proposal_not_accepted",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 208,
+          "lineEnd": 220
+        }
+      ],
+      "acceptedByThisAnalysis": false
+    },
+    {
+      "id": "D-COM-09",
+      "text": "Ledger/reconciliación de contribuciones monetarias y compensaciones: propuesta de análisis",
+      "status": "proposal_not_accepted",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 250,
+          "lineEnd": 250
+        }
+      ],
+      "acceptedByThisAnalysis": false
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q-COM-01",
+      "owner": "Wilber/D03/D12",
+      "blocks": "G2",
+      "text": "Resolver autoridad de campos genéricos, identidad y stages entre core Twenty y dominio QH; protocolo comandos/proyección y no bypass",
+      "status": "open",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 208,
+          "lineEnd": 226
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-02",
+      "owner": "Wilber/D12",
+      "blocks": "G1",
+      "text": "Matriz exacta por rol/campo/export/reports/comms; assistant; manager 0017 y preview",
+      "status": "open",
+      "sources": [
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 302,
+          "lineEnd": 306
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-03",
+      "owner": "D03/D11/negocio",
+      "blocks": "G2",
+      "text": "Disponibilidad efectiva/holds/expiración y ownership de commitments; versión obligatoria y restauración",
+      "status": "open",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 343,
+          "lineEnd": 358
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-04",
+      "owner": "Wilber/editorial",
+      "blocks": "G2",
+      "text": "Quién aprueba/publica/retira, canales/campos Studio vs INV, vigencia y acuses",
+      "status": "open",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 353,
+          "lineEnd": 361
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-05",
+      "owner": "Negocio/D11/D12/asesoría",
+      "blocks": "G1",
+      "text": "Consentimiento por finalidad/canal/base/evidencia; opt-out durable, legado y derechos/retención",
+      "status": "open",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 309,
+          "lineEnd": 315
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-06",
+      "owner": "Negocio/D03",
+      "blocks": "G1",
+      "text": "Mantener no-autoasignar #21 o permitir round-robin/ponds/reasignaciónSLA; umbrales contacto",
+      "status": "open",
+      "sources": [
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 460,
+          "lineEnd": 466
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-07",
+      "owner": "Negocio/D03/D11",
+      "blocks": "G1",
+      "text": "Evento computable metas: firma+reserva versus won actual; alquiler, reversas y legado",
+      "status": "open",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 273,
+          "lineEnd": 279
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-08",
+      "owner": "Negocio/D11",
+      "blocks": "G2",
+      "text": "Metas por moneda simultáneas, consumidores legacy sincurrency y reconciliación histórico",
+      "status": "open",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 250,
+          "lineEnd": 250
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-09",
+      "owner": "Negocio/contable/D03",
+      "blocks": "G1",
+      "text": "Comisiones por firma o hito; reparto; comprobante; aprobación dual; transición activo/M40",
+      "status": "open",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 215,
+          "lineEnd": 220
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-10",
+      "owner": "Wilber/operaciones",
+      "blocks": "G1",
+      "text": "RES finanzas/cuotas/pasarela/eCF, fase y proveedor; no conexión actual asumida",
+      "status": "open",
+      "sources": [
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 266,
+          "lineEnd": 271
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-11",
+      "owner": "Wilber/D03/D12",
+      "blocks": "G2",
+      "text": "Protección prospecto/plazo, cooperación/acuerdo, grants y salida/traspaso cartera",
+      "status": "open",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 287,
+          "lineEnd": 294
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-12",
+      "owner": "D03/D19/marketing",
+      "blocks": "G2",
+      "text": "CAPI stage map/event_id/elegibilidad/delivery/retrocesos y atribuciónad/click IDs",
+      "status": "open",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 222,
+          "lineEnd": 226
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-13",
+      "owner": "Wilber/D03",
+      "blocks": "G1",
+      "text": "Reapertura/archivo y compensaciones stock/metas/comisión pagada",
+      "status": "open",
+      "sources": [
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 337,
+          "lineEnd": 344
+        }
+      ]
+    },
+    {
+      "id": "Q-COM-14",
+      "owner": "Wilber/producto/D03",
+      "blocks": "G2",
+      "text": "BI externo o solo QH/Twenty; permiso dinámico/export/scheduler y coste",
+      "status": "open",
+      "sources": [
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 152,
+          "lineEnd": 153
+        }
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "CF-COM-01",
+      "text": "Core genérico Twenty en ADR frente a autoridad comercial QH de LEA/CON/NEG: delimitar campo/comando/proyección sin declarar doble SoT resuelto",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 189,
+          "lineEnd": 204
+        },
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 285,
+          "lineEnd": 297
+        },
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 208,
+          "lineEnd": 226
+        }
+      ],
+      "status": "open_contract_boundary"
+    },
+    {
+      "id": "CF-COM-02",
+      "text": "Hipótesis del primer turno portalSoT para catálogo queda supersedida por baseline documental INV dominioQH; Studio editorial separado",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 193,
+          "lineEnd": 203
+        }
+      ],
+      "status": "previous_assumption_superseded"
+    },
+    {
+      "id": "CF-COM-03",
+      "text": "COM dice manager inexistente; ACC/CFG/MET identifican0017 pero despliegue no verificado",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 182,
+          "lineEnd": 206
+        },
+        {
+          "document": "CFG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "lineStart": 281,
+          "lineEnd": 281
+        },
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 229,
+          "lineEnd": 231
+        }
+      ],
+      "status": "historical_evidence_mismatch_runtime_unknown"
+    },
+    {
+      "id": "CF-COM-04",
+      "text": "MET computable firma+reserva no acreditado por won actual",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 133,
+          "lineEnd": 135
+        },
+        {
+          "document": "NEG",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "lineStart": 147,
+          "lineEnd": 155
+        }
+      ],
+      "status": "open_business_contract"
+    },
+    {
+      "id": "CF-COM-05",
+      "text": "goals achieved_amount legacy sincurrency versus separaciónmoneda UI",
+      "sources": [
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 250,
+          "lineEnd": 250
+        }
+      ],
+      "status": "open_data_integrity"
+    },
+    {
+      "id": "CF-COM-06",
+      "text": "consentimiento externo se escribe implícito; token/fecha no aceptación; matiza LEA tabla contactos",
+      "sources": [
+        {
+          "document": "CON",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "lineStart": 135,
+          "lineEnd": 146
+        },
+        {
+          "document": "LEA",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "lineStart": 405,
+          "lineEnd": 406
+        }
+      ],
+      "status": "open_privacy"
+    },
+    {
+      "id": "CF-COM-07",
+      "text": "available count no descuenta commitments; snapshot no garantía stock libre",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 158,
+          "lineEnd": 160
+        }
+      ],
+      "status": "open_effective_availability"
+    },
+    {
+      "id": "CF-COM-08",
+      "text": "COM/MET auditoría dice keysignoradas, código citado lasaplica; REScliente sinclave no deduplica",
+      "sources": [
+        {
+          "document": "COM",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "lineStart": 124,
+          "lineEnd": 124
+        },
+        {
+          "document": "MET",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "lineStart": 149,
+          "lineEnd": 151
+        },
+        {
+          "document": "RES",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "lineStart": 59,
+          "lineEnd": 59
+        }
+      ],
+      "status": "runtime_verification_needed"
+    },
+    {
+      "id": "CF-COM-09",
+      "text": "N:M asignación inicial no AS-IS: BROPUT muta projects.broker_id; grantsM50 futuro",
+      "sources": [
+        {
+          "document": "BRO",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "lineStart": 143,
+          "lineEnd": 143
+        },
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 309,
+          "lineEnd": 311
+        }
+      ],
+      "status": "initial_model_corrected"
+    },
+    {
+      "id": "CF-COM-10",
+      "text": "REP/INV CSV Blob local y preview sinexport: bloqueo UI/servidor por sí solo no garantiza prohibición cliente",
+      "sources": [
+        {
+          "document": "INV",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "lineStart": 311,
+          "lineEnd": 311
+        },
+        {
+          "document": "REP",
+          "path": "E:/CRM Final Quisqueya Home noviembre/00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "lineStart": 65,
+          "lineEnd": 72
+        }
+      ],
+      "status": "open_export_control"
+    }
+  ]
+}

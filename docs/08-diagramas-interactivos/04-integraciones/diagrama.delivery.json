@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "82db516e-236a-4e63-80f9-6ced554280b5",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\04-integraciones\\candidate.json",
+  "output": "E:\\CRM Final Quisqueya Home noviembre\\08-diagramas-interactivos\\04-integraciones\\diagrama.html",
+  "specification": {
+    "sha256": "43dcb5859264f9df345b121d2d0ef25fe2631471c851a456cd01fb4df4a64902",
+    "bytes": 37065
+  },
+  "artifact": {
+    "sha256": "0f45d2eff3c266783725000fcab4cae83362c592e7a9191c7b590d8a0032725f",
+    "bytes": 776555
+  }
+}

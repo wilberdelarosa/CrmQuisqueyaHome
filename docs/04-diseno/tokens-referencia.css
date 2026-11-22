@@ -1,0 +1,25 @@
+:root {
+  --canvas: #f3f5f8;
+  --surface: #ffffff;
+  --surface-alt: #f8f9fb;
+  --ink: #172036;
+  --ink-muted: #646d85;
+  --line: #dfe3eb;
+  --navy: #10172d;
+  --navy-action: #1d2b53;
+  --gold: #c7990e;
+  --gold-soft: #fff6d9;
+  --focus: #9b7300;
+  --success: #16734a;
+  --success-bg: #e9f7ef;
+  --warning: #8a5300;
+  --warning-bg: #fff3e0;
+  --danger: #a13f43;
+  --danger-bg: #fdeced;
+  --info: #315f8c;
+  --info-bg: #ebf3fb;
+  --radius-control: 7px;
+  --radius-panel: 10px;
+  --space: 8px;
+  --target: 44px;
+}

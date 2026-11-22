@@ -1,0 +1,199 @@
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import { ForbiddenError, NotFoundError, ValidationError } from "../../domain/errors.ts";
+import type { Actor } from "../../domain/rbac.ts";
+import { auditoriaEnMemoria } from "../testing/auditoria-en-memoria.ts";
+import { unidadDeTrabajoEnMemoria } from "../testing/unidad-de-trabajo-en-memoria.ts";
+import { borrarActividad, crearActividad, editarActividad } from "./casos-de-uso.ts";
+import { exportarActividadesIcs } from "./consultas.ts";
+import { actividadesEnMemoria } from "./en-memoria.ts";
+import type { Actividad } from "./puertos.ts";
+
+const broker: Actor = { userId: 5, roleSlug: "broker", permissions: [{ resource: "contacts", action: "view", scope: "own" }, { resource: "projects", action: "view", scope: "own" }] };
+const actividad = (cambios: Partial<Actividad> & { id: number }): Actividad => {
+  const { id, ...resto } = cambios;
+  return {
+    id,
+    activityType: "task",
+    title: "Llamar",
+    description: null,
+    contactId: null,
+    dealId: null,
+    projectId: null,
+    assigneeId: 5,
+    startsAt: null,
+    endsAt: null,
+    isAllDay: false,
+    location: null,
+    meetingUrl: null,
+    status: "pending",
+    priority: "normal",
+    completedAt: null,
+    createdAt: new Date("2025-01-01"),
+    updatedAt: new Date("2025-01-01"),
+    createdBy: 5,
+    updatedBy: 5,
+    deletedAt: null,
+    ...resto,
+  };
+};
+
+function montar(iniciales: readonly Actividad[] = [], negocios: readonly number[] = []) {
+  const actividades = actividadesEnMemoria(iniciales, negocios, { contacts: [{ id: 3, brokerId: 5 }] });
+  const auditoria = auditoriaEnMemoria();
+  const unidad = unidadDeTrabajoEnMemoria({ actividades, auditoria }, [actividades, auditoria]);
+  return { actividades, auditoria, unidad, deps: { actividades, unidad } };
+}
+
+test("crear: inserta, audita y actualiza la próxima acción del negocio", async () => {
+  const { deps, actividades, auditoria } = montar([], [7]);
+  const fila = await crearActividad(deps, broker, "own", { activityType: "task", title: "Llamar", description: null, contactId: 3, dealId: 7, projectId: null, startsAt: null, endsAt: null, isAllDay: false, location: null, meetingUrl: null, priority: "high", status: "pending" });
+  assert.equal(fila.assigneeId, 5);
+  assert.deepEqual(actividades.proximas, [{ dealId: 7, actividadId: fila.id }]);
+  assert.deepEqual(auditoria.registros, [{ accion: "crear", entidad: "activity", entidadId: fila.id, despues: fila, actorId: 5 }]);
+});
+
+const gerente: Actor = { userId: 3, roleSlug: "manager", permissions: [], teamUserIds: [5, 6] };
+const tareaPara = (assigneeId: number) => ({ activityType: "task" as const, title: "Dar seguimiento", description: null, contactId: null, dealId: null, projectId: null, assigneeId, startsAt: null, endsAt: null, isAllDay: false, location: null, meetingUrl: null, priority: "normal" as const, status: "pending" as const });
+
+test("crear: el gerente (alcance team) asigna una tarea a un broker de su equipo", async () => {
+  const { deps, actividades } = montar();
+  const fila = await crearActividad(deps, gerente, "team", tareaPara(6));
+  assert.equal(fila.assigneeId, 6);
+  assert.equal(actividades.filas.length, 1);
+});
+
+test("crear: el gerente no asigna a quien está fuera de su equipo", async () => {
+  const { deps, actividades } = montar();
+  await assert.rejects(crearActividad(deps, gerente, "team", tareaPara(9)), ForbiddenError);
+  assert.deepEqual(actividades.filas, []);
+});
+
+test("crear: un broker (alcance own) sigue sin asignar a otra persona, aunque tenga equipo", async () => {
+  const { deps, actividades } = montar();
+  await assert.rejects(crearActividad(deps, { ...broker, teamUserIds: [5, 6] }, "own", tareaPara(6)), ForbiddenError);
+  assert.deepEqual(actividades.filas, []);
+});
+
+test("crear: una actividad completada no reemplaza la próxima acción", async () => {
+  const { deps, actividades } = montar([], [7]);
+  await crearActividad(deps, broker, "own", {
+    activityType: "call",
+    title: "Ya ocurrió",
+    description: null,
+    contactId: null,
+    dealId: 7,
+    projectId: null,
+    startsAt: null,
+    endsAt: null,
+    isAllDay: false,
+    location: null,
+    meetingUrl: null,
+    priority: "normal",
+    status: "completed",
+  });
+  assert.deepEqual(actividades.proximas, []);
+});
+
+test("crear: un broker no puede sobrescribir la próxima acción de un negocio fuera de alcance", async () => {
+  const { deps, actividades, auditoria } = montar([], []);
+  await assert.rejects(
+    crearActividad(deps, broker, "own", {
+      activityType: "task",
+      title: "No",
+      description: null,
+      contactId: null,
+      dealId: 99,
+      projectId: null,
+      startsAt: null,
+      endsAt: null,
+      isAllDay: false,
+      location: null,
+      meetingUrl: null,
+      status: "pending",
+    }),
+    NotFoundError,
+  );
+  assert.deepEqual(actividades.filas, []);
+  assert.deepEqual(actividades.proximas, []);
+  assert.deepEqual(auditoria.registros, []);
+});
+
+test("editar: null borra un campo y ausencia lo conserva", async () => {
+  const original = actividad({ id: 1, description: "detalle", location: "Oficina" });
+  const { deps } = montar([original]);
+  const intacta = await editarActividad(deps, broker, "own", 1, {});
+  assert.equal(intacta.description, "detalle");
+  assert.equal(intacta.location, "Oficina");
+  const borrada = await editarActividad(deps, broker, "own", 1, { description: null, location: null });
+  assert.equal(borrada.description, null);
+  assert.equal(borrada.location, null);
+});
+
+test("editar: completar fija completedAt y reabrir la limpia", async () => {
+  const original = actividad({ id: 1, status: "pending" });
+  const { deps } = montar([original]);
+  const completada = await editarActividad(deps, broker, "own", 1, { status: "completed", description: "Resultado de la tarea registrado" });
+  assert.ok(completada.completedAt instanceof Date);
+  const reabierta = await editarActividad(deps, broker, "own", 1, { status: "pending" });
+  assert.equal(reabierta.completedAt, null);
+});
+
+test("editar: un broker no puede vincular un negocio fuera de alcance (H32)", async () => {
+  const original = actividad({ id: 1, dealId: null });
+  const { deps, auditoria } = montar([original], [7]);
+  await assert.rejects(
+    editarActividad(deps, broker, "own", 1, { dealId: 99 }),
+    NotFoundError,
+  );
+  assert.deepEqual(auditoria.registros, []);
+  const vinculada = await editarActividad(deps, broker, "own", 1, { dealId: 7 });
+  assert.equal(vinculada.dealId, 7);
+});
+
+test("exportar ICS: respeta alcance y rango de lunes a sábado exclusivo", async () => {
+  const visible = actividad({ id: 1, title: "Visible", startsAt: new Date("2026-01-05T14:00:00Z") });
+  const ajena = actividad({ id: 2, title: "Ajena", assigneeId: 9, startsAt: new Date("2026-01-06T14:00:00Z") });
+  const sabado = actividad({ id: 3, title: "Sábado", startsAt: new Date("2026-01-10T14:00:00Z") });
+  const domingo = actividad({ id: 4, title: "Domingo", startsAt: new Date("2026-01-11T14:00:00Z") });
+  const sinHora = actividad({ id: 5, title: "Sin hora" });
+  const { actividades } = montar([visible, ajena, sabado, domingo, sinHora]);
+  const resultado = await exportarActividadesIcs({ actividades }, broker, "own", "2026-01-05");
+  assert.equal(resultado.lunes, "2026-01-05");
+  assert.match(resultado.ics, /SUMMARY:Visible/);
+  assert.doesNotMatch(resultado.ics, /SUMMARY:(Ajena|Sábado|Domingo|Sin hora)/);
+});
+
+test("borrar: marca la fila y audita; fuera de alcance devuelve NotFoundError", async () => {
+  const { deps, actividades, auditoria } = montar([actividad({ id: 1 })]);
+  await borrarActividad(deps, broker, "own", 1);
+  assert.ok(actividades.filas[0]!.deletedAt instanceof Date);
+  assert.equal(auditoria.registros[0]!.accion, "eliminar");
+  await assert.rejects(borrarActividad(deps, broker, "own", 1), NotFoundError);
+});
+
+test("editar: cambiar solo endsAt no puede quedar antes del inicio guardado", async () => {
+  const original = actividad({ id: 1, activityType: "call", startsAt: new Date("2026-10-28T19:00:00Z"), endsAt: new Date("2026-10-28T19:30:00Z") });
+  const { deps, auditoria } = montar([original]);
+  await assert.rejects(editarActividad(deps, broker, "own", 1, { endsAt: new Date("2026-10-28T18:00:00Z") }), ValidationError);
+  await assert.rejects(editarActividad(deps, broker, "own", 1, { startsAt: new Date("2026-10-28T20:00:00Z") }), ValidationError);
+  assert.deepEqual(auditoria.registros, []);
+  const ok = await editarActividad(deps, broker, "own", 1, { endsAt: new Date("2026-10-28T20:00:00Z") });
+  assert.equal(ok.endsAt?.toISOString(), "2026-10-28T20:00:00.000Z");
+});
+
+test("notas: el endpoint genérico no permite modificar notas de otro autor", async () => {
+  const { deps } = montar([actividad({ id: 1, activityType: "note", createdBy: 8 })]);
+  const actor: Actor = { ...broker, permissions: [...broker.permissions, { resource: "activities", action: "edit", scope: "own" }, { resource: "activities", action: "delete", scope: "own" }] };
+  await assert.rejects(editarActividad(deps, actor, "all", 1, { title: "Intento" }), /Solo el autor/);
+  await assert.rejects(borrarActividad(deps, actor, "all", 1), /Solo el autor/);
+});
+
+test("notas: la ruta genérica no reasigna vínculos ni elude el ámbito del lead", async () => {
+  const actor: Actor = { ...broker, permissions: [...broker.permissions, { resource: "activities", action: "edit", scope: "all" }, { resource: "activities", action: "delete", scope: "all" }] };
+  const notaLead = { ...actividad({ id: 1, activityType: "note" }), leadId: 99 };
+  const { deps } = montar([notaLead, actividad({ id: 2, activityType: "note" })]);
+  await assert.rejects(editarActividad(deps, actor, "all", 1, { title: "Intento" }), /bitácora de su lead/);
+  await assert.rejects(borrarActividad(deps, actor, "all", 1), /bitácora de su lead/);
+  await assert.rejects(editarActividad(deps, actor, "all", 2, { dealId: 99 }), /vínculos/);
+});

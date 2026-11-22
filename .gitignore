@@ -1,0 +1,19 @@
+# Dependencias y compilaciones
+node_modules/
+.next*/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Secretos y datos locales: nunca en el repositorio
+.env
+.env.*
+!.env.example
+integraciones/**/data*/
+*.pem
+
+# Sistema
+.DS_Store
+Thumbs.db
+npm-debug.log*

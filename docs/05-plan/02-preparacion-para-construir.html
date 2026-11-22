@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía para construir · Quisqueya Home</title>
+<link rel="stylesheet" href="../04-diseno/tokens-referencia.css">
+<link rel="stylesheet" href="../10-espacio-local/espacio.css"></head>
+<body><main class="wrap reading"><p><a href="../10-espacio-local/index.html">Volver al espacio de trabajo</a></p>
+<h1>Preparación para construir el CRM</h1>
+<h2>Entradas del proyecto</h2>
+<table>
+<thead>
+<tr>
+<th>Decisión o necesidad</th>
+<th>Leer primero</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nombres, orden y correspondencias de los 22 módulos</td>
+<td><a href="../01-descubrimiento/02-estructura-de-modulos.html">Catálogo vigente</a></td>
+</tr>
+<tr>
+<td>Especificaciones por módulo, casos y tablero</td>
+<td><a href="../00-fuentes-drive/central/02-Modulos/Specs%20de%20los%2022%20m%C3%B3dulos.txt">Specs exportadas</a>, <a href="../07-documento-maestro/catalogo-casos-de-uso.csv">casos de uso</a>, <a href="../00-fuentes-drive/central/01-Tablero/tablero-estatico.html">tablero histórico</a></td>
+</tr>
+<tr>
+<td>Arquitectura objetivo y reglas</td>
+<td><a href="../07-documento-maestro/CRM-QH-DOCUMENTO-FINAL-2026-11-06.html">Documento maestro</a>, <a href="../08-diagramas-interactivos/index.html">mapa técnico</a>, <a href="../07-documento-maestro/comunicaciones.csv">matriz de comunicaciones</a></td>
+</tr>
+<tr>
+<td>Diseño, estados y referencias</td>
+<td><a href="../04-diseno/DESIGN.html">Sistema de diseño</a>, <a href="../04-diseno/01-brief-y-referencias.md">brief de pantallas</a></td>
+</tr>
+<tr>
+<td>Infraestructura y conexión</td>
+<td><a href="../10-espacio-local/VPS.html">VPS</a>, <a href="../00-fuentes-drive/central/04-Infraestructura/inventario-docker.md">inventario histórico</a></td>
+</tr>
+</tbody>
+</table>
+<p>La carpeta Central aporta el catálogo y el estado histórico del CRM previo. El ADR de noviembre registra Twenty Community más dominio propio de Quisqueya Home como arquitectura objetivo documental. Al implementar, usar sus límites de autoridad y contrastar cada referencia histórica de API o base con el código y el entorno elegido.</p>
+<h2>Límites por capa</h2>
+<ul>
+<li><strong>Diseño y experiencia.</strong> Plataforma da el shell y el registro de navegación. Luna UI aporta componentes, tokens, estados y accesibilidad. Cada módulo define sus pantallas y permisos.</li>
+<li><strong>Aplicación QH.</strong> Casos de uso y autorización por rol y alcance. QH gobierna inventario, compromisos, reglas de cierres, metas y comisiones. Formularios y vistas delegan validación y cambios de estado al servidor.</li>
+<li><strong>Persistencia QH.</strong> PostgreSQL, referencias externas, auditoría e inbox/outbox para entregas. Medios públicos separados de expedientes privados.</li>
+<li><strong>Adaptadores.</strong> Twenty, Portal, comunicaciones, Calendar, Moodle y almacenamiento detrás de contratos. El portal tiene catálogo editorial existente. Definir su autoridad por campo y los identificadores antes de conectar escrituras.</li>
+</ul>
+<h2>Primer corte propuesto</h2>
+<p>Consulta del portal → Lead → responsable → seguimiento → visita. Usar una entrada sintética con identificador de origen y catálogo en lectura. La ficha de Leads debe mostrar de dónde llegó, quién la atiende y cuál es la próxima acción. Una reentrega del mismo evento debe devolver el recibo existente. Un cambio de payload con la misma clave se trata como conflicto. El alcance de roles y los acuses de entrega se verifican en servidor.</p>
+<table>
+<thead>
+<tr>
+<th>Orden de trabajo</th>
+<th>Resultado que permite pasar al siguiente paso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Alcance, actores y datos</td>
+<td>Roles y alcance del piloto acordados, IDs y campos con un único sistema escritor</td>
+</tr>
+<tr>
+<td>2. Contrato de entrada</td>
+<td>Payload y errores, autenticación, idempotencia, acuse, reintento y conciliación definidos</td>
+</tr>
+<tr>
+<td>3. Diseño del recorrido</td>
+<td>Shell, lista y ficha de Lead, próxima acción y cita con estados verificables</td>
+</tr>
+<tr>
+<td>4. Implementación del corte</td>
+<td>Entrada y registro local, autorización por recurso, vínculo a catálogo y auditoría</td>
+</tr>
+<tr>
+<td>5. Comprobación del corte</td>
+<td>Casos por rol, duplicado, timeout, caída de integración, conflicto y recuperación</td>
+</tr>
+</tbody>
+</table>
+<p>Antes de avanzar a publicación, acordar transición editorial e invalidación de caché. Antes de efectos financieros, cerrar las reglas de reserva, disponibilidad, moneda, metas y comisiones. La <a href="../06-analisis-documental/revision-luna.md">revisión Luna</a> explica estas decisiones. La <a href="01-hoja-de-ruta.md">hoja de ruta de noviembre</a> conserva las dependencias para el resto del CRM.</p>
+<p><a href="02-preparacion-para-construir.md">Abrir Markdown original</a></p></main></body></html>

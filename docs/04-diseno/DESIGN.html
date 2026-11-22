@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema de diseño · Quisqueya Home</title>
+<link rel="stylesheet" href="../04-diseno/tokens-referencia.css">
+<link rel="stylesheet" href="../10-espacio-local/espacio.css"></head>
+<body><main class="wrap reading"><p><a href="../10-espacio-local/index.html">Volver al espacio de trabajo</a></p>
+<h1>Sistema de diseño · Quisqueya Home Private Desk</h1>
+<h2>1. Dirección visual</h2>
+<p>Consola operativa clara y compacta, con navegación azul marino y acento dorado. El trabajo diario empieza en listas, calendarios o tableros y conserva el contexto al abrir una ficha. La documentación histórica del CRM aporta los valores de referencia. La variante marfil y los radios alternativos del plan Viltrum quedan para comparación visual.</p>
+<p>Fuentes locales: <a href="../00-fuentes-drive/central/07-Dise%C3%B1o/VILTRUM-DESIGN-PLAN.txt">Plan Viltrum</a>, <a href="referencias-crm-anterior/DESIGN-Private-Desk.md">Private Desk</a>, <a href="../00-fuentes-drive/central/02-Modulos/VT-CRM-E01_Modulo-Luna-UI_v1.0_2026-10-29.txt">ficha Luna UI</a>.</p>
+<h2>2. Paleta y funciones</h2>
+<table>
+<thead>
+<tr>
+<th>Uso</th>
+<th>Referencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lienzo / panel / borde</td>
+<td>Gris azulado <code>#F3F5F8</code>, blanco <code>#FFFFFF</code>, gris de separación <code>#DFE3EB</code></td>
+</tr>
+<tr>
+<td>Texto / texto secundario</td>
+<td>Tinta navy <code>#172036</code>, gris azulado <code>#646D85</code></td>
+</tr>
+<tr>
+<td>Navegación / títulos destacados</td>
+<td>Marino profundo <code>#10172D</code>, navy <code>#1D2B53</code></td>
+</tr>
+<tr>
+<td>Acción primaria / foco / texto sobre dorado claro</td>
+<td>Oro <code>#C7990E</code>, ocre <code>#9B7300</code>, bronce oscuro <code>#765600</code></td>
+</tr>
+<tr>
+<td>Éxito / aviso / error / información</td>
+<td><code>#16734A</code>, <code>#8A5300</code>, <code>#A13F43</code>, <code>#315F8C</code> con fondos suaves</td>
+</tr>
+<tr>
+<td>Alternativa por comparar</td>
+<td>Lienzo marfil <code>#FAF9F6</code></td>
+</tr>
+</tbody>
+</table>
+<p>En el botón dorado usar texto navy. Las etiquetas de estado incluyen texto. Los pares semánticos y el foco requieren comprobación en las pantallas y superficies finales.</p>
+<h2>3. Tipografía y geometría</h2>
+<p>Hanken Grotesk para títulos y cifras, Atkinson Hyperlegible Next para texto e interfaz, según la referencia Private Desk. El visor local usa fuentes de sistema para abrir sin internet. Usar escala de 8 px, controles de 44 px como mínimo según la ficha Luna UI, radio de referencia de 7 px en controles y 10 px en paneles. Definir variante marfil y radios con una comparación de Inicio y Leads.</p>
+<h2>4. Componentes y estados</h2>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Contrato visual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navegación / cabecera</td>
+<td>Orden estable por rol, acciones accesibles, contexto, foco visible y versión móvil</td>
+</tr>
+<tr>
+<td>Tabla / filtros / inspector</td>
+<td>Orden, filtros, paginación, selección parcial y ficha que conserva contexto</td>
+</tr>
+<tr>
+<td>Campos / diálogos</td>
+<td>Etiquetas visibles, error asociado al campo, recuperación de foco, confirmación cuando corresponda</td>
+</tr>
+<tr>
+<td>Pipeline / calendario</td>
+<td>Alternativa de teclado al arrastre, horario de Santo Domingo, estados y responsables legibles</td>
+</tr>
+<tr>
+<td>Avisos / estados</td>
+<td>Carga, vacío, error, éxito y sin permiso. Añadir parcial, sin conexión, conflicto o pendiente de sincronización según flujo</td>
+</tr>
+<tr>
+<td>Inventario / publicación</td>
+<td>Mostrar por separado estado comercial de la unidad y estado editorial o de sincronización</td>
+</tr>
+<tr>
+<td>Accesibilidad</td>
+<td>Texto además de color, navegación por teclado, foco visible, movimiento reducido y revisión a 320, 390, 1280 y 1440 px</td>
+</tr>
+</tbody>
+</table>
+<h2>5. Secuencia para diseño</h2>
+<p>Comenzar con shell, Inicio y Leads. Continuar con Negocios, Contactos, Tareas, Agenda y Configuración. Usar una misma ficha de entrega por pantalla que vincule módulo, flujo, rol, permiso, estado visual, dato, acción y criterio de aceptación. Extraer tokens reutilizables antes de crear variantes locales. El CSS histórico de Tailwind se conserva como referencia de su repositorio y contiene imports propios de esa compilación.</p>
+<p><a href="DESIGN.md">Abrir Markdown original</a></p></main></body></html>

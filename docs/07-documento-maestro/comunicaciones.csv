@@ -1,0 +1,27 @@
+﻿id,direction,payload,controls,evidence_status
+C-01,navegador staff → QH,comandos/lecturas por rol,"identidad, scope, campos y versión; contexto ver-como",requisito transversal ACC
+C-02,QH → Twenty,entidades genéricas/proyecciones y membresías,"IDs, mapping, edición permitida y dedupe por destino",contrato pendiente; ADR registrado
+C-03,Twenty → QH,cambios permitidos como intención/comando,"actor original autorizado, versión/base y validación QH",propuesta; no duplicar autoridad
+C-04,INV/RES → portal,catálogo comercial aprobado,"PortalPublisher, revisión, media/field whitelist, acuse",objetivo documental; adaptador real pendiente
+C-05,Studio/portal → QH,cambios editoriales autorizados/consultas,dueño por campo; inquiry ID estable y consentimiento/finalidad,consultas observadas en código; sync editorial pendiente
+C-06,Meta Lead Ads → LEA/CON,captación y atribución,"firma/cuenta/ID evento, validación y rate limit",declarado por fuentes; credenciales actuales no verificadas
+C-07,WhatsApp/IG → COMU/LEA,inbound e interés,"firma del proveedor, cuenta+evento y propósito",parcial/documentado; inbox no demuestra bandeja
+C-08,COMU → WhatsApp,mensajes/plantillas autorizados,"proveedor único por cuenta, bajas al enviar, recibo y resultado ambiguo",YCloud/Cloud API candidatos/adaptadores declarados
+C-09,proveedor → COMU,delivery/read/error/bounce,evento deduplicado y correlación con intento,historial durable por completar
+C-10,COMU/REP → correo,mensaje o informe autorizado,"destinatario/scope, baja cuando aplique, cola y estado",Resend o simulación según fuente; envío real no probado
+C-11,NEG → Meta CAPI,conversión/atribución,"evento permitido, consentimiento/finalidad y dedupe",diseño pendiente; outbox ≠ envío
+C-12,AGE ↔ Google Calendar,"citas, cambios y cancelaciones","OAuth por cuenta, ID estable, sync/reconcile y revocación",opcional/documentado; durabilidad pendiente
+C-13,AGE → ICS,exportación de agenda,"permiso explícito, filtros, campos mínimos y acceso",no permitir desde ver-como según ACC
+C-14,ACA ↔ Moodle,matrícula/progreso/curso,"lmsAdaptador, correlación broker/curso y verificación",SoT LMS documentado; contenido/credenciales pendientes
+C-15,DOC ↔ almacenamiento privado,carga/descarga/versiones/evidencia,"autorización por objeto, URL temporal, validación y retención","capacidad objetivo, no repositorio acreditado"
+C-16,INV/POR ↔ medios públicos,fotografías/avances aprobados,"derechos, formatos y flags de publicación",separar de documentos privados
+C-17,NEG → MET/COM,cierre/atribución/comisión pendiente,misma transacción local QH cuando sea invariante; evento estable,requisito documental a probar
+C-18,RES ↔ INV/NEG,hold/reserva/liberación/compromiso,"exclusión de unidad, expiración y control de concurrencia",requisitos y permisos pendientes de validar
+C-19,COM/RES → APR → destinatario,solicitud/decisión/efecto,"solicitante ≠ aprobador, versión y efecto durable/reconciliable",diseño incompleto; aprobar ≠ pagar
+C-20,NEG/CON → DOC,expediente y evidencia,"ACL específica KYC/documento, no solo deals:view",objetivo con riesgo histórico citado
+C-21,AUT → TAR/COMU/otros,acciones de una regla versionada,"permiso al ejecutar, límites, cancelación y anti-bucle",no hay motor acreditado
+C-22,módulos → REP/INI,hechos y proyecciones filtradas,"definición de métrica, watermark y stale state",no duplicar escrituras de negocio
+C-23,REP → Superset,vistas/lecturas BI,"credencial solo lectura, aislamiento y exportación",candidato no seleccionado
+C-24,BRO/ACC → Twenty/servicios,alta/baja/revocación,desactivar sesiones y sincronizar estado sin perder historial,traspaso previo y contrato pendiente
+C-25,NEG/INV/DOC → POS,"entrega, expediente y caso","handoff explícito, responsable, evidencias","complemento objetivo, no operación acreditada"
+C-26,BRO → RED,identidad/participación en comunidad,ACL/moderación propias; no heredar lectura global por brokers:view,complemento objetivo

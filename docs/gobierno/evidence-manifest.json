@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-06",
+  "kind": "documentary-research",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "994b45e0d6b6d1f47eba19a867cd68cba5bb41bd9617694867cb9bfb13a4723f"
+    },
+    {
+      "path": "01-descubrimiento/01-alcance-propuesto.md",
+      "sha256": "ea5666e0814c88f8e47b29c7fcd1358fca22ab48915d0bf92c823e515678dc76"
+    },
+    {
+      "path": "02-investigacion/01-herramientas-diseno.md",
+      "sha256": "88115dd1f60cceed35694460169c1e5dfbb4aec0ae4be748cefebb1128419289"
+    },
+    {
+      "path": "02-investigacion/02-crm-open-source.md",
+      "sha256": "ec6c721f19cab7bac259bd6233928cd153d62930e5d4995312835c436f46ebfa"
+    },
+    {
+      "path": "02-investigacion/03-inventario-portal-y-crm.md",
+      "sha256": "6421b6a1af2c54b68a033c0bb84450f77b50264b8abd2a1b0681f1d8777771ad"
+    },
+    {
+      "path": "02-investigacion/04-rea-y-reutilizacion.md",
+      "sha256": "816560a48107b962667804f70cbc6eafd2ad2589e8cf7f6041b0b6d37910b60a"
+    },
+    {
+      "path": "03-arquitectura/01-arquitectura-conceptual.md",
+      "sha256": "18eace17e95cc9968f027e473cfb1dac3249c587b54a322d07c042817fd42bd0"
+    },
+    {
+      "path": "03-arquitectura/02-integracion-y-escenarios.md",
+      "sha256": "186c62521d157a44126e862137c97001cbf68874665a0c7b3b7c0b47352a98c4"
+    },
+    {
+      "path": "04-diseno/01-brief-y-referencias.md",
+      "sha256": "4bd9168b98cf27bc4d3c63035a87ebbb31c010828796f9222cd8c9c0e6433cc5"
+    },
+    {
+      "path": "05-plan/01-hoja-de-ruta.md",
+      "sha256": "21975342b9e35c303eab8025a9937f00871e60785b41ed9bf0ca145302427f5d"
+    },
+    {
+      "path": ".viltrum/client-inputs.md",
+      "sha256": "3969bd65d6efcd9486478c2404ed365aa41030a202b33a6da86bacfc6bf15172"
+    },
+    {
+      "path": ".viltrum/commercial.md",
+      "sha256": "970d40ea89854bd25570acebd16da92e718986ff6c13470dc9454674c4c654fc"
+    },
+    {
+      "path": ".viltrum/config.md",
+      "sha256": "8ca9555f85843f2c772332f0974717ed5ae1697bb83e211cb25c96c05d7c1b6a"
+    },
+    {
+      "path": ".viltrum/decisions.md",
+      "sha256": "9b928505d6fe1066f753eee4b6a1204071895cea003811755df6d8e7ef7d7099"
+    },
+    {
+      "path": ".viltrum/findings.md",
+      "sha256": "cf7cfd54ebaab2044dba97e9805bad7a141ac8f305a205e80ac0f95e593edd27"
+    },
+    {
+      "path": ".viltrum/mandato.md",
+      "sha256": "5a4fc4368535c51310d51632d7e70112696cb6f10e141c075a17bba304029226"
+    },
+    {
+      "path": ".viltrum/module-impact-matrix.md",
+      "sha256": "de402385e5cff61420a10dc37821f3a28a8a6f153ad01d89f526787e4c7a2bfe"
+    },
+    {
+      "path": ".viltrum/project.md",
+      "sha256": "70657e267d6e96549eae94e8d0f170bee7e7679ecde86ae09855d4ed56b1e534"
+    },
+    {
+      "path": ".viltrum/questions.md",
+      "sha256": "173cc32b6d9d91bc9164213073bf01cc5412e59cf01757717598506d6dfe66d7"
+    },
+    {
+      "path": ".viltrum/requests.md",
+      "sha256": "15f85e1506a5b665c34c4cefc7256ab009b1480754baee7fbaa9a4e8ec8d5933"
+    },
+    {
+      "path": ".viltrum/respuesta-revisiones.md",
+      "sha256": "ebf8c1ea1ffaf21c0e18b46792701157c5bfe22f636083651642aabf3d76b61e"
+    },
+    {
+      "path": ".viltrum/review-alcance.md",
+      "sha256": "7c68cde97a4dce278470fe7446b00ea4275f0c251205986c02f894292637a858"
+    },
+    {
+      "path": ".viltrum/review-consistencia.md",
+      "sha256": "f4c125a0610c49dcc8605c2b24a434c7834bbfeaebf990a5a19847bad27c3501"
+    },
+    {
+      "path": ".viltrum/review-investigacion-D03.md",
+      "sha256": "b52a676593d6fb06b5bd5096dd556416d514eb951a834909fdc400e0fc6e1e4e"
+    },
+    {
+      "path": ".viltrum/sources.md",
+      "sha256": "49a346f75db1ce29d13e23792258c94b033403dc2a8f46a4c910f7c85e6f3577"
+    },
+    {
+      "path": ".viltrum/status.md",
+      "sha256": "2f4bf12c81d7843f3de87bc2568fef660ef825a6db857801abfb6a19f9f166c3"
+    },
+    {
+      "path": ".viltrum/expertise/DOMINIO.md",
+      "sha256": "62edc0ecac7069cb5ccc9cc4bb96d861be2ec181f8896ee94d0cfa2cf780f861"
+    },
+    {
+      "path": ".viltrum/expertise/EXPERTISE.md",
+      "sha256": "a30d0f7cffea4411bb4f935a9e648d7fd38aa13bc517c5c80b40dc69654a965a"
+    }
+  ],
+  "validation": {
+    "nonempty": 28,
+    "local_markdown_links": "passed",
+    "fenced_blocks": "balanced",
+    "product_tests": "not-run-no-product-implemented",
+    "master_map": "seed-only-incomplete-58-pending-cells"
+  }
+}

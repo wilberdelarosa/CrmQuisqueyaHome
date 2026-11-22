@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-06",
+  "repository": {"status":"available","check":"lectura local del nuevo proyecto y fuentes existentes; GitNexus CLI por agente de inventario","owner":"host"},
+  "web": {"status":"available","check":"fuentes oficiales consultadas y enlazadas en expedientes","owner":"host"},
+  "viltrum": {"status":"available","check":"orchestrate, doctor, activity, map init/render/validate ejecutados","owner":"host"},
+  "figma": {"status":"unknown","check":"conector en catálogo; no se comprobó acceso a archivo/plan","owner":"Wilber/D05"},
+  "stitch": {"status":"unknown","check":"skills presentes; acceso de cuenta/runtime no verificado","owner":"Wilber/D05"},
+  "claude_design": {"status":"unknown","check":"producto documentado; cuenta y acceso no verificados","owner":"Wilber/D05"},
+  "21st_pxil": {"status":"available","check":"catálogo y fuentes locales presentes; no compatibilidad/licencia/adopción de cada pieza","owner":"D05/D12"},
+  "rea": {"status":"unknown","check":"repositorio/README/licencia/manifest verificados; sin instalación ni prueba","owner":"D21"},
+  "portal_api_runtime": {"status":"unknown","check":"rutas examinadas en código, sin llamadas ni credenciales","owner":"D19"},
+  "data_access": {"status":"unknown","check":"sin conexiones, exportaciones o lectura de datos personales","owner":"D11/Wilber"}
+}

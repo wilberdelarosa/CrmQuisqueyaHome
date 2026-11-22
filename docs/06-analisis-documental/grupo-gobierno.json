@@ -1,0 +1,58 @@
+[
+  {
+    "code": "LEEME",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/LEEME.md",
+    "sha256": "67d973ef866050f5c6742be0acda8da07f991e53116ee90854e41c5f424f88c5",
+    "analysis": "06-analisis-documental/individuales/LEEME.md",
+    "lines": 42
+  },
+  {
+    "code": "INDICE",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/00-Indice.md",
+    "sha256": "4bc81824a60d321e9f7e139388540d6b48fbdf812ca74ddaec2ead147f4b7cc9",
+    "analysis": "06-analisis-documental/individuales/INDICE.md",
+    "lines": 95
+  },
+  {
+    "code": "ADR",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+    "sha256": "129cb76818028504aab220005aaa48406aa49cd3732273b62ef1e2748f214574",
+    "analysis": "06-analisis-documental/individuales/ADR.md",
+    "lines": 58
+  },
+  {
+    "code": "CIERRE",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md",
+    "sha256": "7fa5f9f6465fad9450a0c9bc07fd6b5ecdcf2437d4131d561b7b56fb67ad221b",
+    "analysis": "06-analisis-documental/individuales/CIERRE.md",
+    "lines": 119
+  },
+  {
+    "code": "P0",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md",
+    "sha256": "560590c9c37a9d9503ee53ef84f07176faeffc98cc191ed5b5b34c2a98a0e71e",
+    "analysis": "06-analisis-documental/individuales/P0.md",
+    "lines": 113
+  },
+  {
+    "code": "INVENTARIO",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-INV-Modulos_v0.2_2026-11-06.md",
+    "sha256": "5ada8657f905d4f66f96c9c35ed33b9c86e2c08652f6e473e46aeb21ef42d92e",
+    "analysis": "06-analisis-documental/individuales/INVENTARIO.md",
+    "lines": 145
+  },
+  {
+    "code": "PLAN",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md",
+    "sha256": "a80ecde51acc28857ae4097f1f93177ae1868ec4e765633a37571a0aa17f8bc1",
+    "analysis": "06-analisis-documental/individuales/PLAN.md",
+    "lines": 200
+  },
+  {
+    "code": "PLANTILLA",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md",
+    "sha256": "c875aa094279f16cb42f172cea2c6090555c0a8da65723f79b289139af4571b6",
+    "analysis": "06-analisis-documental/individuales/PLANTILLA.md",
+    "lines": 251
+  }
+]

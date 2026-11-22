@@ -1,0 +1,600 @@
+{
+  "diagrams": [
+    {
+      "slug": "01-arquitectura",
+      "title": "Arquitectura objetivo · Twenty + dominio Quisqueya",
+      "type": "architecture",
+      "description": "Cómo se separan UI genérica, reglas inmobiliarias, permisos, persistencia e integraciones.",
+      "refs": {
+        "equipo": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ],
+        "interfaz": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+        ],
+        "permiso": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ],
+        "dominio": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+        ],
+        "datos": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+        ],
+        "outbox": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+        ],
+        "worker": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+        ],
+        "adaptadores": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+        ],
+        "twenty": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+        ],
+        "portal": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md"
+        ],
+        "operacion": [
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+        ]
+      },
+      "members": []
+    },
+    {
+      "slug": "02-nucleo",
+      "title": "Mapa de módulos · 15 del núcleo",
+      "type": "architecture",
+      "description": "Quince módulos del núcleo agrupados por función, con ASG y OBR identificados como subcapacidades.",
+      "refs": {
+        "familia0": [
+          "VT-CRM-INV-Modulos_v0.2_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "INI": [
+          "VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "LEA": [
+          "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "CON": [
+          "VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "NEG": [
+          "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "INV": [
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "familia1": [
+          "VT-CRM-INV-Modulos_v0.2_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "AGE": [
+          "VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "TAR": [
+          "VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "BRO": [
+          "VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "MET": [
+          "VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "COM": [
+          "VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "familia2": [
+          "VT-CRM-INV-Modulos_v0.2_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "ACC": [
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "CFG": [
+          "VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "COMU": [
+          "VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "REP": [
+          "VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "ACA": [
+          "VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ]
+      },
+      "members": [
+        "INI",
+        "LEA",
+        "CON",
+        "NEG",
+        "INV",
+        "AGE",
+        "TAR",
+        "BRO",
+        "MET",
+        "COM",
+        "ACC",
+        "CFG",
+        "COMU",
+        "REP",
+        "ACA"
+      ]
+    },
+    {
+      "slug": "03-addons",
+      "title": "Mapa de módulos · 7 extensiones add-on",
+      "type": "architecture",
+      "description": "Reservas, Portal, Comunidad, Aprobaciones, Automatizaciones, Documentos/KYC y Posventa.",
+      "refs": {
+        "extension": [
+          "VT-CRM-INV-Modulos_v0.2_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "RES": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md"
+        ],
+        "POR": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md"
+        ],
+        "RED": [
+          "VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md"
+        ],
+        "APR": [
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "AUT": [
+          "VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md"
+        ],
+        "DOC": [
+          "VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md"
+        ],
+        "POS": [
+          "VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md"
+        ]
+      },
+      "members": [
+        "RES",
+        "POR",
+        "RED",
+        "APR",
+        "AUT",
+        "DOC",
+        "POS"
+      ]
+    },
+    {
+      "slug": "04-integraciones",
+      "title": "Comunicaciones e integraciones · fronteras del sistema",
+      "type": "architecture",
+      "description": "Fuentes de captación y destinos externos, privacidad y condiciones de cada conector.",
+      "refs": {
+        "sitio": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+        ],
+        "meta": [
+          "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md"
+        ],
+        "wa": [
+          "VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "inbox": [
+          "VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "dominio": [
+          "VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "twenty": [
+          "VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "privado": [
+          "VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ],
+        "worker": [
+          "VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "bi": [
+          "VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md"
+        ],
+        "adaptadores": [
+          "VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ],
+        "google": [
+          "VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md"
+        ],
+        "moodle": [
+          "VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md"
+        ],
+        "correo": [
+          "VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+          "VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md"
+        ]
+      },
+      "members": []
+    },
+    {
+      "slug": "05-captacion",
+      "title": "Consulta a negocio · secuencia objetivo con idempotencia",
+      "type": "sequence",
+      "description": "Desde captación hasta asignación y negocio; incluye duplicado, conflicto y proyección Twenty.",
+      "refs": {
+        "persona": [
+          "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ],
+        "portal": [
+          "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ],
+        "api": [
+          "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ],
+        "db": [
+          "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ],
+        "broker": [
+          "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ],
+        "worker": [
+          "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ],
+        "twenty": [
+          "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+          "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+        ]
+      },
+      "members": []
+    },
+    {
+      "slug": "06-publicacion",
+      "title": "Publicación · aprobación, entrega y recuperación",
+      "type": "lifecycle",
+      "description": "Ciclo propuesto para publicar catálogo aprobado, con corrección, versión y estado por canal.",
+      "refs": {
+        "borrador": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "revision": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "aprobado": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "pendiente": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "publicado": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "corregir": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "cambio": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "error": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "bloqueado": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "retirado": [
+          "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ]
+      },
+      "members": []
+    },
+    {
+      "slug": "07-reservas",
+      "title": "Unidad a reserva · compromiso, evidencia y cierre",
+      "type": "lifecycle",
+      "description": "Flujo objetivo del add-on de reservas, con stock exclusivo, plazo, prórroga y evidencia.",
+      "refs": {
+        "disponible": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "hold": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "reserva": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "verificacion": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "confirmada": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "prorroga": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "subsanar": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "agotado": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "liberado": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "cancelada": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ],
+        "cerrado": [
+          "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+          "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+        ]
+      },
+      "members": []
+    }
+  ],
+  "modules": [
+    {
+      "id": "INI",
+      "name": "Inicio",
+      "cut": "núcleo",
+      "family": "Captación y ventas",
+      "role": "Dashboard QH",
+      "source": "VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "LEA",
+      "name": "Leads",
+      "cut": "núcleo",
+      "family": "Captación y ventas",
+      "role": "Asignación como subcapacidad",
+      "source": "VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md"
+    },
+    {
+      "id": "CON",
+      "name": "Contactos",
+      "cut": "núcleo",
+      "family": "Captación y ventas",
+      "role": "Consentimiento y demanda",
+      "source": "VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md"
+    },
+    {
+      "id": "NEG",
+      "name": "Negocios",
+      "cut": "núcleo",
+      "family": "Captación y ventas",
+      "role": "Etapas y cierre autorizado",
+      "source": "VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md"
+    },
+    {
+      "id": "INV",
+      "name": "Inventario",
+      "cut": "núcleo",
+      "family": "Captación y ventas",
+      "role": "Avances como subcapacidad",
+      "source": "VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "AGE",
+      "name": "Agenda",
+      "cut": "núcleo",
+      "family": "Operación y equipo",
+      "role": "Citas, ICS y disponibilidad",
+      "source": "VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "TAR",
+      "name": "Tareas",
+      "cut": "núcleo",
+      "family": "Operación y equipo",
+      "role": "Responsables y evidencia",
+      "source": "VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "BRO",
+      "name": "Brokers",
+      "cut": "núcleo",
+      "family": "Operación y equipo",
+      "role": "Perfiles y equipos",
+      "source": "VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "MET",
+      "name": "Metas",
+      "cut": "núcleo",
+      "family": "Operación y equipo",
+      "role": "Persona y equipo · dominio",
+      "source": "VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "COM",
+      "name": "Comisiones",
+      "cut": "núcleo",
+      "family": "Operación y equipo",
+      "role": "Reglas y liquidación QH",
+      "source": "VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "ACC",
+      "name": "Acceso / RBAC",
+      "cut": "núcleo",
+      "family": "Gobierno y servicios",
+      "role": "Autoridad Docs > Twenty",
+      "source": "VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "CFG",
+      "name": "Configuración",
+      "cut": "núcleo",
+      "family": "Gobierno y servicios",
+      "role": "Catálogos y ajustes",
+      "source": "VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "COMU",
+      "name": "Comunicaciones",
+      "cut": "núcleo",
+      "family": "Gobierno y servicios",
+      "role": "Plantillas, canales y audit",
+      "source": "VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "REP",
+      "name": "Reportes / BI",
+      "cut": "núcleo",
+      "family": "Gobierno y servicios",
+      "role": "Agregados con permisos",
+      "source": "VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "ACA",
+      "name": "Academy",
+      "cut": "núcleo",
+      "family": "Gobierno y servicios",
+      "role": "Moodle por adaptador",
+      "source": "VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "RES",
+      "name": "Reservas / holds",
+      "cut": "add-on",
+      "family": "Extensiones",
+      "role": "Compromisos por unidad",
+      "source": "VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "POR",
+      "name": "Portal",
+      "cut": "add-on",
+      "family": "Extensiones",
+      "role": "Publicación y captación",
+      "source": "VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "RED",
+      "name": "Comunidad",
+      "cut": "add-on",
+      "family": "Extensiones",
+      "role": "Colaboración de brokers",
+      "source": "VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "APR",
+      "name": "Aprobaciones",
+      "cut": "add-on",
+      "family": "Extensiones",
+      "role": "Cuatro ojos y expediente",
+      "source": "VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "AUT",
+      "name": "Automatizaciones",
+      "cut": "add-on",
+      "family": "Extensiones",
+      "role": "Reglas, límites y ejecución",
+      "source": "VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "DOC",
+      "name": "Documentos / KYC",
+      "cut": "add-on",
+      "family": "Extensiones",
+      "role": "Privado y mínimo privilegio",
+      "source": "VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md"
+    },
+    {
+      "id": "POS",
+      "name": "Posventa",
+      "cut": "add-on",
+      "family": "Extensiones",
+      "role": "Seguimiento y entrega",
+      "source": "VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md"
+    }
+  ],
+  "source_inventory": "../00-fuentes-drive/2026-11-06/inventario-drive.json"
+}

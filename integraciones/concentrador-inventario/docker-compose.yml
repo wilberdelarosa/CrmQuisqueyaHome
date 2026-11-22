@@ -1,0 +1,16 @@
+name: inventario-hub
+services:
+  hub:
+    image: node:22-alpine
+    container_name: inventario-hub
+    restart: unless-stopped
+    working_dir: /app
+    command: ["node", "hub.mjs"]
+    env_file: .env.hub
+    volumes: ["/opt/inventario-hub:/app:ro", "/opt/inventario-hub/data:/data"]
+    networks: [espocrm, edge-crm, quisqueya_staging]
+    mem_limit: 192m
+networks:
+  espocrm: { external: true, name: espocrm_espocrm }
+  edge-crm: { external: true, name: edge-crm }
+  quisqueya_staging: { external: true, name: quisqueya_staging }

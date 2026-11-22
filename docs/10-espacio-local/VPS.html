@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conexión a la VPS · Quisqueya Home</title>
+<link rel="stylesheet" href="../04-diseno/tokens-referencia.css">
+<link rel="stylesheet" href="../10-espacio-local/espacio.css"></head>
+<body><main class="wrap reading"><p><a href="../10-espacio-local/index.html">Volver al espacio de trabajo</a></p>
+<h1>Conexión a la VPS de Quisqueya Home</h1>
+<p>El acceso usa el alias SSH <code>hostinger</code> ya configurado en Windows. La clave y la verificación de identidad del servidor se resuelven con la configuración SSH del usuario. El túnel escucha en la interfaz local y se cierra con Ctrl+C.</p>
+<p>Desde la carpeta raíz del proyecto en PowerShell:</p>
+<pre><code class="language-powershell">.\10-espacio-local\conectar-vps.ps1
+.\10-espacio-local\conectar-vps.ps1 -Accion Tunel
+</code></pre>
+<p>Con el túnel abierto, usar <a href="http://127.0.0.1:13201/">CRM de desarrollo</a> o <a href="http://127.0.0.1:13201/api/health">comprobar salud</a>. La aplicación remota solicita su propio inicio de sesión.</p>
+<table>
+<thead>
+<tr>
+<th>Entorno verificado</th>
+<th>Proyecto o servicio</th>
+<th>Destino privado en la VPS</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desarrollo</td>
+<td><code>/opt/qh-dev</code></td>
+<td><code>127.0.0.1:3201</code></td>
+<td>Conexión predeterminada del espacio local</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td><code>quisqueya-crm-staging-app</code></td>
+<td><code>127.0.0.1:3101</code></td>
+<td>Abrir por separado con <code>-Entorno Staging -PuertoLocal 13101</code></td>
+</tr>
+</tbody>
+</table>
+<p>La aplicación remota devolvió HTTP 200 en <code>/api/health</code> y redirigió la raíz al inicio de sesión en ambos entornos. Las rutas pertenecen a instancias existentes del CRM. El CRM nuevo tiene aquí su preparación documental. OAuth y envío de correo requieren su propia comprobación cuando se trabaje en esos flujos.</p>
+<p>Si el puerto local está ocupado, elegir otro con <code>-PuertoLocal</code>. Si SSH rechaza la identidad de la VPS o la clave del usuario, revisar la configuración del alias <code>hostinger</code> con su administrador. Las referencias de operación de la infraestructura están en el <a href="../00-fuentes-drive/central/04-Infraestructura/inventario-docker.md">inventario Docker local</a> y en el <a href="../00-fuentes-drive/central/06-Estado-Integraciones/Estado%20Login%20-%20Google%20-%20Correo.txt">estado histórico de integraciones</a>.</p>
+<p><a href="VPS.md">Abrir Markdown original</a></p></main></body></html>

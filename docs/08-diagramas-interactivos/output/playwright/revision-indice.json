@@ -1,0 +1,55 @@
+{
+  "url": "local index.html",
+  "checks": [
+    {
+      "name": "catalogue22",
+      "pass": true
+    },
+    {
+      "name": "searchMetas",
+      "pass": true
+    },
+    {
+      "name": "filterAddons7",
+      "pass": true
+    },
+    {
+      "name": "diagram1",
+      "pass": true
+    },
+    {
+      "name": "diagram2",
+      "pass": true
+    },
+    {
+      "name": "diagram3",
+      "pass": true
+    },
+    {
+      "name": "diagram4",
+      "pass": true
+    },
+    {
+      "name": "diagram5",
+      "pass": true
+    },
+    {
+      "name": "diagram6",
+      "pass": true
+    },
+    {
+      "name": "diagram7",
+      "pass": true
+    },
+    {
+      "name": "nodeSourceLinks",
+      "pass": true
+    },
+    {
+      "name": "mobileNoHorizontalOverflow",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "pass": true
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "code": "INDICE",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/00-Indice.md",
+    "sha256": "4bc81824a60d321e9f7e139388540d6b48fbdf812ca74ddaec2ead147f4b7cc9",
+    "analysis": "06-analisis-documental/individuales/INDICE.md",
+    "source_lines": 95,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/00-Indice.pdf"
+  },
+  {
+    "code": "LEEME",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/LEEME.md",
+    "sha256": "67d973ef866050f5c6742be0acda8da07f991e53116ee90854e41c5f424f88c5",
+    "analysis": "06-analisis-documental/individuales/LEEME.md",
+    "source_lines": 42,
+    "pdf": null
+  },
+  {
+    "code": "ADR",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.md",
+    "sha256": "129cb76818028504aab220005aaa48406aa49cd3732273b62ef1e2748f214574",
+    "analysis": "06-analisis-documental/individuales/ADR.md",
+    "source_lines": 58,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-ADR-Arquitectura-hibrida-Twenty_v1_2026-11-06.pdf"
+  },
+  {
+    "code": "INVENTARIO",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-INV-Modulos_v0.2_2026-11-06.md",
+    "sha256": "5ada8657f905d4f66f96c9c35ed33b9c86e2c08652f6e473e46aeb21ef42d92e",
+    "analysis": "06-analisis-documental/individuales/INVENTARIO.md",
+    "source_lines": 145,
+    "pdf": null
+  },
+  {
+    "code": "P0",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.md",
+    "sha256": "560590c9c37a9d9503ee53ef84f07176faeffc98cc191ed5b5b34c2a98a0e71e",
+    "analysis": "06-analisis-documental/individuales/P0.md",
+    "source_lines": 113,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-PLAN-P0_Checklist_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "PLAN",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-PLN-Recoleccion-especificaciones_v0.2_2026-11-06.md",
+    "sha256": "a80ecde51acc28857ae4097f1f93177ae1868ec4e765633a37571a0aa17f8bc1",
+    "analysis": "06-analisis-documental/individuales/PLAN.md",
+    "source_lines": 200,
+    "pdf": null
+  },
+  {
+    "code": "CIERRE",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.md",
+    "sha256": "7fa5f9f6465fad9450a0c9bc07fd6b5ecdcf2437d4131d561b7b56fb67ad221b",
+    "analysis": "06-analisis-documental/individuales/CIERRE.md",
+    "source_lines": 119,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-REV-Cierre-nucleo_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "PLANTILLA",
+    "source": "00-fuentes-drive/2026-11-06/originales/00 Indice y cierre/VT-CRM-TPL-Especificacion-modulo_v0.1_2026-11-06.md",
+    "sha256": "c875aa094279f16cb42f172cea2c6090555c0a8da65723f79b289139af4571b6",
+    "analysis": "06-analisis-documental/individuales/PLANTILLA.md",
+    "source_lines": 251,
+    "pdf": null
+  },
+  {
+    "code": "ACA",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.md",
+    "sha256": "aeaaf41dbd29ad7f0bd92a4e2b8feb17135d88b65cadd7d51b518fbdd05edc15",
+    "analysis": "06-analisis-documental/individuales/ACA.md",
+    "source_lines": 303,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACA_Academy_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "ACC",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.md",
+    "sha256": "c719055940a70c1b1896ea200ec18582c1a02e1c5bb5e50a5320653bda0047b0",
+    "analysis": "06-analisis-documental/individuales/ACC.md",
+    "source_lines": 234,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-ACC_Acceso_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "AGE",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.md",
+    "sha256": "e88b9068ed37f37241729362db7c17868f088fcb31d44fb18ffd4b02db2c7eaa",
+    "analysis": "06-analisis-documental/individuales/AGE.md",
+    "source_lines": 272,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AGE_Agenda_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "APR",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.md",
+    "sha256": "6998fe8b2c1ca8efca6addca6ead87c04a736b300e7f3045e6fad4544dc20412",
+    "analysis": "06-analisis-documental/individuales/APR.md",
+    "source_lines": 245,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-APR_Aprobaciones_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "AUT",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.md",
+    "sha256": "3ed71dfa9e64e3c73143db1acf0c31cd8918b836d3fb4b244dd8fbd5802eeb22",
+    "analysis": "06-analisis-documental/individuales/AUT.md",
+    "source_lines": 275,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-AUT_Automatizaciones_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "BRO",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.md",
+    "sha256": "97f1ca3853c5b9f39bb074f5b7c2272b84da69506d0e430bb1d9f25f43975729",
+    "analysis": "06-analisis-documental/individuales/BRO.md",
+    "source_lines": 323,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-BRO_Brokers_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "CFG",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.md",
+    "sha256": "1b47f392614e4005346a6315c2845698d00ccf15b1092f6911b7969375550166",
+    "analysis": "06-analisis-documental/individuales/CFG.md",
+    "source_lines": 315,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CFG_Configuracion_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "COM",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.md",
+    "sha256": "56f2bebc5ce24614372b5f192f545c9717e8839d13afc458a7fad16a4bd493d0",
+    "analysis": "06-analisis-documental/individuales/COM.md",
+    "source_lines": 241,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COM_Comisiones_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "COMU",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.md",
+    "sha256": "f5a809808efaaa34591ef7ec905176e1449d46f92774c8b480008ed2f7b0d351",
+    "analysis": "06-analisis-documental/individuales/COMU.md",
+    "source_lines": 276,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-COMU_Comunicaciones_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "CON",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.md",
+    "sha256": "a4ede127e4d8809a1bf735c80117f6e53959a1523311d992db5cfb03d8113c3e",
+    "analysis": "06-analisis-documental/individuales/CON-contactos.md",
+    "source_lines": 354,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-CON_Contactos_v0.2_2026-11-06.pdf"
+  },
+  {
+    "code": "DOC",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.md",
+    "sha256": "437dc3c1b8c0b3fbeee55d666f3a05c1efea9ed92572227cd2cc4da613abc2cc",
+    "analysis": "06-analisis-documental/individuales/DOC.md",
+    "source_lines": 258,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-DOC_Documentos_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "INI",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.md",
+    "sha256": "637fd25e816923a1bbcd2c2ca3026a65885658ca360a3017ef19da758d9c5ffc",
+    "analysis": "06-analisis-documental/individuales/INI.md",
+    "source_lines": 283,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INI_Inicio_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "INV",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.md",
+    "sha256": "7c5bb6ff979780b123da27b551ea7f217601e6e0b0bc40a8a2573c92518f0b0f",
+    "analysis": "06-analisis-documental/individuales/INV.md",
+    "source_lines": 404,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-INV_Inventario_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "LEA",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.md",
+    "sha256": "feafd4c875dd87043746fae5cfbfca9a15ea1d201633f0cddbd23caab900bf58",
+    "analysis": "06-analisis-documental/individuales/LEA.md",
+    "source_lines": 504,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-LEA_Leads_v0.2_2026-11-06.pdf"
+  },
+  {
+    "code": "MET",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.md",
+    "sha256": "7dc49f4f0119acbd8c6bae6fa7146dd694d2dd9e91f392014f7e7c954fae379a",
+    "analysis": "06-analisis-documental/individuales/MET.md",
+    "source_lines": 312,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-MET_Metas_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "NEG",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.md",
+    "sha256": "3383f2acbfe6cca62cd2edb68b7da675f5452429150c794ea6db731fb8ae47fd",
+    "analysis": "06-analisis-documental/individuales/NEG.md",
+    "source_lines": 379,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-NEG_Negocios_v0.2_2026-11-06.pdf"
+  },
+  {
+    "code": "POR",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.md",
+    "sha256": "0214ec9c683ee4b5ce3ba769771e57f41c475807b435182dd01b19a13a14a1f5",
+    "analysis": "06-analisis-documental/individuales/POR.md",
+    "source_lines": 258,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POR_Portal_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "POS",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.md",
+    "sha256": "06bf51e7bded1ef21756f87b0504cd78075cce0e1d83979e0cdbbdbe8d14301a",
+    "analysis": "06-analisis-documental/individuales/POS.md",
+    "source_lines": 278,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-POS_Posventa_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "RED",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.md",
+    "sha256": "9ded6ec5b3d9a0ff6cb45b524f7a6cc8f1c6447557adbafbd0c453e3eb32de2e",
+    "analysis": "06-analisis-documental/individuales/RED.md",
+    "source_lines": 268,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RED_Comunidad_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "REP",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.md",
+    "sha256": "1dd6642909080c62a2aff54475866c658ce904a5fec5bec74c942577fe949b7c",
+    "analysis": "06-analisis-documental/individuales/REP.md",
+    "source_lines": 199,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-REP_Reportes_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "RES",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.md",
+    "sha256": "82c497d217fed3ee51b01b9724591ff93e07a07ea21fc870df2e6f7ab7d7013d",
+    "analysis": "06-analisis-documental/individuales/RES.md",
+    "source_lines": 279,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-RES_Reservas_v0.1_2026-11-06.pdf"
+  },
+  {
+    "code": "TAR",
+    "source": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.md",
+    "sha256": "8d924079703e0cb9f7df425e9cd5717970c229342d2a04a3d99a7cf287a635c3",
+    "analysis": "06-analisis-documental/individuales/TAR.md",
+    "source_lines": 271,
+    "pdf": "00-fuentes-drive/2026-11-06/originales/modulos/VT-CRM-ESP-TAR_Tareas_v0.1_2026-11-06.pdf"
+  }
+]

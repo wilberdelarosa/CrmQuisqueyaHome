@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-06",
+  "reviewer": "codex-archify (producer inspection, not independent approval)",
+  "automatic_archify": "7/7 current artifacts pass showcase finalize, strict provenance and browser-check",
+  "visual_inspection": {
+    "architecture": [
+      "01-arquitectura/visual/diagrama.visual-check.1440x900.light.png",
+      "01-arquitectura/visual/diagrama.visual-check.1440x900.dark.png"
+    ],
+    "integrations": [
+      "04-integraciones/visual/diagrama.visual-check.1440x900.light.png",
+      "04-integraciones/visual/diagrama.visual-check.2048x1320.dark.png"
+    ],
+    "finding": "Inspected views show distinct boxes and routed arrows without observed clipping or collisions. Integration diagram continues vertically; desktop default context text remains compact and zoom is available. Does not certify all seven maps or every zoom state."
+  },
+  "index_functional_evidence": "output/playwright/revision-indice.json",
+  "document_functional_evidence": "output/playwright/revision-documento.json",
+  "document_visual_inspection": [
+    "output/playwright/documento-desktop.png",
+    "output/playwright/documento-mobile.png"
+  ],
+  "index_visual_inspection": [
+    "output/playwright/indice-desktop.png",
+    "output/playwright/indice-mobile.png"
+  ],
+  "limits": [
+    "Architecture acceptance stays with human; this is producer QA and limited visual inspection.",
+    "Reservations automated gates pass; advisory detour on hold release remains disclosed.",
+    "No runtime CRM, remote provider or permission enforcement tested."
+  ]
+}
